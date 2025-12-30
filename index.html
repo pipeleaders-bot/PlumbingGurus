@@ -1,177 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plumbing Gurus | San Antonio Plumbing Services</title>
-  <meta name="description" content="Plumbing Gurus provides dispatch-based plumbing coordination and minor in-house plumbing services in San Antonio." />
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #f4f6f8;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    header {
-      background: linear-gradient(90deg, #0077cc, #00aaff);
-      color: white;
-      text-align: center;
-      padding: 70px 20px;
-    }
-
-    .logo {
-      max-width: 160px;
-      margin-bottom: 15px;
-    }
-
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      margin-bottom: 25px;
-    }
-
-    .hero-button {
-      display: inline-block;
-      padding: 14px 32px;
-      background-color: #ff6600;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 40px;
-      transition: background 0.3s ease;
-    }
-
-    .hero-button:hover {
-      background-color: #e65c00;
-    }
-
-    main {
-      max-width: 1100px;
-      margin: 50px auto;
-      padding: 0 20px;
-      text-align: center;
-    }
-
-    main h2 {
-      font-size: 2rem;
-      margin-bottom: 15px;
-    }
-
-    main p {
-      margin-bottom: 35px;
-      font-size: 1.05rem;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 22px;
-    }
-
-    .service-card {
-      background: white;
-      padding: 25px;
-      border-radius: 14px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-    }
-
-    .service-card h3 {
-      color: #0077cc;
-      margin-bottom: 12px;
-    }
-
-    .legal {
-      background: #ffffff;
-      margin: 50px auto;
-      padding: 30px;
-      max-width: 900px;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      color: #555;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    footer {
-      background: #0077cc;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 60px;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plumbing Gurus | San Antonio Plumbing Company</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f8;color:#333;line-height:1.6;}
+.navbar{background-color:#0077cc;color:white;padding:10px 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+.nav-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-size:1.5rem;font-weight:bold;color:white;text-decoration:none;}
+.nav-links{list-style:none;display:flex;gap:20px;}
+.nav-links li a{color:white;text-decoration:none;font-weight:500;transition:0.3s;}
+.nav-links li a:hover{color:#ff6600;}
+@media(max-width:768px){.nav-links{flex-direction:column;gap:10px;}}
+header{position:relative;height:70vh;background:url('https://images.unsplash.com/photo-1590487988763-1e33cd4a09e5?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;display:flex;align-items:center;justify-content:center;color:white;text-align:center;}
+.overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.5);}
+.hero-content{position:relative;z-index:2;padding:20px;}
+.hero-content img.logo-img{max-width:160px;margin-bottom:15px;}
+.hero-content h1{font-size:3rem;margin-bottom:15px;text-shadow:2px 2px 5px rgba(0,0,0,0.5);}
+.hero-content p{font-size:1.3rem;margin-bottom:20px;text-shadow:1px 1px 3px rgba(0,0,0,0.5);}
+.hero-button{display:inline-block;padding:15px 35px;background-color:#ff6600;color:white;text-decoration:none;font-weight:bold;border-radius:50px;box-shadow:0 4px 6px rgba(0,0,0,0.3);transition:all 0.3s ease;}
+.hero-button:hover{background-color:#e65c00;transform:translateY(-2px);box-shadow:0 6px 10px rgba(0,0,0,0.4);}
+main{max-width:1000px;margin:40px auto;padding:0 20px;text-align:center;margin-top:60px;}
+main h2{font-size:2.2rem;margin-bottom:25px;}
+main p{font-size:1.15rem;margin-bottom:40px;}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;}
+.service-card{background:white;padding:25px 20px;border-radius:15px;box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:transform 0.3s ease,box-shadow 0.3s ease;text-align:center;}
+.service-card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,0.15);}
+.service-card img{width:50px;height:50px;margin-bottom:15px;}
+.testimonials{background:#e0f2ff;padding:50px 20px;margin-top:60px;border-radius:10px;}
+.testimonial-card{background:white;padding:20px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);margin:15px;}
+.testimonial-card img{width:100%;border-radius:8px;margin-bottom:10px;}
+.testimonial-card p{font-style:italic;margin-bottom:10px;}
+.testimonial-card h4{color:#0077cc;text-align:right;font-weight:bold;}
+footer{background:#0077cc;color:white;text-align:center;padding:25px 10px;margin-top:40px;font-size:0.9rem;}
+</style>
 </head>
-
 <body>
 
-  <header>
-    <img src="Logo.png" alt="Plumbing Gurus Logo" class="logo" />
-    <h1>Plumbing Gurus</h1>
-    <p>Plumbing Dispatch & Minor In-House Plumbing Services – San Antonio</p>
-    <a href="tel:+12109068524" class="hero-button">Call Now: (210) 906-8524</a>
-  </header>
+<nav class="navbar">
+<div class="nav-container">
+<a href="index.html" class="logo">Plumbing Gurus</a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="testimonials.html">Testimonials</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="legal.html">Legal</a></li>
+</ul>
+</div>
+</nav>
 
-  <main>
-    <h2>Our Services</h2>
-    <p>Fast response, professional coordination, and reliable plumbing support.</p>
+<header>
+<div class="overlay"></div>
+<div class="hero-content">
+<!-- Added Logo above the heading -->
+<img src="Logo.png" alt="Plumbing Gurus Logo" class="logo-img"/>
+<h1>Plumbing Gurus</h1>
+<p>Reliable Plumbing Services in San Antonio</p>
+<a href="tel:+12109068524" class="hero-button">Call Now: (210) 906-8524</a>
+</div>
+</header>
 
-    <div class="services">
-      <div class="service-card">
-        <h3>Emergency Repairs</h3>
-        <p>Dispatch coordination for urgent plumbing issues including leaks, backups, and pipe failures.</p>
-      </div>
+<main>
+<h2>Our Services</h2>
+<p>Minor plumbing in-house and licensed professional coordination for larger projects. Fast, reliable, and professional.</p>
 
-      <div class="service-card">
-        <h3>Installations</h3>
-        <p>Coordination for plumbing installations such as fixtures, water heaters, and replacements.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Maintenance</h3>
-        <p>Routine plumbing service coordination and minor preventative maintenance.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Minor In-House Plumbing</h3>
-        <p>Non-licensed minor plumbing tasks including fixture swaps, leaks, and adjustments.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Drain Cleaning</h3>
-        <p>Basic drain clearing and dispatch coordination for advanced drain services.</p>
-      </div>
-    </div>
-  </main>
-
-  <section class="legal">
-    <strong>Legal Notice:</strong><br /><br />
-    Plumbing Gurus operates as a plumbing dispatch and service coordination company.
-    Certain minor in-house plumbing services may be performed where legally permitted.
-    Licensed plumbing work is referred to independent licensed professionals.
-    Plumbing Gurus does not claim to be a licensed plumbing contractor unless otherwise stated.
-  </section>
-
-  <footer>
-    © 2025 Plumbing Gurus • San Antonio, TX
-  </footer>
+<div class="services">
+<div class="service-card">
+<img src="https://img.icons8.com/color/64/000000/wrench.png" alt="Emergency Repairs"/>
+<h3>Emergency Repairs</h3>
+<p>Leaks, burst pipes, and clogs handled promptly via our licensed network.</p>
+</div>
+<div class="service-card">
+<img src="https://img.icons8.com/color/64/000000/water.png" alt="Installations"/>
+<h3>Installations</h3>
+<p>Water heaters, faucets, and fixtures coordinated with licensed professionals.</p>
+</div>
+<div class="service-card">
+<img src="https://img.icons8.com/color/64/000000/maintenance.png" alt="Maintenance"/>
+<h3>Maintenance</h3>
+<p>Routine inspections and preventive maintenance scheduled with licensed plumbers.</p>
+</div>
+<div class="service-card">
+<img src="https://img.icons8.com/color/64/000000/faucet.png" alt="Minor Plumbing"/>
+<h3>Minor In-House Plumbing</h3>
+<p>Faucet replacements, sink unclogs, and small repairs done directly by our team.</p>
+</div>
+</div>
+</main>
 
 </body>
 </html>
