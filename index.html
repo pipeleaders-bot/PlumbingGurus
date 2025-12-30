@@ -1,121 +1,92 @@
-index.html
 <!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <h1 class="title">Hello World! </h1>
+      <p id="currentTime"></p>
+      <script src="script.js"></script>
+  </body>
+</html<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plumbing Gurus | San Antonio Plumber</title>
-  <meta name="description" content="Plumbing Gurus provides reliable plumbing services in San Antonio. Repairs, drain cleaning, water heaters, and emergency plumbing.">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f4f4f4;
-      color: #333;
-    }
-
-    header {
-      background: #0b5ed7;
-      color: #fff;
-      padding: 30px 15px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 36px;
-    }
-
-    header p {
-      font-size: 18px;
-      margin-top: 10px;
-    }
-
-    .cta {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 14px 28px;
-      background: #ffcc00;
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 6px;
-    }
-
-    .section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-      margin-top: 20px;
-      border-radius: 6px;
-    }
-
-    .section h2 {
-      color: #0b5ed7;
-      margin-bottom: 15px;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    footer {
-      background: #222;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      margin-top: 30px;
-    }
-
-    footer a {
-      color: #ffcc00;
-      text-decoration: none;
-      font-weight: bold;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>45° Piping Calculator</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 500px; margin: 20px auto; background: #f4f4f4; padding: 20px; border-radius: 10px;}
+  h2 { text-align: center; }
+  input { width: 80px; padding: 5px; margin: 5px; }
+  button { padding: 10px 20px; margin: 10px; cursor: pointer; }
+  .result { margin-top: 20px; font-size: 18px; font-weight: bold; }
+</style>
 </head>
-
 <body>
 
-<header>
-  <h1>Plumbing Gurus</h1>
-  <p>Trusted Plumbing Services in San Antonio, TX</p>
-  <a class="cta" href="tel:12109068524">📞 Call Now: (210) 906-8524</a>
-</header>
+<h2>45° Piping Calculator</h2>
 
-<div class="section">
-  <h2>Our Plumbing Services</h2>
-  <ul>
-    <li>✔ Leak Detection & Pipe Repair</li>
-    <li>✔ Drain Cleaning & Clog Removal</li>
-    <li>✔ Water Heater Repair & Installation</li>
-    <li>✔ Toilet, Sink & Faucet Repairs</li>
-    <li>✔ Emergency Plumbing Services</li>
-  </ul>
-</div>
+<label>Pipe Length (inches): </label>
+<input type="text" id="pipeLength" placeholder="e.g. 13 3/8"><br>
 
-<div class="section">
-  <h2>Why Choose Plumbing Gurus?</h2>
-  <ul>
-    <li>✔ Fast & Reliable Service</li>
-    <li>✔ Honest Pricing</li>
-    <li>✔ Residential & Commercial</li>
-    <li>✔ San Antonio & Surrounding Areas</li>
-  </ul>
-</div>
+<label>Takeoff Length (inches): </label>
+<input type="text" id="takeoff" placeholder="e.g. 0.75"><br>
 
-<div class="section">
-  <h2>Contact Us</h2>
-  <p><strong>Phone:</strong> <a href="tel:12109068524">(210) 906-8524</a></p>
-  <p><strong>Email:</strong> <a href="mailto:pipeleaders@gmail.com">pipeleaders@gmail.com</a></p>
-</div>
+<label>Number of Takeoffs: </label>
+<input type="number" id="numTakeoffs" value="0"><br>
 
-<footer>
-  <p>© 2025 Plumbing Gurus</p>
-  <p>San Antonio, Texas</p>
-</footer>
+<button onclick="calculate()">Calculate</button>
+
+<div class="result" id="result"></div>
+
+<script>
+function parseFraction(input) {
+    // Convert mixed numbers like "13 3/8" or "3/4" to decimal
+    input = input.trim();
+    if(input.includes(" ")) {
+        let parts = input.split(" ");
+        return parseFloat(parts[0]) + eval(parts[1]);
+    } else if(input.includes("/")) {
+        return eval(input);
+    } else {
+        return parseFloat(input);
+    }
+}
+
+function toFraction(decimal, precision=16) {
+    let numerator = Math.round(decimal * precision);
+    let gcd = function(a, b){return b ? gcd(b, a%b) : a;}
+    let common = gcd(numerator, precision);
+    numerator /= common;
+    let denom = precision / common;
+    if(numerator === 0) return "";
+    return numerator + "/" + denom;
+}
+
+function calculate() {
+    let pipeInput = document.getElementById("pipeLength").value;
+    let takeoffInput = document.getElementById("takeoff").value;
+    let numTakeoffs = parseInt(document.getElementById("numTakeoffs").value);
+
+    let pipeLength = parseFraction(pipeInput);
+    let takeoff = parseFraction(takeoffInput);
+
+    // 45° multiplier
+    let travel = pipeLength * 1.414;
+    // subtract takeoffs
+    let finalLength = travel - (takeoff * numTakeoffs);
+
+    // Separate whole and fraction
+    let whole = Math.floor(finalLength);
+    let fracDecimal = finalLength - whole;
+    let fraction = toFraction(fracDecimal);
+
+    document.getElementById("result").innerHTML = `
+        Travel (decimal): ${finalLength.toFixed(3)}" <br>
+        Travel (fraction): ${whole} ${fraction}" 
+    `;
+}
+</script>
 
 </body>
 </html>
