@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Testimonials | Plumbing Gurus San Antonio</title>
+<title>Services | Plumbing Gurus San Antonio</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f8;color:#333;line-height:1.6;}
-.navbar{background-color:#0077cc;color:white;padding:10px 20px;position:sticky;top:0;z-index:100;}
+.navbar{background-color:#0077cc;color:white;padding:10px 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
 .nav-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
 .logo{font-size:1.5rem;font-weight:bold;color:white;text-decoration:none;}
 .nav-links{list-style:none;display:flex;gap:20px;}
@@ -17,13 +17,14 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f4f6f8;
 header{background:linear-gradient(90deg,#0077cc,#00aaff);color:white;text-align:center;padding:80px 20px 60px 20px;}
 header h1{font-size:3rem;margin-bottom:10px;}
 header p{font-size:1.2rem;}
-main{max-width:1000px;margin:40px auto;padding:0 20px;margin-top:60px;text-align:center;}
-main h2{font-size:2rem;margin-bottom:30px;}
-.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-.testimonial-card{background:white;padding:20px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
-.testimonial-card p{font-style:italic;margin-bottom:10px;}
-.testimonial-card h4{color:#0077cc;text-align:right;font-weight:bold;}
-footer{background:#0077cc;color:white;text-align:center;padding:20px 10px;margin-top:40px;}
+main{max-width:1000px;margin:40px auto;padding:0 20px;text-align:center;margin-top:60px;}
+main h2{font-size:2.2rem;margin-bottom:25px;}
+main p{font-size:1.15rem;margin-bottom:40px;}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;}
+.service-card{background:white;padding:25px 20px;border-radius:15px;box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:transform 0.3s ease,box-shadow 0.3s ease;text-align:center;}
+.service-card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,0.15);}
+.service-card img{width:60px;height:60px;margin-bottom:15px;}
+footer{background:#0077cc;color:white;text-align:center;padding:25px 10px;margin-top:40px;font-size:0.9rem;}
 </style>
 </head>
 <body>
@@ -43,30 +44,48 @@ footer{background:#0077cc;color:white;text-align:center;padding:20px 10px;margin
 </nav>
 
 <header>
-<h1>Customer Testimonials</h1>
-<p>See what our clients say about Plumbing Gurus</p>
+<h1>Our Plumbing Services</h1>
+<p>Minor in-house plumbing and licensed professional coordination</p>
 </header>
 
 <main>
-<h2>Reviews</h2>
-<div class="testimonials">
-<div class="testimonial-card">
-<p>"Plumbing Gurus unclogged my sink quickly. Very professional!"</p>
-<h4>- Maria R., San Antonio</h4>
+<p>Plumbing Gurus provides a wide range of plumbing services in San Antonio. Minor plumbing tasks are handled directly, while licensed professionals perform larger projects coordinated through our company.</p>
+
+<div class="services">
+<div class="service-card">
+<img src="https://img.icons8.com/color/64/000000/wrench.png" alt="Emergency Repairs">
+<h3>Emergency Repairs</h3>
+<p>24/7 emergency repair services for leaks, burst pipes, and clogs via licensed plumbers.</p>
 </div>
-<div class="testimonial-card">
-<p>"They coordinated a licensed plumber for a pipe burst immediately. Highly recommend!"</p>
-<h4>- John P., San Antonio</h4>
+
+<div class="service-card">
+<img src="https://img.icons8.com/color/64/000000/water.png" alt="Installations">
+<h3>Installations</h3>
+<p>Coordinate with licensed professionals for water heaters, sinks, faucets, and fixtures installations.</p>
 </div>
-<div class="testimonial-card">
-<p>"Fast and friendly service. Minor repairs were done efficiently by their team."</p>
-<h4>- Lisa T., San Antonio</h4>
+
+<div class="service-card">
+<img src="https://img.icons8.com/color/64/000000/maintenance.png" alt="Maintenance">
+<h3>Maintenance</h3>
+<p>Routine plumbing inspections and preventive maintenance scheduled with licensed partners.</p>
+</div>
+
+<div class="service-card">
+<img src="https://img.icons8.com/color/64/000000/faucet.png" alt="Minor Plumbing">
+<h3>Minor In-House Plumbing</h3>
+<p>Faucet replacements, sink unclogs, and other small repairs done directly by our team.</p>
+</div>
+
+<div class="service-card">
+<img src="https://img.icons8.com/color/64/000000/drain.png" alt="Drain Cleaning">
+<h3>Drain Cleaning</h3>
+<p>Fast and efficient clearing of blocked drains and sewer lines using professional tools.</p>
 </div>
 </div>
 </main>
 
 <footer>
-&copy; 2025 Plumbing Gurus
+&copy; 2025 Plumbing Gurus. All services comply with Texas regulations.
 </footer>
 
 </body>
