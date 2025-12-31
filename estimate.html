@@ -2,29 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>AI Estimate | Plumbing Gurus</title>
+<title>Quick Estimate | Plumbing Gurus</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-/* Simple chat styling */
-#chatBox {
-  border: 1px solid #ccc;
-  padding: 15px;
-  height: 400px;
-  overflow-y: auto;
-  background: #f9f9f9;
-}
-.userMsg { color: blue; margin: 5px 0; }
-.botMsg { color: green; margin: 5px 0; }
-input, select, textarea, button { display: block; margin: 10px 0; width: 100%; padding: 8px; }
+  body { font-family: Arial, sans-serif; }
+  .form-section { max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; background: #f9f9f9; }
+  label { display:block; margin-top: 10px; }
+  select, input, textarea, button { width: 100%; padding: 8px; margin-top:5px; }
+  #estimateResult { margin-top: 20px; padding: 10px; border: 1px solid #999; background: #e6f7ff; }
 </style>
 </head>
 <body>
 
 <header>
   <img src="images/logo.png" alt="Plumbing Gurus Logo" class="logo">
-  <h1>AI Estimate Chat</h1>
+  <h1>Quick Plumbing Estimate</h1>
   <nav>
     <a href="index.html"><i class="fa fa-home"></i> Home</a>
     <a href="services.html"><i class="fa fa-wrench"></i> Services</a>
@@ -34,88 +28,91 @@ input, select, textarea, button { display: block; margin: 10px 0; width: 100%; p
   </nav>
 </header>
 
-<section>
-  <div id="chatBox"></div>
-  <input type="text" id="userInput" placeholder="Type your answer here...">
-  <button id="sendBtn">Send</button>
+<section class="form-section">
+  <form id="quickEstimateForm">
+    <label>Name:</label>
+    <input type="text" id="name" required>
+
+    <label>Email:</label>
+    <input type="email" id="email" required>
+
+    <label>Phone:</label>
+    <input type="text" id="phone" required>
+
+    <label>Property Type:</label>
+    <select id="property">
+      <option value="House">House</option>
+      <option value="Apartment">Apartment</option>
+      <option value="Commercial">Commercial</option>
+    </select>
+
+    <label>Service Type:</label>
+    <select id="service">
+      <option value="Repair">Repair</option>
+      <option value="Replacement">Replacement</option>
+      <option value="Renovation">Renovation</option>
+      <option value="New Build">New Build</option>
+    </select>
+
+    <label>Problem / Fixture:</label>
+    <select id="problem">
+      <option value="Clogged Drain">Clogged Drain</option>
+      <option value="Leaky Faucet">Leaky Faucet</option>
+      <option value="Toilet Repair">Toilet Repair</option>
+      <option value="Garbage Disposal">Garbage Disposal</option>
+      <option value="Water Heater Diagnostics">Water Heater Diagnostics</option>
+    </select>
+
+    <label>Additional Info (floor, accessibility, etc.):</label>
+    <textarea id="details"></textarea>
+
+    <button type="submit">Get Preliminary Estimate</button>
+  </form>
+
+  <div id="estimateResult"></div>
 </section>
 
 <script>
-// Chat logic
-const chatBox = document.getElementById('chatBox');
-const input = document.getElementById('userInput');
-const sendBtn = document.getElementById('sendBtn');
+document.getElementById('quickEstimateForm').addEventListener('submit', function(e){
+  e.preventDefault();
 
-let step = 0;
-let userData = {};
+  // Collect user data
+  const userData = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    property: document.getElementById('property').value,
+    service: document.getElementById('service').value,
+    problem: document.getElementById('problem').value,
+    details: document.getElementById('details').value
+  };
 
-const questions = [
-  { q: "Hello! What's your name?", key: "name" },
-  { q: "What's your email?", key: "email" },
-  { q: "Phone number?", key: "phone" },
-  { q: "Type of property? (House, Apartment, Commercial)", key: "property" },
-  { q: "What type of problem? (Clogged Drain, Leaky Faucet, Toilet Repair, Garbage Disposal, Water Heater Diagnostics)", key: "problem" },
-  { q: "Any extra info? (floor, accessibility, etc.)", key: "details" }
-];
-
-function botSay(message) {
-  const p = document.createElement('p');
-  p.className = 'botMsg';
-  p.textContent = message;
-  chatBox.appendChild(p);
-  chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-function userSay(message) {
-  const p = document.createElement('p');
-  p.className = 'userMsg';
-  p.textContent = message;
-  chatBox.appendChild(p);
-  chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-function calculateEstimate() {
-  const problem = userData.problem.toLowerCase();
+  // Estimate logic
   let estimate = "";
-  if (problem.includes("clog") || problem.includes("faucet")) estimate = "$50 - $150";
-  else if (problem.includes("toilet") || problem.includes("garbage")) estimate = "$150 - $250";
-  else if (problem.includes("water heater")) estimate = "$200 - $300";
-  return estimate;
-}
+  if(userData.service === "Repair"){
+    estimate = "$50 - $250";
+  } else if(userData.service === "Replacement"){
+    estimate = "$150 - $400";
+  } else if(userData.service === "Renovation"){
+    estimate = "$300 - $1,000+";
+  } else if(userData.service === "New Build"){
+    estimate = "$500 - $3,000+";
+  }
 
-function sendData() {
-  // Send userData to your email via FormSubmit or backend
+  // Display estimate
+  document.getElementById('estimateResult').innerHTML = `
+    <h3>Preliminary Estimate: ${estimate}</h3>
+    <p>Note: This is a preliminary estimate. Final pricing will depend on inspection and licensed plumber evaluation.</p>
+  `;
+
+  // Send data to your email via FormSubmit
   fetch("https://formsubmit.co/YOUR_EMAIL@gmail.com", {
     method: "POST",
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type':'application/json' },
     body: JSON.stringify(userData)
   }).then(() => console.log("Client info sent!"))
     .catch(err => console.error("Error sending client info:", err));
-}
-
-function nextStep() {
-  if (step < questions.length) {
-    botSay(questions[step].q);
-  } else {
-    const estimate = calculateEstimate();
-    botSay(`Thank you! Based on your answers, the preliminary estimate is: ${estimate}`);
-    botSay("Note: This is a preliminary estimate. Final pricing may vary after inspection by a licensed plumber.");
-    sendData();
-  }
-}
-
-sendBtn.addEventListener('click', () => {
-  const userText = input.value.trim();
-  if (!userText) return;
-  userSay(userText);
-  userData[questions[step].key] = userText;
-  input.value = '';
-  step++;
-  nextStep();
 });
-
-// Start chat
-nextStep();
 </script>
 
 <footer>
