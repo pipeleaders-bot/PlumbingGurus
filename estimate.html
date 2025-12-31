@@ -2,6 +2,471 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Quick AI Estimate | Plumbing Gurus</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body { font-family: Arial, sans-serif; }
+.form-section { max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; background: #f9f9f9; }
+label { display:block; margin-top: 10px; }
+select, input, textarea, button { width: 100%; padding: 8px; margin-top:5px; }
+#estimateResult { margin-top: 20px; padding: 10px; border: 1px solid #999; background: #e6f7ff; }
+</style>
+</head>
+<body>
+
+<header>
+<img src="images/logo.png" alt="Plumbing Gurus Logo" class="logo">
+<h1>Quick Plumbing Estimate</h1>
+<nav>
+<a href="index.html"><i class="fa fa-home"></i> Home</a>
+<a href="services.html"><i class="fa fa-wrench"></i> Services</a>
+<a href="education.html"><i class="fa fa-book"></i> Education</a>
+<a href="estimate.html"><i class="fa fa-calculator"></i> Get Estimate</a>
+<a href="contact.html"><i class="fa fa-envelope"></i> Contact</a>
+</nav>
+</header>
+
+<section class="form-section">
+<form id="quickEstimateForm">
+<label>Name:</label>
+<input type="text" id="name" required>
+
+<label>Email:</label>
+<input type="email" id="email" required>
+
+<label>Phone:</label>
+<input type="text" id="phone" required>
+
+<label>Property Type:</label>
+<select id="property">
+<option value="House">House</option>
+<option value="Apartment">Apartment</option>
+<option value="Commercial">Commercial</option>
+</select>
+
+<label>Service Type:</label>
+<select id="service">
+<option value="Repair">Repair</option>
+<option value="Replacement">Replacement</option>
+<option value="Renovation">Renovation</option>
+<option value="New Build">New Build</option>
+</select>
+
+<label>Type of Problem / Fixture:</label>
+<select id="problem">
+<option value="Clogged Drain">Clogged Drain</option>
+<option value="Leaky Faucet">Leaky Faucet</option>
+<option value="Toilet Repair">Toilet Repair</option>
+<option value="Garbage Disposal">Garbage Disposal</option>
+<option value="Water Heater Diagnostics">Water Heater Diagnostics</option>
+</select>
+
+<label>Zip Code:</label>
+<input type="text" id="zip" placeholder="Enter your zip code" required>
+
+<label>Floor:</label>
+<select id="floor">
+<option value="First Floor">First Floor</option>
+<option value="Second Floor or Higher">Second Floor or Higher</option>
+</select>
+
+<label>Accessibility:</label>
+<select id="accessibility">
+<option value="Easy Access">Easy Access</option>
+<option value="Hard to Access / Stairs">Hard to Access / Stairs</option>
+</select>
+
+<label>Additional Notes:</label>
+<textarea id="details" placeholder="Any other information..."></textarea>
+
+<button type="submit">Get Preliminary Estimate</button>
+</form>
+
+<div id="estimateResult"></div>
+</section>
+
+<script>
+document.getElementById('quickEstimateForm').addEventListener('submit', function(e){
+e.preventDefault();
+
+const userData = {
+name: document.getElementById('name').value,
+email: document.getElementById('email').value,
+phone: document.getElementById('phone').value,
+property: document.getElementById('property').value,
+service: document.getElementById('service').value,
+problem: document.getElementById('problem').value,
+zip: document.getElementById('zip').value,
+floor: document.getElementById('floor').value,
+accessibility: document.getElementById('accessibility').value,
+details: document.getElementById('details').value
+};
+
+// Base estimate by service type
+let baseEstimate = 0;
+switch(userData.service){
+case "Repair": baseEstimate = 100; break;
+case "Replacement": baseEstimate = 250; break;
+case "Renovation": baseEstimate = 500; break;
+case "New Build": baseEstimate = 1000; break;
+}
+
+// Adjust for problem type
+if(userData.problem.includes("Clog") || userData.problem.includes("Faucet")) baseEstimate *= 1;
+else if(userData.problem.includes("Toilet") || userData.problem.includes("Garbage")) baseEstimate *= 1.2;
+else if(userData.problem.includes("Water Heater")) baseEstimate *= 1.5;
+
+// Adjust for distance (crude example)
+const baseZip = 78251; // Your office zip
+const distance = Math.abs(parseInt(userData.zip) - baseZip)/10; 
+baseEstimate += distance * 10; // $10 per unit distance
+
+// Adjust for floor and accessibility
+if(userData.floor === "Second Floor or Higher") baseEstimate += 50;
+if(userData.accessibility === "Hard to Access / Stairs") baseEstimate += 50;
+
+// Display result
+document.getElementById('estimateResult').innerHTML = `
+<h3>Preliminary Estimate: $${baseEstimate.toFixed(0)}</h3>
+<p>Note: This is a preliminary estimate. Final pricing may vary after inspection by a licensed plumber.</p>
+`;
+
+// Send client info to Pipeleaders@gmail.com
+fetch("https://formsubmit.co/Pipeleaders@gmail.com", {
+method: "POST",
+headers: { 'Content-Type':'application/json' },
+body: JSON.stringify(userData)
+}).then(() => console.log("Client info sent!"))
+.catch(err => console.error("Error sending client info:", err));
+
+});
+</script>
+
+<footer>
+<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+<p>
+<a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
+<a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a>
+</p>
+</footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quick AI Estimate | Plumbing Gurus</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body { font-family: Arial, sans-serif; }
+.form-section { max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; background: #f9f9f9; }
+label { display:block; margin-top: 10px; }
+select, input, textarea, button { width: 100%; padding: 8px; margin-top:5px; }
+#estimateResult { margin-top: 20px; padding: 10px; border: 1px solid #999; background: #e6f7ff; }
+</style>
+</head>
+<body>
+
+<header>
+<img src="images/logo.png" alt="Plumbing Gurus Logo" class="logo">
+<h1>Quick Plumbing Estimate</h1>
+<nav>
+<a href="index.html"><i class="fa fa-home"></i> Home</a>
+<a href="services.html"><i class="fa fa-wrench"></i> Services</a>
+<a href="education.html"><i class="fa fa-book"></i> Education</a>
+<a href="estimate.html"><i class="fa fa-calculator"></i> Get Estimate</a>
+<a href="contact.html"><i class="fa fa-envelope"></i> Contact</a>
+</nav>
+</header>
+
+<section class="form-section">
+<form id="quickEstimateForm">
+<label>Name:</label>
+<input type="text" id="name" required>
+
+<label>Email:</label>
+<input type="email" id="email" required>
+
+<label>Phone:</label>
+<input type="text" id="phone" required>
+
+<label>Property Type:</label>
+<select id="property">
+<option value="House">House</option>
+<option value="Apartment">Apartment</option>
+<option value="Commercial">Commercial</option>
+</select>
+
+<label>Service Type:</label>
+<select id="service">
+<option value="Repair">Repair</option>
+<option value="Replacement">Replacement</option>
+<option value="Renovation">Renovation</option>
+<option value="New Build">New Build</option>
+</select>
+
+<label>Type of Problem / Fixture:</label>
+<select id="problem">
+<option value="Clogged Drain">Clogged Drain</option>
+<option value="Leaky Faucet">Leaky Faucet</option>
+<option value="Toilet Repair">Toilet Repair</option>
+<option value="Garbage Disposal">Garbage Disposal</option>
+<option value="Water Heater Diagnostics">Water Heater Diagnostics</option>
+</select>
+
+<label>Zip Code:</label>
+<input type="text" id="zip" placeholder="Enter your zip code" required>
+
+<label>Floor:</label>
+<select id="floor">
+<option value="First Floor">First Floor</option>
+<option value="Second Floor or Higher">Second Floor or Higher</option>
+</select>
+
+<label>Accessibility:</label>
+<select id="accessibility">
+<option value="Easy Access">Easy Access</option>
+<option value="Hard to Access / Stairs">Hard to Access / Stairs</option>
+</select>
+
+<label>Additional Notes:</label>
+<textarea id="details" placeholder="Any other information..."></textarea>
+
+<button type="submit">Get Preliminary Estimate</button>
+</form>
+
+<div id="estimateResult"></div>
+</section>
+
+<script>
+document.getElementById('quickEstimateForm').addEventListener('submit', function(e){
+e.preventDefault();
+
+const userData = {
+name: document.getElementById('name').value,
+email: document.getElementById('email').value,
+phone: document.getElementById('phone').value,
+property: document.getElementById('property').value,
+service: document.getElementById('service').value,
+problem: document.getElementById('problem').value,
+zip: document.getElementById('zip').value,
+floor: document.getElementById('floor').value,
+accessibility: document.getElementById('accessibility').value,
+details: document.getElementById('details').value
+};
+
+// Base estimate by service type
+let baseEstimate = 0;
+switch(userData.service){
+case "Repair": baseEstimate = 100; break;
+case "Replacement": baseEstimate = 250; break;
+case "Renovation": baseEstimate = 500; break;
+case "New Build": baseEstimate = 1000; break;
+}
+
+// Adjust for problem type
+if(userData.problem.includes("Clog") || userData.problem.includes("Faucet")) baseEstimate *= 1;
+else if(userData.problem.includes("Toilet") || userData.problem.includes("Garbage")) baseEstimate *= 1.2;
+else if(userData.problem.includes("Water Heater")) baseEstimate *= 1.5;
+
+// Adjust for distance (crude example)
+const baseZip = 78251; // Your office zip
+const distance = Math.abs(parseInt(userData.zip) - baseZip)/10; 
+baseEstimate += distance * 10; // $10 per unit distance
+
+// Adjust for floor and accessibility
+if(userData.floor === "Second Floor or Higher") baseEstimate += 50;
+if(userData.accessibility === "Hard to Access / Stairs") baseEstimate += 50;
+
+// Display result
+document.getElementById('estimateResult').innerHTML = `
+<h3>Preliminary Estimate: $${baseEstimate.toFixed(0)}</h3>
+<p>Note: This is a preliminary estimate. Final pricing may vary after inspection by a licensed plumber.</p>
+`;
+
+// Send client info to Pipeleaders@gmail.com
+fetch("https://formsubmit.co/Pipeleaders@gmail.com", {
+method: "POST",
+headers: { 'Content-Type':'application/json' },
+body: JSON.stringify(userData)
+}).then(() => console.log("Client info sent!"))
+.catch(err => console.error("Error sending client info:", err));
+
+});
+</script>
+
+<footer>
+<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+<p>
+<a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
+<a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a>
+</p>
+</footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quick AI Estimate | Plumbing Gurus</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body { font-family: Arial, sans-serif; }
+.form-section { max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; background: #f9f9f9; }
+label { display:block; margin-top: 10px; }
+select, input, textarea, button { width: 100%; padding: 8px; margin-top:5px; }
+#estimateResult { margin-top: 20px; padding: 10px; border: 1px solid #999; background: #e6f7ff; }
+</style>
+</head>
+<body>
+
+<header>
+<img src="images/logo.png" alt="Plumbing Gurus Logo" class="logo">
+<h1>Quick Plumbing Estimate</h1>
+<nav>
+<a href="index.html"><i class="fa fa-home"></i> Home</a>
+<a href="services.html"><i class="fa fa-wrench"></i> Services</a>
+<a href="education.html"><i class="fa fa-book"></i> Education</a>
+<a href="estimate.html"><i class="fa fa-calculator"></i> Get Estimate</a>
+<a href="contact.html"><i class="fa fa-envelope"></i> Contact</a>
+</nav>
+</header>
+
+<section class="form-section">
+<form id="quickEstimateForm">
+<label>Name:</label>
+<input type="text" id="name" required>
+
+<label>Email:</label>
+<input type="email" id="email" required>
+
+<label>Phone:</label>
+<input type="text" id="phone" required>
+
+<label>Property Type:</label>
+<select id="property">
+<option value="House">House</option>
+<option value="Apartment">Apartment</option>
+<option value="Commercial">Commercial</option>
+</select>
+
+<label>Service Type:</label>
+<select id="service">
+<option value="Repair">Repair</option>
+<option value="Replacement">Replacement</option>
+<option value="Renovation">Renovation</option>
+<option value="New Build">New Build</option>
+</select>
+
+<label>Type of Problem / Fixture:</label>
+<select id="problem">
+<option value="Clogged Drain">Clogged Drain</option>
+<option value="Leaky Faucet">Leaky Faucet</option>
+<option value="Toilet Repair">Toilet Repair</option>
+<option value="Garbage Disposal">Garbage Disposal</option>
+<option value="Water Heater Diagnostics">Water Heater Diagnostics</option>
+</select>
+
+<label>Zip Code:</label>
+<input type="text" id="zip" placeholder="Enter your zip code" required>
+
+<label>Floor:</label>
+<select id="floor">
+<option value="First Floor">First Floor</option>
+<option value="Second Floor or Higher">Second Floor or Higher</option>
+</select>
+
+<label>Accessibility:</label>
+<select id="accessibility">
+<option value="Easy Access">Easy Access</option>
+<option value="Hard to Access / Stairs">Hard to Access / Stairs</option>
+</select>
+
+<label>Additional Notes:</label>
+<textarea id="details" placeholder="Any other information..."></textarea>
+
+<button type="submit">Get Preliminary Estimate</button>
+</form>
+
+<div id="estimateResult"></div>
+</section>
+
+<script>
+document.getElementById('quickEstimateForm').addEventListener('submit', function(e){
+e.preventDefault();
+
+const userData = {
+name: document.getElementById('name').value,
+email: document.getElementById('email').value,
+phone: document.getElementById('phone').value,
+property: document.getElementById('property').value,
+service: document.getElementById('service').value,
+problem: document.getElementById('problem').value,
+zip: document.getElementById('zip').value,
+floor: document.getElementById('floor').value,
+accessibility: document.getElementById('accessibility').value,
+details: document.getElementById('details').value
+};
+
+// Base estimate by service type
+let baseEstimate = 0;
+switch(userData.service){
+case "Repair": baseEstimate = 100; break;
+case "Replacement": baseEstimate = 250; break;
+case "Renovation": baseEstimate = 500; break;
+case "New Build": baseEstimate = 1000; break;
+}
+
+// Adjust for problem type
+if(userData.problem.includes("Clog") || userData.problem.includes("Faucet")) baseEstimate *= 1;
+else if(userData.problem.includes("Toilet") || userData.problem.includes("Garbage")) baseEstimate *= 1.2;
+else if(userData.problem.includes("Water Heater")) baseEstimate *= 1.5;
+
+// Adjust for distance (crude example)
+const baseZip = 78251; // Your office zip
+const distance = Math.abs(parseInt(userData.zip) - baseZip)/10; 
+baseEstimate += distance * 10; // $10 per unit distance
+
+// Adjust for floor and accessibility
+if(userData.floor === "Second Floor or Higher") baseEstimate += 50;
+if(userData.accessibility === "Hard to Access / Stairs") baseEstimate += 50;
+
+// Display result
+document.getElementById('estimateResult').innerHTML = `
+<h3>Preliminary Estimate: $${baseEstimate.toFixed(0)}</h3>
+<p>Note: This is a preliminary estimate. Final pricing may vary after inspection by a licensed plumber.</p>
+`;
+
+// Send client info to Pipeleaders@gmail.com
+fetch("https://formsubmit.co/Pipeleaders@gmail.com", {
+method: "POST",
+headers: { 'Content-Type':'application/json' },
+body: JSON.stringify(userData)
+}).then(() => console.log("Client info sent!"))
+.catch(err => console.error("Error sending client info:", err));
+
+});
+</script>
+
+<footer>
+<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+<p>
+<a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
+<a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a>
+</p>
+</footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <title>Quick Estimate | Plumbing Gurus</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
@@ -103,6 +568,286 @@ document.getElementById('quickEstimateForm').addEventListener('submit', function
   document.getElementById('estimateResult').innerHTML = `
     <h3>Preliminary Estimate: ${estimate}</h3>
     <p>Note: This is a preliminary estimate. Final pricing will depend on inspection and licensed plumber evaluation.</p>
+  `;
+
+  // Send data to your email via FormSubmit
+  fetch("https://formsubmit.co/YOUR_EMAIL@gmail.com", {
+    method: "POST",
+    headers: { 'Content-Type':'application/json' },
+    body: JSON.stringify(userData)
+  }).then(() => console.log("Client info sent!"))
+    .catch(err => console.error("Error sending client info:", err));
+});
+</script>
+
+<footer>
+<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+<p>
+<a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
+<a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a>
+</p><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Estimate | Plumbing Gurus</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Simple chat styling */
+#chatBox {
+  border: 1px solid #ccc;
+  padding: 15px;
+  height: 400px;
+  overflow-y: auto;
+  background: #f9f9f9;
+}
+.userMsg { color: blue; margin: 5px 0; }
+.botMsg { color: green; margin: 5px 0; }
+input, select, textarea, button { display: block; margin: 10px 0; width: 100%; padding: 8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="images/logo.png" alt="Plumbing Gurus Logo" class="logo">
+  <h1>AI Estimate Chat</h1>
+  <nav>
+    <a href="index.html"><i class="fa fa-home"></i> Home</a>
+    <a href="services.html"><i class="fa fa-wrench"></i> Services</a>
+    <a href="education.html"><i class="fa fa-book"></i> Education</a>
+    <a href="estimate.html"><i class="fa fa-calculator"></i> Get Estimate</a>
+    <a href="contact.html"><i class="fa fa-envelope"></i> Contact</a>
+  </nav>
+</header>
+
+<section>
+  <div id="chatBox"></div>
+  <input type="text" id="userInput" placeholder="Type your answer here...">
+  <button id="sendBtn">Send</button>
+</section>
+
+<script>
+// Chat logic
+const chatBox = document.getElementById('chatBox');
+const input = document.getElementById('userInput');
+const sendBtn = document.getElementById('sendBtn');
+
+let step = 0;
+let userData = {};
+
+const questions = [
+  { q: "Hello! What's your name?", key: "name" },
+  { q: "What's your email?", key: "email" },
+  { q: "Phone number?", key: "phone" },
+  { q: "Type of property? (House, Apartment, Commercial)", key: "property" },
+  { q: "What type of problem? (Clogged Drain, Leaky Faucet, Toilet Repair, Garbage Disposal, Water Heater Diagnostics)", key: "problem" },
+  { q: "Any extra info? (floor, accessibility, etc.)", key: "details" }
+];
+
+function botSay(message) {
+  const p = document.createElement('p');
+  p.className = 'botMsg';
+  p.textContent = message;
+  chatBox.appendChild(p);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function userSay(message) {
+  const p = document.createElement('p');
+  p.className = 'userMsg';
+  p.textContent = message;
+  chatBox.appendChild(p);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function calculateEstimate() {
+  const problem = userData.problem.toLowerCase();
+  let estimate = "";
+  if (problem.includes("clog") || problem.includes("faucet")) estimate = "$50 - $150";
+  else if (problem.includes("toilet") || problem.includes("garbage")) estimate = "$150 - $250";
+  else if (problem.includes("water heater")) estimate = "$200 - $300";
+  return estimate;
+}
+
+function sendData() {
+  // Send userData to your email via FormSubmit or backend
+  fetch("https://formsubmit.co/YOUR_EMAIL@gmail.com", {
+    method: "POST",
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(userData)
+  }).then(() => console.log("Client info sent!"))
+    .catch(err => console.error("Error sending client info:", err));
+}
+
+function nextStep() {
+  if (step < questions.length) {
+    botSay(questions[step].q);
+  } else {
+    const estimate = calculateEstimate();
+    botSay(`Thank you! Based on your answers, the preliminary estimate is: ${estimate}`);
+    botSay("Note: This is a preliminary estimate. Final pricing may vary after inspection by a licensed plumber.");
+    sendData();
+  }
+}
+
+sendBtn.addEventListener('click', () => {
+  const userText = input.value.trim();
+  if (!userText) return;
+  userSay(userText);
+  userData[questions[step].key] = userText;
+  input.value = '';
+  step++;
+  nextStep();
+});
+
+// Start chat
+nextStep();
+</script>
+
+<footer>
+<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+<p>
+<a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
+<a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a>
+</p>
+</footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Estimate | Plumbing Gurus</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Simple chat styling */
+#chatBox {
+  border: 1px solid #ccc;
+  padding: 15px;
+  height: 400px;
+  overflow-y: auto;
+  background: #f9f9f9;
+}
+.userMsg { color: blue; margin: 5px 0; }
+.botMsg { color: green; margin: 5px 0; }
+input, select, textarea, button { display: block; margin: 10px 0; width: 100%; padding: 8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="images/logo.png" alt="Plumbing Gurus Logo" class="logo">
+  <h1>AI Estimate Chat</h1>
+  <nav>
+    <a href="index.html"><i class="fa fa-home"></i> Home</a>
+    <a href="services.html"><i class="fa fa-wrench"></i> Services</a>
+    <a href="education.html"><i class="fa fa-book"></i> Education</a>
+    <a href="estimate.html"><i class="fa fa-calculator"></i> Get Estimate</a>
+    <a href="contact.html"><i class="fa fa-envelope"></i> Contact</a>
+  </nav>
+</header>
+
+<section>
+  <div id="chatBox"></div>
+  <input type="text" id="userInput" placeholder="Type your answer here...">
+  <button id="sendBtn">Send</button>
+</section>
+
+<script>
+// Chat logic
+const chatBox = document.getElementById('chatBox');
+const input = document.getElementById('userInput');
+const sendBtn = document.getElementById('sendBtn');
+
+let step = 0;
+let userData = {};
+
+const questions = [
+  { q: "Hello! What's your name?", key: "name" },
+  { q: "What's your email?", key: "email" },
+  { q: "Phone number?", key: "phone" },
+  { q: "Type of property? (House, Apartment, Commercial)", key: "property" },
+  { q: "What type of problem? (Clogged Drain, Leaky Faucet, Toilet Repair, Garbage Disposal, Water Heater Diagnostics)", key: "problem" },
+  { q: "Any extra info? (floor, accessibility, etc.)", key: "details" }
+];
+
+function botSay(message) {
+  const p = document.createElement('p');
+  p.className = 'botMsg';
+  p.textContent = message;
+  chatBox.appendChild(p);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function userSay(message) {
+  const p = document.createElement('p');
+  p.className = 'userMsg';
+  p.textContent = message;
+  chatBox.appendChild(p);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function calculateEstimate() {
+  const problem = userData.problem.toLowerCase();
+  let estimate = "";
+  if (problem.includes("clog") || problem.includes("faucet")) estimate = "$50 - $150";
+  else if (problem.includes("toilet") || problem.includes("garbage")) estimate = "$150 - $250";
+  else if (problem.includes("water heater")) estimate = "$200 - $300";
+  return estimate;
+}
+
+function sendData() {
+  // Send userData to your email via FormSubmit or backend
+  fetch("https://formsubmit.co/YOUR_EMAIL@gmail.com", {
+    method: "POST",
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(userData)
+  }).then(() => console.log("Client info sent!"))
+    .catch(err => console.error("Error sending client info:", err));
+}
+
+function nextStep() {
+  if (step < questions.length) {
+    botSay(questions[step].q);
+  } else {
+    const estimate = calculateEstimate();
+    botSay(`Thank you! Based on your answers, the preliminary estimate is: ${estimate}`);
+    botSay("Note: This is a preliminary estimate. Final pricing may vary after inspection by a licensed plumber.");
+    sendData();
+  }
+}
+
+sendBtn.addEventListener('click', () => {
+  const userText = input.value.trim();
+  if (!userText) return;
+  userSay(userText);
+  userData[questions[step].key] = userText;
+  input.value = '';
+  step++;
+  nextStep();
+});
+
+// Start chat
+nextStep();
+</script>
+
+<footer>
+<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+<p>
+<a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
+<a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a>
+</p>
+</footer>
+
+</body>
+</html>
+</footer>
+
+</body>
+</html>    <p>Note: This is a preliminary estimate. Final pricing will depend on inspection and licensed plumber evaluation.</p>
   `;
 
   // Send data to your email via FormSubmit
