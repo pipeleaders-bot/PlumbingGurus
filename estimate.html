@@ -2,17 +2,29 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Get Estimate | Plumbing Gurus</title>
+<title>AI Estimate | Plumbing Gurus</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Simple chat styling */
+#chatBox {
+  border: 1px solid #ccc;
+  padding: 15px;
+  height: 400px;
+  overflow-y: auto;
+  background: #f9f9f9;
+}
+.userMsg { color: blue; margin: 5px 0; }
+.botMsg { color: green; margin: 5px 0; }
+input, select, textarea, button { display: block; margin: 10px 0; width: 100%; padding: 8px; }
+</style>
 </head>
-
 <body>
 
 <header>
   <img src="images/logo.png" alt="Plumbing Gurus Logo" class="logo">
-  <h1>Plumbing Estimate Request</h1>
-
+  <h1>AI Estimate Chat</h1>
   <nav>
     <a href="index.html"><i class="fa fa-home"></i> Home</a>
     <a href="services.html"><i class="fa fa-wrench"></i> Services</a>
@@ -23,43 +35,95 @@
 </header>
 
 <section>
-  <p>Use this form to request a preliminary dispatch estimate. All estimates are <strong>preliminary</strong> and will be confirmed by a licensed plumber.</p>
-
-  <!-- FormSubmit form -->
-  <form action="https://formsubmit.co/YOUR_EMAIL@gmail.com" method="POST">
-    <!-- Avoid activation: add a hidden _captcha and _next -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://plumbinggurus.us/estimate.html">
-
-    <label>Name:</label>
-    <input type="text" name="name" required>
-
-    <label>Phone:</label>
-    <input type="text" name="phone" required>
-
-    <label>Zip Code:</label>
-    <input type="text" name="zip">
-
-    <label>Describe the problem:</label>
-    <textarea name="issue" required></textarea>
-
-    <label>Property Type:</label>
-    <select name="property">
-      <option>House</option>
-      <option>Apartment</option>
-      <option>Commercial</option>
-    </select>
-
-    <button type="submit">Submit Estimate Request</button>
-  </form>
+  <div id="chatBox"></div>
+  <input type="text" id="userInput" placeholder="Type your answer here...">
+  <button id="sendBtn">Send</button>
 </section>
 
+<script>
+// Chat logic
+const chatBox = document.getElementById('chatBox');
+const input = document.getElementById('userInput');
+const sendBtn = document.getElementById('sendBtn');
+
+let step = 0;
+let userData = {};
+
+const questions = [
+  { q: "Hello! What's your name?", key: "name" },
+  { q: "What's your email?", key: "email" },
+  { q: "Phone number?", key: "phone" },
+  { q: "Type of property? (House, Apartment, Commercial)", key: "property" },
+  { q: "What type of problem? (Clogged Drain, Leaky Faucet, Toilet Repair, Garbage Disposal, Water Heater Diagnostics)", key: "problem" },
+  { q: "Any extra info? (floor, accessibility, etc.)", key: "details" }
+];
+
+function botSay(message) {
+  const p = document.createElement('p');
+  p.className = 'botMsg';
+  p.textContent = message;
+  chatBox.appendChild(p);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function userSay(message) {
+  const p = document.createElement('p');
+  p.className = 'userMsg';
+  p.textContent = message;
+  chatBox.appendChild(p);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function calculateEstimate() {
+  const problem = userData.problem.toLowerCase();
+  let estimate = "";
+  if (problem.includes("clog") || problem.includes("faucet")) estimate = "$50 - $150";
+  else if (problem.includes("toilet") || problem.includes("garbage")) estimate = "$150 - $250";
+  else if (problem.includes("water heater")) estimate = "$200 - $300";
+  return estimate;
+}
+
+function sendData() {
+  // Send userData to your email via FormSubmit or backend
+  fetch("https://formsubmit.co/YOUR_EMAIL@gmail.com", {
+    method: "POST",
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(userData)
+  }).then(() => console.log("Client info sent!"))
+    .catch(err => console.error("Error sending client info:", err));
+}
+
+function nextStep() {
+  if (step < questions.length) {
+    botSay(questions[step].q);
+  } else {
+    const estimate = calculateEstimate();
+    botSay(`Thank you! Based on your answers, the preliminary estimate is: ${estimate}`);
+    botSay("Note: This is a preliminary estimate. Final pricing may vary after inspection by a licensed plumber.");
+    sendData();
+  }
+}
+
+sendBtn.addEventListener('click', () => {
+  const userText = input.value.trim();
+  if (!userText) return;
+  userSay(userText);
+  userData[questions[step].key] = userText;
+  input.value = '';
+  step++;
+  nextStep();
+});
+
+// Start chat
+nextStep();
+</script>
+
 <footer>
-  <p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
-  <p>
-    <a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
-    <a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a>
-  </p>
+<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+<p>
+<a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
+<a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a>
+</p>
 </footer>
 
 </body>
