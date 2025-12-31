@@ -1,108 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Quick AI Estimate | Plumbing Gurus</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-body { font-family: Arial, sans-serif; }
-.form-section { max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; background: #f9f9f9; }
-label { display:block; margin-top: 10px; }
-select, input, textarea, button { width: 100%; padding: 8px; margin-top:5px; }
-#estimateResult { margin-top: 20px; padding: 10px; border: 1px solid #999; background: #e6f7ff; }
-</style>
-</head>
-<body>
-
-<header>
-<img src="images/logo.png" alt="Plumbing Gurus Logo" class="logo">
-<h1>Quick Plumbing Estimate</h1>
-<nav>
-<a href="index.html"><i class="fa fa-home"></i> Home</a>
-<a href="services.html"><i class="fa fa-wrench"></i> Services</a>
-<a href="education.html"><i class="fa fa-book"></i> Education</a>
-<a href="estimate.html"><i class="fa fa-calculator"></i> Get Estimate</a>
-<a href="contact.html"><i class="fa fa-envelope"></i> Contact</a>
-</nav>
-</header>
-
-<section class="form-section">
-<form id="quickEstimateForm" action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
-<label>Name:</label>
-<input type="text" name="name" required>
-
-<label>Email:</label>
-<input type="email" name="email" required>
-
-<label>Phone:</label>
-<input type="text" name="phone" required>
-
-<label>Property Type:</label>
-<select name="property">
-<option value="House">House</option>
-<option value="Apartment">Apartment</option>
-<option value="Commercial">Commercial</option>
-</select>
-
-<label>Service Type:</label>
-<select name="service">
-<option value="Repair">Repair</option>
-<option value="Replacement (Remove + Install)">Replacement (Remove + Install)</option>
-<option value="Renovation">Renovation</option>
-<option value="New Build">New Build</option>
-</select>
-
-<label>Type of Problem / Fixture:</label>
-<select name="problem">
-<option value="Clogged Drain">Clogged Drain</option>
-<option value="Leaky Faucet">Leaky Faucet</option>
-<option value="Toilet Repair">Toilet Repair</option>
-<option value="Garbage Disposal">Garbage Disposal</option>
-<option value="Water Heater Diagnostics">Water Heater Diagnostics</option>
-</select>
-
-<label>Zip Code:</label>
-<input type="text" name="zip" placeholder="Enter your zip code" required>
-
-<label>Floor:</label>
-<select name="floor">
-<option value="First Floor">First Floor</option>
-<option value="Second Floor or Higher">Second Floor or Higher</option>
-</select>
-
-<label>Accessibility:</label>
-<select name="accessibility">
-<option value="Easy Access">Easy Access</option>
-<option value="Hard to Access / Stairs">Hard to Access / Stairs</option>
-</select>
-
-<label>Additional Notes:</label>
-<textarea name="details" placeholder="Any other information..."></textarea>
-
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_subject" value="New Estimate Submission">
-<input type="hidden" name="_template" value="table">
-
-<button type="submit">Get Preliminary Estimate</button>
-</form>
-
-<div id="estimateResult"></div>
-</section>
-
 <script>
-// Preliminary estimate calculation
-document.getElementById('quickEstimateForm').addEventListener('submit', function(e){
-e.preventDefault();
+// Function to determine local multiplier
+function getLocalMultiplier(zip) {
+    const austinZips = [78701, 78702, 78703, 78704, 78705, 78723, 78741, 78745, 78746];
+    const sanAntonioZips = [78201, 78202, 78203, 78204, 78205, 78209, 78210, 78211, 78212];
+    if (austinZips.includes(zip)) return 1.08; // +8% for Austin
+    if (sanAntonioZips.includes(zip)) return 1.00; // base for San Antonio
+    return 1.00; // default for other TX ZIPs
+}
 
-const form = e.target;
-const service = form.service.value;
-const problem = form.problem.value;
-const zip = parseInt(form.zip.value);
-const floor = form.floor.value;
-const accessibility = form.accessibility.value;
+// Updated estimate function
+function calculateEstimate(){
+    let [minEstimate, maxEstimate] = getEstimateRange(answers.service, answers.problem);
+    const quantity = parseInt(answers.quantity) || 1;
+    minEstimate *= quantity;
+    maxEstimate *= quantity;
 
+    // Floor/accessibility adjustment
+    if(answers.floor === "Second Floor or Higher") { minEstimate +=50; maxEstimate +=50; }
+    if(answers.accessibility === "Hard Access / Stairs") { minEstimate +=50; maxEstimate +=50; }
+
+    // Distance adjustment (approx $10 per ~10 zip difference)
+    const zip = parseInt(answers.zip) || 78251;
+    const distance = Math.abs(zip - 78251)/10;
+    minEstimate += distance*10;
+    maxEstimate += distance*10;
+
+    // Apply local multiplier
+    const localMultiplier = getLocalMultiplier(zip);
+    minEstimate *= localMultiplier;
+    maxEstimate *= localMultiplier;
+
+    displayMessage(`💵 Preliminary Estimate Range: $${minEstimate.toFixed(0)} – $${maxEstimate.toFixed(0)}\n*Note: Final pricing confirmed after inspection by a licensed plumber.*`,"bot");
+
+    // Send data via FormSubmit
+    const formData = new FormData();
+    for(let key in answers){
+        formData.append(key, answers[key]);
+    }
+    formData.append("_captcha","false");
+    formData.append("_subject","New AI Estimate Submission");
+    formData.append("_template","table");
+
+    fetch("https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3", {
+        method:"POST",
+        body: formData
+    });
+}
+</script>
 // Base estimate
 let baseEstimate = 0;
 switch(service){
