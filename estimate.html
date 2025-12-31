@@ -1,14 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chat-Style AI Plumbing Estimate | Plumbing Gurus</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; }
+header { background: #00539C; color: white; padding: 15px; text-align:center; }
+header img { height: 60px; margin-bottom: 10px; }
+nav a { color: white; margin: 0 10px; text-decoration: none; }
+.chat-container { max-width: 700px; margin: 20px auto; background:white; padding:20px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+.chat-message { margin: 10px 0; }
+.bot-message { background: #e6f7ff; padding:10px; border-radius:5px; }
+.user-message { background: #d3f4d3; padding:10px; border-radius:5px; text-align:right; }
+input, select, button { width: 100%; padding:10px; margin-top:5px; border-radius:5px; border:1px solid #ccc; }
+button { background:#00539C; color:white; border:none; cursor:pointer; margin-top:10px; }
+#estimateResult { margin-top: 20px; padding: 15px; background:#e6f7ff; border:1px solid #999; border-radius:5px; }
+</style>
+</head>
+<body>
+
+<header>
+<img src="images/logo.png" alt="Plumbing Gurus Logo">
+<h1>Chat-Style AI Plumbing Estimate</h1>
+<nav>
+<a href="index.html"><i class="fa fa-home"></i> Home</a>
+<a href="services.html"><i class="fa fa-wrench"></i> Services</a>
+<a href="education.html"><i class="fa fa-book"></i> Education</a>
+<a href="estimate.html"><i class="fa fa-calculator"></i> Get Estimate</a>
+<a href="contact.html"><i class="fa fa-envelope"></i> Contact</a>
+</nav>
+</header>
+
+<section class="chat-container">
+<div id="chatMessages"></div>
+
+<form id="chatForm">
+<input type="text" id="chatInput" placeholder="Type your answer..." required autocomplete="off">
+<button type="submit">Send</button>
+</form>
+
+<div id="estimateResult"></div>
+</section>
+
 <script>
-// Function to determine local multiplier
+// Questions & flow
+const questions = [
+{name:"name", text:"Hi! What's your full name?"},
+{name:"email", text:"Great, can I have your email?"},
+{name:"phone", text:"And your phone number?"},
+{name:"zip", text:"What is your property zip code?"},
+{name:"service", text:"What service do you need?", type:"select", options:["Repair","Replacement (Remove + Install)","Renovation","New Build"]},
+{name:"problem", text:"Which fixture/system needs attention?", type:"select", options:["Clogged Drain","Leaky Faucet","Toilet","Garbage Disposal","Water Heater"]},
+{name:"quantity", text:"How many fixtures need service?", type:"number"},
+{name:"material", text:"Preferred material?", type:"select", options:["Standard","Mid-grade","Premium"]},
+{name:"floor", text:"Floor level?", type:"select", options:["First Floor","Second Floor or Higher"]},
+{name:"accessibility", text:"Accessibility of the area?", type:"select", options:["Easy Access","Hard Access / Stairs"]},
+{name:"photo", text:"Do you have a photo of the issue? (optional)"},
+{name:"details", text:"Any additional details?"}
+];
+
+let currentQuestion = 0;
+const answers = {};
+
+const chatMessages = document.getElementById("chatMessages");
+const chatForm = document.getElementById("chatForm");
+const chatInput = document.getElementById("chatInput");
+
+function displayMessage(text, sender="bot"){
+    const div = document.createElement("div");
+    div.className = sender==="bot"?"chat-message bot-message":"chat-message user-message";
+    div.textContent = text;
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function showNextQuestion(){
+    if(currentQuestion >= questions.length){
+        calculateEstimate();
+        return;
+    }
+    const q = questions[currentQuestion];
+    displayMessage(q.text);
+    if(q.type==="select"){
+        chatInput.value="";
+        chatInput.setAttribute("list","options");
+        if(!document.getElementById("options")) {
+            const datalist = document.createElement("datalist");
+            datalist.id="options";
+            q.options.forEach(opt=>{
+                const option = document.createElement("option");
+                option.value=opt;
+                datalist.appendChild(option);
+            });
+            document.body.appendChild(datalist);
+        }
+    } else if(q.type==="number"){
+        chatInput.type="number";
+    } else {
+        chatInput.type="text";
+    }
+}
+
+chatForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    const value = chatInput.value.trim();
+    if(!value && questions[currentQuestion].name!=="photo"){return;}
+    displayMessage(value,"user");
+    answers[questions[currentQuestion].name] = value;
+    currentQuestion++;
+    chatInput.value="";
+    showNextQuestion();
+});
+
+// 2025–2026 Texas Professional Pricing Ranges (Roto-Rooter Inspired)
+function getEstimateRange(service, problem){
+    let range = [150, 450]; // default
+    if(service === "Repair"){
+        if(problem === "Clogged Drain") range = [150, 350];
+        else if(problem === "Toilet") range = [200, 500];
+        else if(problem === "Water Heater") range = [350, 1000];
+        else range = [150, 450];
+    } else if(service === "Replacement (Remove + Install)"){
+        if(problem === "Clogged Drain") range = [200, 600];
+        else if(problem === "Toilet") range = [250, 700];
+        else if(problem === "Water Heater") range = [400, 1200];
+        else range = [250, 800];
+    } else if(service === "Renovation") range = [500, 5000];
+    else if(service === "New Build") range = [1000, 10000];
+    return range;
+}
+
+// Local multiplier based on ZIP code
 function getLocalMultiplier(zip) {
     const austinZips = [78701, 78702, 78703, 78704, 78705, 78723, 78741, 78745, 78746];
     const sanAntonioZips = [78201, 78202, 78203, 78204, 78205, 78209, 78210, 78211, 78212];
     if (austinZips.includes(zip)) return 1.08; // +8% for Austin
-    if (sanAntonioZips.includes(zip)) return 1.00; // base for San Antonio
-    return 1.00; // default for other TX ZIPs
+    if (sanAntonioZips.includes(zip)) return 1.00; // San Antonio base
+    return 1.00; // Default TX
 }
 
-// Updated estimate function
 function calculateEstimate(){
     let [minEstimate, maxEstimate] = getEstimateRange(answers.service, answers.problem);
     const quantity = parseInt(answers.quantity) || 1;
@@ -19,7 +152,7 @@ function calculateEstimate(){
     if(answers.floor === "Second Floor or Higher") { minEstimate +=50; maxEstimate +=50; }
     if(answers.accessibility === "Hard Access / Stairs") { minEstimate +=50; maxEstimate +=50; }
 
-    // Distance adjustment (approx $10 per ~10 zip difference)
+    // Distance adjustment
     const zip = parseInt(answers.zip) || 78251;
     const distance = Math.abs(zip - 78251)/10;
     minEstimate += distance*10;
@@ -46,43 +179,14 @@ function calculateEstimate(){
         body: formData
     });
 }
-</script>
-// Base estimate
-let baseEstimate = 0;
-switch(service){
-  case "Repair": baseEstimate = 100; break;
-  case "Replacement (Remove + Install)": baseEstimate = 250; break;
-  case "Renovation": baseEstimate = 500; break;
-  case "New Build": baseEstimate = 1000; break;
-}
 
-// Adjust for problem type
-if(problem.includes("Toilet") || problem.includes("Garbage")) baseEstimate *= 1.2;
-else if(problem.includes("Water Heater")) baseEstimate *= 1.5;
-
-// Adjust for distance (crude estimate)
-const baseZip = 78251;
-const distance = Math.abs(zip - baseZip)/10;
-baseEstimate += distance * 10;
-
-// Adjust for floor/accessibility
-if(floor === "Second Floor or Higher") baseEstimate += 50;
-if(accessibility === "Hard to Access / Stairs") baseEstimate += 50;
-
-// Display preliminary estimate
-document.getElementById('estimateResult').innerHTML = `
-<h3>Preliminary Estimate: $${baseEstimate.toFixed(0)}</h3>
-<p>Note: This is a preliminary estimate. Final pricing may vary after inspection by a licensed plumber.</p>
-`;
-});
+showNextQuestion();
 </script>
 
-<footer>
+<footer style="text-align:center; background:#00539C; color:white; padding:15px;">
 <p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
-<p>
-<a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
-<a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a>
-</p>
+<p><a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
+<a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a></p>
 </footer>
 
 </body>
