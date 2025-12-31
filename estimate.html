@@ -2,31 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Quick Chat AI Estimate | Plumbing Gurus</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Plumbing Labor Estimate | Plumbing Gurus</title>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; }
-header { background: #00539C; color: white; padding: 15px; text-align:center; }
-header img { height: 60px; margin-bottom: 10px; }
-nav a { color: white; margin: 0 10px; text-decoration: none; }
-.container { max-width: 700px; margin: 30px auto; background:white; padding:20px; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
-#chatMessages { max-height: 400px; overflow-y: auto; margin-bottom: 10px; }
-.chat-message { display: flex; padding:10px; margin:5px 0; border-radius:10px; max-width: 80%; word-wrap: break-word; }
+body { font-family: Arial, sans-serif; background:#f4f4f4; margin:0; }
+header { background:#00539C; color:white; padding:15px; text-align:center; }
+header img { height:60px; margin-bottom:10px; }
+nav a { color:white; margin:0 10px; text-decoration:none; }
+.container { max-width:700px; margin:30px auto; background:white; padding:20px; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+#chatMessages { max-height:400px; overflow-y:auto; margin-bottom:10px; }
+.chat-message { display:flex; padding:10px; margin:5px 0; border-radius:10px; max-width:80%; word-wrap:break-word; }
 .bot-message { background:#e6f7ff; justify-content:flex-start; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
 .user-message { background:#d3f4d3; justify-content:flex-end; margin-left:auto; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
 .chat-message i { margin-right:8px; align-self:center; }
-input, select, button { width: 100%; padding:10px; margin-top:5px; border-radius:5px; border:1px solid #ccc; }
+input, select, button { width:100%; padding:10px; margin-top:5px; border-radius:5px; border:1px solid #ccc; }
 button { background:#00539C; color:white; border:none; cursor:pointer; margin-top:10px; }
-#estimateResult { margin-top: 20px; padding: 15px; background:#e6f7ff; border:1px solid #999; border-radius:5px; font-weight:bold; }
+#estimateResult { margin-top:20px; padding:15px; background:#e6f7ff; border:1px solid #999; border-radius:5px; font-weight:bold; }
 </style>
 </head>
 <body>
 
 <header>
 <img src="images/logo.png" alt="Plumbing Gurus Logo">
-<h1>Quick Chat AI Plumbing Estimate</h1>
+<h1>AI Plumbing Labor Estimate</h1>
 <nav>
 <a href="index.html">Home</a> | 
 <a href="services.html">Services</a> | 
@@ -38,28 +38,34 @@ button { background:#00539C; color:white; border:none; cursor:pointer; margin-to
 <div id="chatMessages"></div>
 
 <form id="chatForm" action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
-<input type="text" id="chatInput" placeholder="Type your message or info here..." required autocomplete="off">
-<button type="submit"><i class="fa fa-paper-plane"></i> Send</button>
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="email" id="email" placeholder="Email" required>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+<input type="text" id="zip" placeholder="ZIP Code" required>
+<select id="serviceType" required>
+<option value="">Select Service Type</option>
+<option value="New Build">New Build</option>
+<option value="Remodel">Remodel</option>
+<option value="Repair">Repair</option>
+</select>
+<select id="serviceDetail" required>
+<option value="">Select Specific Service</option>
+<option value="Sink Repair">Sink Repair</option>
+<option value="Water Heater">Water Heater</option>
+<option value="Leak Repair">Leak Repair</option>
+<option value="Pipe Replacement">Pipe Replacement</option>
+<option value="Toilet Repair">Toilet Repair</option>
+</select>
+<input type="text" id="userNotes" placeholder="Describe what you need done...">
+<button type="submit"><i class="fa fa-paper-plane"></i> Get Labor Estimate</button>
 </form>
 
 <div id="estimateResult"></div>
 </div>
 
 <script>
-// Minimal questions
-const questions = [
-{name:"email", text:"Please enter your email:"},
-{name:"phone", text:"Please enter your phone number:"},
-{name:"zip", text:"What is your ZIP code?"},
-{name:"service", text:"Select service type (New Build / Remodel / Repair):", type:"select", options:["New Build","Remodel","Repair"]}
-];
-
-let currentQuestion = 0;
-const answers = {};
-
 const chatMessages = document.getElementById("chatMessages");
 const chatForm = document.getElementById("chatForm");
-const chatInput = document.getElementById("chatInput");
 
 function displayMessage(text, sender="bot"){
     const div = document.createElement("div");
@@ -74,35 +80,73 @@ function displayMessage(text, sender="bot"){
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-function showNextQuestion(){
-    if(currentQuestion >= questions.length){
-        displayMessage("You can type any additional info or describe the problem below. We'll calculate your estimate automatically!");
-        return;
-    }
-    const q = questions[currentQuestion];
-    displayMessage(q.text);
-    if(q.type==="select"){
-        chatInput.value="";
-        chatInput.setAttribute("list","options");
-        if(!document.getElementById("options")) {
-            const datalist = document.createElement("datalist");
-            datalist.id="options";
-            q.options.forEach(opt=>{
-                const option = document.createElement("option");
-                option.value=opt;
-                datalist.appendChild(option);
-            });
-            document.body.appendChild(datalist);
-        }
-    } else {
-        chatInput.type="text";
-    }
+// Labor estimate calculation only
+function calculateLaborEstimate(serviceType, serviceDetail, zip){
+    let baseRange = [150,450]; // default labor-only
+    if(serviceType==="Repair") baseRange=[150,500];
+    if(serviceType==="Remodel") baseRange=[500,2500]; // labor-only for remodel
+    if(serviceType==="New Build") baseRange=[1000,7000]; // labor-only for new build
+    
+    // Adjust based on service detail
+    if(serviceDetail.includes("Water Heater")) { baseRange[0]+=100; baseRange[1]+=200; }
+    if(serviceDetail.includes("Pipe Replacement")) { baseRange[0]+=50; baseRange[1]+=150; }
+    
+    // Local multiplier
+    const austinZips = [78701,78702,78703,78704,78705,78723,78741,78745,78746];
+    const sanAntonioZips = [78201,78202,78203,78204,78205,78209,78210,78211,78212];
+    zip = parseInt(zip) || 78251;
+    let multiplier=1.0;
+    if(austinZips.includes(zip)) multiplier=1.08;
+    if(sanAntonioZips.includes(zip)) multiplier=1.00;
+    
+    const min=Math.round(baseRange[0]*multiplier);
+    const max=Math.round(baseRange[1]*multiplier);
+    return [min,max];
 }
 
 chatForm.addEventListener("submit", function(e){
     e.preventDefault();
-    const value = chatInput.value.trim();
-    if(!value) return;
+    const name=document.getElementById("name").value.trim();
+    const email=document.getElementById("email").value.trim();
+    const phone=document.getElementById("phone").value.trim();
+    const zip=document.getElementById("zip").value.trim();
+    const serviceType=document.getElementById("serviceType").value;
+    const serviceDetail=document.getElementById("serviceDetail").value;
+    const userNotes=document.getElementById("userNotes").value.trim();
+    
+    displayMessage(`${name}, ${serviceType} - ${serviceDetail}`, "user");
+    if(userNotes) displayMessage(userNotes, "user");
+    
+    const [min,max]=calculateLaborEstimate(serviceType, serviceDetail, zip);
+    
+    displayMessage(`Preliminary Labor Estimate: $${min} – $${max}. Materials, permits, and additional equipment are extra. Final pricing confirmed after inspection by a licensed plumber.`, "bot");
+    document.getElementById("estimateResult").innerHTML = `<strong>Preliminary Labor Estimate:</strong> $${min} – $${max}<br><small>Materials, permits, and additional equipment are extra. Final pricing confirmed after inspection by a licensed plumber.</small>`;
+    
+    // Submit via FormSubmit
+    const formData=new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("phone", phone);
+    formData.append("zip", zip);
+    formData.append("serviceType", serviceType);
+    formData.append("serviceDetail", serviceDetail);
+    formData.append("notes", userNotes);
+    formData.append("_captcha","false");
+    formData.append("_subject","New AI Labor Estimate Submission");
+    formData.append("_template","table");
+    
+    fetch("https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3", { method:"POST", body: formData });
+});
+</script>
+
+<footer style="text-align:center; background:#00539C; color:white; padding:15px;">
+<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+<p><a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
+<a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a></p>
+</footer>
+
+</body>
+</html>    if(!value) return;
     displayMessage(value,"user");
     if(currentQuestion < questions.length){
         answers[questions[currentQuestion].name] = value;
