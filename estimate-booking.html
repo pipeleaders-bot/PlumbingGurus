@@ -3,106 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Fast Estimate & Booking | Plumbing Gurus</title>
+<title>Interactive Estimate | Plumbing Gurus</title>
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-body { font-family: Arial, sans-serif; background:#f4f4f4; margin:0; }
-header { background:#00539C; color:white; padding:15px; text-align:center; }
-header img { height:60px; margin-bottom:10px; }
-nav a { color:white; margin:0 10px; text-decoration:none; }
-.container { max-width:750px; margin:30px auto; background:white; padding:20px; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
-#chatMessages { max-height:250px; overflow-y:auto; margin-bottom:10px; }
-.chat-message { display:flex; padding:10px; margin:5px 0; border-radius:10px; max-width:80%; word-wrap:break-word; }
-.bot-message { background:#e6f7ff; justify-content:flex-start; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
-.user-message { background:#d3f4d3; justify-content:flex-end; margin-left:auto; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
-.chat-message i { margin-right:8px; align-self:center; }
-input, select, textarea, button { width:100%; padding:10px; margin-top:5px; border-radius:5px; border:1px solid #ccc; box-sizing:border-box; }
-button { background:#00539C; color:white; border:none; cursor:pointer; margin-top:10px; }
-#estimateResult { margin-top:20px; padding:15px; background:#e6f7ff; border:1px solid #999; border-radius:5px; font-weight:bold; }
+body { margin:0; font-family: Arial, sans-serif; background:#f4f4f4; }
+header { background:#00539C; color:white; padding:15px; display:flex; align-items:center; justify-content:space-between; }
+header img { height:50px; opacity:0.9; }
+nav a { color:white; margin:0 12px; text-decoration:none; font-weight:bold; }
+.container { max-width:600px; margin:40px auto; padding:20px; background:white; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
+h1 { color:#00539C; text-align:center; }
+#chatBox { border:1px solid #ccc; height:350px; overflow-y:auto; padding:10px; border-radius:5px; margin-bottom:10px; background:#f9f9f9; }
+#userInput { width:100%; padding:10px; border-radius:5px; border:1px solid #ccc; }
+button { margin-top:10px; padding:10px; border-radius:5px; background:#FFD700; font-weight:bold; border:none; cursor:pointer; }
+button:hover { background:#e6c200; }
+.user-msg { color:#00539C; margin:5px 0; font-weight:bold; }
+.ai-msg { color:#333; margin:5px 0; }
+.note { margin-top:10px; font-size:0.9em; color:#00539C; font-weight:bold; }
+footer { text-align:center; background:#00539C; color:white; padding:15px; margin-top:20px; }
+footer a { color:white; text-decoration:underline; margin:0 5px; }
 </style>
 </head>
 <body>
 
 <header>
-<img src="images/logo.png" alt="Plumbing Gurus Logo">
-<h1>Fast AI Estimate & Booking</h1>
+<img src="Logo.png" alt="Plumbing Gurus Logo">
 <nav>
-<a href="index.html">Home</a> | 
-<a href="services.html">Services</a> | 
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="estimate-booking.html">Get Estimate</a>
 <a href="contact.html">Contact</a>
 </nav>
 </header>
 
 <div class="container">
-<div id="chatMessages"></div>
+<h1>Interactive Plumbing Estimate</h1>
+<p>Describe the plumbing work you need below, and our AI assistant will guide you step-by-step to get a preliminary labor estimate. Optional fields can be left blank — we’ll use average values for calculations.</p>
 
-<form id="fastForm" action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
-<input type="text" id="name" name="name" placeholder="Full Name" required>
-<input type="email" id="email" name="email" placeholder="Email" required>
-<input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
-<input type="text" id="zip" name="zip" placeholder="ZIP Code" required>
+<div id="chatBox">
+<div class="ai-msg">Hi! I’m here to help you get a plumbing estimate. What plumbing service do you need today?</div>
+</div>
 
-<select id="serviceType" name="serviceType" required>
-<option value="">Select Service Type</option>
-<option value="New Build">New Build</option>
-<option value="Remodel">Remodel</option>
-<option value="Repair">Repair</option>
-</select>
+<input type="text" id="userInput" placeholder="Type your message here...">
+<button onclick="sendMessage()">Send</button>
 
-<select id="serviceDetail" name="serviceDetail" required>
-<option value="">Select Specific Service</option>
-<option value="Sink Repair">Sink Repair</option>
-<option value="Water Heater">Water Heater</option>
-<option value="Leak Repair">Leak Repair</option>
-<option value="Pipe Replacement">Pipe Replacement</option>
-<option value="Toilet Repair">Toilet Repair</option>
-</select>
-
-<textarea id="userNotes" name="notes" placeholder="Describe your project (AI will detect floor, access, etc.)" rows="4"></textarea>
-
-<label for="date">Preferred Date</label>
-<input type="date" id="date" name="date" required>
-<label for="time">Preferred Time</label>
-<input type="time" id="time" name="time" required>
-
-<button type="submit"><i class="fa fa-paper-plane"></i> Get Fast Estimate & Book</button>
-</form>
-
-<div id="estimateResult"></div>
+<p class="note">Note: This is a preliminary labor estimate. Final pricing may vary depending on materials, access, or additional work. Professional plumbers handle all jobs. 24/7 service available.</p>
 </div>
 
 <script>
-const chatMessages = document.getElementById("chatMessages");
-const form = document.getElementById("fastForm");
+let step = 0;
+let estimateData = {};
 
-function displayMessage(text, sender="bot"){
-    const div = document.createElement("div");
-    div.className = sender==="bot"?"chat-message bot-message":"chat-message user-message";
-    const icon = document.createElement("i");
-    icon.className = sender==="bot"?"fa fa-robot":"fa fa-user";
-    div.appendChild(icon);
-    const span = document.createElement("span");
-    span.textContent = text;
-    div.appendChild(span);
-    chatMessages.appendChild(div);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
+function sendMessage() {
+    const input = document.getElementById('userInput').value.trim();
+    if(input === "") return;
+
+    const chatBox = document.getElementById('chatBox');
+    const userMsg = document.createElement('div');
+    userMsg.className = "user-msg";
+    userMsg.textContent = input;
+    chatBox.appendChild(userMsg);
+
+    document.getElementById('userInput').value = "";
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    const aiMsg = document.createElement('div');
+    aiMsg.className = "ai-msg";
+
+    if(step === 0){
+        estimateData.description = input;
+        aiMsg.textContent = "Thanks! Is this a New Install, Remodel, Repair, or Replacement?";
+        step++;
+    } else if(step === 1){
+        estimateData.serviceType = input;
+        aiMsg.textContent = "How many fixtures (sinks, toilets, showers, etc.) are involved?";
+        step++;
+    } else if(step === 2){
+        estimateData.fixtures = input;
+        aiMsg.textContent = "Optional: Approximate pipe length or distance in feet. If unknown, just type 'skip'.";
+        step++;
+    } else if(step === 3){
+        estimateData.pipeLength = input.toLowerCase() === "skip" || input === "" ? 20 : input; // default 20ft
+        aiMsg.textContent = "Is the work on the first floor, second floor, or basement?";
+        step++;
+    } else if(step === 4){
+        estimateData.floor = input;
+        aiMsg.textContent = "Any special conditions? (e.g., moving lines, rerouting, access issues)";
+        step++;
+    } else if(step === 5){
+        estimateData.notes = input;
+        aiMsg.textContent = "Almost done! Please provide your name, email, phone, and zip code so we can send your preliminary estimate.";
+        step++;
+    } else {
+        estimateData.contact = input;
+        // Here you could send `estimateData` to your backend or FormSubmit
+        aiMsg.textContent = "Thank you! Our professional plumbers will review your request and contact you shortly.";
+    }
+
+    chatBox.appendChild(aiMsg);
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
+</script>
 
-// Parse user notes for optional adjustments
-function detectModifiers(notes){
-    notes = notes.toLowerCase();
-    let floor = "First Floor";
-    let access = "Easy Access";
-    if(notes.includes("second floor") || notes.includes("upstairs")) floor="Second Floor";
-    if(notes.includes("difficult") || notes.includes("hard to reach")) access="Difficult Access";
-    return {floor, access};
-}
+<footer>
+<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+<p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
 
-// Fast labor estimate calculation
-function calculateLaborEstimate(serviceType, serviceDetail, zip, modifiers){
-    let baseRange = [150,450];
-    if(serviceType==="Repair") baseRange=[150,500];
+</body>
+</html>    if(serviceType==="Repair") baseRange=[150,500];
     if(serviceType==="Remodel") baseRange=[500,2500];
     if(serviceType==="New Build") baseRange=[1000,7000];
     if(serviceDetail.includes("Water Heater")) { baseRange[0]+=100; baseRange[1]+=200; }
