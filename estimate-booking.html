@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Fast Estimate & Booking | Plumbing Gurus</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body { font-family: Arial, sans-serif; background:#f4f4f4; margin:0; }
+header { background:#00539C; color:white; padding:15px; text-align:center; }
+header img { height:60px; margin-bottom:10px; }
+nav a { color:white; margin:0 10px; text-decoration:none; }
+.container { max-width:750px; margin:30px auto; background:white; padding:20px; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+#chatMessages { max-height:250px; overflow-y:auto; margin-bottom:10px; }
+.chat-message { display:flex; padding:10px; margin:5px 0; border-radius:10px; max-width:80%; word-wrap:break-word; }
+.bot-message { background:#e6f7ff; justify-content:flex-start; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+.user-message { background:#d3f4d3; justify-content:flex-end; margin-left:auto; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+.chat-message i { margin-right:8px; align-self:center; }
+input, select, textarea, button { width:100%; padding:10px; margin-top:5px; border-radius:5px; border:1px solid #ccc; box-sizing:border-box; }
+button { background:#00539C; color:white; border:none; cursor:pointer; margin-top:10px; }
+#estimateResult { margin-top:20px; padding:15px; background:#e6f7ff; border:1px solid #999; border-radius:5px; font-weight:bold; }
+</style>
+</head>
+<body>
+
+<header>
+<img src="images/logo.png" alt="Plumbing Gurus Logo">
+<h1>Fast AI Estimate & Booking</h1>
+<nav>
+<a href="index.html">Home</a> | 
+<a href="services.html">Services</a> | 
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<div class="container">
+<div id="chatMessages"></div>
+
+<form id="fastForm" action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
+<input type="text" id="name" name="name" placeholder="Full Name" required>
+<input type="email" id="email" name="email" placeholder="Email" required>
+<input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+<input type="text" id="zip" name="zip" placeholder="ZIP Code" required>
+
+<select id="serviceType" name="serviceType" required>
+<option value="">Select Service Type</option>
+<option value="New Build">New Build</option>
+<option value="Remodel">Remodel</option>
+<option value="Repair">Repair</option>
+</select>
+
+<select id="serviceDetail" name="serviceDetail" required>
+<option value="">Select Specific Service</option>
+<option value="Sink Repair">Sink Repair</option>
+<option value="Water Heater">Water Heater</option>
+<option value="Leak Repair">Leak Repair</option>
+<option value="Pipe Replacement">Pipe Replacement</option>
+<option value="Toilet Repair">Toilet Repair</option>
+</select>
+
+<textarea id="userNotes" name="notes" placeholder="Describe your project (AI will detect floor, access, etc.)" rows="4"></textarea>
+
+<label for="date">Preferred Date</label>
+<input type="date" id="date" name="date" required>
+<label for="time">Preferred Time</label>
+<input type="time" id="time" name="time" required>
+
+<button type="submit"><i class="fa fa-paper-plane"></i> Get Fast Estimate & Book</button>
+</form>
+
+<div id="estimateResult"></div>
+</div>
+
+<script>
+const chatMessages = document.getElementById("chatMessages");
+const form = document.getElementById("fastForm");
+
+function displayMessage(text, sender="bot"){
+    const div = document.createElement("div");
+    div.className = sender==="bot"?"chat-message bot-message":"chat-message user-message";
+    const icon = document.createElement("i");
+    icon.className = sender==="bot"?"fa fa-robot":"fa fa-user";
+    div.appendChild(icon);
+    const span = document.createElement("span");
+    span.textContent = text;
+    div.appendChild(span);
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Parse user notes for optional adjustments
+function detectModifiers(notes){
+    notes = notes.toLowerCase();
+    let floor = "First Floor";
+    let access = "Easy Access";
+    if(notes.includes("second floor") || notes.includes("upstairs")) floor="Second Floor";
+    if(notes.includes("difficult") || notes.includes("hard to reach")) access="Difficult Access";
+    return {floor, access};
+}
+
+// Fast labor estimate calculation
+function calculateLaborEstimate(serviceType, serviceDetail, zip, modifiers){
+    let baseRange = [150,450];
+    if(serviceType==="Repair") baseRange=[150,500];
+    if(serviceType==="Remodel") baseRange=[500,2500];
+    if(serviceType==="New Build") baseRange=[1000,7000];
+    if(serviceDetail.includes("Water Heater")) { baseRange[0]+=100; baseRange[1]+=200; }
+    if(serviceDetail.includes("Pipe Replacement")) { baseRange[0]+=50; baseRange[1]+=150; }
+
+    // Floor and access multipliers
+    let multiplier = 1.0;
+    if(modifiers.floor==="Second Floor") multiplier += 0.20;
+    if(modifiers.access==="Difficult Access") multiplier += 0.15;
+
+    // Location multiplier
+    const austinZips = [78701,78702,78703,78704,78705,78723,78741,78745,78746];
+    const sanAntonioZips = [78201,78202,78203,78204,78205,78209,78210,78211,78212];
+    zip = parseInt(zip) || 78251;
+    if(austinZips.includes(zip)) multiplier *= 1.08;
+    if(sanAntonioZips.includes(zip)) multiplier *= 1.00;
+
+    const min = Math.round(baseRange[0]*multiplier);
+    const max = Math.round(baseRange[1]*multiplier);
+    return [min,max];
+}
+
+// Update estimate instantly
+document.getElementById("userNotes").addEventListener("input", ()=>{
+    const serviceType = document.getElementById("serviceType").value;
+    const serviceDetail = document.getElementById("serviceDetail").value;
+    const zip = document.getElementById("zip").value.trim();
+    if(serviceType && serviceDetail && zip){
+        const modifiers = detectModifiers(document.getElementById("userNotes").value);
+        const [min,max] = calculateLaborEstimate(serviceType, serviceDetail, zip, modifiers);
+        document.getElementById("estimateResult").innerHTML = `<strong>Preliminary Labor Estimate:</strong> $${min} – $${max}<br><small>Materials, permits, extra equipment separate. Final pricing after inspection.</small>`;
+    }
+});
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+    const name=document.getElementById("name").value.trim();
+    const email=document.getElementById("email").value.trim();
+    const phone=document.getElementById("phone").value.trim();
+    const zip=document.getElementById("zip").value.trim();
+    const serviceType=document.getElementById("serviceType").value;
+    const serviceDetail=document.getElementById("serviceDetail").value;
+    const date=document.getElementById("date").value;
+    const time=document.getElementById("time").value;
+    const notes=document.getElementById("userNotes").value.trim();
+
+    const modifiers = detectModifiers(notes);
+    const [min,max] = calculateLaborEstimate(serviceType, serviceDetail, zip, modifiers);
+
+    displayMessage(`${name}, ${serviceType} - ${serviceDetail}`, "user");
+    displayMessage(`Floor: ${modifiers.floor}, Access: ${modifiers.access}`, "user");
+    if(notes) displayMessage(notes, "user");
+    displayMessage(`Preliminary Labor Estimate: $${min} – $${max}. Materials, permits, extra equipment separate.`, "bot");
+
+    // Submit all info via FormSubmit
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("phone", phone);
+    formData.append("zip", zip);
+    formData.append("serviceType", serviceType);
+    formData.append("serviceDetail", serviceDetail);
+    formData.append("floorLevel", modifiers.floor);
+    formData.append("access", modifiers.access);
+    formData.append("date", date);
+    formData.append("time", time);
+    formData.append("notes", notes);
+    formData.append("_captcha","false");
+    formData.append("_subject","New Fast AI Estimate & Booking");
+    formData.append("_template","table");
+
+    fetch("https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3", { method:"POST", body: formData });
+});
+</script>
+
+<footer style="text-align:center; background:#00539C; color:white; padding:15px;">
+<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+<p><a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
+<a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a></p>
+</footer>
+
+</body>
+</html>
