@@ -1,109 +1,130 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Quick Estimate | Plumbing Gurus</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Estimate & Booking | Plumbing Gurus</title>
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-body { font-family: Arial, sans-serif; margin:0; background:#f4f4f4; }
-header { background:#00539C; color:white; padding:15px; display:flex; align-items:center; justify-content:space-between; }
-header img { height:50px; opacity:0.9; }
-nav a { color:white; margin:0 12px; text-decoration:none; font-weight:bold; }
-.container { max-width:700px; margin:40px auto; padding:20px; background:white; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
-h1 { color:#00539C; text-align:center; }
-form div { margin-bottom:12px; }
-label { display:block; margin-bottom:5px; font-weight:bold; }
-select, input { width:100%; padding:8px; border-radius:5px; border:1px solid #ccc; }
-#estimateResult { margin-top:15px; font-weight:bold; color:#00539C; }
-button { background:#FFD700; border:none; padding:10px 15px; border-radius:5px; font-weight:bold; cursor:pointer; }
-button:hover { background:#e6c200; }
-footer { text-align:center; background:#00539C; color:white; padding:15px; margin-top:20px; }
-footer a { color:white; text-decoration:underline; margin:0 5px; }
+  body { font-family: Arial, sans-serif; }
+  .form-section { max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; background: #f9f9f9; }
+  label { display:block; margin-top: 10px; }
+  select, input, textarea, button { width: 100%; padding: 8px; margin-top:5px; }
+  #estimateResult { margin-top: 20px; padding: 10px; border: 1px solid #999; background: #e6f7ff; }
 </style>
 </head>
 <body>
+
 <header>
-<img src="Logo.png" alt="Plumbing Gurus Logo">
-<nav>
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="estimate-booking.html">Get Estimate</a>
-<a href="contact.html">Contact</a>
-</nav>
+  <img src="images/logo.png" alt="Plumbing Gurus Logo" class="logo">
+  <h1>Quick Plumbing Estimate</h1>
+  <nav>
+    <a href="index.html"><i class="fa fa-home"></i> Home</a>
+    <a href="services.html"><i class="fa fa-wrench"></i> Services</a>
+    <a href="education.html"><i class="fa fa-book"></i> Education</a>
+    <a href="estimate.html"><i class="fa fa-calculator"></i> Get Estimate</a>
+    <a href="contact.html"><i class="fa fa-envelope"></i> Contact</a>
+  </nav>
 </header>
-<div class="container">
-<h1>Estimate & Booking</h1>
-<form id="estimateForm">
-<div>
-<label for="name">Name</label>
-<input type="text" id="name" required>
-</div>
-<div>
-<label for="email">Email</label>
-<input type="email" id="email" required>
-</div>
-<div>
-<label for="phone">Phone</label>
-<input type="text" id="phone" required>
-</div>
-<div>
-<label for="zip">ZIP Code</label>
-<input type="text" id="zip" required>
-</div>
-<div>
-<label for="serviceType">Service Type</label>
-<select id="serviceType" required>
-<option value="">--Select Service--</option>
-<option value="New Build">New Build</option>
-<option value="Remodel">Remodel</option>
-<option value="Repair">Repair</option>
-<option value="Replacement">Replacement</option>
-</select>
-</div>
-<div>
-<label for="fixtures">Number of Fixtures</label>
-<select id="fixtures" required>
-<option value="">--Select Fixtures--</option>
-<option value="1-2">1-2</option>
-<option value="3-5">3-5</option>
-<option value="6+">6+</option>
-</select>
-</div>
-<div>
-<label for="floor">Floor Level</label>
-<select id="floor" required>
-<option value="">--Select Floor--</option>
-<option value="First Floor">First Floor</option>
-<option value="Second Floor">Second Floor</option>
-<option value="Basement">Basement</option>
-</select>
-</div>
-<div>
-<label for="access">Access Difficulty</label>
-<select id="access" required>
-<option value="">--Select Access--</option>
-<option value="Easy">Easy</option>
-<option value="Difficult">Difficult</option>
-</select>
-</div>
-<div>
-<label for="notes">Additional Notes (Optional)</label>
-<input type="text" id="notes" placeholder="Describe any special requirements">
-</div>
-<div id="estimateResult">Preliminary Estimate: $0 - $0 (Labor only)</div>
-<div>
-<button type="submit">Submit Booking</button>
-</div>
-</form>
-</div>
-<form id="hiddenForm" action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST" style="display:none;">
-<input type="text" name="name" id="formName">
-<input type="text" name="email" id="formEmail">
-<input type="text" name="phone" id="formPhone">
-<input type="text" name="zip" id="formZip">
-<input type="text" name="serviceType" id="formServiceType">
-<input type="text" name="fixtures" id="formFixtures">
-<input type="text" name="floor" id="formFloor">
+
+<section class="form-section">
+  <form id="quickEstimateForm">
+    <label>Name:</label>
+    <input type="text" id="name" required>
+
+    <label>Email:</label>
+    <input type="email" id="email" required>
+
+    <label>Phone:</label>
+    <input type="text" id="phone" required>
+
+    <label>Property Type:</label>
+    <select id="property">
+      <option value="House">House</option>
+      <option value="Apartment">Apartment</option>
+      <option value="Commercial">Commercial</option>
+    </select>
+
+    <label>Service Type:</label>
+    <select id="service">
+      <option value="Repair">Repair</option>
+      <option value="Replacement">Replacement</option>
+      <option value="Renovation">Renovation</option>
+      <option value="New Build">New Build</option>
+    </select>
+
+    <label>Problem / Fixture:</label>
+    <select id="problem">
+      <option value="Clogged Drain">Clogged Drain</option>
+      <option value="Leaky Faucet">Leaky Faucet</option>
+      <option value="Toilet Repair">Toilet Repair</option>
+      <option value="Garbage Disposal">Garbage Disposal</option>
+      <option value="Water Heater Diagnostics">Water Heater Diagnostics</option>
+    </select>
+
+    <label>Additional Info (floor, accessibility, etc.):</label>
+    <textarea id="details"></textarea>
+
+    <button type="submit">Get Preliminary Estimate</button>
+  </form>
+
+  <div id="estimateResult"></div>
+</section>
+
+<script>
+document.getElementById('quickEstimateForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  // Collect user data
+  const userData = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    property: document.getElementById('property').value,
+    service: document.getElementById('service').value,
+    problem: document.getElementById('problem').value,
+    details: document.getElementById('details').value
+  };
+
+  // Estimate logic
+  let estimate = "";
+  if(userData.service === "Repair"){
+    estimate = "$50 - $250";
+  } else if(userData.service === "Replacement"){
+    estimate = "$150 - $400";
+  } else if(userData.service === "Renovation"){
+    estimate = "$300 - $1,000+";
+  } else if(userData.service === "New Build"){
+    estimate = "$500 - $3,000+";
+  }
+
+  // Display estimate
+  document.getElementById('estimateResult').innerHTML = `
+    <h3>Preliminary Estimate: ${estimate}</h3>
+    <p>Note: This is a preliminary estimate. Final pricing will depend on inspection and licensed plumber evaluation.</p>
+  `;
+
+  // Send data to your email via FormSubmit
+  fetch("https://formsubmit.co/YOUR_EMAIL@gmail.com", {
+    method: "POST",
+    headers: { 'Content-Type':'application/json' },
+    body: JSON.stringify(userData)
+  }).then(() => console.log("Client info sent!"))
+    .catch(err => console.error("Error sending client info:", err));
+});
+</script>
+
+<footer>
+<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+<p>
+<a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
+<a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a>
+</p>
+</footer>
+
+</body>
+</html><input type="text" name="floor" id="formFloor">
 <input type="text" name="access" id="formAccess">
 <input type="text" name="notes" id="formNotes">
 <input type="hidden" name="_captcha" value="false">
