@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +21,8 @@ footer { text-align:center; background:#00539C; color:white; padding:15px; margi
 footer a { color:white; text-decoration:underline; margin:0 5px; }
 </style>
 </head>
-<body><header>
+<body>
+<header>
 <img src="Logo.png" alt="Plumbing Gurus Logo">
 <nav>
 <a href="index.html">Home</a>
@@ -28,80 +30,93 @@ footer a { color:white; text-decoration:underline; margin:0 5px; }
 <a href="estimate-booking.html">Get Estimate</a>
 <a href="contact.html">Contact</a>
 </nav>
-</header><div class="container">
+</header>
+<div class="container">
 <h1>Interactive Estimate & Booking</h1>
 <div id="chatBox">
-<div class="ai-msg">Hi! Please briefly describe your plumbing issue or project to get started.</div>
+<div class="ai-msg">Hi! Please describe your plumbing issue or project.</div>
 </div>
 <input type="text" id="userInput" placeholder="Type your message here...">
 <button id="sendBtn">Send</button>
 <div id="choices"></div>
 <div id="estimateResult"></div>
-</div><form id="hiddenForm" action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST" style="display:none;">
-  <input type="text" name="description" id="formDescription">
-  <input type="text" name="serviceType" id="formServiceType">
-  <input type="text" name="fixtures" id="formFixtures">
-  <input type="text" name="pipeLength" id="formPipeLength">
-  <input type="text" name="floorLevel" id="formFloor">
-  <input type="text" name="access" id="formAccess">
-  <input type="text" name="date" id="formDate">
-  <input type="text" name="time" id="formTime">
-  <input type="text" name="contact" id="formContact">
-  <input type="text" name="notes" id="formNotes">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_subject" value="New Fast AI Estimate & Booking">
-  <input type="hidden" name="_template" value="table">
-</form><script>
-let step = 0;
-let estimateData = {};
-const serviceOptions = ["New Build","Remodel","Repair","Replacement"];
-const fixtureOptions = ["1-2","3-5","6+"];
-const pipeOptions = ["<10ft","10-20ft","20+ft","Unknown"];
-const floorOptions = ["First Floor","Second Floor","Basement"];
-const accessOptions = ["Easy","Difficult"];
+</div>
+<form id="hiddenForm" action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST" style="display:none;">
+<input type="text" name="description" id="formDescription">
+<input type="text" name="serviceType" id="formServiceType">
+<input type="text" name="fixtures" id="formFixtures">
+<input type="text" name="pipeLength" id="formPipeLength">
+<input type="text" name="floorLevel" id="formFloor">
+<input type="text" name="access" id="formAccess">
+<input type="text" name="date" id="formDate">
+<input type="text" name="time" id="formTime">
+<input type="text" name="contact" id="formContact">
+<input type="text" name="notes" id="formNotes">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="New Fast AI Estimate & Booking">
+<input type="hidden" name="_template" value="table">
+</form>
+<script>
+let step=0;
+let estimateData={description:'', serviceType:'', fixtures:'', pipeLength:'', floor:'', access:'', notes:'', contact:'', email:'', phone:'', zip:'', date:'', time:''};
 
-function displayAI(msg){
-  const chatBox = document.getElementById("chatBox");
-  const div = document.createElement("div");
-  div.className = "ai-msg";
-  div.textContent = msg;
-  chatBox.appendChild(div);
-  chatBox.scrollTop = chatBox.scrollHeight;
-}
+const serviceOptions=["New Build","Remodel","Repair","Replacement"];
+const fixtureOptions=["1-2","3-5","6+"];
+const pipeOptions=["<10ft","10-20ft","20+ft","Unknown"];
+const floorOptions=["First Floor","Second Floor","Basement"];
+const accessOptions=["Easy","Difficult"];
 
-function displayChoices(options, callback){
-  const div = document.getElementById("choices");
-  div.innerHTML = "";
-  options.forEach(opt => {
-    const btn = document.createElement("button");
-    btn.className = "choice-btn";
-    btn.textContent = opt;
-    btn.onclick = () => { callback(opt); };
-    div.appendChild(btn);
-  });
-}
+function displayAI(msg){const chatBox=document.getElementById("chatBox"); const div=document.createElement("div"); div.className="ai-msg"; div.textContent=msg; chatBox.appendChild(div); chatBox.scrollTop=chatBox.scrollHeight;}
+function displayChoices(options,callback){const div=document.getElementById("choices"); div.innerHTML=""; options.forEach(opt=>{const btn=document.createElement("button"); btn.className="choice-btn"; btn.textContent=opt; btn.onclick=()=>{callback(opt);}; div.appendChild(btn);});}
 
 function calculateLaborEstimate(serviceType, fixtures, pipeLength, modifiers, zip){
-    let baseRange;
-    if(serviceType==="Repair") baseRange=[150,500];
-    else if(serviceType==="Remodel") baseRange=[500,2500];
-    else if(serviceType==="New Build") baseRange=[1000,7000];
-    else baseRange=[200,1000];
-    let multiplier=1.0;
-    if(modifiers.floor==="Second Floor") multiplier+=0.2;
-    if(modifiers.access==="Difficult") multiplier+=0.15;
-    zip=parseInt(zip)||78251;
-    const sanAntonioZips=[78201,78202,78203,78204,78205,78209,78210,78211,78212];
-    if(sanAntonioZips.includes(zip)) multiplier*=1.0;
-    const min=Math.round(baseRange[0]*multiplier);
-    const max=Math.round(baseRange[1]*multiplier);
-    return [min,max];
-}
+let baseRange;if(serviceType==="Repair") baseRange=[150,500]; else if(serviceType==="Remodel") baseRange=[500,2500]; else if(serviceType==="New Build") baseRange=[1000,7000]; else baseRange=[200,1000];
+let multiplier=1.0;
+if(modifiers.floor==="Second Floor") multiplier+=0.2;
+if(modifiers.access==="Difficult") multiplier+=0.15;
+zip=parseInt(zip)||78251;
+const sanAntonioZips=[78201,78202,78203,78204,78205,78209,78210,78211,78212];
+if(sanAntonioZips.includes(zip)) multiplier*=1.0;
+const min=Math.round(baseRange[0]*multiplier); const max=Math.round(baseRange[1]*multiplier);
+return [min,max];}
 
 function nextStep(input){
-    if(step===0){
-        estimateData.description=input;
-        displayAI(input);
+const chatBox=document.getElementById("chatBox");
+if(step===0){estimateData.description=input; displayAI(input); displayAI("Please select your service type:"); displayChoices(serviceOptions,nextStep); step++;}
+else if(step===1){estimateData.serviceType=input; displayAI("How many fixtures?"); displayChoices(fixtureOptions,nextStep); step++;}
+else if(step===2){estimateData.fixtures=input; displayAI("Approximate pipe length?"); displayChoices(pipeOptions,nextStep); step++;}
+else if(step===3){estimateData.pipeLength=input; displayAI("Which floor is the work on?"); displayChoices(floorOptions,nextStep); step++;}
+else if(step===4){estimateData.floor=input; displayAI("Access difficulty?"); displayChoices(accessOptions,nextStep); step++;}
+else if(step===5){displayAI("Any additional notes? (optional)"); const notesInput=document.createElement("input"); notesInput.id="userNotes"; notesInput.placeholder="Type notes here"; document.getElementById("choices").appendChild(notesInput); const sendBtn=document.createElement("button"); sendBtn.className="choice-btn"; sendBtn.textContent="Submit Notes"; sendBtn.onclick=function(){estimateData.notes=notesInput.value.trim(); document.getElementById("choices").innerHTML=""; displayAI("Finally, provide: Name, Email, Phone, Zip, Preferred Date & Time (comma separated)"); const contactInput=document.createElement("input"); contactInput.id="contactInfo"; contactInput.placeholder="John Doe,email@example.com,123-456-7890,78251,2026-01-02,10:00"; document.getElementById("choices").appendChild(contactInput); const submitBtn=document.createElement("button"); submitBtn.className="choice-btn"; submitBtn.textContent="Submit Booking"; submitBtn.onclick=function(){const parts=contactInput.value.split(","); estimateData.contact=parts[0]?.trim()||""; estimateData.email=parts[1]?.trim()||""; estimateData.phone=parts[2]?.trim()||""; estimateData.zip=parts[3]?.trim()||"78251"; estimateData.date=parts[4]?.trim()||""; estimateData.time=parts[5]?.trim()||""; finalizeEstimate();}; document.getElementById("choices").appendChild(submitBtn);}; document.getElementById("choices").appendChild(sendBtn);}
+}
+
+function finalizeEstimate(){
+const modifiers={floor:estimateData.floor, access:estimateData.access};
+const [min,max]=calculateLaborEstimate(estimateData.serviceType, estimateData.fixtures, estimateData.pipeLength, modifiers, estimateData.zip);
+document.getElementById("estimateResult").innerHTML=`Preliminary Labor Estimate: $${min} – $${max} <br><em>Disclaimer: This is an estimate only. Actual pricing may vary.</em>`;
+document.getElementById("formDescription").value=estimateData.description;
+document.getElementById("formServiceType").value=estimateData.serviceType;
+document.getElementById("formFixtures").value=estimateData.fixtures;
+document.getElementById("formPipeLength").value=estimateData.pipeLength;
+document.getElementById("formFloor").value=estimateData.floor;
+document.getElementById("formAccess").value=estimateData.access;
+document.getElementById("formDate").value=estimateData.date;
+document.getElementById("formTime").value=estimateData.time;
+document.getElementById("formContact").value=estimateData.contact;
+document.getElementById("formNotes").value=estimateData.notes;
+document.getElementById("hiddenForm").submit();
+displayAI("Thank you! Your estimate & booking request has been sent. Our plumbers will contact you shortly.");}
+
+document.getElementById("sendBtn").addEventListener("click",()=>{
+const input=document.getElementById("userInput").value.trim(); if(input) nextStep(input); document.getElementById("userInput").value="";
+});
+</script>
+<footer>
+<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+<p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+</body>
+</html>
         displayAI("Please select your service type:");
         displayChoices(serviceOptions,nextStep);
         step++;
