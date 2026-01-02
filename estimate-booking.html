@@ -49,6 +49,17 @@ footer a { color:white; text-decoration:underline; margin:0 5px; }
 <p class="note">Note: This is a preliminary labor estimate. Final pricing may vary depending on materials, access, or additional work. Professional plumbers handle all jobs. 24/7 service available.</p>
 </div>
 
+<!-- Hidden form to submit data to email -->
+<form id="hiddenForm" action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST" style="display:none;">
+  <input type="text" name="description" id="formDescription">
+  <input type="text" name="serviceType" id="formServiceType">
+  <input type="text" name="fixtures" id="formFixtures">
+  <input type="text" name="pipeLength" id="formPipeLength">
+  <input type="text" name="floor" id="formFloor">
+  <input type="text" name="notes" id="formNotes">
+  <input type="text" name="contact" id="formContact">
+</form>
+
 <script>
 let step = 0;
 let estimateData = {};
@@ -69,6 +80,7 @@ function sendMessage() {
     const aiMsg = document.createElement('div');
     aiMsg.className = "ai-msg";
 
+    // Step-by-step AI questions
     if(step === 0){
         estimateData.description = input;
         aiMsg.textContent = "Thanks! Is this a New Install, Remodel, Repair, or Replacement?";
@@ -79,10 +91,10 @@ function sendMessage() {
         step++;
     } else if(step === 2){
         estimateData.fixtures = input;
-        aiMsg.textContent = "Optional: Approximate pipe length or distance in feet. If unknown, just type 'skip'.";
+        aiMsg.textContent = "Optional: Approximate pipe length or distance in feet. If unknown, type 'skip'.";
         step++;
     } else if(step === 3){
-        estimateData.pipeLength = input.toLowerCase() === "skip" || input === "" ? 20 : input; // default 20ft
+        estimateData.pipeLength = (input.toLowerCase() === "skip" || input === "") ? 20 : input; // default 20ft
         aiMsg.textContent = "Is the work on the first floor, second floor, or basement?";
         step++;
     } else if(step === 4){
@@ -95,14 +107,34 @@ function sendMessage() {
         step++;
     } else {
         estimateData.contact = input;
-        // Here you could send `estimateData` to your backend or FormSubmit
-        aiMsg.textContent = "Thank you! Our professional plumbers will review your request and contact you shortly.";
+
+        // Populate hidden form fields
+        document.getElementById('formDescription').value = estimateData.description;
+        document.getElementById('formServiceType').value = estimateData.serviceType;
+        document.getElementById('formFixtures').value = estimateData.fixtures;
+        document.getElementById('formPipeLength').value = estimateData.pipeLength;
+        document.getElementById('formFloor').value = estimateData.floor;
+        document.getElementById('formNotes').value = estimateData.notes;
+        document.getElementById('formContact').value = estimateData.contact;
+
+        // Submit the form automatically
+        document.getElementById('hiddenForm').submit();
+
+        aiMsg.textContent = "Thank you! Your estimate request has been sent. Our professional plumbers will review it and contact you shortly.";
     }
 
     chatBox.appendChild(aiMsg);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 </script>
+
+<footer>
+<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+<p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
+</body>
+</html></script>
 
 <footer>
 <p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
