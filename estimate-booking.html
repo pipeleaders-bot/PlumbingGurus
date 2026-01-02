@@ -12,13 +12,11 @@ header img { height:50px; opacity:0.9; }
 nav a { color:white; margin:0 12px; text-decoration:none; font-weight:bold; }
 .container { max-width:700px; margin:40px auto; padding:20px; background:white; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
 h1 { color:#00539C; text-align:center; }
-#chatBox { border:1px solid #ccc; height:400px; overflow-y:auto; padding:10px; border-radius:5px; margin-bottom:10px; background:#f9f9f9; }
-#userInput { width:100%; padding:10px; border-radius:5px; border:1px solid #ccc; }
-button { margin-top:10px; padding:12px; border-radius:5px; background:#FFD700; font-weight:bold; border:none; cursor:pointer; }
-button:hover { background:#e6c200; }
-.user-msg { color:#00539C; margin:5px 0; font-weight:bold; }
-.ai-msg { color:#333; margin:5px 0; }
+#chatBox { border:1px solid #ccc; height:450px; overflow-y:auto; padding:10px; border-radius:5px; margin-bottom:10px; background:#f9f9f9; }
 #estimateResult { margin-top:10px; font-weight:bold; color:#00539C; }
+button.choice-btn { margin:5px 5px 5px 0; padding:8px 12px; border:none; border-radius:5px; background:#FFD700; font-weight:bold; cursor:pointer; }
+button.choice-btn:hover { background:#e6c200; }
+#userNotes { width:100%; padding:10px; border-radius:5px; border:1px solid #ccc; margin-top:5px; margin-bottom:10px; }
 footer { text-align:center; background:#00539C; color:white; padding:15px; margin-top:20px; }
 footer a { color:white; text-decoration:underline; margin:0 5px; }
 </style>
@@ -39,11 +37,10 @@ footer a { color:white; text-decoration:underline; margin:0 5px; }
 <h1>Interactive Estimate & Booking</h1>
 
 <div id="chatBox">
-<div class="ai-msg">Hi! I’m here to help you get a preliminary labor estimate. What plumbing service do you need today?</div>
+<div class="ai-msg">Hi! I’m here to help you get a preliminary labor estimate. Click your service type to begin.</div>
 </div>
 
-<input type="text" id="userInput" placeholder="Type your message here...">
-<button onclick="sendMessage()">Send</button>
+<div id="choices"></div>
 
 <div id="estimateResult"></div>
 </div>
@@ -70,276 +67,33 @@ footer a { color:white; text-decoration:underline; margin:0 5px; }
 let step = 0;
 let estimateData = {};
 
-function detectModifiers(notes){
-    return {
-        floor: estimateData.floor || "First Floor",
-        access: estimateData.access || "Easy"
-    };
+// Service options
+const serviceOptions = ["New Build", "Remodel", "Repair", "Replacement"];
+const fixtureOptions = ["1-2", "3-5", "6+"];
+const pipeOptions = ["<10ft", "10-20ft", "20+ft", "Unknown"];
+const floorOptions = ["First Floor", "Second Floor", "Basement"];
+const accessOptions = ["Easy", "Difficult"];
+
+// Helpers
+function detectModifiers(){
+    return { floor: estimateData.floor || "First Floor", access: estimateData.access || "Easy" };
 }
 
-function calculateLaborEstimate(serviceType, serviceDetail, zip, modifiers){
+function calculateLaborEstimate(serviceType, fixtures, pipeLength, modifiers, zip){
     let baseRange;
     if(serviceType==="Repair") baseRange=[150,500];
     else if(serviceType==="Remodel") baseRange=[500,2500];
     else if(serviceType==="New Build") baseRange=[1000,7000];
     else baseRange=[200,1000];
 
-    if(serviceDetail.includes("Water Heater")) { baseRange[0]+=100; baseRange[1]+=200; }
-    if(serviceDetail.includes("Pipe Replacement")) { baseRange[0]+=50; baseRange[1]+=150; }
-
-    let multiplier = 1.0;
-    if(modifiers.floor==="Second Floor") multiplier += 0.20;
-    if(modifiers.access==="Difficult Access") multiplier += 0.15;
-
-    const austinZips = [78701,78702,78703,78704,78705,78723,78741,78745,78746];
-    const sanAntonioZips = [78201,78202,78203,78204,78205,78209,78210,78211,78212];
-    zip = parseInt(zip) || 78251;
-    if(austinZips.includes(zip)) multiplier *= 1.08;
-    if(sanAntonioZips.includes(zip)) multiplier *= 1.00;
-
-    const min = Math.round(baseRange[0]*multiplier);
-    const max = Math.round(baseRange[1]*multiplier);
-    return [min,max];
-}
-
-function updateEstimate(){
-    if(!estimateData.serviceType || !estimateData.zip) return;
-    const modifiers = detectModifiers(estimateData.notes || "");
-    const [min,max] = calculateLaborEstimate(estimateData.serviceType, estimateData.serviceDetail || "", estimateData.zip, modifiers);
-    document.getElementById("estimateResult").innerHTML = `Preliminary Labor Estimate: $${min} – $${max} (Materials, permits, extra equipment separate)`;
-}
-
-function sendMessage(){
-    const input = document.getElementById("userInput").value.trim();
-    if(!input) return;
-
-    const chatBox = document.getElementById("chatBox");
-    const userMsg = document.createElement("div");
-    userMsg.className = "user-msg";
-    userMsg.textContent = input;
-    chatBox.appendChild(userMsg);
-
-    document.getElementById("userInput").value="";
-    chatBox.scrollTop = chatBox.scrollHeight;
-
-    const aiMsg = document.createElement("div");
-    aiMsg.className = "ai-msg";
-
-    if(step===0){
-        estimateData.description=input;
-        aiMsg.textContent="Great! Is this a New Build, Remodel, Repair, or Replacement?";
-        step++;
-    } else if(step===1){
-        estimateData.serviceType=input;
-        aiMsg.textContent="How many fixtures (sinks, toilets, showers, etc.)?";
-        step++;
-    } else if(step===2){
-        estimateData.fixtures=input;
-        aiMsg.textContent="Optional: approximate pipe length in feet. Type 'skip' if unknown.";
-        step++;
-    } else if(step===3){
-        estimateData.pipeLength=(input.toLowerCase()==="skip" || input==="")?20:input;
-        aiMsg.textContent="Which floor is the work on? First Floor, Second Floor, Basement?";
-        step++;
-    } else if(step===4){
-        estimateData.floor=input;
-        aiMsg.textContent="Access difficulty? Easy or Difficult Access?";
-        step++;
-    } else if(step===5){
-        estimateData.access=input;
-        aiMsg.textContent="Any additional notes about the work?";
-        step++;
-    } else if(step===6){
-        estimateData.notes=input;
-        aiMsg.textContent="Finally, provide name, email, phone, zip, preferred date & time separated by commas (e.g., John Doe, email@example.com, 123-456-7890, 78251, 2026-01-02, 10:00)";
-        step++;
-    } else {
-        const parts=input.split(",");
-        estimateData.contact=parts[0]?.trim() || "";
-        estimateData.email=parts[1]?.trim() || "";
-        estimateData.phone=parts[2]?.trim() || "";
-        estimateData.zip=parts[3]?.trim() || "";
-        estimateData.date=parts[4]?.trim() || "";
-        estimateData.time=parts[5]?.trim() || "";
-
-        updateEstimate();
-
-        document.getElementById("formDescription").value=estimateData.description;
-        document.getElementById("formServiceType").value=estimateData.serviceType;
-        document.getElementById("formServiceDetail").value=estimateData.description;
-        document.getElementById("formFixtures").value=estimateData.fixtures;
-        document.getElementById("formPipeLength").value=estimateData.pipeLength;
-        document.getElementById("formFloor").value=estimateData.floor;
-        document.getElementById("formAccess").value=estimateData.access;
-        document.getElementById("formDate").value=estimateData.date;
-        document.getElementById("formTime").value=estimateData.time;
-        document.getElementById("formContact").value=estimateData.contact;
-        document.getElementById("formNotes").value=estimateData.notes;
-
-        document.getElementById("hiddenForm").submit();
-
-        aiMsg.textContent="Thank you! Your estimate and booking request has been sent. Our professional plumbers will contact you shortly.";
-    }
-
-    chatBox.appendChild(aiMsg);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-</script>
-
-<footer>
-<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
-<p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
-</footer>
-
-</body>
-</html>    return [min,max];
-}
-
-function updateEstimate(){
-    if(!estimateData.serviceType || !estimateData.zip) return;
-    const modifiers = detectModifiers(estimateData.notes || "");
-    const [min,max] = calculateLaborEstimate(estimateData.serviceType, estimateData.serviceDetail || "", estimateData.zip, modifiers);
-    document.getElementById("estimateResult").innerHTML = `**Preliminary Labor Estimate:** $${min} – $${max} (Materials, permits, extra equipment separate)`;
-}
-
-function sendMessage(){
-    const input = document.getElementById("userInput").value.trim();
-    if(!input) return;
-
-    const chatBox = document.getElementById("chatBox");
-    const userMsg = document.createElement("div");
-    userMsg.className = "user-msg";
-    userMsg.textContent = input;
-    chatBox.appendChild(userMsg);
-
-    document.getElementById("userInput").value="";
-    chatBox.scrollTop = chatBox.scrollHeight;
-
-    const aiMsg = document.createElement("div");
-    aiMsg.className = "ai-msg";
-
-    if(step===0){
-        estimateData.description=input;
-        aiMsg.textContent="Great! Is this a New Build, Remodel, Repair, or Replacement?";
-        step++;
-    } else if(step===1){
-        estimateData.serviceType=input;
-        aiMsg.textContent="How many fixtures (sinks, toilets, showers, etc.)?";
-        step++;
-    } else if(step===2){
-        estimateData.fixtures=input;
-        aiMsg.textContent="Optional: approximate pipe length in feet. Type 'skip' if unknown.";
-        step++;
-    } else if(step===3){
-        estimateData.pipeLength=(input.toLowerCase()==="skip" || input==="")?20:input;
-        aiMsg.textContent="Which floor is the work on? First Floor, Second Floor, Basement?";
-        step++;
-    } else if(step===4){
-        estimateData.floor=input;
-        aiMsg.textContent="Access difficulty? Easy or Difficult Access?";
-        step++;
-    } else if(step===5){
-        estimateData.access=input;
-        aiMsg.textContent="Any additional notes about the work?";
-        step++;
-    } else if(step===6){
-        estimateData.notes=input;
-        aiMsg.textContent="Almost done! Please provide your name, email, phone, zip code, preferred date, and time (e.g., John Doe, email@example.com, 123-456-7890, 78251, 2026-01-02, 10:00)";
-        step++;
-    } else {
-        // Parse user input for contact and booking
-        const parts=input.split(",");
-        estimateData.contact=parts[0]?.trim() || "";
-        estimateData.email=parts[1]?.trim() || "";
-        estimateData.phone=parts[2]?.trim() || "";
-        estimateData.zip=parts[3]?.trim() || "";
-        estimateData.date=parts[4]?.trim() || "";
-        estimateData.time=parts[5]?.trim() || "";
-
-        updateEstimate();
-
-        // Populate hidden form
-        document.getElementById("formDescription").value=estimateData.description;
-        document.getElementById("formServiceType").value=estimateData.serviceType;
-        document.getElementById("formServiceDetail").value=estimateData.description;
-        document.getElementById("formFixtures").value=estimateData.fixtures;
-        document.getElementById("formPipeLength").value=estimateData.pipeLength;
-        document.getElementById("formFloor").value=estimateData.floor;
-        document.getElementById("formAccess").value=estimateData.access;
-        document.getElementById("formDate").value=estimateData.date;
-        document.getElementById("formTime").value=estimateData.time;
-        document.getElementById("formContact").value=estimateData.contact;
-        document.getElementById("formNotes").value=estimateData.notes;
-
-        // Submit to FormSubmit
-        document.getElementById("hiddenForm").submit();
-
-        aiMsg.textContent="Thank you! Your estimate and booking request has been sent. Our professional plumbers will review it and contact you shortly.";
-    }
-
-    chatBox.appendChild(aiMsg);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-</script>
-
-<footer>
-<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
-<p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
-</footer>
-
-</body>
-</html>        estimateData.notes = input;
-        aiMsg.textContent = "Almost done! Please provide your name, email, phone, and zip code so we can send your preliminary estimate.";
-        step++;
-    } else {
-        estimateData.contact = input;
-
-        // Populate hidden form fields
-        document.getElementById('formDescription').value = estimateData.description;
-        document.getElementById('formServiceType').value = estimateData.serviceType;
-        document.getElementById('formFixtures').value = estimateData.fixtures;
-        document.getElementById('formPipeLength').value = estimateData.pipeLength;
-        document.getElementById('formFloor').value = estimateData.floor;
-        document.getElementById('formNotes').value = estimateData.notes;
-        document.getElementById('formContact').value = estimateData.contact;
-
-        // Submit the form automatically
-        document.getElementById('hiddenForm').submit();
-
-        aiMsg.textContent = "Thank you! Your estimate request has been sent. Our professional plumbers will review it and contact you shortly.";
-    }
-
-    chatBox.appendChild(aiMsg);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-</script>
-
-<footer>
-<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
-<p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
-</footer>
-
-</body>
-</html></script>
-
-<footer>
-<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
-<p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
-</footer>
-
-</body>
-</html>    if(serviceType==="Repair") baseRange=[150,500];
-    if(serviceType==="Remodel") baseRange=[500,2500];
-    if(serviceType==="New Build") baseRange=[1000,7000];
-    if(serviceDetail.includes("Water Heater")) { baseRange[0]+=100; baseRange[1]+=200; }
-    if(serviceDetail.includes("Pipe Replacement")) { baseRange[0]+=50; baseRange[1]+=150; }
+    if(serviceType.includes("Water Heater")) { baseRange[0]+=100; baseRange[1]+=200; }
 
     // Floor and access multipliers
     let multiplier = 1.0;
     if(modifiers.floor==="Second Floor") multiplier += 0.20;
-    if(modifiers.access==="Difficult Access") multiplier += 0.15;
+    if(modifiers.access==="Difficult") multiplier += 0.15;
 
-    // Location multiplier
+    // Zip multipliers
     const austinZips = [78701,78702,78703,78704,78705,78723,78741,78745,78746];
     const sanAntonioZips = [78201,78202,78203,78204,78205,78209,78210,78211,78212];
     zip = parseInt(zip) || 78251;
@@ -351,63 +105,118 @@ function sendMessage(){
     return [min,max];
 }
 
-// Update estimate instantly
-document.getElementById("userNotes").addEventListener("input", ()=>{
-    const serviceType = document.getElementById("serviceType").value;
-    const serviceDetail = document.getElementById("serviceDetail").value;
-    const zip = document.getElementById("zip").value.trim();
-    if(serviceType && serviceDetail && zip){
-        const modifiers = detectModifiers(document.getElementById("userNotes").value);
-        const [min,max] = calculateLaborEstimate(serviceType, serviceDetail, zip, modifiers);
-        document.getElementById("estimateResult").innerHTML = `<strong>Preliminary Labor Estimate:</strong> $${min} – $${max}<br><small>Materials, permits, extra equipment separate. Final pricing after inspection.</small>`;
+// Display AI message
+function displayAI(message){
+    const chatBox = document.getElementById("chatBox");
+    const msgDiv = document.createElement("div");
+    msgDiv.className="ai-msg";
+    msgDiv.textContent=message;
+    chatBox.appendChild(msgDiv);
+    chatBox.scrollTop=chatBox.scrollHeight;
+}
+
+// Display buttons
+function displayChoices(options, callback){
+    const div = document.getElementById("choices");
+    div.innerHTML="";
+    options.forEach(opt=>{
+        const btn = document.createElement("button");
+        btn.className="choice-btn";
+        btn.textContent=opt;
+        btn.onclick=()=>{ callback(opt); div.innerHTML=""; };
+        div.appendChild(btn);
+    });
+}
+
+// Steps
+function nextStep(input){
+    if(step===0){
+        estimateData.serviceType=input;
+        displayAI("How many fixtures (sinks, toilets, showers, etc.)?");
+        displayChoices(fixtureOptions, nextStep);
+        step++;
+    } else if(step===1){
+        estimateData.fixtures=input;
+        displayAI("Approximate pipe length?");
+        displayChoices(pipeOptions, nextStep);
+        step++;
+    } else if(step===2){
+        estimateData.pipeLength=input;
+        displayAI("Which floor is the work on?");
+        displayChoices(floorOptions, nextStep);
+        step++;
+    } else if(step===3){
+        estimateData.floor=input;
+        displayAI("Access difficulty?");
+        displayChoices(accessOptions, nextStep);
+        step++;
+    } else if(step===4){
+        estimateData.access=input;
+        displayAI("Any additional notes? (optional, type below)");
+        const notesInput = document.createElement("input");
+        notesInput.id="userNotes";
+        notesInput.placeholder="Type notes here";
+        document.getElementById("choices").appendChild(notesInput);
+        const sendBtn = document.createElement("button");
+        sendBtn.textContent="Submit Notes";
+        sendBtn.className="choice-btn";
+        sendBtn.onclick=function(){
+            estimateData.notes=document.getElementById("userNotes").value.trim();
+            document.getElementById("choices").innerHTML="";
+            displayAI("Finally, provide: Name, Email, Phone, Zip, Preferred Date & Time (e.g., John Doe, email@example.com, 123-456-7890, 78251, 2026-01-02, 10:00)");
+            const contactInput = document.createElement("input");
+            contactInput.id="contactInfo";
+            contactInput.placeholder="Type info here";
+            document.getElementById("choices").appendChild(contactInput);
+            const submitBtn = document.createElement("button");
+            submitBtn.textContent="Submit Booking";
+            submitBtn.className="choice-btn";
+            submitBtn.onclick=function(){
+                const parts=contactInput.value.split(",");
+                estimateData.contact=parts[0]?.trim()||"";
+                estimateData.email=parts[1]?.trim()||"";
+                estimateData.phone=parts[2]?.trim()||"";
+                estimateData.zip=parts[3]?.trim()||"78251";
+                estimateData.date=parts[4]?.trim()||"";
+                estimateData.time=parts[5]?.trim()||"";
+                finalizeEstimate();
+            };
+            document.getElementById("choices").appendChild(submitBtn);
+        };
+        document.getElementById("choices").appendChild(sendBtn);
     }
-});
+}
 
-form.addEventListener("submit", function(e){
-    e.preventDefault();
-    const name=document.getElementById("name").value.trim();
-    const email=document.getElementById("email").value.trim();
-    const phone=document.getElementById("phone").value.trim();
-    const zip=document.getElementById("zip").value.trim();
-    const serviceType=document.getElementById("serviceType").value;
-    const serviceDetail=document.getElementById("serviceDetail").value;
-    const date=document.getElementById("date").value;
-    const time=document.getElementById("time").value;
-    const notes=document.getElementById("userNotes").value.trim();
+// Finalize and submit
+function finalizeEstimate(){
+    const modifiers = detectModifiers();
+    const [min,max] = calculateLaborEstimate(estimateData.serviceType, estimateData.fixtures, estimateData.pipeLength, modifiers, estimateData.zip);
+    document.getElementById("estimateResult").innerHTML=`Preliminary Labor Estimate: $${min} – $${max} (Materials, permits, extra equipment separate)`;
 
-    const modifiers = detectModifiers(notes);
-    const [min,max] = calculateLaborEstimate(serviceType, serviceDetail, zip, modifiers);
+    // Fill hidden form
+    document.getElementById("formDescription").value=estimateData.serviceType;
+    document.getElementById("formServiceType").value=estimateData.serviceType;
+    document.getElementById("formServiceDetail").value=estimateData.serviceType;
+    document.getElementById("formFixtures").value=estimateData.fixtures;
+    document.getElementById("formPipeLength").value=estimateData.pipeLength;
+    document.getElementById("formFloor").value=estimateData.floor;
+    document.getElementById("formAccess").value=estimateData.access;
+    document.getElementById("formDate").value=estimateData.date;
+    document.getElementById("formTime").value=estimateData.time;
+    document.getElementById("formContact").value=estimateData.contact;
+    document.getElementById("formNotes").value=estimateData.notes;
 
-    displayMessage(`${name}, ${serviceType} - ${serviceDetail}`, "user");
-    displayMessage(`Floor: ${modifiers.floor}, Access: ${modifiers.access}`, "user");
-    if(notes) displayMessage(notes, "user");
-    displayMessage(`Preliminary Labor Estimate: $${min} – $${max}. Materials, permits, extra equipment separate.`, "bot");
+    document.getElementById("hiddenForm").submit();
+    displayAI("Thank you! Your estimate and booking request has been sent. Our professional plumbers will contact you shortly.");
+}
 
-    // Submit all info via FormSubmit
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("phone", phone);
-    formData.append("zip", zip);
-    formData.append("serviceType", serviceType);
-    formData.append("serviceDetail", serviceDetail);
-    formData.append("floorLevel", modifiers.floor);
-    formData.append("access", modifiers.access);
-    formData.append("date", date);
-    formData.append("time", time);
-    formData.append("notes", notes);
-    formData.append("_captcha","false");
-    formData.append("_subject","New Fast AI Estimate & Booking");
-    formData.append("_template","table");
-
-    fetch("https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3", { method:"POST", body: formData });
-});
+// Initialize
+displayChoices(serviceOptions, nextStep);
 </script>
 
-<footer style="text-align:center; background:#00539C; color:white; padding:15px;">
+<footer>
 <p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
-<p><a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
-<a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a></p>
+<p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
 </footer>
 
 </body>
