@@ -35,6 +35,22 @@ footer a { color:white; text-decoration:underline; margin:0 5px; }
 <h1>Estimate & Booking</h1>
 <form id="estimateForm">
 <div>
+<label for="name">Name</label>
+<input type="text" id="name" required>
+</div>
+<div>
+<label for="email">Email</label>
+<input type="email" id="email" required>
+</div>
+<div>
+<label for="phone">Phone</label>
+<input type="text" id="phone" required>
+</div>
+<div>
+<label for="zip">ZIP Code</label>
+<input type="text" id="zip" required>
+</div>
+<div>
 <label for="serviceType">Service Type</label>
 <select id="serviceType" required>
 <option value="">--Select Service--</option>
@@ -51,16 +67,6 @@ footer a { color:white; text-decoration:underline; margin:0 5px; }
 <option value="1-2">1-2</option>
 <option value="3-5">3-5</option>
 <option value="6+">6+</option>
-</select>
-</div>
-<div>
-<label for="pipeLength">Approximate Pipe Length</label>
-<select id="pipeLength" required>
-<option value="">--Select Length--</option>
-<option value="<10ft">&lt;10ft</option>
-<option value="10-20ft">10-20ft</option>
-<option value="20+ft">20+ft</option>
-<option value="Unknown">Unknown</option>
 </select>
 </div>
 <div>
@@ -84,17 +90,46 @@ footer a { color:white; text-decoration:underline; margin:0 5px; }
 <label for="notes">Additional Notes (Optional)</label>
 <input type="text" id="notes" placeholder="Describe any special requirements">
 </div>
+<div id="estimateResult">Preliminary Estimate: $0 - $0 (Labor only)</div>
 <div>
-<label for="name">Name</label>
-<input type="text" id="name" required>
+<button type="submit">Submit Booking</button>
 </div>
-<div>
-<label for="email">Email</label>
-<input type="email" id="email" required>
+</form>
 </div>
-<div>
-<label for="phone">Phone</label>
-<input type="text" id="phone" required>
-</div>
-<div>
-<label for
+<form id="hiddenForm" action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST" style="display:none;">
+<input type="text" name="name" id="formName">
+<input type="text" name="email" id="formEmail">
+<input type="text" name="phone" id="formPhone">
+<input type="text" name="zip" id="formZip">
+<input type="text" name="serviceType" id="formServiceType">
+<input type="text" name="fixtures" id="formFixtures">
+<input type="text" name="floor" id="formFloor">
+<input type="text" name="access" id="formAccess">
+<input type="text" name="notes" id="formNotes">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="New Booking Request">
+<input type="hidden" name="_template" value="table">
+</form>
+<script>
+function calculateEstimate(){
+let service=document.getElementById("serviceType").value;
+let floor=document.getElementById("floor").value;
+let access=document.getElementById("access").value;
+let min=0,max=0;
+if(service==="Repair"){min=150; max=500;}
+else if(service==="Remodel"){min=500; max=2500;}
+else if(service==="New Build"){min=1000; max=7000;}
+else if(service==="Replacement"){min=200; max=1000;}
+let multiplier=1.0;
+if(floor==="Second Floor") multiplier+=0.2;
+if(access==="Difficult") multiplier+=0.15;
+document.getElementById("estimateResult").innerHTML=`Preliminary Estimate: $${Math.round(min*multiplier)} - $${Math.round(max*multiplier)} (Labor only). <em>Estimate only, actual price may vary.</em>`;
+}
+["serviceType","floor","access"].forEach(id=>{document.getElementById(id).addEventListener("change",calculateEstimate);});document.getElementById("estimateForm").addEventListener("submit",function(e){ e.preventDefault(); ["name","email","phone","zip","serviceType","fixtures","floor","access","notes"].forEach(id=>{ document.getElementById("form"+id.charAt(0).toUpperCase()+id.slice(1)).value=document.getElementById(id).value; }); document.getElementById("hiddenForm").submit(); alert("Booking submitted! Our plumbers will contact you shortly."); }); </script>
+
+<footer>
+<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+<p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+</body>
+</html>
