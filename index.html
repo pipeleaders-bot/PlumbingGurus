@@ -26,15 +26,29 @@ header {
   justify-content: space-between;
 }
 
-.header-left {
+.header-left,
+.header-right {
   display: flex;
   align-items: center;
 }
 
-/* MAIN LOGO (LEFT) */
-.header-left img {
-  height: 80px;
+/* BOTH LOGOS WITH BADGE / SHADOW */
+.header-left img,
+.header-right img {
+  background: #ffffff;         /* white badge */
+  border-radius: 12px;         /* soft corners */
+  padding: 5px;                /* spacing inside badge */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* subtle shadow */
   width: auto;
+}
+
+.header-left img {
+  height: 80px;  /* main logo bigger */
+}
+
+.header-right img {
+  height: 55px;  /* right logo smaller */
+  opacity: 0.95;
 }
 
 /* NAV */
@@ -47,13 +61,6 @@ nav a {
   margin: 0 12px;
   text-decoration: none;
   font-weight: bold;
-}
-
-/* EXISTING LOGO (RIGHT, clickable) */
-.header-right img {
-  height: 55px;
-  width: auto;
-  opacity: 0.95;
 }
 
 /* HERO */
@@ -147,8 +154,10 @@ footer a {
     margin: 15px 0;
   }
 
+  /* Keep right logo visible on mobile */
   .header-right {
-    display: none;
+    display: flex;
+    margin-top: 10px;
   }
 }
 </style>
