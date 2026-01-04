@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Book Your Service | Plumbing Gurus</title>
+<title>Smart AI Plumbing Estimate | Plumbing Gurus</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 body { font-family: Arial, sans-serif; margin:0; background:#f4f4f4; color:#333; }
@@ -12,26 +11,30 @@ header { background:#ffffff; padding:15px 40px; display:flex; align-items:center
 .header-left, .header-right { display:flex; align-items:center; }
 .header-left img, .header-right img { height:100px; max-width:360px; object-fit:contain; }
 nav { margin-left:30px; }
-nav a { color:#00539C; margin:0 18px; text-decoration:none; font-weight:600; font-size:1.05em; transition:color 0.3s ease; }
+nav a { color:#00539C; margin:0 18px; text-decoration:none; font-weight:600; font-size:1.05em; }
 nav a:hover { color:#FF6600; }
 .header-phone { color:#FF6600; font-weight:bold; font-size:1.2em; margin-left:30px; }
 .header-phone span { color:#00539C; }
 
-.hero { background: linear-gradient(135deg,#e6f0fa,#ffffff); padding:60px 20px 40px; text-align:center; border-bottom:1px solid #ccc; }
-.hero h1 { color:#00539C; font-size:2.8em; line-height:1.2; margin-bottom:20px; }
-.hero p { font-size:1.2em; max-width:700px; margin:0 auto 25px; line-height:1.5; }
+.hero { background: linear-gradient(135deg,#e6f0fa,#ffffff); padding:40px 20px 20px; text-align:center; }
+.hero h1 { color:#00539C; font-size:2.5em; margin-bottom:15px;}
+.hero p { font-size:1.1em; max-width:700px; margin:0 auto 20px;}
 
-.section { max-width:950px; margin:50px auto; padding:30px 25px; background:#ffffff; border-radius:12px; box-shadow:0 3px 18px rgba(0,0,0,0.08); }
-.section h2 { color:#00539C; margin-bottom:25px; font-size:2em; }
-form { display:flex; flex-direction:column; max-width:500px; margin:0 auto; }
-label { margin-top:10px; font-weight:bold; }
-input, select, textarea, button { padding:12px; margin-top:5px; border-radius:6px; border:1px solid #ccc; font-size:1em; }
-select option.coming-soon { color:#999; font-style:italic; }
-button { background:#FF6600; color:#fff; border:none; padding:14px; border-radius:6px; font-size:1.1em; cursor:pointer; transition:transform 0.3s ease; margin-top:15px; }
-button:hover { transform:scale(1.03); }
+.section { max-width:950px; margin:40px auto; padding:30px 25px; background:#ffffff; border-radius:12px; }
+form#customerInfo { max-width:600px; margin:0 auto 30px; }
+form#customerInfo input { width:100%; padding:12px; margin:10px 0; border-radius:8px; border:1px solid #ccc; }
+form#customerInfo button { background:#FF6600; color:white; padding:12px 20px; border:none; border-radius:8px; cursor:pointer; }
 
-#estimateResult { margin-top:20px; padding:15px; border:1px solid #999; background:#e6f7ff; border-radius:6px; font-weight:bold; }
-@media(max-width:768px){ header{ flex-direction:column; text-align:center; } nav{ margin:20px 0; } .header-right{ display:flex; margin-top:15px; } }
+#chatBox { border:1px solid #ccc; padding:20px; border-radius:12px; max-width:600px; margin:0 auto; background:#f9f9f9; min-height:220px; }
+.message { margin:12px 0; padding:10px 15px; border-radius:12px; max-width:80%; display:inline-block; }
+.user { text-align:right; background:#FF6600; color:white; float:right; }
+.ai { text-align:left; background:#e6f0fa; color:#00539C; float:left; }
+button.option { background:#FFD700; color:#00539C; padding:12px 20px; margin:8px 5px 5px 0; border:none; border-radius:8px; cursor:pointer; }
+button.option:hover { background:#FFC107; }
+
+#estimateResult { margin-top:20px; padding:15px; background:#e6f7ff; border-radius:8px; font-weight:bold; text-align:center; }
+
+button.restart { background:#00539C; color:#FFD700; padding:12px 20px; border:none; border-radius:8px; cursor:pointer; margin-top:15px; display:none; }
 </style>
 </head>
 <body>
@@ -54,55 +57,201 @@ button:hover { transform:scale(1.03); }
 </header>
 
 <div class="hero">
-  <h1>Book Your Plumbing Service</h1>
-  <p>San Antonio service available now — Austin coming soon. Choose your preferred time and get a preliminary estimate.</p>
+  <h1>Smart Estimate for Plumbing in San Antonio</h1>
+  <p>Enter your info and describe the plumbing issue. Our assistant will ask only needed questions and give a realistic range based on local pricing and emergency status.</p>
 </div>
 
 <div class="section">
-  <h2>Service Booking & Estimate</h2>
-  <form id="estimateForm">
-    <label>Name:</label>
-    <input type="text" id="name" required>
+  <h2>Customer Info</h2>
+  <form id="customerInfo">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <input type="text" id="phone" placeholder="Phone Number" required>
+    <button type="button" id="startChat">Start Estimate</button>
+  </form>
 
-    <label>Email:</label>
-    <input type="email" id="email" required>
+  <h2>AI Interactive Chat</h2>
+  <div id="chatBox"></div>
+  <input type="text" id="userInput" placeholder="Type here..." disabled>
+  <button class="restart" id="restartBtn">Start New Estimate</button>
 
-    <label>Phone:</label>
-    <input type="text" id="phone" required>
+  <div id="estimateResult"></div>
+</div>
 
-    <label>Property Type:</label>
-    <select id="property">
-      <option value="House">House</option>
-      <option value="Apartment">Apartment</option>
-      <option value="Commercial">Commercial</option>
-    </select>
+<footer>
+  <p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+</footer>
 
-    <label>Service Type:</label>
-    <select id="serviceType">
-      <option value="Repair">Repair</option>
-      <option value="Replacement">Replacement</option>
-      <option value="Renovation">Renovation</option>
-      <option value="New Build">New Build</option>
-    </select>
+<script>
+const chatBox = document.getElementById('chatBox');
+const userInput = document.getElementById('userInput');
+const startChatBtn = document.getElementById('startChat');
+const restartBtn = document.getElementById('restartBtn');
+const estimateResult = document.getElementById('estimateResult');
 
-    <label>Problem / Fixture:</label>
-    <select id="problem">
-      <option value="Clogged Drain">Clogged Drain</option>
-      <option value="Leaky Faucet">Leaky Faucet</option>
-      <option value="Toilet Repair">Toilet Repair</option>
-      <option value="Garbage Disposal">Garbage Disposal</option>
-      <option value="Water Heater Diagnostics">Water Heater Diagnostics</option>
-    </select>
+let stage = 0;
+let userData = { name:'', email:'', phone:'', problem:'', detail:'', floor:'', emergency:false };
 
-    <label>Floor Level:</label>
-    <select id="floor">
-      <option value="Ground Floor">Ground Floor</option>
-      <option value="Second Floor">Second Floor</option>
-    </select>
+// San Antonio local pricing
+const serviceCosts = {
+  "Leak": [120, 450],
+  "Clog": [100, 300],
+  "Faucet": [80, 160],
+  "Toilet": [100, 300],
+  "Water Heater": [150, 600],
+  "Other": [100, 500]
+};
 
-    <label>Accessibility:</label>
-    <select id="access">
-      <option value="Easy">Easy</option>
+startChatBtn.addEventListener('click', () => {
+  userData.name = document.getElementById('name').value.trim();
+  userData.email = document.getElementById('email').value.trim();
+  userData.phone = document.getElementById('phone').value.trim();
+  if(!userData.name || !userData.email || !userData.phone){ alert("Please fill all fields."); return; }
+
+  chatBox.innerHTML = '';
+  userInput.disabled = false;
+  addMessage(`Hi ${userData.name}! Please describe the plumbing problem below:`,'ai');
+});
+
+restartBtn.addEventListener('click', restartChat);
+
+function addMessage(text,sender='ai'){
+  const msg = document.createElement('div');
+  msg.className = 'message ' + sender;
+  msg.innerHTML = text;
+  chatBox.appendChild(msg);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+userInput.addEventListener('keypress', function(e){
+  if(e.key==='Enter') handleInput();
+});
+
+function handleInput(){
+  const val = userInput.value.trim();
+  if(!val) return;
+  addMessage(val,'user');
+  userInput.value='';
+
+  // Detect emergency keywords
+  const emergencyKeywords = ["emergency","urgent","now","asap","after hours","night","weekend"];
+  let emergencyDetected = false;
+  emergencyKeywords.forEach(k=>{
+    if(val.toLowerCase().includes(k)) {
+      userData.emergency=true;
+      emergencyDetected = true;
+    }
+  });
+
+  if(emergencyDetected){
+    addMessage('⚠ Emergency Service Detected — estimate increased by 25%','ai');
+  }
+
+  if(stage===0){
+    userData.problem = val;
+    const floorRegex = /(first floor|second floor|ground floor|basement)/i;
+    const floorMatch = val.match(floorRegex);
+    if(floorMatch) userData.floor = floorMatch[0];
+    stage++;
+    askFollowUp();
+  }
+}
+
+function askFollowUp(){
+  const text = userData.problem.toLowerCase();
+  let options = [];
+  if(text.includes("leak")) options = [{text:"💧 Dripping Leak",value:"Dripping"}, {text:"🚿 Spraying Leak",value:"Spraying"}];
+  else if(text.includes("clog")) options = [{text:"🍽️ Kitchen",value:"Kitchen"}, {text:"🚰 Bathroom",value:"Bathroom"}, {text:"🚽 Toilet",value:"Toilet"}];
+  else if(text.includes("faucet")) options = [{text:"💧 Dripping Faucet",value:"Dripping"}, {text:"❌ Not Working Faucet",value:"Not working"}];
+  else if(text.includes("toilet")) options = [{text:"💧 Running Toilet",value:"Running"}, {text:"🚽 Not Flushing",value:"Not flushing"}];
+  else if(text.includes("water heater")) options = [{text:"🔥 Not Heating",value:"Not heating"}, {text:"💧 Water Heater Leak",value:"Leaking"}];
+
+  if(options.length){
+    addMessage("Please select the option that best matches your issue:");
+    options.forEach(opt=>{
+      const b = document.createElement('button');
+      b.className='option';
+      b.innerHTML = opt.text;
+      b.onclick = ()=>selectDetail(opt.value);
+      chatBox.appendChild(b);
+    });
+  } else {
+    if(!userData.floor) askFloor();
+    else finalizeEstimate();
+  }
+}
+
+function selectDetail(val){
+  userData.detail = val;
+  addMessage(val,'user');
+  document.querySelectorAll('.option').forEach(b=>b.remove());
+  if(!userData.floor) askFloor();
+  else finalizeEstimate();
+}
+
+function askFloor(){
+  addMessage("Which floor is the issue on?");
+  const floors = [
+    {text:"🏠 First Floor", value:"First Floor"},
+    {text:"🏢 Second Floor", value:"Second Floor"},
+    {text:"🏡 Ground/Basement", value:"Ground Floor"}
+  ];
+  floors.forEach(f=>{
+    const btn = document.createElement('button');
+    btn.className='option';
+    btn.innerHTML=f.text;
+    btn.onclick=()=>selectFloor(f.value);
+    chatBox.appendChild(btn);
+  });
+}
+
+function selectFloor(f){
+  userData.floor=f;
+  addMessage(f,'user');
+  document.querySelectorAll('.option').forEach(b=>b.remove());
+  finalizeEstimate();
+  sendToEmail();
+  restartBtn.style.display='inline-block';
+}
+
+function finalizeEstimate(){
+  let baseRange=serviceCosts["Other"];
+  const text=userData.problem.toLowerCase();
+  if(text.includes("leak")) baseRange=serviceCosts["Leak"];
+  else if(text.includes("clog")) baseRange=serviceCosts["Clog"];
+  else if(text.includes("faucet")) baseRange=serviceCosts["Faucet"];
+  else if(text.includes("toilet")) baseRange=serviceCosts["Toilet"];
+  else if(text.includes("water heater")) baseRange=serviceCosts["Water Heater"];
+
+  let multiplier=1.0;
+  if(userData.floor.toLowerCase().includes("second")) multiplier*=1.15;
+  else if(userData.floor.toLowerCase().includes("ground")) multiplier*=1.1;
+
+  if(userData.emergency) multiplier*=1.25; // 25% markup for urgent/after-hours
+
+  estimateResult.innerHTML=`Preliminary Local Estimate: $${Math.round(baseRange[0]*multiplier)} - $${Math.round(baseRange[1]*multiplier)} (Labor only)<br><em>Adjusted for San Antonio pricing and emergency status if applicable.</em>`;
+}
+
+function sendToEmail(){
+  fetch("https://formsubmit.co/pipeleaders@gmail.com", {
+    method:"POST",
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(userData)
+  });
+}
+
+function restartChat(){
+  stage=0;
+  userData={ name:'', email:'', phone:'', problem:'', detail:'', floor:'', emergency:false };
+  chatBox.innerHTML='';
+  userInput.value='';
+  userInput.disabled=true;
+  estimateResult.innerHTML='';
+  restartBtn.style.display='none';
+}
+</script>
+</body>
+</html>      <option value="Easy">Easy</option>
       <option value="Difficult">Difficult</option>
     </select>
 
