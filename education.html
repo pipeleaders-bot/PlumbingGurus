@@ -2,47 +2,92 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Plumbing Education | Plumbing Gurus</title>
+<title>Education | Plumbing Gurus</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
-</head>
+<style>
+body { font-family: Arial, sans-serif; margin:0; background:#f4f4f4; color:#333; }
+header { background:#ffffff; padding:15px 40px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #e0e0e0; }
+.header-left, .header-right { display:flex; align-items:center; }
+.header-left img, .header-right img { height:100px; max-width:360px; object-fit:contain; }
+nav { margin-left:30px; }
+nav a { color:#00539C; margin:0 18px; text-decoration:none; font-weight:600; font-size:1.05em; }
+nav a:hover { color:#FF6600; }
+.header-phone { color:#FF6600; font-weight:bold; font-size:1.2em; margin-left:30px; }
+.header-phone span { color:#00539C; }
 
+.hero { background: linear-gradient(135deg,#e6f0fa,#ffffff); padding:40px 20px 20px; text-align:center; }
+.hero h1 { color:#00539C; font-size:2.5em; margin-bottom:15px;}
+.hero p { font-size:1.1em; max-width:700px; margin:0 auto 20px;}
+
+.section { max-width:950px; margin:40px auto; padding:30px 25px; background:#ffffff; border-radius:12px; }
+.section h2 { color:#00539C; margin-bottom:20px; }
+.section p { margin-bottom:15px; line-height:1.6; }
+
+.cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:20px; }
+.card { background:#f9f9f9; padding:15px; border-radius:8px; box-shadow:0 1px 6px rgba(0,0,0,0.1); }
+.card h3 { color:#00539C; margin-bottom:10px; }
+.card p { font-size:0.95em; }
+</style>
+</head>
 <body>
 
 <header>
-  <img src="images/logo.png" alt="Plumbing Gurus Logo" class="logo">
-  <h1>Plumbing Education</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="estimate.html">Get Estimate</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <div class="header-left">
+    <img src="images/LOGO.png" alt="Plumbing Gurus Logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="estimate-booking.html">Estimate</a>
+      <a href="contact.html">Contact</a>
+      <a href="education.html">Education</a>
+    </nav>
+    <span class="header-phone">Call Now: <span>(210)</span> <span style="color:#FF6600;">906-8524</span></span>
+  </div>
+  <div class="header-right">
+    <a href="estimate-booking.html"><img src="Logo.png" alt="Alternate Logo"></a>
+  </div>
 </header>
 
-<section>
-  <h2>Learn Before You Call</h2>
-  <p>Understanding plumbing issues helps you avoid unnecessary costs and know what to expect when a professional arrives.</p>
+<div class="hero">
+  <h1>How Plumbing Keeps America Healthy</h1>
+  <p>Plumbers play a crucial role in public health and safety. Understanding proper plumbing helps you maintain a healthy home and community.</p>
+</div>
 
-  <h3>Why Prices Vary</h3>
-  <ul>
-    <li>Pipe access difficulty</li>
-    <li>Distance to property</li>
-    <li>Floor level (1st vs 2nd story)</li>
-    <li>Material type</li>
-    <li>Age of plumbing system</li>
-  </ul>
+<div class="section">
+  <h2>Why Plumbing Matters</h2>
+  <p>Clean water, proper waste removal, and safe sanitation depend on skilled plumbing. Even small leaks or clogs can create health hazards if ignored. Plumbers ensure that your home or business has reliable, safe water systems.</p>
+</div>
 
-  <h3>DIY vs Professional</h3>
-  <p>Some plumbing tasks can be handled DIY, while others require professional tools and experience. Our dispatch ensures the right professional is assigned.</p>
-</section>
+<div class="section">
+  <h2>Tips to Maintain Healthy Plumbing</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Prevent Clogs</h3>
+      <p>Don’t pour grease down the drain. Regularly check your pipes for slow drainage and remove hair from bathroom drains.</p>
+    </div>
+    <div class="card">
+      <h3>Fix Leaks Quickly</h3>
+      <p>Even small leaks can lead to mold, water damage, and higher water bills. Inspect pipes and faucets regularly and act quickly.</p>
+    </div>
+    <div class="card">
+      <h3>Water Heater Care</h3>
+      <p>Flush your water heater annually to remove sediment, and check the temperature to prevent scalding and extend the heater’s life.</p>
+    </div>
+    <div class="card">
+      <h3>Sanitation Awareness</h3>
+      <p>Proper plumbing prevents harmful bacteria and viruses from contaminating your home. Keep toilets, sinks, and drains clean and maintained.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>How Plumbing Supports the Community</h2>
+  <p>Plumbers don’t just fix pipes—they protect public health by maintaining safe water systems, supporting fire safety with functional sprinklers, and helping businesses and homes stay compliant with health regulations.</p>
+</div>
 
 <footer>
   <p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
-  <p>
-    <a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
-    <a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a>
-  </p>
 </footer>
 
 </body>
