@@ -2,34 +2,65 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Quick Estimate | Plumbing Gurus</title>
+<title>Book Your Service | Plumbing Gurus</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-  body { font-family: Arial, sans-serif; }
-  .form-section { max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; background: #f9f9f9; }
-  label { display:block; margin-top: 10px; }
-  select, input, textarea, button { width: 100%; padding: 8px; margin-top:5px; }
-  #estimateResult { margin-top: 20px; padding: 10px; border: 1px solid #999; background: #e6f7ff; }
+body { font-family: Arial, sans-serif; margin:0; background:#f4f4f4; color:#333; }
+header { background:#ffffff; padding:15px 40px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #e0e0e0; }
+.header-left, .header-right { display:flex; align-items:center; }
+.header-left img, .header-right img { height:100px; max-width:360px; object-fit:contain; }
+nav { margin-left:30px; }
+nav a { color:#00539C; margin:0 18px; text-decoration:none; font-weight:600; font-size:1.05em; transition:color 0.3s ease; }
+nav a:hover { color:#FF6600; }
+.header-phone { color:#FF6600; font-weight:bold; font-size:1.2em; margin-left:30px; }
+.header-phone span { color:#00539C; }
+
+.hero { background: linear-gradient(135deg,#e6f0fa,#ffffff); padding:60px 20px 40px; text-align:center; border-bottom:1px solid #ccc; }
+.hero h1 { color:#00539C; font-size:2.8em; line-height:1.2; margin-bottom:20px; }
+.hero p { font-size:1.2em; max-width:700px; margin:0 auto 25px; line-height:1.5; }
+
+.section { max-width:950px; margin:50px auto; padding:30px 25px; background:#ffffff; border-radius:12px; box-shadow:0 3px 18px rgba(0,0,0,0.08); }
+.section h2 { color:#00539C; margin-bottom:25px; font-size:2em; }
+form { display:flex; flex-direction:column; max-width:500px; margin:0 auto; }
+label { margin-top:10px; font-weight:bold; }
+input, select, textarea, button { padding:12px; margin-top:5px; border-radius:6px; border:1px solid #ccc; font-size:1em; }
+select option.coming-soon { color:#999; font-style:italic; }
+button { background:#FF6600; color:#fff; border:none; padding:14px; border-radius:6px; font-size:1.1em; cursor:pointer; transition:transform 0.3s ease; margin-top:15px; }
+button:hover { transform:scale(1.03); }
+
+#estimateResult { margin-top:20px; padding:15px; border:1px solid #999; background:#e6f7ff; border-radius:6px; font-weight:bold; }
+@media(max-width:768px){ header{ flex-direction:column; text-align:center; } nav{ margin:20px 0; } .header-right{ display:flex; margin-top:15px; } }
 </style>
 </head>
 <body>
 
 <header>
-  <img src="images/logo.png" alt="Plumbing Gurus Logo" class="logo">
-  <h1>Quick Plumbing Estimate</h1>
-  <nav>
-    <a href="index.html"><i class="fa fa-home"></i> Home</a>
-    <a href="services.html"><i class="fa fa-wrench"></i> Services</a>
-    <a href="education.html"><i class="fa fa-book"></i> Education</a>
-    <a href="estimate.html"><i class="fa fa-calculator"></i> Get Estimate</a>
-    <a href="contact.html"><i class="fa fa-envelope"></i> Contact</a>
-  </nav>
+  <div class="header-left">
+    <img src="images/LOGO.png" alt="Plumbing Gurus Logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="estimate-booking.html">Estimate</a>
+      <a href="contact.html">Contact</a>
+      <a href="education.html">Education</a>
+    </nav>
+    <span class="header-phone">Call Now: <span>(210)</span> <span style="color:#FF6600;">906-8524</span></span>
+  </div>
+  <div class="header-right">
+    <a href="estimate-booking.html"><img src="Logo.png" alt="Alternate Logo"></a>
+  </div>
 </header>
 
-<section class="form-section">
-  <form id="quickEstimateForm">
+<div class="hero">
+  <h1>Book Your Plumbing Service</h1>
+  <p>San Antonio service available now — Austin coming soon. Choose your preferred time and get a preliminary estimate.</p>
+</div>
+
+<div class="section">
+  <h2>Service Booking & Estimate</h2>
+  <form id="estimateForm">
     <label>Name:</label>
     <input type="text" id="name" required>
 
@@ -47,7 +78,7 @@
     </select>
 
     <label>Service Type:</label>
-    <select id="service">
+    <select id="serviceType">
       <option value="Repair">Repair</option>
       <option value="Replacement">Replacement</option>
       <option value="Renovation">Renovation</option>
@@ -63,46 +94,249 @@
       <option value="Water Heater Diagnostics">Water Heater Diagnostics</option>
     </select>
 
-    <label>Additional Info (floor, accessibility, etc.):</label>
+    <label>Floor Level:</label>
+    <select id="floor">
+      <option value="Ground Floor">Ground Floor</option>
+      <option value="Second Floor">Second Floor</option>
+    </select>
+
+    <label>Accessibility:</label>
+    <select id="access">
+      <option value="Easy">Easy</option>
+      <option value="Difficult">Difficult</option>
+    </select>
+
+    <label>Additional Notes:</label>
     <textarea id="details"></textarea>
 
     <button type="submit">Get Preliminary Estimate</button>
   </form>
 
   <div id="estimateResult"></div>
-</section>
+</div>
+
+<footer>
+  <p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+  <p><a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
+     <a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a></p>
+</footer>
 
 <script>
-document.getElementById('quickEstimateForm').addEventListener('submit', function(e){
+const form = document.getElementById('estimateForm');
+const estimateResult = document.getElementById('estimateResult');
+
+form.addEventListener('submit', function(e){
   e.preventDefault();
 
-  // Collect user data
-  const userData = {
+  const service = document.getElementById('serviceType').value;
+  const floor = document.getElementById('floor').value;
+  const access = document.getElementById('access').value;
+
+  let min=0, max=0;
+  if(service==="Repair"){min=150; max=500;}
+  else if(service==="Replacement"){min=200; max=1000;}
+  else if(service==="Renovation"){min=500; max=2500;}
+  else if(service==="New Build"){min=1000; max=7000;}
+
+  let multiplier = 1;
+  if(floor==="Second Floor") multiplier += 0.2;
+  if(access==="Difficult") multiplier += 0.15;
+
+  estimateResult.innerHTML = `Preliminary Estimate: $${Math.round(min*multiplier)} - $${Math.round(max*multiplier)} (Labor only). <br><em>Estimate only; final price may vary after inspection.</em>`;
+
+  // Optional: send form data via FormSubmit
+  const data = {
     name: document.getElementById('name').value,
     email: document.getElementById('email').value,
     phone: document.getElementById('phone').value,
     property: document.getElementById('property').value,
-    service: document.getElementById('service').value,
+    service,
     problem: document.getElementById('problem').value,
+    floor,
+    access,
     details: document.getElementById('details').value
   };
 
-  // Estimate logic
-  let estimate = "";
-  if(userData.service === "Repair"){
-    estimate = "$50 - $250";
-  } else if(userData.service === "Replacement"){
-    estimate = "$150 - $400";
-  } else if(userData.service === "Renovation"){
-    estimate = "$300 - $1,000+";
-  } else if(userData.service === "New Build"){
-    estimate = "$500 - $3,000+";
-  }
+  fetch("https://formsubmit.co/YOUR_EMAIL@gmail.com", {
+    method: "POST",
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(data)
+  }).then(()=>console.log("Client info sent!"))
+    .catch(err=>console.error("Error sending client info:",err));
+});
+</script>
 
-  // Display estimate
-  document.getElementById('estimateResult').innerHTML = `
-    <h3>Preliminary Estimate: ${estimate}</h3>
-    <p>Note: This is a preliminary estimate. Final pricing will depend on inspection and licensed plumber evaluation.</p>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Book Your Service | Plumbing Gurus</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body { font-family: Arial, sans-serif; margin:0; background:#f4f4f4; color:#333; }
+header { background:#ffffff; padding:15px 40px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #e0e0e0; }
+.header-left, .header-right { display:flex; align-items:center; }
+.header-left img, .header-right img { height:100px; max-width:360px; object-fit:contain; }
+nav { margin-left:30px; }
+nav a { color:#00539C; margin:0 18px; text-decoration:none; font-weight:600; font-size:1.05em; transition:color 0.3s ease; }
+nav a:hover { color:#FF6600; }
+.header-phone { color:#FF6600; font-weight:bold; font-size:1.2em; margin-left:30px; }
+.header-phone span { color:#00539C; }
+
+.hero { background: linear-gradient(135deg,#e6f0fa,#ffffff); padding:60px 20px 40px; text-align:center; border-bottom:1px solid #ccc; }
+.hero h1 { color:#00539C; font-size:2.8em; line-height:1.2; margin-bottom:20px; }
+.hero p { font-size:1.2em; max-width:700px; margin:0 auto 25px; line-height:1.5; }
+
+.section { max-width:950px; margin:50px auto; padding:30px 25px; background:#ffffff; border-radius:12px; box-shadow:0 3px 18px rgba(0,0,0,0.08); }
+.section h2 { color:#00539C; margin-bottom:25px; font-size:2em; }
+form { display:flex; flex-direction:column; max-width:500px; margin:0 auto; }
+label { margin-top:10px; font-weight:bold; }
+input, select, textarea, button { padding:12px; margin-top:5px; border-radius:6px; border:1px solid #ccc; font-size:1em; }
+select option.coming-soon { color:#999; font-style:italic; }
+button { background:#FF6600; color:#fff; border:none; padding:14px; border-radius:6px; font-size:1.1em; cursor:pointer; transition:transform 0.3s ease; margin-top:15px; }
+button:hover { transform:scale(1.03); }
+
+#estimateResult { margin-top:20px; padding:15px; border:1px solid #999; background:#e6f7ff; border-radius:6px; font-weight:bold; }
+@media(max-width:768px){ header{ flex-direction:column; text-align:center; } nav{ margin:20px 0; } .header-right{ display:flex; margin-top:15px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <img src="images/LOGO.png" alt="Plumbing Gurus Logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="estimate-booking.html">Estimate</a>
+      <a href="contact.html">Contact</a>
+      <a href="education.html">Education</a>
+    </nav>
+    <span class="header-phone">Call Now: <span>(210)</span> <span style="color:#FF6600;">906-8524</span></span>
+  </div>
+  <div class="header-right">
+    <a href="estimate-booking.html"><img src="Logo.png" alt="Alternate Logo"></a>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Book Your Plumbing Service</h1>
+  <p>San Antonio service available now — Austin coming soon. Choose your preferred time and get a preliminary estimate.</p>
+</div>
+
+<div class="section">
+  <h2>Service Booking & Estimate</h2>
+  <form id="estimateForm">
+    <label>Name:</label>
+    <input type="text" id="name" required>
+
+    <label>Email:</label>
+    <input type="email" id="email" required>
+
+    <label>Phone:</label>
+    <input type="text" id="phone" required>
+
+    <label>Property Type:</label>
+    <select id="property">
+      <option value="House">House</option>
+      <option value="Apartment">Apartment</option>
+      <option value="Commercial">Commercial</option>
+    </select>
+
+    <label>Service Type:</label>
+    <select id="serviceType">
+      <option value="Repair">Repair</option>
+      <option value="Replacement">Replacement</option>
+      <option value="Renovation">Renovation</option>
+      <option value="New Build">New Build</option>
+    </select>
+
+    <label>Problem / Fixture:</label>
+    <select id="problem">
+      <option value="Clogged Drain">Clogged Drain</option>
+      <option value="Leaky Faucet">Leaky Faucet</option>
+      <option value="Toilet Repair">Toilet Repair</option>
+      <option value="Garbage Disposal">Garbage Disposal</option>
+      <option value="Water Heater Diagnostics">Water Heater Diagnostics</option>
+    </select>
+
+    <label>Floor Level:</label>
+    <select id="floor">
+      <option value="Ground Floor">Ground Floor</option>
+      <option value="Second Floor">Second Floor</option>
+    </select>
+
+    <label>Accessibility:</label>
+    <select id="access">
+      <option value="Easy">Easy</option>
+      <option value="Difficult">Difficult</option>
+    </select>
+
+    <label>Additional Notes:</label>
+    <textarea id="details"></textarea>
+
+    <button type="submit">Get Preliminary Estimate</button>
+  </form>
+
+  <div id="estimateResult"></div>
+</div>
+
+<footer>
+  <p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+  <p><a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
+     <a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a></p>
+</footer>
+
+<script>
+const form = document.getElementById('estimateForm');
+const estimateResult = document.getElementById('estimateResult');
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const service = document.getElementById('serviceType').value;
+  const floor = document.getElementById('floor').value;
+  const access = document.getElementById('access').value;
+
+  let min=0, max=0;
+  if(service==="Repair"){min=150; max=500;}
+  else if(service==="Replacement"){min=200; max=1000;}
+  else if(service==="Renovation"){min=500; max=2500;}
+  else if(service==="New Build"){min=1000; max=7000;}
+
+  let multiplier = 1;
+  if(floor==="Second Floor") multiplier += 0.2;
+  if(access==="Difficult") multiplier += 0.15;
+
+  estimateResult.innerHTML = `Preliminary Estimate: $${Math.round(min*multiplier)} - $${Math.round(max*multiplier)} (Labor only). <br><em>Estimate only; final price may vary after inspection.</em>`;
+
+  // Optional: send form data via FormSubmit
+  const data = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    property: document.getElementById('property').value,
+    service,
+    problem: document.getElementById('problem').value,
+    floor,
+    access,
+    details: document.getElementById('details').value
+  };
+
+  fetch("https://formsubmit.co/YOUR_EMAIL@gmail.com", {
+    method: "POST",
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(data)
+  }).then(()=>console.log("Client info sent!"))
+    .catch(err=>console.error("Error sending client info:",err));
+});
+</script>
+
+</body>
+</html>    <p>Note: This is a preliminary estimate. Final pricing will depend on inspection and licensed plumber evaluation.</p>
   `;
 
   // Send data to your email via FormSubmit
