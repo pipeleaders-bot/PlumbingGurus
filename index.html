@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plumbing Gurus | Expert Plumbing Dispatch</title>
+<title>Plumbing Gurus | Expert Plumbing Services</title>
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" type="image/png" href="Logo.png">
 <style>
-/* Styles consistent across all pages */
+/* Global Styles */
 body { font-family: 'Arial', sans-serif; margin: 0; background: #f4f4f4; color: #333; }
 header { background: #ffffff; padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e0e0e0; }
 .header-left, .header-right { display: flex; align-items: center; }
@@ -35,6 +35,7 @@ nav a:hover { color: #FF6600; }
 .card p { font-size: 1em; line-height: 1.5; }
 /* Testimonials */
 .testimonials-slider { position: relative; overflow: hidden; max-width: 950px; margin: 50px auto; background: #ffffff; border-radius: 12px; box-shadow: 0 3px 18px rgba(0,0,0,0.08); padding: 40px 25px; }
+.testimonials-slider h2 { margin-bottom: 25px; font-size: 2em; color: #00539C; text-align: center; }
 .testimonials-container { display: flex; transition: transform 0.5s ease-in-out; }
 .testimonial-card { min-width: 100%; box-sizing: border-box; padding: 20px; }
 .testimonial-card p { font-style: italic; font-size: 1.05em; line-height: 1.5; }
@@ -88,7 +89,7 @@ footer button:hover { transform: scale(1.03); }
 <div class="trust">
   <h2>Our Commitment</h2>
   <div class="trust-items">
-    <div class="trust-item">Fast Plumber Dispatch<span>✔</span></div>
+    <div class="trust-item">Fast & Reliable Service<span>✔</span></div>
     <div class="trust-item">Serving San Antonio & Austin<span>(Coming Soon)</span></div>
     <div class="trust-item">10 Years Plumbing Experience<span>💧</span></div>
   </div>
@@ -117,7 +118,7 @@ footer button:hover { transform: scale(1.03); }
 </div>
 
 <div class="testimonials-slider">
-  <h2>Customer Experiences</h2>
+  <h2>Sample Customer Experiences</h2>
   <div class="testimonials-container">
     <div class="testimonial-card">
       <p>"We had a serious leak that several plumbers couldn’t commit to quickly. Plumbing Gurus dispatched a pro, and the job was done fast and perfectly!"</p>
@@ -126,6 +127,14 @@ footer button:hover { transform: scale(1.03); }
     <div class="testimonial-card">
       <p>"The plumber was courteous, professional, and efficient. Great communication and fast service!"</p>
       <div><span>★★★★★</span> — Maria S., Austin</div>
+    </div>
+    <div class="testimonial-card">
+      <p>"Plumbing Gurus quickly handled a major water heater issue. Friendly service and highly recommended."</p>
+      <div><span>★★★★★</span> — James L., San Antonio</div>
+    </div>
+    <div class="testimonial-card">
+      <p>"They fixed a stubborn clogged drain within an hour. Excellent service and very knowledgeable."</p>
+      <div><span>★★★★★</span> — Sarah K., San Antonio</div>
     </div>
   </div>
 </div>
@@ -172,15 +181,6 @@ let currentIndex = 0;
 function showSlide(index){ slider.style.transform = `translateX(-${index * 100}%)`; }
 function nextSlide(){ currentIndex = (currentIndex + 1) % slides.length; showSlide(currentIndex); }
 setInterval(nextSlide, 5000);
-
-// Animate cards
-const cards = document.querySelectorAll('.card');
-function checkCards() {
-  const trigger = window.innerHeight * 0.85;
-  cards.forEach(card => { if(card.getBoundingClientRect().top < trigger) card.classList.add('visible'); });
-}
-window.addEventListener('scroll', checkCards);
-window.addEventListener('load', checkCards);
 
 // Priority scheduling slots
 const citySelect = document.getElementById('city-select');
