@@ -1,75 +1,227 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Plumbing Gurus | Professional Plumbing Dispatch</title>
 <link rel="stylesheet" href="css/style.css">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="Logo.png">
+
 <style>
-body { font-family: Arial, sans-serif; margin:0; background:#f4f4f4; }
-header { background:#00539C; color:white; padding:15px; display:flex; align-items:center; justify-content:space-between; }
-header img { height:50px; opacity:0.9; }
-nav a { color:white; margin:0 12px; text-decoration:none; font-weight:bold; }
-.hero { background:#e6f0fa; padding:50px 20px; text-align:center; border-bottom:1px solid #ccc; }
-.hero h1 { color:#00539C; font-size:2.5em; margin-bottom:15px; }
-.hero p { font-size:1.2em; margin-bottom:25px; }
-.hero a { background:#FFD700; padding:12px 25px; color:#000; font-weight:bold; border-radius:5px; text-decoration:none; }
-.section { max-width:900px; margin:40px auto; padding:20px; background:white; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
-.section h2 { color:#00539C; margin-bottom:20px; }
-.cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:20px; }
-.card { background:#f9f9f9; padding:15px; border-radius:8px; box-shadow:0 1px 6px rgba(0,0,0,0.1); }
-.card h3 { color:#00539C; margin-bottom:10px; }
-.card p { font-size:0.95em; }
-footer { text-align:center; background:#00539C; color:white; padding:15px; margin-top:20px; }
-footer a { color:white; text-decoration:underline; margin:0 5px; }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f4f4;
+}
+
+/* HEADER */
+header {
+  background: #00539C;
+  color: white;
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+/* MAIN LOGO (LEFT) */
+.header-left img {
+  height: 80px;
+  width: auto;
+}
+
+/* NAV */
+nav {
+  margin-left: 25px;
+}
+
+nav a {
+  color: white;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* EXISTING LOGO (RIGHT, clickable) */
+.header-right img {
+  height: 55px;
+  width: auto;
+  opacity: 0.95;
+}
+
+/* HERO */
+.hero {
+  background: #e6f0fa;
+  padding: 50px 20px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.hero h1 {
+  color: #00539C;
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-bottom: 25px;
+}
+
+.hero a {
+  background: #FFD700;
+  padding: 12px 25px;
+  color: #000;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+/* SECTIONS */
+.section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.section h2 {
+  color: #00539C;
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  color: #00539C;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.95em;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  background: #00539C;
+  color: white;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+footer a {
+  color: white;
+  text-decoration: underline;
+  margin: 0 5px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav {
+    margin: 15px 0;
+  }
+
+  .header-right {
+    display: none;
+  }
+}
 </style>
 </head>
+
 <body>
+
 <header>
-<img src="Logo.png" alt="Plumbing Gurus Logo">
-<nav>
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="estimate-booking.html">Get Estimate</a>
-<a href="contact.html">Contact</a>
-</nav>
-</header><div class="hero">
-<h1>Reliable Plumbing Services – 24/7 Dispatch</h1>
-<p>Fast, professional plumbing solutions for your home or business. Let us connect you with certified plumbers near you.</p>
-<a href="estimate-booking.html">Get Your Estimate</a>
-</div><div class="section">
-<h2>Learn About Plumbing</h2>
-<div class="cards">
-<div class="card">
-<h3>Prevent Clogs</h3>
-<p>Regular maintenance of drains prevents costly repairs. Avoid flushing grease or large items.</p>
+  <div class="header-left">
+    <img src="images/LOGO.png" alt="Plumbing Gurus Logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="estimate-booking.html">Get Estimate</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+
+  <div class="header-right">
+    <a href="estimate-booking.html">
+      <img src="Logo.png" alt="Plumbing Gurus Alternate Logo">
+    </a>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Reliable Plumbing Services – 24/7 Dispatch</h1>
+  <p>Fast, professional plumbing solutions for your home or business. Let us connect you with certified plumbers near you.</p>
+  <a href="estimate-booking.html">Get Your Estimate</a>
 </div>
-<div class="card">
-<h3>Fix Leaks Early</h3>
-<p>Small leaks can lead to major water damage. Detect and repair leaks promptly.</p>
+
+<div class="section">
+  <h2>Learn About Plumbing</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Prevent Clogs</h3>
+      <p>Regular maintenance of drains prevents costly repairs. Avoid flushing grease or large items.</p>
+    </div>
+    <div class="card">
+      <h3>Fix Leaks Early</h3>
+      <p>Small leaks can lead to major water damage. Detect and repair leaks promptly.</p>
+    </div>
+    <div class="card">
+      <h3>Pipe Replacement Tips</h3>
+      <p>Understand the lifespan of pipes in your home and when to replace old or corroded lines.</p>
+    </div>
+    <div class="card">
+      <h3>Water Heater Care</h3>
+      <p>Maintain your water heater to extend its life and ensure efficient heating.</p>
+    </div>
+  </div>
 </div>
-<div class="card">
-<h3>Pipe Replacement Tips</h3>
-<p>Understand the lifespan of pipes in your home and when to replace old or corroded lines.</p>
+
+<div class="section">
+  <h2>Our Dispatch Services</h2>
+  <p>We connect you with certified plumbers for medium-level plumbing services:</p>
+  <ul>
+    <li>Faucet, sink, and toilet repair or replacement</li>
+    <li>Pipe repairs and small plumbing renovations</li>
+    <li>Water heater installation and repair</li>
+    <li>Leak detection and minor emergency services</li>
+    <li>24/7 dispatch support</li>
+  </ul>
+  <a href="estimate-booking.html">Book Your Service</a>
 </div>
-<div class="card">
-<h3>Water Heater Care</h3>
-<p>Maintain your water heater to extend its life and ensure efficient heating.</p>
-</div>
-</div>
-</div><div class="section">
-<h2>Our Dispatch Services</h2>
-<p>We connect you with certified plumbers for medium-level plumbing services:</p>
-<ul>
-<li>Faucet, sink, and toilet repair or replacement</li>
-<li>Pipe repairs and small plumbing renovations</li>
-<li>Water heater installation and repair</li>
-<li>Leak detection and minor emergency services</li>
-<li>24/7 dispatch support</li>
-</ul>
-<a href="estimate-booking.html">Book Your Service</a>
-</div><footer>
-<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
-<p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+
+<footer>
+  <p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+  <p>
+    <a href="terms.html">Terms & Conditions</a> |
+    <a href="privacy.html">Privacy Policy</a>
+  </p>
 </footer>
+
 </body>
 </html>
