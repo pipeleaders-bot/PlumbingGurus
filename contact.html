@@ -5,28 +5,81 @@
 <title>Contact | Plumbing Gurus</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
-</head>
+<style>
+body { font-family: Arial, sans-serif; margin:0; background:#f4f4f4; color:#333; }
+header { background:#ffffff; padding:15px 40px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #e0e0e0; }
+.header-left, .header-right { display:flex; align-items:center; }
+.header-left img, .header-right img { height:100px; max-width:360px; object-fit:contain; }
+nav { margin-left:30px; }
+nav a { color:#00539C; margin:0 18px; text-decoration:none; font-weight:600; font-size:1.05em; }
+nav a:hover { color:#FF6600; }
+.header-phone { color:#FF6600; font-weight:bold; font-size:1.2em; margin-left:30px; }
+.header-phone span { color:#00539C; }
 
+.hero { background: linear-gradient(135deg,#e6f0fa,#ffffff); padding:40px 20px 20px; text-align:center; }
+.hero h1 { color:#00539C; font-size:2.5em; margin-bottom:15px;}
+.hero p { font-size:1.1em; max-width:700px; margin:0 auto 20px;}
+
+.section { max-width:800px; margin:40px auto; padding:30px 25px; background:#ffffff; border-radius:12px; }
+.section h2 { color:#00539C; margin-bottom:20px; }
+.section p { margin-bottom:15px; line-height:1.6; }
+
+form { display:flex; flex-direction:column; }
+form input, form textarea, form button { padding:12px; margin:10px 0; border-radius:8px; border:1px solid #ccc; font-size:1em; }
+form button { background:#FF6600; color:white; border:none; cursor:pointer; font-weight:bold; }
+form button:hover { background:#e65c00; }
+</style>
+</head>
 <body>
 
 <header>
-  <img src="images/logo.png" alt="Plumbing Gurus Logo" class="logo">
-  <h1>Contact Plumbing Gurus</h1>
+  <div class="header-left">
+    <img src="images/LOGO.png" alt="Plumbing Gurus Logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="estimate-booking.html">Estimate</a>
+      <a href="contact.html">Contact</a>
+      <a href="education.html">Education</a>
+    </nav>
+    <span class="header-phone">Call Now: <span>(210)</span> <span style="color:#FF6600;">906-8524</span></span>
+  </div>
+  <div class="header-right">
+    <a href="estimate-booking.html"><img src="Logo.png" alt="Alternate Logo"></a>
+  </div>
 </header>
 
-<section>
-  <h2>Contact Information</h2>
-  <p>Email: plumbinggurus@gmail.com</p>
-  <p>Dispatch Hours: 8am – 6pm</p>
-  <p>Phone: (210) 906-8524</p>
-</section>
+<div class="hero">
+  <h1>Contact Plumbing Gurus</h1>
+  <p>Have a question or need plumbing help? Fill out the form below or call us directly. We’ll connect you with a plumber quickly and professionally.</p>
+</div>
+
+<div class="section">
+  <h2>Send Us a Message</h2>
+  <form action="https://formsubmit.co/pipeleaders@gmail.com" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <input type="text" name="phone" placeholder="Phone Number" required>
+    <textarea name="message" placeholder="Your Message / Plumbing Issue" rows="5" required></textarea>
+
+    <!-- FormSubmit hidden fields -->
+    <input type="hidden" name="_subject" value="New Contact Form Message">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+
+    <button type="submit">Send Message</button>
+  </form>
+</div>
+
+<div class="section">
+  <h2>Other Ways to Reach Us</h2>
+  <p><strong>Phone:</strong> (210) 906-8524</p>
+  <p><strong>Email:</strong> <a href="mailto:pipeleaders@gmail.com">pipeleaders@gmail.com</a></p>
+  <p><strong>Service Areas:</strong> San Antonio, TX (Austin coming soon)</p>
+</div>
 
 <footer>
   <p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
-  <p>
-    <a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
-    <a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a>
-  </p>
 </footer>
 
 </body>
