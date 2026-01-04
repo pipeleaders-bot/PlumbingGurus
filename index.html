@@ -6,21 +6,18 @@
 <title>Plumbing Gurus | Expert Plumbing Dispatch</title>
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" type="image/png" href="Logo.png">
-
 <style>
+/* Styles consistent across all pages */
 body { font-family: 'Arial', sans-serif; margin: 0; background: #f4f4f4; color: #333; }
-
-/* HEADER */
 header { background: #ffffff; padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e0e0e0; }
 .header-left, .header-right { display: flex; align-items: center; }
-.header-left img, .header-right img { height: 100px; max-width: 360px; object-fit: contain; } /* Increased logo size */
+.header-left img, .header-right img { height: 100px; max-width: 360px; object-fit: contain; }
 nav { margin-left: 30px; }
-nav a { color: #00539C; margin: 0 18px; text-decoration: none; font-weight: 600; font-size: 1.05em; letter-spacing: 0.5px; transition: color 0.3s ease; }
+nav a { color: #00539C; margin: 0 18px; text-decoration: none; font-weight: 600; font-size: 1.05em; transition: color 0.3s ease; }
 nav a:hover { color: #FF6600; }
 .header-phone { color: #FF6600; font-weight: bold; font-size: 1.2em; margin-left: 30px; }
 .header-phone span { color: #00539C; }
-
-/* HERO */
+/* Hero */
 .hero { background: linear-gradient(135deg, #e6f0fa, #ffffff); padding: 80px 20px 60px; text-align: center; border-bottom: 1px solid #ccc; }
 .hero h1 { color: #00539C; font-size: 3em; line-height: 1.2; margin-bottom: 20px; }
 .hero h1 span { color: #FF6600; }
@@ -28,35 +25,22 @@ nav a:hover { color: #FF6600; }
 .hero a { background: #FF6600; padding: 15px 35px; color: #ffffff; font-weight: bold; border-radius: 8px; text-decoration: none; font-size: 1.15em; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; animation: pulse 2s infinite; }
 .hero a:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
 @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
-
-/* TRUST SECTION */
-.trust { max-width: 950px; margin: 40px auto; padding: 30px 25px; background: #ffffff; border-radius: 12px; box-shadow: 0 3px 18px rgba(0,0,0,0.08); text-align: center; }
-.trust h2 { color: #00539C; margin-bottom: 20px; font-size: 2em; letter-spacing: 0.5px; }
-.trust-items { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 20px; }
-.trust-item { font-size: 1.15em; color: #333; text-align: center; }
-.trust-item span { font-weight: bold; color: #FF6600; margin-left: 8px; }
-
-/* SECTIONS */
+/* Sections and cards */
 .section { max-width: 950px; margin: 50px auto; padding: 30px 25px; background: #ffffff; border-radius: 12px; box-shadow: 0 3px 18px rgba(0,0,0,0.08); }
-.section h2 { color: #00539C; margin-bottom: 25px; font-size: 2em; letter-spacing: 0.5px; }
-
-/* CARDS */
+.section h2 { color: #00539C; margin-bottom: 25px; font-size: 2em; }
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-.card { background: #f9f9f9; padding: 25px; border-radius: 12px; box-shadow: 0 3px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s, transform 0.6s; opacity: 0; transform: translateY(40px); }
-.card.visible { opacity: 1; transform: translateY(0); }
+.card { background: #f9f9f9; padding: 25px; border-radius: 12px; box-shadow: 0 3px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease; }
 .card:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
 .card h3 { color: #00539C; margin-bottom: 12px; }
 .card p { font-size: 1em; line-height: 1.5; }
-
-/* TESTIMONIALS SLIDER */
+/* Testimonials */
 .testimonials-slider { position: relative; overflow: hidden; max-width: 950px; margin: 50px auto; background: #ffffff; border-radius: 12px; box-shadow: 0 3px 18px rgba(0,0,0,0.08); padding: 40px 25px; }
 .testimonials-container { display: flex; transition: transform 0.5s ease-in-out; }
 .testimonial-card { min-width: 100%; box-sizing: border-box; padding: 20px; }
 .testimonial-card p { font-style: italic; font-size: 1.05em; line-height: 1.5; }
 .testimonial-card div { font-weight: bold; font-size: 0.95em; color: #00539C; margin-top: 10px; }
 .testimonial-card span { color: #FFD700; }
-
-/* BOOKING FORM */
+/* Footer / Booking */
 footer { background: #00539C; color: white; padding: 50px 20px 30px; text-align: center; }
 footer h2 { color: #FFD700; margin-bottom: 25px; font-size: 1.8em; }
 footer form { display: flex; flex-direction: column; max-width: 450px; margin: 0 auto 30px; }
@@ -64,23 +48,16 @@ footer input, footer select, footer textarea { padding: 12px; margin-bottom: 15p
 footer select option.coming-soon { color: #999999; font-style: italic; }
 footer button { background: #FF6600; color: #fff; border: none; padding: 14px; border-radius: 6px; font-size: 1.1em; cursor: pointer; transition: transform 0.3s ease; }
 footer button:hover { transform: scale(1.03); }
-
-/* PRIORITY SLOTS */
 .priority-slots { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
 .priority-slot { background: #FFD700; color: #00539C; padding: 8px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: transform 0.2s ease; }
 .priority-slot:hover { transform: scale(1.05); }
 .priority-slot.disabled { background: #cccccc; color: #666666; cursor: not-allowed; }
 .priority-slot.fastest { background: #FF6600; color: #fff; }
-
-/* SERVICE AREAS */
 .service-areas { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; }
 .service-areas span { background: #FFD700; color: #00539C; padding: 6px 12px; border-radius: 12px; font-weight: bold; }
-
-/* MOBILE */
 @media (max-width: 768px) { header { flex-direction: column; text-align: center; } nav { margin: 20px 0; } .header-right { display: flex; margin-top: 15px; } .hero h1 { font-size: 2.2em; } .hero p { font-size: 1.15em; } .hero a { font-size: 1.05em; } }
 </style>
 </head>
-
 <body>
 
 <header>
@@ -89,8 +66,9 @@ footer button:hover { transform: scale(1.03); }
     <nav>
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
-      <a href="estimate-booking.html">Get Estimate</a>
+      <a href="estimate-booking.html">Estimate</a>
       <a href="contact.html">Contact</a>
+      <a href="education.html">Education</a>
     </nav>
     <span class="header-phone">Call Now: <span>(210)</span> <span style="color:#FF6600;">906-8524</span></span>
   </div>
@@ -103,6 +81,139 @@ footer button:hover { transform: scale(1.03); }
 
 <div class="hero">
   <h1><span>Connecting You</span> to Expert Plumbers</h1>
+  <p>Dispatching experienced plumbers with <span style="color:#FF6600;">10 years of hands-on experience</span> to solve your plumbing needs quickly and professionally.</p>
+  <a href="#booking-form">Book Your Service</a>
+</div>
+
+<div class="trust">
+  <h2>Our Commitment</h2>
+  <div class="trust-items">
+    <div class="trust-item">Fast Plumber Dispatch<span>✔</span></div>
+    <div class="trust-item">Serving San Antonio & Austin<span>(Coming Soon)</span></div>
+    <div class="trust-item">10 Years Plumbing Experience<span>💧</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Learn About Plumbing</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Prevent Clogs</h3>
+      <p>Regular maintenance prevents costly repairs. Avoid flushing grease or large items.</p>
+    </div>
+    <div class="card">
+      <h3>Fix Leaks Early</h3>
+      <p>Small leaks can lead to major water damage. Detect and repair leaks promptly.</p>
+    </div>
+    <div class="card">
+      <h3>Pipe Replacement Tips</h3>
+      <p>Know when to replace old or corroded pipes to prevent future problems.</p>
+    </div>
+    <div class="card">
+      <h3>Water Heater Care</h3>
+      <p>Maintain your water heater for longer life and efficient performance.</p>
+    </div>
+  </div>
+</div>
+
+<div class="testimonials-slider">
+  <h2>Customer Experiences</h2>
+  <div class="testimonials-container">
+    <div class="testimonial-card">
+      <p>"We had a serious leak that several plumbers couldn’t commit to quickly. Plumbing Gurus dispatched a pro, and the job was done fast and perfectly!"</p>
+      <div><span>★★★★★</span> — Alex T., San Antonio</div>
+    </div>
+    <div class="testimonial-card">
+      <p>"The plumber was courteous, professional, and efficient. Great communication and fast service!"</p>
+      <div><span>★★★★★</span> — Maria S., Austin</div>
+    </div>
+  </div>
+</div>
+
+<footer id="booking-form">
+  <h2>Book Your Service</h2>
+  <form action="#" method="post">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <select name="city" id="city-select" required>
+      <option value="">Select Your City</option>
+      <option value="San Antonio">San Antonio</option>
+      <option value="Austin" class="coming-soon" disabled>Austin (Coming Soon)</option>
+    </select>
+    <div id="priority-slots" class="priority-slots"></div>
+    <textarea name="message" placeholder="Describe your plumbing issue" rows="4" required></textarea>
+    <button type="submit">Request Service</button>
+  </form>
+
+  <h2>Service Areas</h2>
+  <div class="service-areas">
+    <span>San Antonio</span>
+    <span>Austin (Coming Soon)</span>
+  </div>
+
+  <p style="margin-top:30px;">Quick Links: 
+    <a href="index.html">Home</a> | 
+    <a href="services.html">Services</a> | 
+    <a href="estimate-booking.html">Estimate</a> | 
+    <a href="contact.html">Contact</a> | 
+    <a href="education.html">Education</a>
+  </p>
+
+  <p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+  <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
+<script>
+// Testimonials slider
+const slider = document.querySelector('.testimonials-container');
+const slides = document.querySelectorAll('.testimonial-card');
+let currentIndex = 0;
+function showSlide(index){ slider.style.transform = `translateX(-${index * 100}%)`; }
+function nextSlide(){ currentIndex = (currentIndex + 1) % slides.length; showSlide(currentIndex); }
+setInterval(nextSlide, 5000);
+
+// Animate cards
+const cards = document.querySelectorAll('.card');
+function checkCards() {
+  const trigger = window.innerHeight * 0.85;
+  cards.forEach(card => { if(card.getBoundingClientRect().top < trigger) card.classList.add('visible'); });
+}
+window.addEventListener('scroll', checkCards);
+window.addEventListener('load', checkCards);
+
+// Priority scheduling slots
+const citySelect = document.getElementById('city-select');
+const slotsContainer = document.getElementById('priority-slots');
+const slots = ["Today 9am-11am", "Today 1pm-3pm", "Today 3pm-5pm", "Tomorrow 9am-11am", "Tomorrow 1pm-3pm"];
+
+function updateSlots() {
+  slotsContainer.innerHTML = '';
+  if(citySelect.value === "San Antonio") {
+    slots.forEach((slot, index) => {
+      const slotDiv = document.createElement('div');
+      slotDiv.textContent = slot;
+      slotDiv.className = "priority-slot";
+      if(index === 0) slotDiv.classList.add('fastest'); // highlight fastest slot
+      slotDiv.addEventListener('click', () => {
+        document.querySelector('textarea[name="message"]').value = `Preferred slot: ${slot}`;
+      });
+      slotsContainer.appendChild(slotDiv);
+    });
+  } else {
+    const disabledDiv = document.createElement('div');
+    disabledDiv.textContent = "Priority scheduling not available";
+    disabledDiv.className = "priority-slot disabled";
+    slotsContainer.appendChild(disabledDiv);
+  }
+}
+
+citySelect.addEventListener('change', updateSlots);
+window.addEventListener('load', updateSlots);
+</script>
+
+</body>
+</html>  <h1><span>Connecting You</span> to Expert Plumbers</h1>
   <p>Dispatching experienced plumbers with <span style="color:#FF6600;">10 years of hands-on experience</span> to solve your plumbing needs quickly and professionally.</p>
   <a href="#booking-form">Book Your Service</a>
 </div>
@@ -361,4 +472,5 @@ window.addEventListener('load', updateSlots);
 
 </body>
 </html>
+
 
