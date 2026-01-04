@@ -3,56 +3,89 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services | Plumbing Gurus</title>
+<title>Plumbing Gurus | Services</title>
 <link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/png" href="Logo.png">
 <style>
-body { margin:0; font-family: Arial, sans-serif; background:#f4f4f4; }
-header { background:#00539C; color:white; padding:15px; display:flex; align-items:center; justify-content:space-between; }
-header img { height:50px; opacity:0.9; }
-nav a { color:white; margin:0 12px; text-decoration:none; font-weight:bold; }
-.container { max-width:800px; margin:40px auto; padding:20px; background:white; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
-h1 { color:#00539C; text-align:center; }
-ul { list-style-type:none; padding:0; }
-li { padding:12px 0; border-bottom:1px solid #ccc; font-size:1em; }
-li:last-child { border-bottom:none; }
-button { padding:10px 20px; border-radius:5px; background:#FFD700; font-weight:bold; border:none; cursor:pointer; }
-button:hover { background:#e6c200; }
-footer { text-align:center; background:#00539C; color:white; padding:15px; margin-top:40px; }
+/* Same styling as homepage for consistency */
+body { font-family: 'Arial', sans-serif; margin:0; background:#f4f4f4; color:#333; }
+header { background: #ffffff; padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e0e0e0; }
+.header-left, .header-right { display: flex; align-items: center; }
+.header-left img, .header-right img { height: 100px; max-width: 360px; object-fit: contain; }
+nav { margin-left: 30px; }
+nav a { color: #00539C; margin: 0 18px; text-decoration: none; font-weight: 600; font-size: 1.05em; transition: color 0.3s ease; }
+nav a:hover { color: #FF6600; }
+.header-phone { color: #FF6600; font-weight: bold; font-size: 1.2em; margin-left: 30px; }
+.header-phone span { color: #00539C; }
+.hero { background: linear-gradient(135deg, #e6f0fa, #ffffff); padding: 60px 20px 40px; text-align:center; border-bottom:1px solid #ccc; }
+.hero h1 { color: #00539C; font-size:2.8em; line-height:1.2; margin-bottom:20px; }
+.hero p { font-size:1.2em; max-width:700px; margin:0 auto 25px; line-height:1.5; }
+.section { max-width:950px; margin:50px auto; padding:30px 25px; background:#ffffff; border-radius:12px; box-shadow:0 3px 18px rgba(0,0,0,0.08); }
+.section h2 { color:#00539C; margin-bottom:25px; font-size:2em; }
+.cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:25px; }
+.card { background:#f9f9f9; padding:25px; border-radius:12px; box-shadow:0 3px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease; }
+.card:hover { transform: translateY(-5px); box-shadow:0 6px 20px rgba(0,0,0,0.15); }
+.card h3 { color:#00539C; margin-bottom:12px; }
+.card p { font-size:1em; line-height:1.5; }
+footer { background:#00539C; color:white; padding:50px 20px 30px; text-align:center; }
+footer h2 { color:#FFD700; margin-bottom:25px; font-size:1.8em; }
 footer a { color:white; text-decoration:underline; margin:0 5px; }
+@media (max-width:768px) { header { flex-direction:column; text-align:center; } nav { margin:20px 0; } .header-right { display:flex; margin-top:15px; } }
 </style>
 </head>
 <body>
 
 <header>
-<img src="Logo.png" alt="Plumbing Gurus Logo">
-<nav>
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="estimate-booking.html">Get Estimate</a>
-<a href="contact.html">Contact</a>
-</nav>
+  <div class="header-left">
+    <img src="images/LOGO.png" alt="Plumbing Gurus Logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="estimate-booking.html">Estimate</a>
+      <a href="contact.html">Contact</a>
+      <a href="education.html">Education</a>
+    </nav>
+    <span class="header-phone">Call Now: <span>(210)</span> <span style="color:#FF6600;">906-8524</span></span>
+  </div>
+  <div class="header-right">
+    <a href="estimate-booking.html"><img src="Logo.png" alt="Alternate Logo"></a>
+  </div>
 </header>
 
-<div class="container">
-<h1>Our Plumbing Services</h1>
-<p>Plumbing Gurus provides reliable dispatch services for professional plumbers in San Antonio. All services below can be performed without heavy or expensive equipment:</p>
+<div class="hero">
+  <h1>Our Plumbing Dispatch Services</h1>
+  <p>We connect you to experienced plumbers to handle your plumbing needs quickly and efficiently in San Antonio. Austin coming soon.</p>
+</div>
 
-<ul>
-<li><strong>Leak Detection and Repair</strong> — Fix leaks in pipes, faucets, and fixtures quickly.</li>
-<li><strong>Pipe Replacement</strong> — Replace old or damaged pipes efficiently.</li>
-<li><strong>Toilet Installation & Repair</strong> — Full service from minor repairs to new installations.</li>
-<li><strong>Water Heater Services</strong> — Install, repair, and maintain standard water heaters.</li>
-<li><strong>Basic Drain Cleaning</strong> — Remove minor clogs and blockages without hydrojetting.</li>
-<li><strong>Fixture Installation</strong> — Install sinks, faucets, and showers professionally.</li>
-<li><strong>Emergency Dispatch Services</strong> — Plumbers ready 24/7 for urgent needs.</li>
-</ul>
-
-<a href="estimate-booking.html"><button>Request an Estimate</button></a>
+<div class="section">
+  <h2>What We Dispatch</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Faucet & Sink Repair</h3>
+      <p>From leaky faucets to full replacements, we dispatch plumbers to handle it efficiently.</p>
+    </div>
+    <div class="card">
+      <h3>Toilet Repair & Replacement</h3>
+      <p>Quick, clean, and professional service for all toilet issues.</p>
+    </div>
+    <div class="card">
+      <h3>Pipe Repair & Renovation</h3>
+      <p>We dispatch plumbers to repair leaks or perform minor plumbing renovations.</p>
+    </div>
+    <div class="card">
+      <h3>Water Heater Services</h3>
+      <p>Installation, maintenance, and repair of water heaters to keep your hot water flowing.</p>
+    </div>
+    <div class="card">
+      <h3>Leak Detection</h3>
+      <p>Identify hidden leaks before they become costly water damage problems.</p>
+    </div>
+  </div>
 </div>
 
 <footer>
-<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
-<p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+  <p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+  <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
 </footer>
 
 </body>
