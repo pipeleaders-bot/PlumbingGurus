@@ -2,35 +2,33 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Estimate | Plumbing Gurus</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plumbing Gurus | Smart AI Estimate</title>
-<link rel="icon" type="image/png" href="images/LOGO.png">
+<link rel="stylesheet" href="css/style.css">
 <style>
 body { font-family: Arial, sans-serif; margin:0; background:#f4f4f4; color:#333; }
-header { background:#fff; padding:15px 30px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; border-bottom:1px solid #e0e0e0; }
-.header-left { display:flex; align-items:center; flex-wrap:wrap; }
-.header-left img { height:90px; max-width:320px; object-fit:contain; }
-nav { margin-left:25px; display:flex; flex-wrap:wrap; }
-nav a { color:#00539C; margin:8px 15px; text-decoration:none; font-weight:600; }
+header { background:#ffffff; padding:15px 40px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #e0e0e0; }
+.header-left, .header-right { display:flex; align-items:center; }
+.header-left img, .header-right img { height:100px; max-width:360px; object-fit:contain; }
+nav { margin-left:30px; }
+nav a { color:#00539C; margin:0 18px; text-decoration:none; font-weight:600; font-size:1.05em; }
 nav a:hover { color:#FF6600; }
-.header-phone { font-weight:bold; font-size:1.1em; color:#FF6600; margin-left:25px; }
-.header-right img { height:80px; max-width:300px; }
-.hero { background: linear-gradient(135deg, #e6f0fa, #ffffff); padding:70px 20px; text-align:center; }
-.hero h1 { color:#00539C; font-size:2.8em; }
-.hero p { font-size:1.2em; max-width:750px; margin:20px auto 35px; line-height:1.6; }
-.section { max-width:950px; margin:50px auto; padding:35px; background:#fff; border-radius:12px; box-shadow:0 3px 18px rgba(0,0,0,0.08); }
+.header-phone { color:#FF6600; font-weight:bold; font-size:1.2em; margin-left:30px; }
+
+.hero { background: linear-gradient(135deg,#e6f0fa,#ffffff); padding:40px 20px 20px; text-align:center; }
+.hero h1 { color:#00539C; font-size:2.5em; margin-bottom:15px;}
+.hero p { font-size:1.1em; max-width:700px; margin:0 auto 20px;}
+
+.section { max-width:950px; margin:40px auto; padding:30px 25px; background:#ffffff; border-radius:12px; }
 .section h2 { color:#00539C; margin-bottom:20px; }
-form#customerInfo input, form#customerInfo button { width:100%; padding:12px; margin:10px 0; border-radius:8px; border:1px solid #ccc; font-size:1em; }
-form#customerInfo button { background:#FF6600; color:white; border:none; cursor:pointer; }
-#chatBox { border:1px solid #ccc; padding:20px; border-radius:12px; max-width:600px; margin:20px auto; background:#f9f9f9; min-height:220px; }
-.message { margin:12px 0; padding:10px 15px; border-radius:12px; max-width:80%; display:inline-block; }
-.user { text-align:right; background:#FF6600; color:white; float:right; }
-.ai { text-align:left; background:#e6f0fa; color:#00539C; float:left; }
-button.option { background:#FFD700; color:#00539C; padding:12px 20px; margin:8px 5px 5px 0; border:none; border-radius:8px; cursor:pointer; }
-button.option:hover { background:#FFC107; }
-#estimateResult { margin-top:20px; padding:15px; background:#e6f7ff; border-radius:8px; font-weight:bold; text-align:center; }
-button.restart { background:#00539C; color:#FFD700; padding:12px 20px; border:none; border-radius:8px; cursor:pointer; margin-top:15px; display:none; }
-@media(max-width:768px){ header{ flex-direction:column; text-align:center; } nav{ justify-content:center; margin:20px 0; } .header-phone{ margin:10px 0; } .header-right img{ display:block; margin:0 auto; } }
+.section p { margin-bottom:15px; line-height:1.6; }
+
+form { display:flex; flex-direction:column; max-width:500px; margin:0 auto; }
+input, select, textarea, button { margin-bottom:15px; padding:12px; border-radius:6px; border:none; font-size:1em; }
+button { background:#FF6600; color:#fff; font-weight:bold; cursor:pointer; }
+
+footer { background:#00539C; color:white; padding:30px 20px; text-align:center; }
+footer a { color:white; text-decoration:underline; margin:0 5px; }
 </style>
 </head>
 <body>
@@ -44,33 +42,38 @@ button.restart { background:#00539C; color:#FFD700; padding:12px 20px; border:no
       <a href="estimate.html">Estimate</a>
       <a href="booking.html">Book Service</a>
       <a href="contact.html">Contact</a>
+      <a href="education.html">Education</a>
     </nav>
-    <span class="header-phone">Call Now: (210) 906-8524</span>
+    <span class="header-phone">Call Now: <span>(210)</span> <span style="color:#FF6600;">906-8524</span></span>
   </div>
   <div class="header-right">
-    <img src="images/LOGO.png" alt="Alternate Logo">
+    <a href="booking.html"><img src="images/LOGO.png" alt="Alternate Logo"></a>
   </div>
 </header>
 
 <div class="hero">
-  <h1>Smart AI Plumbing Estimate</h1>
-  <p>Enter your info and describe the plumbing issue. Our AI assistant will ask only needed questions and give a realistic range based on local pricing and urgency.</p>
+  <h1>Get Your Plumbing Estimate</h1>
+  <p>We provide preliminary estimates for common plumbing services. All work is coordinated with licensed professionals in San Antonio.</p>
 </div>
 
 <div class="section">
-  <h2>Customer Info</h2>
-  <form id="customerInfo">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="email" id="email" placeholder="Your Email" required>
-    <input type="text" id="phone" placeholder="Phone Number" required>
-    <button type="button" id="startChat">Start Estimate</button>
+  <h2>Estimate Your Service</h2>
+  <form action="#" method="post">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+    <select name="service" required>
+      <option value="">Select Service</option>
+      <option value="Leak Repair">Leak Repair</option>
+      <option value="Clogged Drain">Clogged Drain</option>
+      <option value="Faucet Installation">Faucet Installation</option>
+      <option value="Toilet Repair">Toilet Repair</option>
+      <option value="Water Heater Service">Water Heater Service</option>
+      <option value="Other">Other</option>
+    </select>
+    <textarea name="details" placeholder="Describe your plumbing issue" rows="4" required></textarea>
+    <button type="submit">Request Estimate</button>
   </form>
-
-  <h2>AI Interactive Chat</h2>
-  <div id="chatBox"></div>
-  <input type="text" id="userInput" placeholder="Type here..." disabled>
-  <button class="restart" id="restartBtn">Start New Estimate</button>
-  <div id="estimateResult"></div>
 </div>
 
 <footer>
@@ -78,31 +81,8 @@ button.restart { background:#00539C; color:#FFD700; padding:12px 20px; border:no
   <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
 </footer>
 
-<script>
-const chatBox = document.getElementById('chatBox');
-const userInput = document.getElementById('userInput');
-const startChatBtn = document.getElementById('startChat');
-const restartBtn = document.getElementById('restartBtn');
-const estimateResult = document.getElementById('estimateResult');
-
-let stage = 0;
-let userData = { name:'', email:'', phone:'', problem:'', detail:'', floor:'', emergency:false };
-
-const serviceCosts = { "Leak":[120,450], "Clog":[100,300], "Faucet":[80,160], "Toilet":[100,300], "Water Heater":[150,600], "Other":[100,500] };
-
-startChatBtn.addEventListener('click', () => {
-  userData.name = document.getElementById('name').value.trim();
-  userData.email = document.getElementById('email').value.trim();
-  userData.phone = document.getElementById('phone').value.trim();
-  if(!userData.name||!userData.email||!userData.phone){ alert("Please fill all fields."); return; }
-  chatBox.innerHTML=''; userInput.disabled=false;
-  addMessage(`Hi ${userData.name}! Please describe the plumbing problem:`,'ai');
-});
-
-restartBtn.addEventListener('click', ()=>{ stage=0; userData={ name:'', email:'', phone:'', problem:'', detail:'', floor:'', emergency:false }; chatBox.innerHTML=''; userInput.value=''; userInput.disabled=true; estimateResult.innerHTML=''; restartBtn.style.display='none'; });
-
-function addMessage(text,sender='ai'){ const msg=document.createElement('div'); msg.className='message '+sender; msg.innerHTML=text; chatBox.appendChild(msg); chatBox.scrollTop=chatBox.scrollHeight; }
-
+</body>
+</html>
 userInput.addEventListener('keypress', function(e){ if(e.key==='Enter') handleInput(); });
 
 function handleInput(){
