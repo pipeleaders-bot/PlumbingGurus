@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Plumbing Estimate | Plumbing Gurus</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body { font-family: Arial,sans-serif; margin:0; background:#f4f4f4; color:#333; }
+header { background:#fff; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #ccc; }
+header img { height:70px; object-fit:contain; }
+header nav a { margin:0 10px; text-decoration:none; font-weight:600; color:#00539C; }
+header nav a:hover { color:#FF6600; }
+.hero { background: linear-gradient(135deg,#e6f0fa,#fff); text-align:center; padding:40px 20px; }
+.hero h1 { color:#00539C; font-size:2em; margin-bottom:10px; }
+.section { max-width:700px; margin:30px auto; padding:25px; background:#fff; border-radius:12px; }
+input, button { width:100%; padding:12px; margin:10px 0; border-radius:8px; border:1px solid #ccc; font-size:1em; }
+button { background:#FF6600; color:#fff; border:none; cursor:pointer; }
+#chatBox { background:#f9f9f9; padding:15px; border-radius:10px; min-height:180px; max-height:350px; overflow:auto; }
+.message { margin:8px 0; padding:10px 14px; border-radius:10px; max-width:80%; clear:both; }
+.ai { background:#e6f0fa; color:#00539C; float:left; }
+.user { background:#FF6600; color:#fff; float:right; }
+#estimateResult { margin-top:20px; padding:15px; background:#e6f7ff; border-radius:8px; font-weight:bold; text-align:center; }
+footer { text-align:center; padding:15px; font-size:0.9em; background:#222; color:#fff; margin-top:40px; }
+</style>
+</head>
+<body>
+
+<header>
+<img src="images/LOGO.png" alt="Plumbing Gurus Logo">
+<nav>
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="estimate.html">Estimate</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<div class="hero">
+<h1>AI Plumbing Estimate</h1>
+<p>Describe your plumbing problem and get an instant estimate.</p>
+</div>
+
+<div class="section">
+<h2>Enter Your Info</h2>
+<input type="text" id="name" placeholder="Your Name">
+<input type="email" id="email" placeholder="Email">
+<input type="text" id="phone" placeholder="Phone Number">
+<button id="startBtn">Start Estimate</button>
+
+<div id="chatBox"></div>
+<input type="text" id="userInput" placeholder="Describe your problem..." disabled>
+<button id="restartBtn" style="display:none;">Start Over</button>
+
+<div id="estimateResult"></div>
+<p>Done with your estimate? <a href="booking.html" style="color:#FF6600;">Book your service here</a></p>
+</div>
+
+<footer>
+© 2025 Plumbing Gurus. Dispatch & referral services only.
+</footer>
+
+<script>
+const chatBox = document.getElementById('chatBox');
+const userInput = document.getElementById('userInput');
+const startBtn = document.getElementById('startBtn');
+const restartBtn = document.getElementById('restartBtn');
+const estimateResult = document.getElementById('estimateResult');
+
+let userData={name:'',email:'',phone:'',problem:'',floor:'',emergency:false};
+let stage=0;
+
+const serviceCosts={Leak:[120,450],Clog:[100,300],Faucet:[80,160],Toilet:[100,300],"Water Heater":[150,600],Other:[100,500]};
+
+startBtn.addEventListener('click',()=>{
+  userData.name=document.getElementById('name').value.trim();
+  userData.email=document.getElementById('email').value.trim();
+  userData.phone=document.getElementById('phone').value.trim();
+  if(!userData.name||!userData.email||!userData.phone){alert("Fill all fields"); return;}
+  chatBox.innerHTML=''; userInput.disabled=false;
+  addMessage(`Hi ${userData.name}! Describe your plumbing issue.`, 'ai');
+});
+
+restartBtn.addEventListener('click',()=>location.reload());
+
+userInput.addEventListener('keypress',e=>{if(e.key==='Enter') handleInput();});
+
+function addMessage(text,sender='ai'){
+  const msg=document.createElement('div'); msg.className='message '+sender; msg.innerHTML=text; chatBox.appendChild(msg); chatBox.scrollTop=chatBox.scrollHeight;
+}
+
+function handleInput(){
+  const val=userInput.value.trim(); if(!val) return; addMessage(val,'user'); userInput.value='';
+  const emergencyWords=["emergency","urgent","asap","after hours","night","weekend"];
+  if(emergencyWords.some(w=>val.toLowerCase().includes(w))){userData.emergency=true; addMessage('⚠ Emergency detected. Estimate +25%','ai');}
+  if(stage===0){userData.problem=val; stage++; askFloor();}
+}
+
+function askFloor(){
+  addMessage("Which floor is affected? Type: First, Second, or Ground/Basement","ai");
+  stage=1;
+}
+
+userInput.addEventListener('keypress',function(e){
+  if(e.key==='Enter' && stage===1){
+    const val=userInput.value.trim(); if(!val) return; addMessage(val,'user'); userInput.value='';
+    userData.floor=val;
+    finalizeEstimate();
+  }
+});
+
+function finalizeEstimate(){
+  let base=serviceCosts.Other; const text=userData.problem.toLowerCase();
+  if(text.includes("leak")) base=serviceCosts.Leak;
+  else if(text.includes("clog")) base=serviceCosts.Clog;
+  else if(text.includes("faucet")) base=serviceCosts.Faucet;
+  else if(text.includes("toilet")) base=serviceCosts.Toilet;
+  else if(text.includes("heater")) base=serviceCosts["Water Heater"];
+
+  let mult=1;
+  if(userData.floor.toLowerCase().includes("second")) mult*=1.15;
+  else if(userData.floor.toLowerCase().includes("ground")) mult*=1.1;
+  if(userData.emergency) mult*=1.25;
+
+  estimateResult.innerHTML=`Preliminary Estimate: $${Math.round(base[0]*mult)} - $${Math.round(base[1]*mult)} (Labor only)<br><em>Adjusted for San Antonio & emergency.</em>`;
+
+  fetch("https://formsubmit.co/pipeleaders@gmail.com",{method:"POST",headers:{'Content-Type':'application/json'},body:JSON.stringify(userData)});
+  addMessage("✅ Your info has been sent. You can book your service next.",'ai');
+  restartBtn.style.display='inline-block';
+}
+</script>
+</body>
+</html>
+2️⃣ Booking Page (booking.html)
+Copy code
+Html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Book Plumbing Service | Plumbing Gurus</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f4f4f4;color:#333;}
+header{background:#fff;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ccc;}
+header img{height:70px;}
+header nav a{margin:0 10px;text-decoration:none;font-weight:600;color:#00539C;}
+header nav a:hover{color:#FF6600;}
+.section{max-width:700px;margin:30px auto;padding:25px;background:#fff;border-radius:12px;}
+input, select, textarea, button{width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ccc;font-size:1em;}
+button{background:#FF6600;color:#fff;border:none;cursor:pointer;}
+button:hover{opacity:0.9;}
+footer{text-align:center;padding:15px;font-size:0.9em;background:#222;color:#fff;margin-top:40px;}
+</style>
+</head>
+<body>
+
+<header>
+<img src="images/LOGO.png" alt="Plumbing Gurus Logo">
+<nav>
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="estimate.html">Estimate</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<div class="section">
+<h2>Book Your Service</h2>
+<form id="bookingForm">
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="email" id="email" placeholder="Email" required>
+<input type="text" id="phone" placeholder="Phone" required>
+<label>Property Type:</label>
+<select id="property">
+<option>House</option>
+<option>Apartment</option>
+<option>Commercial</option>
+</select>
+<label>Service Type:</label>
+<select id="serviceType">
+<option>Repair</option>
+<option>Replacement</option>
+<option>Renovation</option>
+<option>New Build</option>
+</select>
+<label>Problem / Fixture:</label>
+<input type="text" id="problem" placeholder="Clogged Drain, Leaky Faucet, etc." required>
+<label>Floor Level:</label>
+<select id="floor">
+<option>Ground Floor</option>
+<option>Second Floor</option>
+</select>
+<label>Additional Notes:</label>
+<textarea id="notes"></textarea>
+<button type="submit">Submit Booking</button>
+</form>
+<p id="confirmation"></p>
+</div>
+
+<footer>
+© 2025 Plumbing Gurus. Dispatch & referral services only.
+</footer>
+
+<script>
+const form=document.getElementById('bookingForm');
+const confirmMsg=document.getElementById('confirmation');
+
+form.addEventListener('submit',function(e){
+e.preventDefault();
+const data={
+name:document.getElementById('name').value,
+email:document.getElementById('email').value,
+phone:document.getElementById('phone').value,
+property:document.getElementById('property').value,
+service:document.getElementById('serviceType').value,
+problem:document.getElementById('problem').value,
+floor:document.getElementById('floor').value,
+notes:document.getElementById('notes').value
+};
+fetch("https://formsubmit.co/pipeleaders@gmail.com",{method:"POST",headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+.then(()=>confirmMsg.innerHTML="✅ Booking submitted! Our team will contact you shortly.")
+.catch(err=>confirmMsg.innerHTML="❌ Error submitting booking.");
+});
+</script>
+
+</body>
+</html>
