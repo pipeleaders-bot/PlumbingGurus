@@ -2,41 +2,146 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Smart AI Plumbing Estimate | Plumbing Gurus</title>
+<title>Estimate & Booking | Plumbing Gurus</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
-body { font-family: Arial, sans-serif; margin:0; background:#f4f4f4; color:#333; }
-header { background:#ffffff; padding:15px 40px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #e0e0e0; }
-.header-left, .header-right { display:flex; align-items:center; }
-.header-left img, .header-right img { height:100px; max-width:360px; object-fit:contain; }
-nav { margin-left:30px; }
-nav a { color:#00539C; margin:0 18px; text-decoration:none; font-weight:600; font-size:1.05em; }
-nav a:hover { color:#FF6600; }
-.header-phone { color:#FF6600; font-weight:bold; font-size:1.2em; margin-left:30px; }
-.header-phone span { color:#00539C; }
+/* ===== BASE ===== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f4f4;
+  color: #333;
+}
 
-.hero { background: linear-gradient(135deg,#e6f0fa,#ffffff); padding:40px 20px 20px; text-align:center; }
-.hero h1 { color:#00539C; font-size:2.5em; margin-bottom:15px;}
-.hero p { font-size:1.1em; max-width:700px; margin:0 auto 20px;}
+/* ===== HEADER ===== */
+header {
+  background: #fff;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+}
 
-.section { max-width:950px; margin:40px auto; padding:30px 25px; background:#ffffff; border-radius:12px; }
-form#customerInfo { max-width:600px; margin:0 auto 30px; }
-form#customerInfo input { width:100%; padding:12px; margin:10px 0; border-radius:8px; border:1px solid #ccc; }
-form#customerInfo button { background:#FF6600; color:white; padding:12px 20px; border:none; border-radius:8px; cursor:pointer; }
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
 
-#chatBox { border:1px solid #ccc; padding:20px; border-radius:12px; max-width:600px; margin:0 auto; background:#f9f9f9; min-height:220px; }
-.message { margin:12px 0; padding:10px 15px; border-radius:12px; max-width:80%; display:inline-block; }
-.user { text-align:right; background:#FF6600; color:white; float:right; }
-.ai { text-align:left; background:#e6f0fa; color:#00539C; float:left; }
-button.option { background:#FFD700; color:#00539C; padding:12px 20px; margin:8px 5px 5px 0; border:none; border-radius:8px; cursor:pointer; }
-button.option:hover { background:#FFC107; }
+.header-left img {
+  height: 85px;
+  object-fit: contain;
+}
 
-#estimateResult { margin-top:20px; padding:15px; background:#e6f7ff; border-radius:8px; font-weight:bold; text-align:center; }
+nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #00539C;
+}
 
-button.restart { background:#00539C; color:#FFD700; padding:12px 20px; border:none; border-radius:8px; cursor:pointer; margin-top:15px; display:none; }
+nav a:hover { color: #FF6600; }
+
+.header-phone {
+  font-weight: bold;
+  color: #FF6600;
+}
+
+.header-right img {
+  height: 60px;
+  object-fit: contain;
+}
+
+/* ===== MOBILE FIX ===== */
+@media (max-width: 768px) {
+  nav, .header-phone { display: none; }
+  header { padding: 10px 15px; }
+  .header-left img { height: 65px; }
+  .header-right img { height: 45px; max-width: 130px; }
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg,#e6f0fa,#fff);
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  color: #00539C;
+  font-size: 2.3em;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  max-width: 900px;
+  background: #fff;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  margin-top: 15px;
+  background: #FF6600;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+button:hover { opacity: 0.9; }
+
+/* ===== CHAT ===== */
+#chatBox {
+  margin-top: 15px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  min-height: 180px;
+}
+
+.message {
+  margin: 8px 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.ai {
+  background: #e6f0fa;
+  color: #00539C;
+}
+
+.user {
+  background: #FF6600;
+  color: #fff;
+  margin-left: auto;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+}
 </style>
 </head>
+
 <body>
 
 <header>
@@ -47,62 +152,113 @@ button.restart { background:#00539C; color:#FFD700; padding:12px 20px; border:no
       <a href="services.html">Services</a>
       <a href="estimate-booking.html">Estimate</a>
       <a href="contact.html">Contact</a>
-      <a href="education.html">Education</a>
     </nav>
-    <span class="header-phone">Call Now: <span>(210)</span> <span style="color:#FF6600;">906-8524</span></span>
+    <span class="header-phone">(210) 906-8524</span>
   </div>
+
   <div class="header-right">
-    <a href="estimate-booking.html"><img src="Logo.png" alt="Alternate Logo"></a>
+    <img src="Logo.png" alt="Alternate Logo">
   </div>
 </header>
 
 <div class="hero">
-  <h1>Smart Estimate for Plumbing in San Antonio</h1>
-  <p>Enter your info and describe the plumbing issue. Our assistant will ask only needed questions and give a realistic range based on local pricing and emergency status.</p>
+  <h1>Estimate & Book Plumbing Service</h1>
+  <p>Get a realistic local estimate, then book service in minutes.</p>
 </div>
 
+<!-- ===== ESTIMATE SECTION ===== -->
 <div class="section">
-  <h2>Customer Info</h2>
-  <form id="customerInfo">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="email" id="email" placeholder="Your Email" required>
-    <input type="text" id="phone" placeholder="Phone Number" required>
-    <button type="button" id="startChat">Start Estimate</button>
-  </form>
+  <h2>Smart Estimate</h2>
 
-  <h2>AI Interactive Chat</h2>
+  <input id="custName" placeholder="Your Name">
+  <input id="custEmail" placeholder="Email">
+  <input id="custPhone" placeholder="Phone">
+
+  <button onclick="startEstimate()">Start Estimate</button>
+
   <div id="chatBox"></div>
-  <input type="text" id="userInput" placeholder="Type here..." disabled>
-  <button class="restart" id="restartBtn">Start New Estimate</button>
-
   <div id="estimateResult"></div>
 </div>
 
+<!-- ===== BOOKING SECTION ===== -->
+<div class="section">
+  <h2>Book Service</h2>
+
+  <form id="bookingForm">
+    <label>Property Type</label>
+    <select id="property">
+      <option>House</option>
+      <option>Apartment</option>
+      <option>Commercial</option>
+    </select>
+
+    <label>Service Type</label>
+    <select id="service">
+      <option>Repair</option>
+      <option>Replacement</option>
+      <option>Renovation</option>
+    </select>
+
+    <label>Additional Notes</label>
+    <textarea id="notes"></textarea>
+
+    <button type="submit">Submit Booking</button>
+  </form>
+</div>
+
 <footer>
-  <p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+  © 2025 Plumbing Gurus. Dispatch & referral services only.
 </footer>
 
 <script>
-const chatBox = document.getElementById('chatBox');
-const userInput = document.getElementById('userInput');
-const startChatBtn = document.getElementById('startChat');
-const restartBtn = document.getElementById('restartBtn');
-const estimateResult = document.getElementById('estimateResult');
+const chatBox = document.getElementById("chatBox");
+const estimateResult = document.getElementById("estimateResult");
 
-let stage = 0;
-let userData = { name:'', email:'', phone:'', problem:'', detail:'', floor:'', emergency:false };
+function startEstimate() {
+  if (!custName.value || !custEmail.value || !custPhone.value) {
+    alert("Please complete your info");
+    return;
+  }
+  chatBox.innerHTML = "";
+  addMsg(`Hi ${custName.value}! Describe your plumbing issue.`, "ai");
+}
 
-// San Antonio local pricing
-const serviceCosts = {
-  "Leak": [120, 450],
-  "Clog": [100, 300],
-  "Faucet": [80, 160],
-  "Toilet": [100, 300],
-  "Water Heater": [150, 600],
-  "Other": [100, 500]
-};
+function addMsg(text, who) {
+  const div = document.createElement("div");
+  div.className = "message " + who;
+  div.innerHTML = text;
+  chatBox.appendChild(div);
+}
 
-startChatBtn.addEventListener('click', () => {
+document.addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    const text = e.target.value?.toLowerCase() || "";
+    if (!text) return;
+
+    addMsg(text, "user");
+
+    let range = [100, 500];
+    if (text.includes("leak")) range = [120, 450];
+    if (text.includes("clog")) range = [100, 300];
+    if (text.includes("toilet")) range = [100, 300];
+    if (text.includes("faucet")) range = [80, 160];
+    if (text.includes("heater")) range = [150, 600];
+
+    estimateResult.innerHTML =
+      `Estimated Range: $${range[0]} – $${range[1]} (Labor only)<br>
+      <em>Final pricing after inspection</em>`;
+  }
+});
+
+document.getElementById("bookingForm").addEventListener("submit", e => {
+  e.preventDefault();
+  alert("Booking submitted! We will contact you shortly.");
+});
+</script>
+
+</body>
+</html>startChatBtn.addEventListener('click', () => {
   userData.name = document.getElementById('name').value.trim();
   userData.email = document.getElementById('email').value.trim();
   userData.phone = document.getElementById('phone').value.trim();
