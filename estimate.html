@@ -2,288 +2,97 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Estimate | Plumbing Gurus</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/style.css">
+<title>Plumbing Gurus | Get an Estimate</title>
+
+<link rel="icon" href="images/LOGO.png" type="image/png">
+
 <style>
-body { font-family: Arial, sans-serif; margin:0; background:#f4f4f4; color:#333; }
-header { background:#ffffff; padding:15px 40px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #e0e0e0; }
-.header-left, .header-right { display:flex; align-items:center; }
-.header-left img, .header-right img { height:100px; max-width:360px; object-fit:contain; }
-nav { margin-left:30px; }
-nav a { color:#00539C; margin:0 18px; text-decoration:none; font-weight:600; font-size:1.05em; }
-nav a:hover { color:#FF6600; }
-.header-phone { color:#FF6600; font-weight:bold; font-size:1.2em; margin-left:30px; }
-
-.hero { background: linear-gradient(135deg,#e6f0fa,#ffffff); padding:40px 20px 20px; text-align:center; }
-.hero h1 { color:#00539C; font-size:2.5em; margin-bottom:15px;}
-.hero p { font-size:1.1em; max-width:700px; margin:0 auto 20px;}
-
-.section { max-width:950px; margin:40px auto; padding:30px 25px; background:#ffffff; border-radius:12px; }
-.section h2 { color:#00539C; margin-bottom:20px; }
-.section p { margin-bottom:15px; line-height:1.6; }
-
-form { display:flex; flex-direction:column; max-width:500px; margin:0 auto; }
-input, select, textarea, button { margin-bottom:15px; padding:12px; border-radius:6px; border:none; font-size:1em; }
-button { background:#FF6600; color:#fff; font-weight:bold; cursor:pointer; }
-
-footer { background:#00539C; color:white; padding:30px 20px; text-align:center; }
-footer a { color:white; text-decoration:underline; margin:0 5px; }
-</style>
-</head>
-<body>
-
-<header>
-  <div class="header-left">
-    <img src="images/LOGO.png" alt="Plumbing Gurus Logo">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="estimate.html">Estimate</a>
-      <a href="booking.html">Book Service</a>
-      <a href="contact.html">Contact</a>
-      <a href="education.html">Education</a>
-    </nav>
-    <span class="header-phone">Call Now: <span>(210)</span> <span style="color:#FF6600;">906-8524</span></span>
-  </div>
-  <div class="header-right">
-    <a href="booking.html"><img src="images/LOGO.png" alt="Alternate Logo"></a>
-  </div>
-</header>
-
-<div class="hero">
-  <h1>Get Your Plumbing Estimate</h1>
-  <p>We provide preliminary estimates for common plumbing services. All work is coordinated with licensed professionals in San Antonio.</p>
-</div>
-
-<div class="section">
-  <h2>Estimate Your Service</h2>
-  <form action="#" method="post">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Email Address" required>
-    <input type="tel" name="phone" placeholder="Phone Number" required>
-    <select name="service" required>
-      <option value="">Select Service</option>
-      <option value="Leak Repair">Leak Repair</option>
-      <option value="Clogged Drain">Clogged Drain</option>
-      <option value="Faucet Installation">Faucet Installation</option>
-      <option value="Toilet Repair">Toilet Repair</option>
-      <option value="Water Heater Service">Water Heater Service</option>
-      <option value="Other">Other</option>
-    </select>
-    <textarea name="details" placeholder="Describe your plumbing issue" rows="4" required></textarea>
-    <button type="submit">Request Estimate</button>
-  </form>
-</div>
-
-<footer>
-  <p>© 2025 Plumbing Gurus. Coordinating & fixture services only.</p>
-  <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
-</footer>
-
-</body>
-</html>
-userInput.addEventListener('keypress', function(e){ if(e.key==='Enter') handleInput(); });
-
-function handleInput(){
-  const val=userInput.value.trim(); if(!val) return; addMessage(val,'user'); userInput.value='';
-  const emergencyKeywords=["emergency","urgent","now","asap","after hours","night","weekend"];
-  let emergencyDetected=false;
-  emergencyKeywords.forEach(k=>{ if(val.toLowerCase().includes(k)) { userData.emergency=true; emergencyDetected=true; }});
-  if(emergencyDetected) addMessage('⚠ Emergency Service Detected — estimate increased by 25%','ai');
-  if(stage===0){
-    userData.problem=val;
-    const floorRegex=/(first floor|second floor|ground floor|basement)/i;
-    const floorMatch=val.match(floorRegex); if(floorMatch) userData.floor=floorMatch[0];
-    stage++; askFollowUp();
-  }
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:#f5f7fa;
+  color:#333;
 }
 
-function askFollowUp(){
-  const text=userData.problem.toLowerCase();
-  let options=[];
-  if(text.includes("leak")) options=[{text:"💧 Dripping Leak",value:"Dripping"},{text:"🚿 Spraying Leak",value:"Spraying"}];
-  else if(text.includes("clog")) options=[{text:"🍽️ Kitchen",value:"Kitchen"},{text:"🚰 Bathroom",value:"Bathroom"},{text:"🚽 Toilet",value:"Toilet"}];
-  else if(text.includes("faucet")) options=[{text:"💧 Dripping Faucet",value:"Dripping"},{text:"❌ Not Working Faucet",value:"Not working"}];
-  else if(text.includes("toilet")) options=[{text:"💧 Running Toilet",value:"Running"},{text:"🚽 Not Flushing",value:"Not flushing"}];
-  else if(text.includes("water heater")) options=[{text:"🔥 Not Heating",value:"Not heating"},{text:"💧 Water Heater Leak",value:"Leaking"}];
-
-  if(options.length){
-    addMessage("Please select the option that best matches your issue:");
-    options.forEach(opt=>{
-      const b=document.createElement('button'); b.className='option'; b.innerHTML=opt.text;
-      b.onclick=()=>{ userData.detail=opt.value; addMessage(opt.value,'user'); document.querySelectorAll('.option').forEach(b=>b.remove()); if(!userData.floor) askFloor(); else finalizeEstimate();};
-      chatBox.appendChild(b);
-    });
-  } else { if(!userData.floor) askFloor(); else finalizeEstimate(); }
+/* HEADER */
+header{
+  background:#fff;
+  border-bottom:1px solid #e6e6e6;
+  padding:14px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+.logo{
+  height:64px;
+  max-width:240px;
+  object-fit:contain;
+}
+nav{
+  display:flex;
+  gap:18px;
+}
+nav a{
+  text-decoration:none;
+  font-weight:600;
+  color:#004a8f;
+}
+nav a:hover{color:#ff6a00}
+.call{
+  font-weight:700;
+  color:#ff6a00;
 }
 
-function askFloor(){
-  addMessage("Which floor is the issue on?");
-  const floors=[{text:"🏠 First Floor", value:"First Floor"},{text:"🏢 Second Floor", value:"Second Floor"},{text:"🏡 Ground/Basement", value:"Ground Floor"}];
-  floors.forEach(f=>{ const b=document.createElement('button'); b.className='option'; b.innerHTML=f.text; b.onclick=()=>{ userData.floor=f.value; addMessage(f.value,'user'); document.querySelectorAll('.option').forEach(b=>b.remove()); finalizeEstimate(); restartBtn.style.display='inline-block'; sendToEmail(); }; chatBox.appendChild(b); });
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,#eaf2fb,#ffffff);
+  padding:70px 20px;
+  text-align:center;
+}
+.hero h1{
+  color:#004a8f;
+  font-size:2.4rem;
+  margin-bottom:10px;
+}
+.hero p{
+  max-width:760px;
+  margin:0 auto;
+  font-size:1.1rem;
 }
 
-function finalizeEstimate(){
-  let baseRange=serviceCosts["Other"];
-  const text=userData.problem.toLowerCase();
-  if(text.includes("leak")) baseRange=serviceCosts["Leak"];
-  else if(text.includes("clog")) baseRange=serviceCosts["Clog"];
-  else if(text.includes("faucet")) baseRange=serviceCosts["Faucet"];
-  else if(text.includes("toilet")) baseRange=serviceCosts["Toilet"];
-  else if(text.includes("water heater")) baseRange=serviceCosts["Water Heater"];
-  let multiplier=1.0;
-  if(userData.floor.toLowerCase().includes("second")) multiplier*=1.15;
-  else if(userData.floor.toLowerCase().includes("ground")) multiplier*=1.1;
-  if(userData.emergency) multiplier*=1.25;
-  estimateResult.innerHTML=`Preliminary Local Estimate: $${Math.round(baseRange[0]*multiplier)} - $${Math.round(baseRange[1]*multiplier)} (Labor only)<br><em>Adjusted for San Antonio pricing and urgency.</em>`;
+/* SECTION */
+.section{
+  max-width:1000px;
+  margin:60px auto;
+  padding:40px;
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 6px 22px rgba(0,0,0,0.08);
+}
+.section h2{
+  text-align:center;
+  color:#004a8f;
+  margin-bottom:20px;
 }
 
-function sendToEmail(){
-  fetch("https://formsubmit.co/pipeleaders@gmail.com",{ method:"POST", headers:{'Content-Type':'application/json'}, body:JSON.stringify(userData) });
+/* INFO GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
 }
-</script>
-
-</body>
-</html>    const val=userInput.value.trim(); if(!val) return; addMessage(val,'user'); userInput.value='';
-    userData.floor=val;
-    finalizeEstimate();
-  }
-});
-
-function finalizeEstimate(){
-  let base=serviceCosts.Other; const text=userData.problem.toLowerCase();
-  if(text.includes("leak")) base=serviceCosts.Leak;
-  else if(text.includes("clog")) base=serviceCosts.Clog;
-  else if(text.includes("faucet")) base=serviceCosts.Faucet;
-  else if(text.includes("toilet")) base=serviceCosts.Toilet;
-  else if(text.includes("heater")) base=serviceCosts["Water Heater"];
-
-  let mult=1;
-  if(userData.floor.toLowerCase().includes("second")) mult*=1.15;
-  else if(userData.floor.toLowerCase().includes("ground")) mult*=1.1;
-  if(userData.emergency) mult*=1.25;
-
-  estimateResult.innerHTML=`Preliminary Estimate: $${Math.round(base[0]*mult)} - $${Math.round(base[1]*mult)} (Labor only)<br><em>Adjusted for San Antonio & emergency.</em>`;
-
-  fetch("https://formsubmit.co/pipeleaders@gmail.com",{method:"POST",headers:{'Content-Type':'application/json'},body:JSON.stringify(userData)});
-  addMessage("✅ Your info has been sent. You can book your service next.",'ai');
-  restartBtn.style.display='inline-block';
+.box{
+  background:#f1f5f9;
+  padding:26px;
+  border-radius:14px;
 }
-</script>
-</body>
-</html>}
-
-chatForm.addEventListener("submit", function(e){
-    e.preventDefault();
-    const name=document.getElementById("name").value.trim();
-    const email=document.getElementById("email").value.trim();
-    const phone=document.getElementById("phone").value.trim();
-    const zip=document.getElementById("zip").value.trim();
-    const serviceType=document.getElementById("serviceType").value;
-    const serviceDetail=document.getElementById("serviceDetail").value;
-    const userNotes=document.getElementById("userNotes").value.trim();
-    
-    displayMessage(`${name}, ${serviceType} - ${serviceDetail}`, "user");
-    if(userNotes) displayMessage(userNotes, "user");
-    
-    const [min,max]=calculateLaborEstimate(serviceType, serviceDetail, zip);
-    
-    displayMessage(`Preliminary Labor Estimate: $${min} – $${max}. Materials, permits, and additional equipment are extra. Final pricing confirmed after inspection by a licensed plumber.`, "bot");
-    document.getElementById("estimateResult").innerHTML = `<strong>Preliminary Labor Estimate:</strong> $${min} – $${max}<br><small>Materials, permits, and additional equipment are extra. Final pricing confirmed after inspection by a licensed plumber.</small>`;
-    
-    // Submit via FormSubmit
-    const formData=new FormData();
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("phone", phone);
-    formData.append("zip", zip);
-    formData.append("serviceType", serviceType);
-    formData.append("serviceDetail", serviceDetail);
-    formData.append("notes", userNotes);
-    formData.append("_captcha","false");
-    formData.append("_subject","New AI Labor Estimate Submission");
-    formData.append("_template","table");
-    
-    fetch("https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3", { method:"POST", body: formData });
-});
-</script>
-
-<footer style="text-align:center; background:#00539C; color:white; padding:15px;">
-<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
-<p><a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
-<a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a></p>
-</footer>
-
-</body>
-</html>    if(!value) return;
-    displayMessage(value,"user");
-    if(currentQuestion < questions.length){
-        answers[questions[currentQuestion].name] = value;
-        currentQuestion++;
-        chatInput.value="";
-        showNextQuestion();
-    } else {
-        answers["notes"] = (answers["notes"] || "") + " " + value;
-        chatInput.value="";
-        calculateEstimate();
-    }
-});
-
-// Pricing ranges
-function getEstimate(service){
-    let range = [150,450];
-    if(service==="Repair") range = [150,500];
-    else if(service==="Remodel") range = [500,5000];
-    else if(service==="New Build") range = [1000,10000];
-    return range;
+.box strong{
+  color:#004a8f;
 }
 
-// Local multiplier
-function getLocalMultiplier(zip){
-    const austinZips = [78701,78702,78703,78704,78705,78723,78741,78745,78746];
-    const sanAntonioZips = [78201,78202,78203,78204,78205,78209,78210,78211,78212];
-    zip = parseInt(zip) || 78251;
-    if(austinZips.includes(zip)) return 1.08;
-    if(sanAntonioZips.includes(zip)) return 1.00;
-    return 1.00;
-}
-
-// Calculate estimate
-function calculateEstimate(){
-    if(!answers.service || !answers.zip) return;
-    let [min,max] = getEstimate(answers.service);
-    const multiplier = getLocalMultiplier(answers.zip);
-    min *= multiplier;
-    max *= multiplier;
-
-    document.getElementById("estimateResult").innerHTML =
-    `<strong>Preliminary Estimate:</strong> $${min.toFixed(0)} – $${max.toFixed(0)}<br>
-    <small>Final pricing confirmed after inspection by a licensed plumber.</small>`;
-
-    // Submit data via FormSubmit
-    const formData = new FormData();
-    for(let key in answers){
-        formData.append(key, answers[key]);
-    }
-    formData.append("_captcha","false");
-    formData.append("_subject","New AI Estimate Submission");
-    formData.append("_template","table");
-
-    fetch("https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3", {
-        method:"POST",
-        body: formData
-    });
-}
-
-showNextQuestion();
-</script>
-
-<footer style="text-align:center; background:#00539C; color:white; padding:15px;">
-<p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
-<p><a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | 
-<a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a></p>
-</footer>
-
-</body>
-</html>
+/* FORM */
+form{
+  margin-top
