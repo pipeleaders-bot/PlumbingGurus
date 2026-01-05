@@ -4,17 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book a Service | Plumbing Gurus</title>
-  <style>
-    body { font-family: Arial, sans-serif; background:#f4f6f8; margin:0; padding:0; }
-    header { background:#0077cc; color:white; padding:40px 20px; text-align:center; }
-    header h1 { margin:0; font-size:2em; }
-    main { max-width:700px; margin:40px auto; background:white; padding:30px; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.1); }
-    label { display:block; margin-bottom:5px; font-weight:bold; }
-    input, select, textarea, button { width:100%; padding:10px; margin-bottom:20px; border-radius:5px; border:1px solid #ccc; font-size:1em; }
-    button { background:#0077cc; color:white; border:none; cursor:pointer; }
-    button:hover { background:#005fa3; }
-    .disclaimer { font-size:0.9em; color:#555; margin-top:20px; border-top:1px solid #eee; padding-top:15px; }
-  </style>
+  <link rel="stylesheet" href="styles.css"> <!-- your existing CSS -->
 </head>
 <body>
 
@@ -24,7 +14,15 @@
 </header>
 
 <main>
-  <form action="/submit-booking" method="POST">
+  <!-- FormSubmit Form -->
+  <form action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
+    
+    <!-- GitHub Pages / Jekyll safe hidden fields -->
+    {% raw %}
+    <input type="hidden" name="_next" value="https://www.plumbinggurus.us/thank-you.html">
+    <input type="hidden" name="_captcha" value="false">
+    {% endraw %}
+
     <label for="name">Full Name</label>
     <input type="text" id="name" name="name" placeholder="John Doe" required>
 
@@ -32,7 +30,7 @@
     <input type="email" id="email" name="email" placeholder="example@email.com" required>
 
     <label for="phone">Phone Number</label>
-    <input type="tel" id="phone" name="phone" placeholder="(210) 555-1234" required>
+    <input type="tel" id="phone" name="phone" placeholder="(210) 555-1234">
 
     <label for="service">Type of Plumbing Service</label>
     <select id="service" name="service" required>
