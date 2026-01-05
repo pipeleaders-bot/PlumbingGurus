@@ -3,309 +3,244 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plumbing Gurus | Plumbing Coordination & Dispatch</title>
+<title>Plumbing Gurus | San Antonio Plumbing Dispatch</title>
 
-<!-- ONLY LOGO USED -->
-<link rel="icon" href="LOGO.png" type="image/png">
+<!-- FAVICON (ONLY LOGO USED) -->
+<link rel="icon" href="images/LOGO.png" type="image/png">
 
 <style>
-:root{
-  --blue:#00539C;
-  --blue2:#0077cc;
-  --orange:#FF6600;
-  --light:#f4f4f4;
-  --card:#f0f4f8;
-}
-
-/* GLOBAL */
+/* ===== GLOBAL ===== */
 *{box-sizing:border-box}
 body{
   margin:0;
-  font-family:Arial, sans-serif;
-  background:var(--light);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:#f5f7fa;
   color:#333;
-  scroll-behavior:smooth;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 header{
   background:#fff;
-  position:sticky;
-  top:0;
-  z-index:1000;
-  border-bottom:1px solid #e0e0e0;
-  padding:14px 28px;
-  transition:.3s;
-}
-header.scrolled{
-  box-shadow:0 6px 20px rgba(0,0,0,.15);
-}
-.header-wrap{
-  max-width:1200px;
-  margin:auto;
+  border-bottom:1px solid #e6e6e6;
+  padding:14px 24px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   flex-wrap:wrap;
 }
 .logo{
-  height:65px;
+  height:64px;
+  max-width:240px;
+  object-fit:contain;
+}
+nav{
+  display:flex;
+  gap:18px;
 }
 nav a{
-  margin:0 12px;
-  color:var(--blue);
-  font-weight:600;
   text-decoration:none;
+  font-weight:600;
+  color:#004a8f;
 }
-nav a:hover{color:var(--orange)}
+nav a:hover{color:#ff6a00}
 .call{
-  font-weight:bold;
-  color:var(--orange);
+  font-weight:700;
+  color:#ff6a00;
 }
-.call a{color:inherit;text-decoration:none}
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
-  padding:90px 20px;
+  background:linear-gradient(135deg,#eaf2fb,#ffffff);
+  padding:80px 20px;
   text-align:center;
-  background:linear-gradient(135deg,#e6f0fa,#fff);
 }
 .hero h1{
-  font-size:2.7em;
-  color:var(--blue);
-  margin-bottom:15px;
+  font-size:2.6rem;
+  color:#004a8f;
+  margin-bottom:12px;
 }
 .hero p{
-  max-width:780px;
-  margin:20px auto 35px;
-  font-size:1.15em;
-  line-height:1.6;
+  max-width:760px;
+  margin:0 auto 30px;
+  font-size:1.15rem;
 }
-.btn{
-  padding:15px 36px;
-  border-radius:8px;
-  font-size:1.1em;
-  font-weight:bold;
-  text-decoration:none;
-  margin:6px;
+.hero .btns a{
   display:inline-block;
-  transition:.3s;
+  margin:8px;
+  padding:14px 34px;
+  border-radius:10px;
+  font-weight:700;
+  text-decoration:none;
 }
-.btn-blue{background:var(--blue2);color:#fff}
-.btn-blue:hover{background:var(--blue)}
-.btn-orange{background:var(--orange);color:#fff}
-.btn-orange:hover{background:#e65500}
-
-/* TRUST BAR */
-.trust{
-  background:#fff;
-  border-top:1px solid #e0e0e0;
-  border-bottom:1px solid #e0e0e0;
-  text-align:center;
-  padding:12px;
-  font-weight:bold;
+.btn-primary{
+  background:#0077cc;
+  color:#fff;
 }
+.btn-primary:hover{background:#005fa3}
+.btn-secondary{
+  background:#ff6a00;
+  color:#fff;
+}
+.btn-secondary:hover{background:#e65c00}
 
-/* SECTION */
+/* ===== SECTION ===== */
 .section{
   max-width:1000px;
-  margin:55px auto;
-  background:#fff;
+  margin:60px auto;
   padding:40px;
-  border-radius:14px;
-  box-shadow:0 4px 18px rgba(0,0,0,.08);
-  text-align:center;
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 6px 22px rgba(0,0,0,0.08);
 }
 .section h2{
-  color:var(--blue);
+  text-align:center;
+  color:#004a8f;
   margin-bottom:30px;
 }
 
-/* SERVICES */
-.cards{
+/* ===== SERVICES ===== */
+.services{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:25px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:24px;
 }
-.card{
-  background:var(--card);
-  padding:25px;
+.service{
+  background:#f1f5f9;
   border-radius:14px;
+  padding:24px;
+  text-align:center;
+  font-weight:600;
   transition:.3s;
 }
-.card:hover{
-  background:var(--blue2);
+.service:hover{
+  background:#0077cc;
   color:#fff;
-  transform:translateY(-6px);
-}
-.card small{
-  display:block;
-  margin-top:10px;
-  font-size:.9em;
+  transform:translateY(-5px);
 }
 
-/* TESTIMONIALS */
-.testimonials{
-  max-width:900px;
-  margin:70px auto;
+/* ===== TRUST ===== */
+.trust{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
   text-align:center;
 }
-.slider{
-  display:flex;
-  overflow:hidden;
-}
-.testimonial{
-  min-width:100%;
-  background:var(--card);
-  padding:25px;
+.trust div{
+  background:#f9fafb;
+  padding:24px;
   border-radius:14px;
 }
-.testimonial p{font-style:italic}
-.testimonial span{
-  display:block;
-  margin-top:10px;
-  color:var(--blue);
-  font-weight:bold;
+
+/* ===== DISCLAIMER ===== */
+.disclaimer{
+  font-size:.9rem;
+  color:#555;
+  margin-top:20px;
+  line-height:1.5;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer{
-  background:var(--blue);
+  background:#004a8f;
   color:#fff;
   text-align:center;
   padding:50px 20px;
 }
 footer a{
-  color:#FFD700;
+  color:#ffd000;
   text-decoration:none;
+  font-weight:600;
 }
 footer a:hover{text-decoration:underline}
 
-/* MOBILE */
+/* ===== MOBILE ===== */
 @media(max-width:768px){
-  .hero h1{font-size:2.1em}
-  nav{margin-top:10px}
+  header{justify-content:center;gap:14px}
+  nav{justify-content:center;flex-wrap:wrap}
+  .hero h1{font-size:2.1rem}
 }
 </style>
 </head>
 
 <body>
 
-<header id="header">
-  <div class="header-wrap">
-    <img src="LOGO.png" alt="Plumbing Gurus Logo" class="logo">
+<!-- ===== HEADER ===== -->
+<header>
+  <img src="images/LOGO.png" alt="Plumbing Gurus Logo" class="logo">
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#estimate">Estimate</a>
-      <a href="#booking">Booking</a>
-    </nav>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="estimate.html">Estimate</a>
+    <a href="booking.html">Book</a>
+    <a href="education.html">Education</a>
+  </nav>
 
-    <div class="call">
-      <a href="tel:+12109068524">(210) 906-8524</a>
-    </div>
-  </div>
+  <div class="call">(210) 906-8524</div>
 </header>
 
-<section class="trust">
-  📍 Serving San Antonio & Surrounding Areas • 📞 Call Anytime
-</section>
-
-<section class="hero" id="home">
-  <h1>Plumbing Services Coordinated the Right Way</h1>
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <h1>Plumbing Help Made Simple</h1>
   <p>
-    Plumbing Gurus is a professional plumbing coordination and dispatch service.
-    We provide minor non-regulated plumbing services in-house and connect customers
-    with independent licensed plumbing professionals when required.
+    Fast plumbing coordination, honest pricing, and reliable service for homes
+    and businesses in San Antonio. We dispatch qualified professionals and
+    handle minor plumbing services directly when permitted.
   </p>
-
-  <a href="#estimate" class="btn btn-blue">Get Estimate</a>
-  <a href="#booking" class="btn btn-orange">Book Service</a>
-</section>
-
-<section class="section" id="services">
-  <h2>Services We Coordinate & Provide</h2>
-
-  <div class="cards">
-    <div class="card">
-      💧 Minor Leak Repairs*
-      <small>Non-structural leak repairs where licensing is not required.</small>
-    </div>
-    <div class="card">
-      🚽 Toilet Repairs & Replacements*
-      <small>Basic repairs and replacements handled in-house.</small>
-    </div>
-    <div class="card">
-      🍽️ Drain Clearing*
-      <small>Non-invasive drain clearing services.</small>
-    </div>
-    <div class="card">
-      🔥 Water Heater Services
-      <small>Referred to licensed plumbing professionals.</small>
-    </div>
-    <div class="card">
-      🚿 Fixture Installation*
-      <small>Faucets, shower heads, and minor fixtures.</small>
-    </div>
-    <div class="card">
-      🛁 Shower & Bath Repairs*
-      <small>Minor repairs where permitted by law.</small>
-    </div>
-  </div>
-
-  <p style="margin-top:18px;font-size:.9em;">
-    *In-house services are limited to non-regulated plumbing work where licensing is not required.
-  </p>
-</section>
-
-<section class="testimonials">
-  <h2>What Customers Say</h2>
-
-  <div class="slider" id="slider">
-    <div class="testimonial">
-      <p>"Fast response and very professional coordination."</p>
-      <span>— Alex T., San Antonio ⭐⭐⭐⭐⭐</span>
-    </div>
-    <div class="testimonial">
-      <p>"They handled everything smoothly and clearly."</p>
-      <span>— Maria S., TX ⭐⭐⭐⭐⭐</span>
-    </div>
-    <div class="testimonial">
-      <p>"Great communication and honest service."</p>
-      <span>— James L., TX ⭐⭐⭐⭐⭐</span>
-    </div>
+  <div class="btns">
+    <a href="estimate.html" class="btn-primary">Get an Estimate</a>
+    <a href="booking.html" class="btn-secondary">Book Service</a>
   </div>
 </section>
 
+<!-- ===== SERVICES ===== -->
+<section class="section">
+  <h2>Popular Services</h2>
+  <div class="services">
+    <div class="service">💧 Leak Detection & Repair</div>
+    <div class="service">🚽 Toilet Repair & Replacement</div>
+    <div class="service">🍽️ Drain & Clog Removal</div>
+    <div class="service">🔥 Water Heater Assistance</div>
+    <div class="service">🚿 Faucet & Fixture Install</div>
+    <div class="service">🛁 Shower & Tub Service</div>
+  </div>
+</section>
+
+<!-- ===== TRUST ===== -->
+<section class="section">
+  <h2>Why Plumbing Gurus</h2>
+  <div class="trust">
+    <div>
+      <strong>Fast Dispatch</strong><br>
+      Same-day coordination whenever possible.
+    </div>
+    <div>
+      <strong>Up-Front Pricing</strong><br>
+      Clear service call and repair options.
+    </div>
+    <div>
+      <strong>Trusted Network</strong><br>
+      We work with experienced plumbing professionals.
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    Plumbing Gurus provides plumbing coordination, dispatch, and referral
+    services. Certain minor plumbing and maintenance tasks may be performed
+    directly where legally permitted. Licensed plumbing work is referred to
+    independent licensed professionals. Plumbing Gurus is not responsible for
+    work performed by third-party providers.
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
 <footer>
   <p>© 2025 Plumbing Gurus</p>
-  <p>
-    Plumbing Coordination, Dispatch & Referral Services.<br>
-    Minor non-regulated plumbing services may be performed in-house.<br>
-    Licensed plumbing work is referred to independent licensed professionals.
-  </p>
   <p>
     <a href="terms.html">Terms & Conditions</a> |
     <a href="privacy.html">Privacy Policy</a>
   </p>
 </footer>
-
-<script>
-/* Sticky header shadow */
-window.addEventListener("scroll",()=>{
-  document.getElementById("header")
-    .classList.toggle("scrolled",window.scrollY>10);
-});
-
-/* Testimonials slider */
-const slider=document.getElementById("slider");
-let i=0;
-setInterval(()=>{
-  i=(i+1)%slider.children.length;
-  slider.style.transform=`translateX(-${i*100}%)`;
-},5000);
-</script>
 
 </body>
 </html>
