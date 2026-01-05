@@ -3,62 +3,205 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plumbing Gurus | Expert Plumbing Services</title>
-<link rel="stylesheet" href="css/style.css">
+<title>Plumbing Gurus | Plumbing Dispatch & Fixture Services</title>
 <link rel="icon" type="image/png" href="Logo.png">
+
 <style>
-/* Global Styles */
-body { font-family: 'Arial', sans-serif; margin: 0; background: #f4f4f4; color: #333; }
-header { background: #ffffff; padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e0e0e0; }
-.header-left, .header-right { display: flex; align-items: center; }
-.header-left img, .header-right img { height: 100px; max-width: 360px; object-fit: contain; }
-nav { margin-left: 30px; }
-nav a { color: #00539C; margin: 0 18px; text-decoration: none; font-weight: 600; font-size: 1.05em; transition: color 0.3s ease; }
-nav a:hover { color: #FF6600; }
-.header-phone { color: #FF6600; font-weight: bold; font-size: 1.2em; margin-left: 30px; }
-.header-phone span { color: #00539C; }
-/* Hero */
-.hero { background: linear-gradient(135deg, #e6f0fa, #ffffff); padding: 80px 20px 60px; text-align: center; border-bottom: 1px solid #ccc; }
-.hero h1 { color: #00539C; font-size: 3em; line-height: 1.2; margin-bottom: 20px; }
-.hero h1 span { color: #FF6600; }
-.hero p { font-size: 1.3em; margin-bottom: 35px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6; }
-.hero a { background: #FF6600; padding: 15px 35px; color: #ffffff; font-weight: bold; border-radius: 8px; text-decoration: none; font-size: 1.15em; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; animation: pulse 2s infinite; }
-.hero a:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
-@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
-/* Sections and cards */
-.section { max-width: 950px; margin: 50px auto; padding: 30px 25px; background: #ffffff; border-radius: 12px; box-shadow: 0 3px 18px rgba(0,0,0,0.08); }
-.section h2 { color: #00539C; margin-bottom: 25px; font-size: 2em; }
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-.card { background: #f9f9f9; padding: 25px; border-radius: 12px; box-shadow: 0 3px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease; }
-.card:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
-.card h3 { color: #00539C; margin-bottom: 12px; }
-.card p { font-size: 1em; line-height: 1.5; }
-/* Testimonials */
-.testimonials-slider { position: relative; overflow: hidden; max-width: 950px; margin: 50px auto; background: #ffffff; border-radius: 12px; box-shadow: 0 3px 18px rgba(0,0,0,0.08); padding: 40px 25px; }
-.testimonials-slider h2 { margin-bottom: 25px; font-size: 2em; color: #00539C; text-align: center; }
-.testimonials-container { display: flex; transition: transform 0.5s ease-in-out; }
-.testimonial-card { min-width: 100%; box-sizing: border-box; padding: 20px; }
-.testimonial-card p { font-style: italic; font-size: 1.05em; line-height: 1.5; }
-.testimonial-card div { font-weight: bold; font-size: 0.95em; color: #00539C; margin-top: 10px; }
-.testimonial-card span { color: #FFD700; }
-/* Footer / Booking */
-footer { background: #00539C; color: white; padding: 50px 20px 30px; text-align: center; }
-footer h2 { color: #FFD700; margin-bottom: 25px; font-size: 1.8em; }
-footer form { display: flex; flex-direction: column; max-width: 450px; margin: 0 auto 30px; }
-footer input, footer select, footer textarea { padding: 12px; margin-bottom: 15px; border-radius: 6px; border: 1px solid #ccc; font-size: 1em; }
-footer select option.coming-soon { color: #999999; font-style: italic; }
-footer button { background: #FF6600; color: #fff; border: none; padding: 14px; border-radius: 6px; font-size: 1.1em; cursor: pointer; transition: transform 0.3s ease; }
-footer button:hover { transform: scale(1.03); }
-.priority-slots { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
-.priority-slot { background: #FFD700; color: #00539C; padding: 8px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: transform 0.2s ease; }
-.priority-slot:hover { transform: scale(1.05); }
-.priority-slot.disabled { background: #cccccc; color: #666666; cursor: not-allowed; }
-.priority-slot.fastest { background: #FF6600; color: #fff; }
-.service-areas { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; }
-.service-areas span { background: #FFD700; color: #00539C; padding: 6px 12px; border-radius: 12px; font-weight: bold; }
-@media (max-width: 768px) { header { flex-direction: column; text-align: center; } nav { margin: 20px 0; } .header-right { display: flex; margin-top: 15px; } .hero h1 { font-size: 2.2em; } .hero p { font-size: 1.15em; } .hero a { font-size: 1.05em; } }
+/* GLOBAL */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f4f4;
+  color: #333;
+}
+
+/* HEADER */
+header {
+  background: #ffffff;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header-left img {
+  height: 90px;
+  max-width: 320px;
+  object-fit: contain;
+}
+
+nav {
+  margin-left: 25px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #00539C;
+  margin: 8px 15px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #FF6600;
+}
+
+.header-phone {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #FF6600;
+  margin-left: 25px;
+}
+
+.header-right img {
+  height: 80px;
+  max-width: 300px;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #e6f0fa, #ffffff);
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  color: #00539C;
+  font-size: 2.8em;
+}
+
+.hero h1 span {
+  color: #FF6600;
+}
+
+.hero p {
+  font-size: 1.2em;
+  max-width: 750px;
+  margin: 20px auto 35px;
+  line-height: 1.6;
+}
+
+.hero a {
+  background: #FF6600;
+  color: #fff;
+  padding: 15px 35px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.15em;
+}
+
+/* SECTION */
+.section {
+  max-width: 950px;
+  margin: 50px auto;
+  padding: 35px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 18px rgba(0,0,0,0.08);
+}
+
+.section h2 {
+  color: #00539C;
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+/* FOOTER */
+footer {
+  background: #00539C;
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+footer h2 {
+  color: #FFD700;
+}
+
+footer form {
+  max-width: 450px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+footer input,
+footer textarea,
+footer select {
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: none;
+}
+
+footer button {
+  background: #FF6600;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  font-size: 1.1em;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-left {
+    justify-content: center;
+  }
+
+  nav {
+    justify-content: center;
+    margin: 15px 0;
+  }
+
+  .header-phone {
+    margin: 10px 0;
+  }
+
+  .header-right {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .header-right img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .hero h1 {
+    font-size: 2.1em;
+  }
+}
 </style>
 </head>
+
 <body>
 
 <header>
@@ -71,38 +214,63 @@ footer button:hover { transform: scale(1.03); }
       <a href="contact.html">Contact</a>
       <a href="education.html">Education</a>
     </nav>
-    <span class="header-phone">Call Now: <span>(210)</span> <span style="color:#FF6600;">906-8524</span></span>
+    <span class="header-phone">Call Now: (210) 906-8524</span>
   </div>
+
   <div class="header-right">
     <a href="estimate-booking.html">
-      <img src="Logo.png" alt="Alternate Logo">
+      <img src="Logo.png" alt="Plumbing Gurus Secondary Logo">
     </a>
   </div>
 </header>
 
 <div class="hero">
-  <h1><span>Connecting You</span> to Expert Plumbers</h1>
-  <p>Dispatching experienced plumbers with <span style="color:#FF6600;">10 years of hands-on experience</span> to solve your plumbing needs quickly and professionally.</p>
-  <a href="#booking-form">Book Your Service</a>
-</div>
-
-<div class="trust">
-  <h2>Our Commitment</h2>
-  <div class="trust-items">
-    <div class="trust-item">Fast & Reliable Service<span>✔</span></div>
-    <div class="trust-item">Serving San Antonio & Austin<span>(Coming Soon)</span></div>
-    <div class="trust-item">10 Years Plumbing Experience<span>💧</span></div>
-  </div>
+  <h1><span>Plumbing Dispatch</span> & Fixture Services</h1>
+  <p>
+    Plumbing Gurus provides professional plumbing dispatch and non-permit fixture services in San Antonio.
+    When licensed plumbing work is required, we coordinate qualified, independent plumbing professionals.
+  </p>
+  <a href="#booking">Request Service</a>
 </div>
 
 <div class="section">
-  <h2>Learn About Plumbing</h2>
+  <h2>What We Do</h2>
   <div class="cards">
     <div class="card">
-      <h3>Prevent Clogs</h3>
-      <p>Regular maintenance prevents costly repairs. Avoid flushing grease or large items.</p>
+      <h3>Fixture Installation & Replacement</h3>
+      <p>Faucets, toilets, sinks, garbage disposals, shower fixtures, and other non-permit plumbing services.</p>
     </div>
     <div class="card">
+      <h3>Emergency Plumbing Dispatch</h3>
+      <p>Urgent plumbing issues? We quickly connect you with available plumbing professionals.</p>
+    </div>
+    <div class="card">
+      <h3>Professional Coordination</h3>
+      <p>Clear communication, fast scheduling, and transparent service scopes.</p>
+    </div>
+  </div>
+</div>
+
+<footer id="booking">
+  <h2>Request Service</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="tel" placeholder="Phone Number" required>
+    <input type="email" placeholder="Email Address" required>
+    <textarea placeholder="Describe your plumbing issue" required></textarea>
+    <button type="submit">Submit Request</button>
+  </form>
+
+  <p style="margin-top:30px; font-size:0.9em;">
+    Plumbing Gurus provides fixture services and plumbing dispatch only.  
+    Licensed plumbing work is performed by independent, properly licensed professionals.
+  </p>
+
+  <p>© 2025 Plumbing Gurus</p>
+</footer>
+
+</body>
+</html>    <div class="card">
       <h3>Fix Leaks Early</h3>
       <p>Small leaks can lead to major water damage. Detect and repair leaks promptly.</p>
     </div>
@@ -214,3 +382,4 @@ window.addEventListener('load', updateSlots);
 
 </body>
 </html>
+
