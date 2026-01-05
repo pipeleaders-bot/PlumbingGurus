@@ -1,133 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plumbing Gurus | Home</title>
-<link rel="icon" href="images/LOGO.png" type="image/png">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plumbing Coordination Made Easy | Plumbing Gurus</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2em;
+    }
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.2em;
+    }
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+    .service-card {
+      flex: 1 1 calc(50% - 20px);
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .service-card h3 {
+      color: #0077cc;
+      margin-top: 0;
+    }
+    .disclaimer {
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 30px;
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+    }
+    @media (max-width: 600px) {
+      .service-card { flex: 1 1 100%; }
+    }
+    .cta-buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .cta-buttons a {
+      background-color: #0077cc;
+      color: white;
+      text-decoration: none;
+      padding: 15px 25px;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+    .cta-buttons a:hover {
+      background-color: #005fa3;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-  <div class="header-left">
-    <img src="images/LOGO.png" alt="Plumbing Gurus Logo" class="logo">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="estimate.html">Estimate</a>
-      <a href="booking.html">Booking</a>
-      <a href="education.html">Education</a>
-    </nav>
-    <span class="header-phone">Call Now: <span>(210)</span> <span style="color:#FF6600;">906-8524</span></span>
+  <h1>Plumbing Coordination Made Easy</h1>
+  <p>We connect you with licensed Texas Master Plumbers for fast, reliable service in San Antonio.</p>
+  <div class="cta-buttons">
+    <a href="/estimate.html">Get Estimate</a>
+    <a href="/book.html">Book Service</a>
   </div>
 </header>
 
-<section class="hero">
-  <h1><span>Connecting You</span> to Trusted Plumbing Pros</h1>
-  <p>We dispatch licensed plumbers for major work and provide minor non-licensed plumbing services directly. Fast, reliable, and professional — San Antonio area.</p>
-  <a href="estimate.html" class="primary">Get Estimate</a>
-  <a href="booking.html" class="secondary">Book Service</a>
-</section>
+<main>
+  <section class="services">
+    <div class="service-card">
+      <h3>Leak / Water Issue Coordination</h3>
+      <p>We help you connect with licensed plumbers to assess and resolve leaks efficiently.</p>
+    </div>
+    <div class="service-card">
+      <h3>Drain / Clog Coordination</h3>
+      <p>Schedule inspections and clearing with a licensed professional without the hassle.</p>
+    </div>
+    <div class="service-card">
+      <h3>Fixture / Faucet Coordination</h3>
+      <p>Coordinate installations and repairs with licensed plumbers for all fixtures.</p>
+    </div>
+    <div class="service-card">
+      <h3>Water Heater Inquiry</h3>
+      <p>Get connected with licensed plumbers for water heater inspections, maintenance, or replacement.</p>
+    </div>
+  </section>
 
-<section class="section">
-  <h2>Our Services</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Leak Repair</h3>
-      <p>We connect you with licensed plumbers to fix leaks quickly or handle minor leaks in-house where allowed.</p>
-    </div>
-    <div class="card">
-      <h3>Toilet & Drain Service</h3>
-      <p>Coordination with certified plumbers for full service and minor maintenance by our team.</p>
-    </div>
-    <div class="card">
-      <h3>Clog Removal</h3>
-      <p>Professional clearing of stubborn clogs and guidance for ongoing prevention.</p>
-    </div>
-    <div class="card">
-      <h3>Water Heater</h3>
-      <p>Licensed plumbers dispatched for installation or repairs. Minor maintenance handled directly.</p>
-    </div>
-    <div class="card">
-      <h3>Faucet & Fixtures</h3>
-      <p>Replacement and minor repairs performed in-house; larger installations by certified pros.</p>
-    </div>
-    <div class="card">
-      <h3>Shower & Bath</h3>
-      <p>Expert guidance and scheduling of licensed plumbers for full-service repairs or installations.</p>
-    </div>
+  <div class="disclaimer">
+    <p>Plumbing Gurus LLC is a <strong>service coordination company</strong>. All plumbing work is performed by independently licensed Texas Master Plumbers. Plumbing Gurus LLC is <strong>not a licensed plumbing contractor</strong>.</p>
   </div>
-  <p class="disclaimer">
-    *Plumbing Gurus provides dispatch and referral services. Minor non-licensed plumbing tasks may be performed directly by our team. Licensed plumbing work is completed by certified professionals. Estimates are preliminary ranges only.
-  </p>
-</section>
-
-<section class="testimonials-slider">
-  <h2>What Customers Say</h2>
-  <div class="testimonials-container">
-    <div class="testimonial-card">
-      <p>"We had a major leak, and Plumbing Gurus quickly dispatched a licensed plumber. Excellent service!"</p>
-      <div>— Alex T., San Antonio</div>
-    </div>
-    <div class="testimonial-card">
-      <p>"The team coordinated everything smoothly and handled minor work directly. Highly recommended."</p>
-      <div>— Maria S., Austin</div>
-    </div>
-    <div class="testimonial-card">
-      <p>"Fast dispatch, professional plumbers, and friendly communication. Will use again."</p>
-      <div>— James L., San Antonio</div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <h2>Learn About Plumbing</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Prevent Clogs</h3>
-      <p>Regular maintenance prevents costly repairs. Avoid flushing grease or large items.</p>
-    </div>
-    <div class="card">
-      <h3>Fix Leaks Early</h3>
-      <p>Small leaks can lead to major water damage. Detect and repair promptly.</p>
-    </div>
-    <div class="card">
-      <h3>Pipe Replacement Tips</h3>
-      <p>Understand the lifespan of your pipes and when to schedule a licensed replacement.</p>
-    </div>
-    <div class="card">
-      <h3>Water Heater Care</h3>
-      <p>Maintain your water heater to extend life and efficiency. Minor work can be done by our team.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
-  <p>
-    <a href="terms.html">Terms & Conditions</a> | 
-    <a href="privacy.html">Privacy Policy</a>
-  </p>
-</footer>
-
-<script>
-// Testimonials slider
-const slider = document.querySelector('.testimonials-container');
-const slides = document.querySelectorAll('.testimonial-card');
-let currentIndex = 0;
-
-function showSlide(index) {
-  slider.style.transform = `translateX(-${index * 100}%)`;
-}
-
-function nextSlide() {
-  currentIndex = (currentIndex + 1) % slides.length;
-  showSlide(currentIndex);
-}
-
-setInterval(nextSlide, 5000);
-</script>
+</main>
 
 </body>
 </html>
