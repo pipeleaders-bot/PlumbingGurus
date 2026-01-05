@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plumbing Gurus | Book Service</title>
-<link rel="icon" href="images/LOGO.png" type="image/png">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plumbing Gurus | Booking</title>
+  <link rel="icon" href="images/LOGO.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -24,45 +24,34 @@
 </header>
 
 <section class="hero">
-  <h1>Book Your Service</h1>
-  <p>Schedule a plumbing service with Plumbing Gurus. All bookings require acknowledgment of service terms. Minor tasks may be performed directly while licensed work is coordinated with professionals.</p>
+  <h1>Book a Plumbing Service</h1>
+  <p>Schedule a service online quickly and securely. We coordinate your plumbing needs efficiently.</p>
 </section>
 
 <section class="section">
   <h2>Service Booking Form</h2>
-
   <form>
-    <input type="text" placeholder="Full Name" required>
-    <input type="tel" placeholder="Phone Number" required>
-    <input type="email" placeholder="Email Address">
-    <select required>
-      <option value="">Select Service Type</option>
-      <option>Leak</option>
-      <option>Drain / Clog</option>
-      <option>Toilet</option>
-      <option>Water Heater</option>
-      <option>Fixture / Faucet</option>
-      <option>General / Not Sure</option>
-    </select>
-    <textarea placeholder="Describe your issue or request"></textarea>
-
-    <label>
-      <input type="checkbox" required>
-      I acknowledge that Plumbing Gurus provides plumbing coordination, dispatch, and minor plumbing services where permitted. Licensed work will be performed by independent professionals. I understand that a service call fee may apply.
+    <label>Name:<input type="text" placeholder="Your Name"></label>
+    <label>Email:<input type="email" placeholder="you@example.com"></label>
+    <label>Phone:<input type="tel" placeholder="(210) 555-1234"></label>
+    <label>Service Needed:
+      <select>
+        <option>Leak Repair</option>
+        <option>Toilet Service</option>
+        <option>Clog Removal</option>
+        <option>Water Heater</option>
+        <option>Faucet & Fixture</option>
+        <option>Shower & Bath</option>
+      </select>
     </label>
-
-    <button type="submit">Confirm Booking</button>
+    <label>Preferred Date:<input type="date"></label>
+    <label>Details:<textarea placeholder="Any additional notes"></textarea></label>
+    <button type="submit" class="secondary">Book Service</button>
   </form>
-
-  <div class="disclaimer">
-    Plumbing Gurus dispatches qualified professionals for licensed plumbing work
-    and performs minor tasks directly where legally allowed. No work is performed
-    without customer approval. A service call fee may apply.
-  </div>
 </section>
 
 <footer>
-  <p>© 2025 Plumbing Gurus</p>
+  <p>© 2025 Plumbing Gurus. Coordinating & Referral Services Only</p>
   <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
 </footer>
 
