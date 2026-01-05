@@ -2,107 +2,135 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>AI Plumbing Estimate | Plumbing Gurus</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Plumbing Labor Estimate | Plumbing Gurus</title>
-<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-body { font-family: Arial, sans-serif; background:#f4f4f4; margin:0; }
-header { background:#00539C; color:white; padding:15px; text-align:center; }
-header img { height:60px; margin-bottom:10px; }
-nav a { color:white; margin:0 10px; text-decoration:none; }
-.container { max-width:700px; margin:30px auto; background:white; padding:20px; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
-#chatMessages { max-height:400px; overflow-y:auto; margin-bottom:10px; }
-.chat-message { display:flex; padding:10px; margin:5px 0; border-radius:10px; max-width:80%; word-wrap:break-word; }
-.bot-message { background:#e6f7ff; justify-content:flex-start; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
-.user-message { background:#d3f4d3; justify-content:flex-end; margin-left:auto; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
-.chat-message i { margin-right:8px; align-self:center; }
-input, select, button { width:100%; padding:10px; margin-top:5px; border-radius:5px; border:1px solid #ccc; }
-button { background:#00539C; color:white; border:none; cursor:pointer; margin-top:10px; }
-#estimateResult { margin-top:20px; padding:15px; background:#e6f7ff; border:1px solid #999; border-radius:5px; font-weight:bold; }
+body { font-family: Arial,sans-serif; margin:0; background:#f4f4f4; color:#333; }
+header { background:#fff; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #ccc; }
+header img { height:70px; object-fit:contain; }
+header nav a { margin:0 10px; text-decoration:none; font-weight:600; color:#00539C; }
+header nav a:hover { color:#FF6600; }
+.hero { background: linear-gradient(135deg,#e6f0fa,#fff); text-align:center; padding:40px 20px; }
+.hero h1 { color:#00539C; font-size:2em; margin-bottom:10px; }
+.section { max-width:700px; margin:30px auto; padding:25px; background:#fff; border-radius:12px; }
+input, button { width:100%; padding:12px; margin:10px 0; border-radius:8px; border:1px solid #ccc; font-size:1em; }
+button { background:#FF6600; color:#fff; border:none; cursor:pointer; }
+#chatBox { background:#f9f9f9; padding:15px; border-radius:10px; min-height:180px; max-height:350px; overflow:auto; }
+.message { margin:8px 0; padding:10px 14px; border-radius:10px; max-width:80%; clear:both; }
+.ai { background:#e6f0fa; color:#00539C; float:left; }
+.user { background:#FF6600; color:#fff; float:right; }
+#estimateResult { margin-top:20px; padding:15px; background:#e6f7ff; border-radius:8px; font-weight:bold; text-align:center; }
+footer { text-align:center; padding:15px; font-size:0.9em; background:#222; color:#fff; margin-top:40px; }
 </style>
 </head>
 <body>
 
 <header>
-<img src="images/logo.png" alt="Plumbing Gurus Logo">
-<h1>AI Plumbing Labor Estimate</h1>
+<img src="images/LOGO.png" alt="Plumbing Gurus Logo">
 <nav>
-<a href="index.html">Home</a> | 
-<a href="services.html">Services</a> | 
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="estimate.html">Estimate</a>
 <a href="contact.html">Contact</a>
 </nav>
 </header>
 
-<div class="container">
-<div id="chatMessages"></div>
-
-<form id="chatForm" action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
-<input type="text" id="name" placeholder="Full Name" required>
-<input type="email" id="email" placeholder="Email" required>
-<input type="tel" id="phone" placeholder="Phone Number" required>
-<input type="text" id="zip" placeholder="ZIP Code" required>
-<select id="serviceType" required>
-<option value="">Select Service Type</option>
-<option value="New Build">New Build</option>
-<option value="Remodel">Remodel</option>
-<option value="Repair">Repair</option>
-</select>
-<select id="serviceDetail" required>
-<option value="">Select Specific Service</option>
-<option value="Sink Repair">Sink Repair</option>
-<option value="Water Heater">Water Heater</option>
-<option value="Leak Repair">Leak Repair</option>
-<option value="Pipe Replacement">Pipe Replacement</option>
-<option value="Toilet Repair">Toilet Repair</option>
-</select>
-<input type="text" id="userNotes" placeholder="Describe what you need done...">
-<button type="submit"><i class="fa fa-paper-plane"></i> Get Labor Estimate</button>
-</form>
-
-<div id="estimateResult"></div>
+<div class="hero">
+<h1>AI Plumbing Estimate</h1>
+<p>Describe your plumbing problem and get an instant estimate.</p>
 </div>
 
+<div class="section">
+<h2>Enter Your Info</h2>
+<input type="text" id="name" placeholder="Your Name">
+<input type="email" id="email" placeholder="Email">
+<input type="text" id="phone" placeholder="Phone Number">
+<button id="startBtn">Start Estimate</button>
+
+<div id="chatBox"></div>
+<input type="text" id="userInput" placeholder="Describe your problem..." disabled>
+<button id="restartBtn" style="display:none;">Start Over</button>
+
+<div id="estimateResult"></div>
+<p>Done with your estimate? <a href="booking.html" style="color:#FF6600;">Book your service here</a></p>
+</div>
+
+<footer>
+© 2025 Plumbing Gurus. Dispatch & referral services only.
+</footer>
+
 <script>
-const chatMessages = document.getElementById("chatMessages");
-const chatForm = document.getElementById("chatForm");
+const chatBox = document.getElementById('chatBox');
+const userInput = document.getElementById('userInput');
+const startBtn = document.getElementById('startBtn');
+const restartBtn = document.getElementById('restartBtn');
+const estimateResult = document.getElementById('estimateResult');
 
-function displayMessage(text, sender="bot"){
-    const div = document.createElement("div");
-    div.className = sender==="bot"?"chat-message bot-message":"chat-message user-message";
-    const icon = document.createElement("i");
-    icon.className = sender==="bot"?"fa fa-robot":"fa fa-user";
-    div.appendChild(icon);
-    const span = document.createElement("span");
-    span.textContent = text;
-    div.appendChild(span);
-    chatMessages.appendChild(div);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
+let userData={name:'',email:'',phone:'',problem:'',floor:'',emergency:false};
+let stage=0;
+
+const serviceCosts={Leak:[120,450],Clog:[100,300],Faucet:[80,160],Toilet:[100,300],"Water Heater":[150,600],Other:[100,500]};
+
+startBtn.addEventListener('click',()=>{
+  userData.name=document.getElementById('name').value.trim();
+  userData.email=document.getElementById('email').value.trim();
+  userData.phone=document.getElementById('phone').value.trim();
+  if(!userData.name||!userData.email||!userData.phone){alert("Fill all fields"); return;}
+  chatBox.innerHTML=''; userInput.disabled=false;
+  addMessage(`Hi ${userData.name}! Describe your plumbing issue.`, 'ai');
+});
+
+restartBtn.addEventListener('click',()=>location.reload());
+
+userInput.addEventListener('keypress',e=>{if(e.key==='Enter') handleInput();});
+
+function addMessage(text,sender='ai'){
+  const msg=document.createElement('div'); msg.className='message '+sender; msg.innerHTML=text; chatBox.appendChild(msg); chatBox.scrollTop=chatBox.scrollHeight;
 }
 
-// Labor estimate calculation only
-function calculateLaborEstimate(serviceType, serviceDetail, zip){
-    let baseRange = [150,450]; // default labor-only
-    if(serviceType==="Repair") baseRange=[150,500];
-    if(serviceType==="Remodel") baseRange=[500,2500]; // labor-only for remodel
-    if(serviceType==="New Build") baseRange=[1000,7000]; // labor-only for new build
-    
-    // Adjust based on service detail
-    if(serviceDetail.includes("Water Heater")) { baseRange[0]+=100; baseRange[1]+=200; }
-    if(serviceDetail.includes("Pipe Replacement")) { baseRange[0]+=50; baseRange[1]+=150; }
-    
-    // Local multiplier
-    const austinZips = [78701,78702,78703,78704,78705,78723,78741,78745,78746];
-    const sanAntonioZips = [78201,78202,78203,78204,78205,78209,78210,78211,78212];
-    zip = parseInt(zip) || 78251;
-    let multiplier=1.0;
-    if(austinZips.includes(zip)) multiplier=1.08;
-    if(sanAntonioZips.includes(zip)) multiplier=1.00;
-    
-    const min=Math.round(baseRange[0]*multiplier);
-    const max=Math.round(baseRange[1]*multiplier);
-    return [min,max];
+function handleInput(){
+  const val=userInput.value.trim(); if(!val) return; addMessage(val,'user'); userInput.value='';
+  const emergencyWords=["emergency","urgent","asap","after hours","night","weekend"];
+  if(emergencyWords.some(w=>val.toLowerCase().includes(w))){userData.emergency=true; addMessage('⚠ Emergency detected. Estimate +25%','ai');}
+  if(stage===0){userData.problem=val; stage++; askFloor();}
 }
+
+function askFloor(){
+  addMessage("Which floor is affected? Type: First, Second, or Ground/Basement","ai");
+  stage=1;
+}
+
+userInput.addEventListener('keypress',function(e){
+  if(e.key==='Enter' && stage===1){
+    const val=userInput.value.trim(); if(!val) return; addMessage(val,'user'); userInput.value='';
+    userData.floor=val;
+    finalizeEstimate();
+  }
+});
+
+function finalizeEstimate(){
+  let base=serviceCosts.Other; const text=userData.problem.toLowerCase();
+  if(text.includes("leak")) base=serviceCosts.Leak;
+  else if(text.includes("clog")) base=serviceCosts.Clog;
+  else if(text.includes("faucet")) base=serviceCosts.Faucet;
+  else if(text.includes("toilet")) base=serviceCosts.Toilet;
+  else if(text.includes("heater")) base=serviceCosts["Water Heater"];
+
+  let mult=1;
+  if(userData.floor.toLowerCase().includes("second")) mult*=1.15;
+  else if(userData.floor.toLowerCase().includes("ground")) mult*=1.1;
+  if(userData.emergency) mult*=1.25;
+
+  estimateResult.innerHTML=`Preliminary Estimate: $${Math.round(base[0]*mult)} - $${Math.round(base[1]*mult)} (Labor only)<br><em>Adjusted for San Antonio & emergency.</em>`;
+
+  fetch("https://formsubmit.co/pipeleaders@gmail.com",{method:"POST",headers:{'Content-Type':'application/json'},body:JSON.stringify(userData)});
+  addMessage("✅ Your info has been sent. You can book your service next.",'ai');
+  restartBtn.style.display='inline-block';
+}
+</script>
+</body>
+</html>}
 
 chatForm.addEventListener("submit", function(e){
     e.preventDefault();
