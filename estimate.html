@@ -1,130 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Get Your Plumbing Estimate | Plumbing Gurus</title>
-  <link rel="stylesheet" href="styles.css"> <!-- optional external CSS -->
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f6f8;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #0077cc;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-    header p {
-      margin: 5px 0 0;
-      font-size: 1.2em;
-    }
-    main {
-      max-width: 700px;
-      margin: 40px auto;
-      background-color: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #0077cc;
-      margin-bottom: 20px;
-    }
-    form label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-    form input, form select, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 1em;
-    }
-    form button {
-      background-color: #0077cc;
-      color: white;
-      border: none;
-      padding: 15px 25px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1em;
-    }
-    form button:hover {
-      background-color: #005fa3;
-    }
-    .disclaimer {
-      font-size: 0.9em;
-      color: #555;
-      margin-top: 20px;
-      border-top: 1px solid #eee;
-      padding-top: 15px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Plumbing Gurus</title>
+<link rel="icon" href="images/LOGO.png">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header>
-  <h1>Get Your Plumbing Estimate</h1>
-  <p>We coordinate plumbing services with licensed Texas Master Plumbers</p>
+  <img src="images/LOGO.png" class="logo" alt="Plumbing Gurus">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="estimate.html">Estimate</a>
+    <a href="booking.html">Booking</a>
+    <a href="compliance.html">Compliance</a>
+  </nav>
+  <span class="header-phone">
+    Call Now: <a href="tel:2109068524">(210) 906‑8524</a>
+  </span>
 </header>
 
-<main>
-  <h2>Estimate Form</h2>
-  <p>Fill out the form below to get a preliminary estimate. Our team will connect you with a licensed plumber for final pricing and service.</p>
+<main class="section">
+<h1>Our Plumbing Services</h1>
+<p>
+Plumbing Gurus operates as a <strong>dispatch, coordination, and referral service</strong>.
+Licensed plumbing work is performed by independent licensed professionals.
+</p>
 
-  <form action="/submit-estimate" method="POST">
-    <label for="name">Full Name</label>
-    <input type="text" id="name" name="name" placeholder="John Doe" required>
-
-    <label for="email">Email Address</label>
-    <input type="email" id="email" name="email" placeholder="example@email.com" required>
-
-    <label for="phone">Phone Number</label>
-    <input type="tel" id="phone" name="phone" placeholder="(210) 555-1234" required>
-
-    <label for="issue">Type of Plumbing Issue (for estimate coordination)</label>
-    <select id="issue" name="issue" required>
-      <option value="">--Select Issue--</option>
-      <option value="leak">Leak / Water Issue</option>
-      <option value="drain">Drain / Clog Inquiry</option>
-      <option value="fixture">Fixture / Faucet Inquiry</option>
-      <option value="water-heater">Water Heater Inquiry</option>
-      <option value="other">Other (describe below)</option>
-    </select>
-
-    <label for="severity">Issue Severity (1 = minor, 5 = urgent)</label>
-    <select id="severity" name="severity" required>
-      <option value="">--Select Severity--</option>
-      <option value="1">1 - Minor</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5 - Urgent</option>
-    </select>
-
-    <label for="details">Additional Details</label>
-    <textarea id="details" name="details" placeholder="Describe the issue here..." rows="4"></textarea>
-
-    <button type="submit">Get Estimate</button>
-  </form>
-
-  <div class="disclaimer">
-    <p>
-      Plumbing Gurus LLC is a **service coordination company**. All plumbing work is performed by independently **licensed Texas Master Plumbers**. Plumbing Gurus LLC is **not a licensed plumbing contractor**. Preliminary estimates are provided for planning purposes only and may change after an on-site evaluation by a licensed plumber.
-    </p>
+<div class="cards">
+  <div class="card">
+    <h3>Leak Repairs</h3>
+    <p>Minor non-structural leaks may be handled directly where legally permitted. Major repairs are dispatched to licensed plumbers.</p>
   </div>
+
+  <div class="card">
+    <h3>Drain & Toilet Issues</h3>
+    <p>Maintenance, clearing, and diagnostics. Licensed professionals dispatched when required by law.</p>
+  </div>
+
+  <div class="card">
+    <h3>Water Heaters</h3>
+    <p>Installation and repairs completed by licensed plumbers only. Maintenance coordination available.</p>
+  </div>
+
+  <div class="card">
+    <h3>Faucets & Fixtures</h3>
+    <p>Minor fixture replacements where allowed. Full installs coordinated with licensed professionals.</p>
+  </div>
+
+  <div class="card">
+    <h3>Shower & Bath</h3>
+    <p>Evaluation and dispatch of licensed professionals for full remodels or plumbing work.</p>
+  </div>
+</div>
+
+<p class="disclaimer">
+Plumbing Gurus does not represent itself as the licensed plumbing contractor unless explicitly stated.
+</p>
 </main>
+
+<footer>
+  <p>© 2025 Plumbing Gurus — Dispatch & Referral Services</p>
+</footer>
 
 </body>
 </html>
