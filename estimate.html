@@ -95,4 +95,141 @@ nav a:hover{color:#ff6a00}
 
 /* FORM */
 form{
-  margin-top
+  margin-top:30px;
+  display:grid;
+  gap:16px;
+}
+input, select, textarea{
+  width:100%;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:1rem;
+}
+textarea{min-height:120px}
+button{
+  background:#0077cc;
+  color:#fff;
+  border:none;
+  padding:16px;
+  font-size:1.1rem;
+  border-radius:12px;
+  font-weight:700;
+  cursor:pointer;
+}
+button:hover{background:#005fa3}
+
+/* DISCLAIMER */
+.disclaimer{
+  margin-top:25px;
+  font-size:.9rem;
+  color:#555;
+  line-height:1.5;
+}
+
+/* FOOTER */
+footer{
+  background:#004a8f;
+  color:#fff;
+  text-align:center;
+  padding:50px 20px;
+}
+footer a{
+  color:#ffd000;
+  text-decoration:none;
+  font-weight:600;
+}
+footer a:hover{text-decoration:underline}
+
+/* MOBILE */
+@media(max-width:768px){
+  header{justify-content:center;gap:14px}
+  nav{justify-content:center;flex-wrap:wrap}
+  .hero h1{font-size:2rem}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="images/LOGO.png" alt="Plumbing Gurus Logo" class="logo">
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="estimate.html">Estimate</a>
+    <a href="booking.html">Book</a>
+    <a href="education.html">Education</a>
+  </nav>
+
+  <div class="call">(210) 906-8524</div>
+</header>
+
+<section class="hero">
+  <h1>Get an Estimate</h1>
+  <p>
+    Tell us about your plumbing issue and we’ll provide clear next steps.
+    Estimates are based on an initial service call and diagnosis.
+  </p>
+</section>
+
+<section class="section">
+  <h2>How Our Estimates Work</h2>
+
+  <div class="grid">
+    <div class="box">
+      <strong>Service Call & Diagnosis</strong><br><br>
+      A standard service call covers dispatch, scheduling, and on-site
+      evaluation to properly identify the issue.
+    </div>
+
+    <div class="box">
+      <strong>Up-Front Pricing</strong><br><br>
+      After evaluation, you’ll be provided repair or service options
+      before any work is approved.
+    </div>
+
+    <div class="box">
+      <strong>Coordination or Referral</strong><br><br>
+      Minor plumbing tasks may be completed directly when permitted.
+      Licensed plumbing work is coordinated with independent professionals.
+    </div>
+  </div>
+
+  <form>
+    <input type="text" placeholder="Full Name" required>
+    <input type="tel" placeholder="Phone Number" required>
+    <input type="email" placeholder="Email Address">
+    <select required>
+      <option value="">Type of Issue</option>
+      <option>Leak</option>
+      <option>Clog / Drain</option>
+      <option>Toilet</option>
+      <option>Water Heater</option>
+      <option>Fixture</option>
+      <option>Not Sure</option>
+    </select>
+    <textarea placeholder="Brief description of the issue"></textarea>
+    <button type="submit">Request Estimate</button>
+  </form>
+
+  <div class="disclaimer">
+    Plumbing Gurus provides plumbing coordination, dispatch, and referral services.
+    A service call fee may apply to cover scheduling, diagnosis, and on-site evaluation.
+    Certain minor plumbing and maintenance tasks may be performed directly where legally
+    permitted. Licensed plumbing work is referred to independent licensed professionals.
+    No work is performed without customer approval.
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Plumbing Gurus</p>
+  <p>
+    <a href="terms.html">Terms & Conditions</a> |
+    <a href="privacy.html">Privacy Policy</a>
+  </p>
+</footer>
+
+</body>
+</html>
