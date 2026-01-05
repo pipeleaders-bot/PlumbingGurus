@@ -3,24 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plumbing Gurus | Estimate</title>
-<link rel="icon" href="images/LOGO.png" type="image/png">
+<title>Plumbing Gurus | Get Estimate</title>
+<link rel="icon" type="image/png" href="images/LOGO.png">
 <link rel="stylesheet" href="css/style.css">
-
 <style>
-/* Hero and form adjustments for estimate page */
-.hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg,#eaf2fb,#ffffff); }
-.hero h1 { color:#00539C; font-size:2.5em; margin-bottom:15px; }
-.hero p { max-width:700px; margin:0 auto 25px; font-size:1.2em; }
-form { max-width: 600px; margin: 0 auto; background:#fff; padding:25px; border-radius:12px; box-shadow:0 4px 18px rgba(0,0,0,0.08); }
-form input, form select, form textarea { width: 100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc; font-size:1em; }
-form button { width: 100%; padding:14px; background:#FF6600; color:#fff; font-weight:700; border:none; border-radius:8px; cursor:pointer; font-size:1.1em; transition:0.3s; }
-form button:hover { background:#e65c00; }
-#ai-response { margin-top:25px; padding:20px; background:#f1f5f9; border-radius:10px; min-height:80px; }
-.disclaimer { font-size:0.85em; color:#555; margin-top:15px; text-align:center; }
+/* Additional styles for estimate page */
+.estimate-section { max-width: 800px; margin: 50px auto; padding: 30px; background: #fff; border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,0.08); }
+.estimate-section h2 { color: #00539C; margin-bottom: 25px; text-align:center; }
+.estimate-form { display: grid; gap: 16px; }
+.estimate-form input, .estimate-form textarea, .estimate-form select { padding: 14px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; width: 100%; }
+.estimate-form button { background: #0077cc; color: #fff; padding: 14px; border-radius: 8px; font-weight: 700; border: none; cursor: pointer; transition: 0.3s; }
+.estimate-form button:hover { background: #005fa3; transform: scale(1.03); }
+.ai-estimate { margin-top: 25px; background: #f1f5f9; padding: 20px; border-radius: 10px; border-left: 4px solid #FF6600; font-size: 1.1rem; line-height: 1.5; }
+.disclaimer { font-size: 0.9rem; color: #555; margin-top: 15px; }
 </style>
 </head>
-
 <body>
 
 <header>
@@ -29,7 +26,7 @@ form button:hover { background:#e65c00; }
     <nav>
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
-      <a href="estimate.html">Estimate</a>
+      <a href="estimate.html">Get Estimate</a>
       <a href="booking.html">Book</a>
       <a href="education.html">Education</a>
     </nav>
@@ -37,20 +34,19 @@ form button:hover { background:#e65c00; }
   </div>
 </header>
 
-<div class="hero">
-  <h1>Get Your Plumbing Estimate</h1>
-  <p>Fill out your info below and our smart estimator will provide an interactive, AI-powered preliminary estimate. We dispatch licensed plumbers and provide minor plumbing ourselves when legally permitted.</p>
-</div>
+<section class="estimate-section">
+  <h2>Get Your Plumbing Estimate</h2>
+  <p>Fill out your information below. Our AI-powered estimator will provide a preliminary cost range based on the details you provide.</p>
 
-<section>
-  <form id="estimateForm" action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
-    <input type="text" name="name" placeholder="Full Name" required>
+  <form id="estimateForm" class="estimate-form" action="https://formsubmit.co/your-email-replace-this" method="POST">
+    <!-- Customer Info -->
+    <input type="text" name="name" placeholder="Your Name" required>
     <input type="tel" name="phone" placeholder="Phone Number" required>
     <input type="email" name="email" placeholder="Email Address" required>
-    <input type="text" name="address" placeholder="Service Address" required>
 
-    <select name="service" id="serviceSelect" required>
-      <option value="">Select Service Needed</option>
+    <!-- Service Info -->
+    <select name="service" required>
+      <option value="">Select Service</option>
       <option value="Leak Repair">Leak Repair</option>
       <option value="Toilet Service">Toilet Service</option>
       <option value="Clog Removal">Clog Removal</option>
@@ -59,50 +55,61 @@ form button:hover { background:#e65c00; }
       <option value="Shower & Bath">Shower & Bath</option>
     </select>
 
-    <textarea name="details" placeholder="Describe your issue or request in detail..." rows="4" required></textarea>
+    <textarea name="details" placeholder="Describe the problem or service needed" required></textarea>
 
-    <!-- FormSubmit hidden fields -->
+    <button type="submit">Get Estimate</button>
     <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_subject" value="New Plumbing Estimate Request">
-    <input type="hidden" name="_next" value="https://www.plumbinggurus.us/thank-you.html">
-
-    <button type="submit">Submit & Get Estimate</button>
   </form>
 
-  <div id="ai-response">
-    <p><em>Your AI-generated preliminary estimate will appear here after submission.</em></p>
+  <div class="ai-estimate" id="aiEstimate">
+    <!-- AI Estimate appears here -->
   </div>
 
-  <div class="disclaimer">
-    <p>Note: This is a preliminary estimate only. Plumbing Gurus coordinates licensed plumbers and performs minor plumbing where legally permitted. Final pricing may vary after on-site evaluation.</p>
-  </div>
+  <p class="disclaimer">
+    <strong>Disclaimer:</strong> This estimate is preliminary and for informational purposes only. Plumbing Gurus provides dispatch and coordination services, and performs minor plumbing work where legally permitted. Final costs may vary depending on the licensed plumber and job complexity.
+  </p>
 </section>
 
+<footer>
+  <p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+  <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
 <script>
-// --- AI Estimator Simulation ---
-// If you want real GPT-5 integration, replace the fetch below with OpenAI API calls
-document.getElementById('estimateForm').addEventListener('submit', function(e) {
+const form = document.getElementById('estimateForm');
+const aiDiv = document.getElementById('aiEstimate');
+
+form.addEventListener('submit', async function(e){
   e.preventDefault();
 
-  // Collect customer info
-  const formData = new FormData(this);
-  const name = formData.get('name');
-  const service = formData.get('service');
-  const details = formData.get('details');
+  const name = form.name.value;
+  const phone = form.phone.value;
+  const email = form.email.value;
+  const service = form.service.value;
+  const details = form.details.value;
 
-  // Simulate AI estimate
-  const severityKeywords = ['major', 'urgent', 'leak', 'burst', 'overflow'];
-  let severity = 1;
-  severityKeywords.forEach(word => {
-    if(details.toLowerCase().includes(word)) severity += 1;
-  });
+  aiDiv.textContent = "Generating AI estimate...";
 
-  let baseCost = 100;
-  switch(service) {
-    case 'Leak Repair': baseCost=120; break;
-    case 'Toilet Service': baseCost=90; break;
-    case 'Clog Removal': baseCost=110; break;
-    case 'Water Heater': baseCost=250; break;
+  try {
+    const response = await fetch("https://your-backend-domain.com/estimate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, phone, email, service, details })
+    });
+    const data = await response.json();
+    aiDiv.textContent = data.estimate || "No estimate returned.";
+  } catch(err) {
+    aiDiv.textContent = "Error generating estimate. Please try again later.";
+    console.error(err);
+  }
+
+  // Submit form to FormSubmit in parallel
+  form.submit();
+});
+</script>
+
+</body>
+</html>    case 'Water Heater': baseCost=250; break;
     case 'Faucet & Fixture': baseCost=80; break;
     case 'Shower & Bath': baseCost=180; break;
   }
