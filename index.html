@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plumbing Gurus | Home</title>
-<link rel="icon" href="images/LOGO.png" type="image/png">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plumbing Gurus | Home</title>
+  <link rel="icon" href="images/LOGO.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -26,8 +26,10 @@
 <section class="hero">
   <h1><span>Plumbing Coordination</span> Made Easy</h1>
   <p>Professional plumbing services, fast coordination, and reliable fixtures. Get the right help for your home or business in San Antonio.</p>
-  <a href="estimate.html" class="primary">Get Estimate</a>
-  <a href="booking.html" class="secondary">Book Service</a>
+  <div class="cta">
+    <a href="estimate.html" class="primary">Get Estimate</a>
+    <a href="booking.html" class="secondary">Book Service</a>
+  </div>
 </section>
 
 <section class="section">
@@ -44,16 +46,16 @@
 
 <section class="section testimonials">
   <h2>What Customers Say</h2>
-  <div class="cards">
-    <div class="card">
+  <div class="testimonial-slider" id="testimonial-slider">
+    <div class="testimonial-card">
       <p>"Quick and professional service! Saved me from a major leak."</p>
       <div>— Alex T., San Antonio</div>
     </div>
-    <div class="card">
+    <div class="testimonial-card">
       <p>"Highly recommended. Coordinated everything smoothly."</p>
       <div>— Maria S., Austin</div>
     </div>
-    <div class="card">
+    <div class="testimonial-card">
       <p>"Excellent communication and fast response!"</p>
       <div>— James L., San Antonio</div>
     </div>
@@ -65,45 +67,22 @@
   <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
 </footer>
 
+<script>
+const slider = document.getElementById('testimonial-slider');
+const slides = slider.children;
+let currentIndex = 0;
+function showSlide(index) {
+  slider.style.transform = `translateX(-${index * 100}%)`;
+}
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
+}
+setInterval(nextSlide, 5000);
+</script>
+
 </body>
-</html>  gap:24px;
-}
-.service{
-  background:#f1f5f9;
-  border-radius:14px;
-  padding:24px;
-  text-align:center;
-  font-weight:600;
-  transition:.3s;
-}
-.service:hover{
-  background:#0077cc;
-  color:#fff;
-  transform:translateY(-5px);
-}
-
-/* ===== TRUST ===== */
-.trust{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:24px;
-  text-align:center;
-}
-.trust div{
-  background:#f9fafb;
-  padding:24px;
-  border-radius:14px;
-}
-
-/* ===== DISCLAIMER ===== */
-.disclaimer{
-  font-size:.9rem;
-  color:#555;
-  margin-top:20px;
-  line-height:1.5;
-}
-
-/* ===== FOOTER ===== */
+</html>/* ===== FOOTER ===== */
 footer{
   background:#004a8f;
   color:#fff;
@@ -208,4 +187,5 @@ footer a:hover{text-decoration:underline}
 
 </body>
 </html>
+
 
