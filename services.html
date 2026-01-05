@@ -3,106 +3,262 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services | Plumbing Gurus</title>
-<link rel="icon" type="image/png" href="images/Logo.png">
+<title>Plumbing Gurus | Services</title>
+
+<!-- FAVICON -->
+<link rel="icon" href="images/LOGO.png" type="image/png">
+
 <style>
-/* GLOBAL STYLES */
-body { margin:0; font-family: 'Arial', sans-serif; background:#f4f8fc; color:#333; }
-a { text-decoration:none; color:inherit; }
-h1,h2,h3 { margin:0; }
-button { cursor:pointer; }
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:#f5f7fa;
+  color:#333;
+}
 
 /* HEADER */
-header { background:#fff; padding:15px 30px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #e0e0e0; flex-wrap:wrap; }
-.header-left { display:flex; align-items:center; flex-wrap:wrap; }
-.header-left img { height:80px; max-width:300px; object-fit:contain; }
-nav { margin-left:25px; display:flex; flex-wrap:wrap; }
-nav a { margin:8px 15px; font-weight:600; color:#00539C; }
-nav a:hover { color:#FF6600; }
-.header-phone { color:#FF6600; font-weight:bold; margin-left:20px; font-size:1.1em; }
-.header-right img { height:70px; }
+header{
+  background:#fff;
+  border-bottom:1px solid #e6e6e6;
+  padding:14px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+.logo{
+  height:64px;
+  max-width:240px;
+  object-fit:contain;
+}
+nav{
+  display:flex;
+  gap:18px;
+}
+nav a{
+  text-decoration:none;
+  font-weight:600;
+  color:#004a8f;
+}
+nav a:hover{color:#ff6a00}
+.call{
+  font-weight:700;
+  color:#ff6a00;
+}
 
 /* HERO */
-.hero { background: linear-gradient(135deg,#e6f0fa,#ffffff); padding:70px 20px; text-align:center; }
-.hero h1 { color:#00539C; font-size:2.8em; margin-bottom:20px; }
-.hero p { font-size:1.2em; max-width:750px; margin:0 auto 25px; line-height:1.6; }
-.hero a { display:inline-block; background:#FF6600; color:#fff; padding:15px 35px; border-radius:8px; font-weight:bold; font-size:1.15em; }
+.hero{
+  background:linear-gradient(135deg,#eaf2fb,#ffffff);
+  padding:70px 20px;
+  text-align:center;
+}
+.hero h1{
+  color:#004a8f;
+  font-size:2.4rem;
+  margin-bottom:12px;
+}
+.hero p{
+  max-width:760px;
+  margin:0 auto;
+  font-size:1.1rem;
+}
 
 /* SECTION */
-.section { max-width:950px; margin:50px auto; padding:35px; background:#fff; border-radius:12px; box-shadow:0 3px 18px rgba(0,0,0,0.08); }
-.section h2 { color:#00539C; margin-bottom:25px; text-align:center; }
-.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; }
-.card { background:#f9f9f9; padding:25px; border-radius:10px; box-shadow:0 2px 12px rgba(0,0,0,0.05); transition:transform 0.3s; }
-.card:hover { transform:translateY(-5px); }
-.card h3 { color:#00539C; margin-bottom:15px; display:flex; align-items:center; }
-.card h3::before { content:'💧'; margin-right:10px; }
-.card p { line-height:1.5; font-size:0.95em; }
+.section{
+  max-width:1100px;
+  margin:60px auto;
+  padding:40px;
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 6px 22px rgba(0,0,0,0.08);
+}
+.section h2{
+  text-align:center;
+  color:#004a8f;
+  margin-bottom:30px;
+}
 
-/* TESTIMONIALS */
-.testimonials { max-width:950px; margin:50px auto; text-align:center; }
-.testimonials h2 { color:#00539C; margin-bottom:30px; }
-.testimonial-card { background:#fff; padding:25px; margin:0 10px; border-radius:12px; box-shadow:0 3px 15px rgba(0,0,0,0.08); display:inline-block; width:250px; vertical-align:top; margin-bottom:20px; }
-.testimonial-card p { font-style:italic; font-size:0.95em; margin-bottom:15px; }
-.testimonial-card span { color:#FFD700; }
+/* SERVICES GRID */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+}
+.service{
+  background:#f1f5f9;
+  border-radius:14px;
+  padding:26px;
+  transition:.3s;
+}
+.service h3{
+  margin-top:0;
+  color:#004a8f;
+}
+.service:hover{
+  background:#0077cc;
+  color:#fff;
+  transform:translateY(-4px);
+}
+.service:hover h3{color:#fff}
+
+/* CTA */
+.cta{
+  text-align:center;
+  margin-top:30px;
+}
+.cta a{
+  display:inline-block;
+  margin:10px;
+  padding:14px 34px;
+  border-radius:10px;
+  font-weight:700;
+  text-decoration:none;
+}
+.primary{
+  background:#0077cc;
+  color:#fff;
+}
+.primary:hover{background:#005fa3}
+.secondary{
+  background:#ff6a00;
+  color:#fff;
+}
+.secondary:hover{background:#e65c00}
+
+/* DISCLAIMER */
+.disclaimer{
+  margin-top:30px;
+  font-size:.9rem;
+  color:#555;
+  line-height:1.5;
+}
 
 /* FOOTER */
-footer { background:#00539C; color:#fff; padding:50px 20px; text-align:center; }
-footer p { margin:10px 0; font-size:0.9em; }
-footer a { color:#FF6600; }
-footer a:hover { text-decoration:underline; }
+footer{
+  background:#004a8f;
+  color:#fff;
+  text-align:center;
+  padding:50px 20px;
+}
+footer a{
+  color:#ffd000;
+  text-decoration:none;
+  font-weight:600;
+}
+footer a:hover{text-decoration:underline}
 
 /* MOBILE */
 @media(max-width:768px){
-  header { flex-direction:column; text-align:center; }
-  nav { justify-content:center; margin:15px 0; }
-  .header-phone { margin:10px 0; }
-  .hero h1 { font-size:2.1em; }
-  .cards { grid-template-columns:1fr; }
-  .testimonial-card { width:90%; display:block; margin:0 auto 20px; }
+  header{justify-content:center;gap:14px}
+  nav{justify-content:center;flex-wrap:wrap}
+  .hero h1{font-size:2rem}
 }
 </style>
 </head>
+
 <body>
 
 <header>
-  <div class="header-left">
-    <img src="images/LOGO.png" alt="Plumbing Gurus Logo">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="estimate.html">Estimate</a>
-      <a href="contact.html">Contact</a>
-      <a href="education.html">Education</a>
-    </nav>
-    <span class="header-phone">Call Now: (210) 906-8524</span>
-  </div>
-  <div class="header-right">
-    <img src="images/Logo.png" alt="Secondary Logo">
-  </div>
+  <img src="images/LOGO.png" alt="Plumbing Gurus Logo" class="logo">
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="estimate.html">Estimate</a>
+    <a href="booking.html">Book</a>
+    <a href="education.html">Education</a>
+  </nav>
+
+  <div class="call">(210) 906-8524</div>
 </header>
 
-<div class="hero">
-  <h1>Trusted Plumbing Coordination Services in San Antonio</h1>
-  <p>We connect you with skilled plumbing professionals for reliable, fast, and safe service. From fixture installations to emergency issues, we make plumbing coordination easy.</p>
-  <a href="estimate.html">Get Your Estimate</a>
-</div>
+<section class="hero">
+  <h1>Our Plumbing Services</h1>
+  <p>
+    Fast scheduling, clear communication, and dependable plumbing help.
+    We coordinate service and perform minor plumbing work where permitted,
+    while referring licensed work to trusted professionals.
+  </p>
+</section>
 
-<div class="section">
-  <h2>Our Services</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Fixture Installation</h3>
-      <p>Faucets, sinks, toilets, garbage disposals, and shower fixtures installed with professional coordination.</p>
+<section class="section">
+  <h2>What We Help With</h2>
+
+  <div class="services">
+    <div class="service">
+      <h3>Leak Detection & Repair</h3>
+      <p>
+        Assistance with visible leaks, fixture leaks, and water line concerns.
+        More complex repairs are coordinated with licensed professionals.
+      </p>
     </div>
-    <div class="card">
-      <h3>Emergency Coordination</h3>
-      <p>Urgent plumbing problems? We ensure prompt service by connecting you to qualified professionals immediately.</p>
+
+    <div class="service">
+      <h3>Drain & Clog Removal</h3>
+      <p>
+        Kitchen, bathroom, and main-line drain issues. We assess the problem
+        and dispatch the right solution quickly.
+      </p>
     </div>
-    <div class="card">
-      <h3>Leak & Clog Repairs</h3>
-      <p>From drips to full clogs, we coordinate repairs quickly and efficiently.</p>
+
+    <div class="service">
+      <h3>Toilet Repair & Replacement</h3>
+      <p>
+        Running toilets, leaks, clogs, and toilet replacements handled efficiently
+        with clear pricing options.
+      </p>
     </div>
-    <div class="card">
+
+    <div class="service">
+      <h3>Faucet & Fixture Installation</h3>
+      <p>
+        Installation and replacement of faucets, shower heads, and plumbing
+        fixtures for kitchens and bathrooms.
+      </p>
+    </div>
+
+    <div class="service">
+      <h3>Water Heater Coordination</h3>
+      <p>
+        Troubleshooting, replacement coordination, and referrals for licensed
+        water heater services when required.
+      </p>
+    </div>
+
+    <div class="service">
+      <h3>General Plumbing Assistance</h3>
+      <p>
+        Unsure what the issue is? We help diagnose the problem and coordinate
+        the proper next steps.
+      </p>
+    </div>
+  </div>
+
+  <div class="cta">
+    <a href="estimate.html" class="primary">Get an Estimate</a>
+    <a href="booking.html" class="secondary">Book Service</a>
+  </div>
+
+  <div class="disclaimer">
+    Plumbing Gurus provides plumbing coordination, dispatch, and referral services.
+    Certain minor plumbing and maintenance tasks may be performed directly where
+    legally permitted. Licensed plumbing work is referred to independent licensed
+    professionals. Plumbing Gurus does not represent itself as a licensed plumbing
+    contractor for work requiring licensure.
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Plumbing Gurus</p>
+  <p>
+    <a href="terms.html">Terms & Conditions</a> |
+    <a href="privacy.html">Privacy Policy</a>
+  </p>
+</footer>
+
+</body>
+</html>    <div class="card">
       <h3>Water Heater Services</h3>
       <p>Water heater repairs, replacements, and maintenance handled by our trusted coordination team.</p>
     </div>
@@ -150,3 +306,4 @@ footer a:hover { text-decoration:underline; }
 
 </body>
 </html>
+
