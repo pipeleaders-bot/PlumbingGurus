@@ -5,17 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Plumbing Gurus | Estimate</title>
 <link rel="stylesheet" href="css/style.css">
-<style>
-/* Additional styles for Estimate page */
-.estimate-section { max-width: 700px; margin: 50px auto; padding: 30px; background: #fff; border-radius: 12px; box-shadow: 0 3px 18px rgba(0,0,0,0.08); }
-.estimate-section h2 { color: #00539C; margin-bottom: 25px; text-align: center; }
-.estimate-form { display: grid; gap: 16px; }
-.estimate-form input, .estimate-form select, .estimate-form textarea { padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; }
-.estimate-result { margin-top: 20px; padding: 20px; background: #f1f5f9; border-radius: 12px; display: none; font-weight: bold; color: #00539C; }
-button.estimate-btn { background: #FF6600; color: #fff; border: none; padding: 14px; border-radius: 8px; font-size: 1.1rem; cursor: pointer; transition: 0.3s; }
-button.estimate-btn:hover { background: #e65c00; transform: scale(1.03); }
-.disclaimer { font-size: 0.9rem; color: #555; margin-top: 20px; line-height: 1.5; }
-</style>
+<link rel="icon" href="images/LOGO.png" type="image/png">
 </head>
 <body>
 
@@ -24,23 +14,28 @@ button.estimate-btn:hover { background: #e65c00; transform: scale(1.03); }
   <nav>
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
-    <a href="estimate.html">Estimate</a>
+    <a href="estimate.html">Get Estimate</a>
     <a href="booking.html">Book</a>
     <a href="education.html">Education</a>
   </nav>
+  <div class="call">(210) 906-8524</div>
 </header>
 
-<section class="estimate-section">
-  <h2>Get Your Plumbing Estimate</h2>
-  <p>Fill out your info and answer a few questions. An estimated price will appear instantly.</p>
+<section class="hero">
+  <h1>Get a Preliminary Plumbing Estimate</h1>
+  <p>Provide your info below, and our AI-assisted estimator will give you a preliminary cost. All licensed work is performed by certified plumbers.</p>
+</section>
 
-  <form class="estimate-form" id="estimateForm">
+<section class="section">
+  <h2>Estimate Form</h2>
+  <form id="estimate-form" action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
     <input type="text" name="name" placeholder="Your Name" required>
-    <input type="tel" name="phone" placeholder="Phone Number" required>
     <input type="email" name="email" placeholder="Email Address" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
 
+    <label for="service">Service Needed:</label>
     <select name="service" id="service" required>
-      <option value="" disabled selected>Select Service</option>
+      <option value="" disabled selected>Select a service</option>
       <option value="Leak Repair">Leak Repair</option>
       <option value="Toilet Service">Toilet Service</option>
       <option value="Clog Removal">Clog Removal</option>
@@ -49,60 +44,60 @@ button.estimate-btn:hover { background: #e65c00; transform: scale(1.03); }
       <option value="Shower & Bath">Shower & Bath</option>
     </select>
 
-    <select name="urgency" id="urgency" required>
-      <option value="" disabled selected>How urgent is it?</option>
-      <option value="Immediate">Immediate (Same day)</option>
-      <option value="1-3 days">1-3 days</option>
-      <option value="Flexible">Flexible schedule</option>
-    </select>
+    <label for="severity">Issue Severity (1-5):</label>
+    <input type="number" name="severity" id="severity" min="1" max="5" required>
 
-    <textarea name="details" placeholder="Describe your problem (optional)"></textarea>
-
-    <button type="submit" class="estimate-btn">Get Estimate</button>
+    <button type="submit" class="primary">Get Estimate</button>
   </form>
 
-  <div class="estimate-result" id="estimateResult"></div>
+  <div id="ai-response" style="margin-top:25px; font-weight:bold;"></div>
 
-  <p class="disclaimer">
-    *Disclaimer: Plumbing Gurus provides <strong>dispatch and referral services</strong> for licensed plumbing professionals. Any minor plumbing work performed directly by our team is limited to tasks <strong>not requiring a license</strong> under state and local law.  
-    The estimates provided here are <strong>preliminary ranges only</strong> and may vary based on the actual job requirements, property conditions, and urgency. Customers are responsible for confirming pricing and licensing status before work begins.
+  <p class="disclaimer" style="margin-top:30px;">
+    Customers are responsible for confirming pricing and licensing status before work begins. All licensed plumbing services are performed by certified professionals. Estimates provided are preliminary and may vary after on-site evaluation.
   </p>
 </section>
 
+<footer>
+  <p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
+  <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
 <script>
-const form = document.getElementById('estimateForm');
-const result = document.getElementById('estimateResult');
+document.getElementById('estimate-form').addEventListener('submit', function(e) {
+  e.preventDefault(); // Prevent default form submission so we can show estimate first
 
-form.addEventListener('submit', function(e){
-  e.preventDefault();
+  const name = this.name.value;
+  const service = this.service.value;
+  const severity = parseInt(this.severity.value) || 1;
 
-  const service = document.getElementById('service').value;
-  const urgency = document.getElementById('urgency').value;
+  let baseCost = 0;
+  switch(service) {
+    case 'Leak Repair': baseCost = 150; break;
+    case 'Toilet Service': baseCost = 90; break;
+    case 'Clog Removal': baseCost = 120; break;
+    case 'Water Heater': baseCost = 250; break;
+    case 'Faucet & Fixture': baseCost = 80; break;
+    case 'Shower & Bath': baseCost = 180; break;
+    default: baseCost = 100; break;
+  }
 
-  const prices = {
-    "Leak Repair": { "Immediate": "$120 - $200", "1-3 days": "$100 - $180", "Flexible": "$90 - $160" },
-    "Toilet Service": { "Immediate": "$110 - $180", "1-3 days": "$90 - $150", "Flexible": "$80 - $140" },
-    "Clog Removal": { "Immediate": "$100 - $170", "1-3 days": "$80 - $150", "Flexible": "$70 - $130" },
-    "Water Heater": { "Immediate": "$350 - $650", "1-3 days": "$320 - $600", "Flexible": "$300 - $550" },
-    "Faucet & Fixture": { "Immediate": "$90 - $160", "1-3 days": "$80 - $140", "Flexible": "$70 - $120" },
-    "Shower & Bath": { "Immediate": "$200 - $400", "1-3 days": "$180 - $350", "Flexible": "$160 - $300" }
-  };
+  const estimate = baseCost * severity;
 
-  const estimateText = prices[service][urgency];
-  result.style.display = 'block';
-  result.innerHTML = `<strong>Estimated Cost for ${service} (${urgency}):</strong> ${estimateText}`;
+  // Display AI-assisted preliminary estimate
+  document.getElementById('ai-response').innerHTML = `
+    Preliminary AI Estimate:<br>
+    Dear ${name}, based on your request for ${service} with issue severity level ${severity}, 
+    the estimated cost is approximately <strong>$${estimate}</strong>. 
+    Final pricing will be confirmed after on-site evaluation by a licensed plumber.
+  `;
+
+  // Submit form to FormSubmit
+  this.submit();
 });
 </script>
 
 </body>
-</html>
-  // Submit form to FormSubmit in parallel
-  form.submit();
-});
-</script>
-
-</body>
-</html>    case 'Water Heater': baseCost=250; break;
+</html></html>    case 'Water Heater': baseCost=250; break;
     case 'Faucet & Fixture': baseCost=80; break;
     case 'Shower & Bath': baseCost=180; break;
   }
