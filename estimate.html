@@ -4,152 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Plumbing Gurus | Get an Estimate</title>
-
 <link rel="icon" href="images/LOGO.png" type="image/png">
-
-<style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-  background:#f5f7fa;
-  color:#333;
-}
-
-/* HEADER */
-header{
-  background:#fff;
-  border-bottom:1px solid #e6e6e6;
-  padding:14px 24px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  flex-wrap:wrap;
-}
-.logo{
-  height:64px;
-  max-width:240px;
-  object-fit:contain;
-}
-nav{
-  display:flex;
-  gap:18px;
-}
-nav a{
-  text-decoration:none;
-  font-weight:600;
-  color:#004a8f;
-}
-nav a:hover{color:#ff6a00}
-.call{
-  font-weight:700;
-  color:#ff6a00;
-}
-
-/* HERO */
-.hero{
-  background:linear-gradient(135deg,#eaf2fb,#ffffff);
-  padding:70px 20px;
-  text-align:center;
-}
-.hero h1{
-  color:#004a8f;
-  font-size:2.4rem;
-  margin-bottom:10px;
-}
-.hero p{
-  max-width:760px;
-  margin:0 auto;
-  font-size:1.1rem;
-}
-
-/* SECTION */
-.section{
-  max-width:1000px;
-  margin:60px auto;
-  padding:40px;
-  background:#fff;
-  border-radius:16px;
-  box-shadow:0 6px 22px rgba(0,0,0,0.08);
-}
-.section h2{
-  text-align:center;
-  color:#004a8f;
-  margin-bottom:20px;
-}
-
-/* INFO GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:24px;
-}
-.box{
-  background:#f1f5f9;
-  padding:26px;
-  border-radius:14px;
-}
-.box strong{
-  color:#004a8f;
-}
-
-/* FORM */
-form{
-  margin-top:30px;
-  display:grid;
-  gap:16px;
-}
-input, select, textarea{
-  width:100%;
-  padding:14px;
-  border-radius:10px;
-  border:1px solid #ccc;
-  font-size:1rem;
-}
-textarea{min-height:120px}
-button{
-  background:#0077cc;
-  color:#fff;
-  border:none;
-  padding:16px;
-  font-size:1.1rem;
-  border-radius:12px;
-  font-weight:700;
-  cursor:pointer;
-}
-button:hover{background:#005fa3}
-
-/* DISCLAIMER */
-.disclaimer{
-  margin-top:25px;
-  font-size:.9rem;
-  color:#555;
-  line-height:1.5;
-}
-
-/* FOOTER */
-footer{
-  background:#004a8f;
-  color:#fff;
-  text-align:center;
-  padding:50px 20px;
-}
-footer a{
-  color:#ffd000;
-  text-decoration:none;
-  font-weight:600;
-}
-footer a:hover{text-decoration:underline}
-
-/* MOBILE */
-@media(max-width:768px){
-  header{justify-content:center;gap:14px}
-  nav{justify-content:center;flex-wrap:wrap}
-  .hero h1{font-size:2rem}
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
@@ -168,32 +25,26 @@ footer a:hover{text-decoration:underline}
 
 <section class="hero">
   <h1>Get an Estimate</h1>
-  <p>
-    Tell us about your plumbing issue and we’ll provide clear next steps.
-    Estimates are based on an initial service call and diagnosis.
-  </p>
+  <p>Tell us about your plumbing issue and we’ll provide clear next steps. Estimates are based on an initial service call and diagnosis.</p>
 </section>
 
 <section class="section">
   <h2>How Our Estimates Work</h2>
 
-  <div class="grid">
+  <div class="cards">
     <div class="box">
       <strong>Service Call & Diagnosis</strong><br><br>
-      A standard service call covers dispatch, scheduling, and on-site
-      evaluation to properly identify the issue.
+      Covers dispatch, scheduling, and on-site evaluation to properly identify the issue.
     </div>
 
     <div class="box">
       <strong>Up-Front Pricing</strong><br><br>
-      After evaluation, you’ll be provided repair or service options
-      before any work is approved.
+      After evaluation, you’ll be provided repair or service options before any work is approved.
     </div>
 
     <div class="box">
       <strong>Coordination or Referral</strong><br><br>
-      Minor plumbing tasks may be completed directly when permitted.
-      Licensed plumbing work is coordinated with independent professionals.
+      Minor plumbing tasks may be completed directly where permitted. Licensed work is coordinated with professionals.
     </div>
   </div>
 
@@ -217,18 +68,14 @@ footer a:hover{text-decoration:underline}
   <div class="disclaimer">
     Plumbing Gurus provides plumbing coordination, dispatch, and referral services.
     A service call fee may apply to cover scheduling, diagnosis, and on-site evaluation.
-    Certain minor plumbing and maintenance tasks may be performed directly where legally
-    permitted. Licensed plumbing work is referred to independent licensed professionals.
-    No work is performed without customer approval.
+    Minor plumbing may be performed directly where legally permitted.
+    Licensed plumbing work is referred to independent professionals. No work is performed without customer approval.
   </div>
 </section>
 
 <footer>
   <p>© 2025 Plumbing Gurus</p>
-  <p>
-    <a href="terms.html">Terms & Conditions</a> |
-    <a href="privacy.html">Privacy Policy</a>
-  </p>
+  <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
 </footer>
 
 </body>
