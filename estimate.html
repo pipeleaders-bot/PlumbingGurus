@@ -6,103 +6,117 @@
 <title>Plumbing Gurus | Estimate</title>
 <link rel="icon" href="images/LOGO.png" type="image/png">
 <link rel="stylesheet" href="css/style.css">
+
 <style>
-.interactive-form { max-width:600px; margin:0 auto; }
-.interactive-form label { display:block; margin-bottom:12px; }
-.interactive-form input, .interactive-form select, .interactive-form textarea {
-  width:100%; padding:12px; margin-bottom:20px; border-radius:8px; border:1px solid #ccc; font-size:1rem;
-}
-button.next, button.prev, button.submit { padding:12px 28px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; margin:5px; }
-button.next, button.submit { background:#0077cc; color:#fff; }
-button.prev { background:#ccc; color:#333; }
-button:hover { opacity:0.9; }
-.step { display:none; }
-.step.active { display:block; }
-.step h3 { color:#004a8f; margin-bottom:12px; }
-.summary { background:#f1f5f9; padding:20px; border-radius:12px; margin-top:20px; }
-.disclaimer { font-size:0.9rem; color:#555; margin-top:15px; background:#f8f8f8; padding:12px; border-radius:8px; }
+/* Hero and form adjustments for estimate page */
+.hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg,#eaf2fb,#ffffff); }
+.hero h1 { color:#00539C; font-size:2.5em; margin-bottom:15px; }
+.hero p { max-width:700px; margin:0 auto 25px; font-size:1.2em; }
+form { max-width: 600px; margin: 0 auto; background:#fff; padding:25px; border-radius:12px; box-shadow:0 4px 18px rgba(0,0,0,0.08); }
+form input, form select, form textarea { width: 100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc; font-size:1em; }
+form button { width: 100%; padding:14px; background:#FF6600; color:#fff; font-weight:700; border:none; border-radius:8px; cursor:pointer; font-size:1.1em; transition:0.3s; }
+form button:hover { background:#e65c00; }
+#ai-response { margin-top:25px; padding:20px; background:#f1f5f9; border-radius:10px; min-height:80px; }
+.disclaimer { font-size:0.85em; color:#555; margin-top:15px; text-align:center; }
 </style>
 </head>
+
 <body>
 
 <header>
-  <img src="images/LOGO.png" alt="Plumbing Gurus Logo" class="logo">
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="estimate.html">Estimate</a>
-    <a href="booking.html">Book</a>
-    <a href="education.html">Education</a>
-  </nav>
-  <div class="call">(210) 906-8524</div>
+  <div class="header-left">
+    <img src="images/LOGO.png" alt="Plumbing Gurus Logo" class="logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="estimate.html">Estimate</a>
+      <a href="booking.html">Book</a>
+      <a href="education.html">Education</a>
+    </nav>
+    <span class="header-phone">Call Now: <span>(210)</span> <span style="color:#FF6600;">906-8524</span></span>
+  </div>
 </header>
 
-<section class="hero">
-  <h1>Get a Smart Plumbing Estimate</h1>
-  <p>Fill in your info and answer a few questions. We'll give a preliminary cost range based on your inputs.</p>
+<div class="hero">
+  <h1>Get Your Plumbing Estimate</h1>
+  <p>Fill out your info below and our smart estimator will provide an interactive, AI-powered preliminary estimate. We dispatch licensed plumbers and provide minor plumbing ourselves when legally permitted.</p>
+</div>
+
+<section>
+  <form id="estimateForm" action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="text" name="address" placeholder="Service Address" required>
+
+    <select name="service" id="serviceSelect" required>
+      <option value="">Select Service Needed</option>
+      <option value="Leak Repair">Leak Repair</option>
+      <option value="Toilet Service">Toilet Service</option>
+      <option value="Clog Removal">Clog Removal</option>
+      <option value="Water Heater">Water Heater</option>
+      <option value="Faucet & Fixture">Faucet & Fixture</option>
+      <option value="Shower & Bath">Shower & Bath</option>
+    </select>
+
+    <textarea name="details" placeholder="Describe your issue or request in detail..." rows="4" required></textarea>
+
+    <!-- FormSubmit hidden fields -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="New Plumbing Estimate Request">
+    <input type="hidden" name="_next" value="https://www.plumbinggurus.us/thank-you.html">
+
+    <button type="submit">Submit & Get Estimate</button>
+  </form>
+
+  <div id="ai-response">
+    <p><em>Your AI-generated preliminary estimate will appear here after submission.</em></p>
+  </div>
+
+  <div class="disclaimer">
+    <p>Note: This is a preliminary estimate only. Plumbing Gurus coordinates licensed plumbers and performs minor plumbing where legally permitted. Final pricing may vary after on-site evaluation.</p>
+  </div>
 </section>
 
-<section class="section">
-  <h2>Estimate Form</h2>
+<script>
+// --- AI Estimator Simulation ---
+// If you want real GPT-5 integration, replace the fetch below with OpenAI API calls
+document.getElementById('estimateForm').addEventListener('submit', function(e) {
+  e.preventDefault();
 
-  <form class="interactive-form" id="estimateForm" action="https://formspree.io/f/your-form-id" method="POST">
+  // Collect customer info
+  const formData = new FormData(this);
+  const name = formData.get('name');
+  const service = formData.get('service');
+  const details = formData.get('details');
 
-    <!-- Customer Info -->
-    <label>
-      Name
-      <input type="text" name="name" placeholder="Your Name" required>
-    </label>
-    <label>
-      Email
-      <input type="email" name="email" placeholder="you@example.com" required>
-    </label>
-    <label>
-      Phone
-      <input type="tel" name="phone" placeholder="(123) 456-7890" required>
-    </label>
+  // Simulate AI estimate
+  const severityKeywords = ['major', 'urgent', 'leak', 'burst', 'overflow'];
+  let severity = 1;
+  severityKeywords.forEach(word => {
+    if(details.toLowerCase().includes(word)) severity += 1;
+  });
 
-    <!-- Step 1: Service -->
-    <div class="step active" data-step="1">
-      <h3>What service do you need?</h3>
-      <select name="service" id="service" required>
-        <option value="">-- Select Service --</option>
-        <option value="Leak Repair">Leak Repair</option>
-        <option value="Toilet Service">Toilet Service</option>
-        <option value="Clog Removal">Clog Removal</option>
-        <option value="Water Heater">Water Heater</option>
-        <option value="Faucet & Fixture">Faucet & Fixture</option>
-        <option value="Shower & Bath">Shower & Bath</option>
-      </select>
-      <button type="button" class="next">Next</button>
-    </div>
+  let baseCost = 100;
+  switch(service) {
+    case 'Leak Repair': baseCost=120; break;
+    case 'Toilet Service': baseCost=90; break;
+    case 'Clog Removal': baseCost=110; break;
+    case 'Water Heater': baseCost=250; break;
+    case 'Faucet & Fixture': baseCost=80; break;
+    case 'Shower & Bath': baseCost=180; break;
+  }
 
-    <!-- Step 2: Severity -->
-    <div class="step" data-step="2">
-      <h3>How severe is the issue?</h3>
-      <select name="severity" required>
-        <option value="">-- Select Severity --</option>
-        <option value="Minor">Minor (quick fix)</option>
-        <option value="Moderate">Moderate (requires multiple steps)</option>
-        <option value="Major">Major (complex or emergency)</option>
-      </select>
-      <button type="button" class="prev">Back</button>
-      <button type="button" class="next">Next</button>
-    </div>
+  const estimate = baseCost * severity;
+  document.getElementById('ai-response').innerHTML = `<h3>Preliminary AI Estimate</h3><p>Dear <strong>${name}</strong>, based on your request for <strong>${service}</strong> and issue details, the estimated cost is approximately <strong>$${estimate}</strong>. Final pricing will be confirmed after on-site evaluation.</p>`;
+  
+  // Submit form to FormSubmit
+  this.submit();
+});
+</script>
 
-    <!-- Step 3: Location Difficulty -->
-    <div class="step" data-step="3">
-      <h3>Location difficulty</h3>
-      <select name="location_difficulty" required>
-        <option value="">-- Select Difficulty --</option>
-        <option value="Easy">Easy access</option>
-        <option value="Medium">Some obstacles / tight spaces</option>
-        <option value="Hard">Hard access / crawl space or heavy obstruction</option>
-      </select>
-      <button type="button" class="prev">Back</button>
-      <button type="button" class="next">Next</button>
-    </div>
-
-    <!-- Step 4: Additional Details -->
+</body>
+</html>    <!-- Step 4: Additional Details -->
     <div class="step" data-step="4">
       <h3>Provide additional details (optional)</h3>
       <textarea name="details" placeholder="Any details to help us estimate"></textarea>
