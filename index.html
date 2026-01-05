@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Plumbing Gurus | Home</title>
-<link rel="icon" href="images/Logo.png" type="image/png">
+<link rel="icon" href="Logo.png" type="image/png">
 <style>
 :root {
   --primary-blue: #00539C;
@@ -81,6 +81,19 @@ nav a:hover { color:var(--accent-orange); }
 .btn-orange { background:var(--accent-orange); color:#fff; }
 .btn-orange:hover { background:#e65500; }
 
+/* TRUST BAR */
+.trust-bar {
+  background:#ffffff;
+  color:#333;
+  font-weight:bold;
+  text-align:center;
+  padding:10px 0;
+  border-top:1px solid #e0e0e0;
+  border-bottom:1px solid #e0e0e0;
+}
+.trust-bar a { color:var(--accent-orange); text-decoration:none; }
+.trust-bar a:hover { text-decoration:underline; }
+
 /* SERVICES */
 .section {
   max-width:950px;
@@ -111,7 +124,7 @@ nav a:hover { color:var(--accent-orange); }
 }
 .card.show { opacity:1; transform: translateY(0); }
 .card:hover { background:var(--secondary-blue); color:#fff; transform:translateY(-5px); }
-.section small { display:block; margin-top:15px; font-size:0.9em; color:#555; }
+.card span { display:block; margin-top:10px; font-size:0.9em; color:#555; }
 
 /* TESTIMONIALS */
 .testimonials {
@@ -167,7 +180,7 @@ footer a:hover { text-decoration:underline; }
 
 <header id="header">
   <div class="header-left">
-    <img src="images/Logo.png" alt="Plumbing Gurus Logo">
+    <img src="Logo.png" alt="Plumbing Gurus Logo">
     <nav>
       <a href="#hero">Home</a>
       <a href="#services">Services</a>
@@ -179,11 +192,16 @@ footer a:hover { text-decoration:underline; }
   </div>
 </header>
 
+<div class="trust-bar">
+📍 Serving San Antonio & Surrounding Areas • 📞 <a href="tel:+12109068524">Call Now</a>
+</div>
+
 <div class="hero" id="hero">
   <h1>Plumbing Services Coordinated the Right Way</h1>
   <p>
-    Plumbing Gurus provides professional plumbing coordination, dispatch, and minor in‑house plumbing services. 
-    Licensed plumbing work is referred to trusted, independent professionals.
+Plumbing Gurus coordinates professional plumbing services and dispatches qualified technicians.
+Minor non-licensed plumbing work is performed in-house where allowed by law.
+All licensed plumbing work is referred to independent licensed professionals.
   </p>
   <a href="#estimate" class="btn btn-blue">Get Estimate</a>
   <a href="#booking" class="btn btn-orange">Book Service</a>
@@ -192,14 +210,14 @@ footer a:hover { text-decoration:underline; }
 <div class="section" id="services">
   <h2>Services We Coordinate & Provide</h2>
   <div class="cards">
-    <div class="card">💧 Leak Detection & Minor Leak Repairs*</div>
-    <div class="card">🚽 Toilet Repairs & Replacements*</div>
-    <div class="card">🍽️ Drain Clearing (Non‑Invasive)*</div>
-    <div class="card">🔥 Water Heater Services (Licensed Partner)</div>
-    <div class="card">🚿 Fixture Installation*</div>
-    <div class="card">🛁 Shower & Bath Repairs*</div>
+    <div class="card">💧 Leak Detection & Minor Repairs*<span>Quick response to small leaks and drip fixes where licensing is not required.</span></div>
+    <div class="card">🚽 Toilet Repairs & Replacements*<span>Simple replacements or repairs handled in-house.</span></div>
+    <div class="card">🍽️ Drain Clearing (Non-Invasive)*<span>Minor clogs cleared safely without licensed intervention.</span></div>
+    <div class="card">🔥 Water Heater Services (Licensed Partner)<span>Installation and major service handled by licensed partners.</span></div>
+    <div class="card">🚿 Fixture Installation*<span>Basic faucet and shower fixture installation performed in-house.</span></div>
+    <div class="card">🛁 Shower & Bath Repairs*<span>Minor repairs handled where permitted by law.</span></div>
   </div>
-  <small>*Services performed in‑house are limited to non‑regulated plumbing work where licensing is not required.</small>
+  <small>*In-house services are limited to non-regulated plumbing work where licensing is not required.</small>
 </div>
 
 <div class="testimonials" id="testimonials">
@@ -207,22 +225,23 @@ footer a:hover { text-decoration:underline; }
   <div class="testimonials-slider" id="testimonial-slider">
     <div class="testimonial-card">
       <p>"Quick and professional service! Saved me from a major leak."</p>
-      <div>— Alex T., San Antonio</div>
+      <div>— Alex T., San Antonio ⭐⭐⭐⭐⭐</div>
     </div>
     <div class="testimonial-card">
       <p>"Highly recommended. Coordinated everything smoothly."</p>
-      <div>— Maria S., Austin</div>
+      <div>— Maria S., Austin ⭐⭐⭐⭐⭐</div>
     </div>
     <div class="testimonial-card">
       <p>"Excellent communication and fast response!"</p>
-      <div>— James L., San Antonio</div>
+      <div>— James L., San Antonio ⭐⭐⭐⭐⭐</div>
     </div>
   </div>
 </div>
 
 <footer>
   <p>© 2025 Plumbing Gurus. Plumbing Coordination, Dispatch & Referral Services.</p>
-  <p>Minor non‑regulated plumbing services may be performed in‑house. Licensed plumbing work is referred to independent licensed professionals.</p>
+  <p>Minor non-regulated plumbing services may be performed in-house. Licensed plumbing work is referred to independent licensed professionals.</p>
+  <p>Servicing San Antonio • Universal City • Selma • Converse • Live Oak</p>
   <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
 </footer>
 
@@ -255,256 +274,4 @@ setInterval(nextSlide, 5000);
 </script>
 
 </body>
-</html>  .step-cards { flex-direction: column; }
-  header { flex-direction: column; text-align: center; }
-  nav { margin: 15px 0; justify-content: center; }
-  .header-phone { margin: 10px 0; }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <div class="header-left">
-    <img src="images/LOGO.png" alt="Plumbing Gurus Logo">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="estimate.html">Estimate</a>
-      <a href="contact.html">Contact</a>
-      <a href="education.html">Education</a>
-    </nav>
-    <span class="header-phone">Call Now: (210) 906-8524</span>
-  </div>
-  <div class="header-right">
-    <img src="images/LOGO.png" alt="Alternate Logo">
-  </div>
-</header>
-
-<div class="hero">
-  <h1>Get Your <span>Plumbing Estimate</span></h1>
-  <p>Step-by-step interactive service selection. Choose your problem, get an instant AI-powered estimate, and schedule fast.</p>
-</div>
-
-<div class="step-container">
-  <h2>Step 1: Select the Type of Service</h2>
-  <div class="step-cards" id="service-step">
-    <div class="card" data-value="Leak"><i class="fas fa-tint"></i><br>Leak</div>
-    <div class="card" data-value="Clog"><i class="fas fa-faucet"></i><br>Clog / Drain</div>
-    <div class="card" data-value="Fixture"><i class="fas fa-sink"></i><br>Fixture Installation</div>
-    <div class="card" data-value="Water Heater"><i class="fas fa-fire"></i><br>Water Heater</div>
-    <div class="card" data-value="Other"><i class="fas fa-tools"></i><br>Other</div>
-  </div>
-
-  <div class="step-container" id="detail-step" style="display:none;">
-    <h2>Step 2: Specify the Issue</h2>
-    <div class="step-cards" id="detail-cards"></div>
-  </div>
-
-  <div class="step-container" id="floor-step" style="display:none;">
-    <h2>Step 3: Select the Floor / Location</h2>
-    <div class="step-cards" id="floor-cards">
-      <div class="card" data-value="First Floor"><i class="fas fa-home"></i><br>First Floor</div>
-      <div class="card" data-value="Second Floor"><i class="fas fa-building"></i><br>Second Floor</div>
-      <div class="card" data-value="Basement / Ground"><i class="fas fa-layer-group"></i><br>Basement / Ground</div>
-    </div>
-  </div>
-
-  <div class="step-container" id="info-step" style="display:none;">
-    <h2>Step 4: Your Information</h2>
-    <input type="text" id="user-name" placeholder="Your Name" required>
-    <input type="tel" id="user-phone" placeholder="Phone Number" required>
-    <input type="email" id="user-email" placeholder="Email Address" required>
-    <textarea id="user-message" placeholder="Additional Details / Preferred Time"></textarea>
-    <button id="calculate-estimate">Get Estimate</button>
-    <div id="estimate-result"></div>
-  </div>
-</div>
-
-<script>
-// STEP LOGIC
-let userData = { service:'', detail:'', floor:'', name:'', phone:'', email:'', message:'', emergency:false };
-const serviceCards = document.querySelectorAll('#service-step .card');
-const detailStep = document.getElementById('detail-step');
-const detailCardsContainer = document.getElementById('detail-cards');
-const floorStep = document.getElementById('floor-step');
-const infoStep = document.getElementById('info-step');
-const estimateResult = document.getElementById('estimate-result');
-
-const detailsOptions = {
-  "Leak": ["Dripping", "Spraying", "Burst"],
-  "Clog": ["Kitchen", "Bathroom", "Toilet"],
-  "Fixture": ["Faucet", "Sink", "Toilet", "Shower"],
-  "Water Heater": ["Not Heating", "Leaking", "Replace"],
-  "Other": ["General Issue"]
-};
-
-serviceCards.forEach(card => {
-  card.addEventListener('click', () => {
-    serviceCards.forEach(c => c.classList.remove('selected'));
-    card.classList.add('selected');
-    userData.service = card.dataset.value;
-    // populate details
-    detailCardsContainer.innerHTML = '';
-    detailsOptions[userData.service].forEach(opt => {
-      const dCard = document.createElement('div');
-      dCard.className = 'card';
-      dCard.innerHTML = `<i class="fas fa-check-circle"></i><br>${opt}`;
-      dCard.dataset.value = opt;
-      dCard.addEventListener('click', () => {
-        userData.detail = dCard.dataset.value;
-        floorStep.style.display = 'block';
-        window.scrollTo({top:floorStep.offsetTop-20, behavior:'smooth'});
-      });
-      detailCardsContainer.appendChild(dCard);
-    });
-    detailStep.style.display = 'block';
-    window.scrollTo({top:detailStep.offsetTop-20, behavior:'smooth'});
-  });
-});
-
-const floorCards = document.querySelectorAll('#floor-cards .card');
-floorCards.forEach(card => {
-  card.addEventListener('click', () => {
-    floorCards.forEach(c => c.classList.remove('selected'));
-    card.classList.add('selected');
-    userData.floor = card.dataset.value;
-    infoStep.style.display = 'block';
-    window.scrollTo({top:infoStep.offsetTop-20, behavior:'smooth'});
-  });
-});
-
-document.getElementById('calculate-estimate').addEventListener('click', () => {
-  userData.name = document.getElementById('user-name').value.trim();
-  userData.phone = document.getElementById('user-phone').value.trim();
-  userData.email = document.getElementById('user-email').value.trim();
-  userData.message = document.getElementById('user-message').value.trim();
-
-  if(!userData.name || !userData.phone || !userData.email){
-    alert("Please fill all fields.");
-    return;
-  }
-
-  // Simple AI-style estimate calculation
-  const basePrices = { "Leak":[75,150], "Clog":[100,200], "Fixture":[120,250], "Water Heater":[200,450], "Other":[100,250] };
-  let range = basePrices[userData.service] || [100,300];
-  let multiplier = 1.0;
-  if(userData.floor.toLowerCase().includes("second")) multiplier *= 1.15;
-  if(userData.floor.toLowerCase().includes("basement")) multiplier *= 1.1;
-  let min = Math.round(range[0]*multiplier);
-  let max = Math.round(range[1]*multiplier);
-
-  estimateResult.innerHTML = `Estimated Cost: $${min} - $${max} (Labor only, local rates applied)`;
-
-  // Optionally, send info via FormSubmit or API
-  fetch("https://formsubmit.co/pipeleaders@gmail.com", {
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body: JSON.stringify(userData)
-  });
-});
-</script>
-
-</body>
-</html>    </div>
-    <div class="card">
-      <h3>Emergency Coordinating</h3>
-      <p>Urgent plumbing issues? We quickly coordinate with available licensed plumbing professionals.</p>
-    </div>
-    <div class="card">
-      <h3>Professional Coordination</h3>
-      <p>Clear communication, fast scheduling, and transparent service scopes.</p>
-    </div>
-  </div>
-</div>
-
-<div class="section testimonials-slider">
-  <h2>Customer Experiences</h2>
-  <div class="testimonials-container">
-    <div class="testimonial-card">
-      <p>"We had a serious leak that several plumbers couldn’t commit to quickly. Plumbing Gurus coordinated a pro, and the job was done fast and perfectly!"</p>
-      <div>★★★★★ — Alex T., San Antonio</div>
-    </div>
-    <div class="testimonial-card">
-      <p>"The plumber was courteous, professional, and efficient. Great communication and fast service!"</p>
-      <div>★★★★★ — Maria S., Austin</div>
-    </div>
-    <div class="testimonial-card">
-      <p>"Plumbing Gurus quickly handled a major water heater issue. Friendly service and highly recommended."</p>
-      <div>★★★★★ — James L., San Antonio</div>
-    </div>
-    <div class="testimonial-card">
-      <p>"They fixed a stubborn clogged drain within an hour. Excellent service and very knowledgeable."</p>
-      <div>★★★★★ — Sarah K., San Antonio</div>
-    </div>
-  </div>
-</div>
-
-<footer id="booking-form">
-  <h2>Book Your Service</h2>
-  <form action="#" method="post">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="tel" name="phone" placeholder="Phone Number" required>
-    <input type="email" name="email" placeholder="Email Address" required>
-    <select name="city" id="city-select" required>
-      <option value="">Select Your City</option>
-      <option value="San Antonio">San Antonio</option>
-      <option value="Austin" disabled>Austin (Coming Soon)</option>
-    </select>
-    <div id="priority-slots" class="priority-slots"></div>
-    <textarea name="message" placeholder="Describe your plumbing issue" rows="4" required></textarea>
-    <button type="submit">Request Service</button>
-  </form>
-
-  <p style="margin-top:20px; font-size:0.9em;">
-    Plumbing Gurus provides fixture services and coordinating only. Licensed plumbing work is performed by independent, properly licensed professionals.
-  </p>
-
-  <p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
-  <p><a href="terms.html" style="color:white; text-decoration:underline;">Terms & Conditions</a> | <a href="privacy.html" style="color:white; text-decoration:underline;">Privacy Policy</a></p>
-</footer>
-
-<script>
-// Testimonials slider
-const slider = document.querySelector('.testimonials-container');
-const slides = document.querySelectorAll('.testimonial-card');
-let currentIndex = 0;
-function showSlide(index){ slider.style.transform = `translateX(-${index * 100}%)`; }
-function nextSlide(){ currentIndex = (currentIndex + 1) % slides.length; showSlide(currentIndex); }
-setInterval(nextSlide, 5000);
-
-// Priority scheduling slots
-const citySelect = document.getElementById('city-select');
-const slotsContainer = document.getElementById('priority-slots');
-const slots = ["Today 9am-11am", "Today 1pm-3pm", "Today 3pm-5pm", "Tomorrow 9am-11am", "Tomorrow 1pm-3pm"];
-
-function updateSlots() {
-  slotsContainer.innerHTML = '';
-  if(citySelect.value === "San Antonio") {
-    slots.forEach((slot, index) => {
-      const slotDiv = document.createElement('div');
-      slotDiv.textContent = slot;
-      slotDiv.className = "priority-slot";
-      if(index === 0) slotDiv.classList.add('fastest'); // highlight fastest slot
-      slotDiv.addEventListener('click', () => {
-        document.querySelector('textarea[name="message"]').value = `Preferred slot: ${slot}`;
-      });
-      slotsContainer.appendChild(slotDiv);
-    });
-  } else {
-    const disabledDiv = document.createElement('div');
-    disabledDiv.textContent = "Priority scheduling not available";
-    disabledDiv.className = "priority-slot disabled";
-    slotsContainer.appendChild(disabledDiv);
-  }
-}
-
-citySelect.addEventListener('change', updateSlots);
-window.addEventListener('load', updateSlots);
-</script>
-
-</body>
 </html>
-
-
