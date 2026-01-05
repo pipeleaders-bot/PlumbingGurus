@@ -3,274 +3,308 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plumbing Gurus | Home</title>
-<link rel="icon" href="Logo.png" type="image/png">
+<title>Plumbing Gurus | Plumbing Coordination & Dispatch</title>
+
+<!-- ONLY LOGO USED -->
+<link rel="icon" href="LOGO.png" type="image/png">
+
 <style>
-:root {
-  --primary-blue: #00539C;
-  --secondary-blue: #0077cc;
-  --accent-orange: #FF6600;
-  --gold: #FFD700;
-  --bg-light: #f4f4f4;
-  --card-bg: #f0f4f8;
+:root{
+  --blue:#00539C;
+  --blue2:#0077cc;
+  --orange:#FF6600;
+  --light:#f4f4f4;
+  --card:#f0f4f8;
 }
 
 /* GLOBAL */
-body {
-  font-family: 'Arial', sans-serif;
+*{box-sizing:border-box}
+body{
   margin:0;
-  background: var(--bg-light);
+  font-family:Arial, sans-serif;
+  background:var(--light);
   color:#333;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
+  scroll-behavior:smooth;
 }
 
 /* HEADER */
-header {
+header{
   background:#fff;
-  padding:15px 30px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid #e0e0e0;
+  padding:14px 28px;
+  transition:.3s;
+}
+header.scrolled{
+  box-shadow:0 6px 20px rgba(0,0,0,.15);
+}
+.header-wrap{
+  max-width:1200px;
+  margin:auto;
   display:flex;
   align-items:center;
   justify-content:space-between;
   flex-wrap:wrap;
-  border-bottom:1px solid #e0e0e0;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  transition: box-shadow 0.3s ease;
 }
-header.scrolled {
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+.logo{
+  height:65px;
 }
-.header-left { display:flex; align-items:center; flex-wrap:wrap; width:100%; justify-content:space-between; }
-.header-left img { height:70px; object-fit:contain; }
-nav { display:flex; flex-wrap:wrap; }
-nav a { color:var(--primary-blue); margin:8px 12px; text-decoration:none; font-weight:600; transition:0.3s; }
-nav a:hover { color:var(--accent-orange); }
-.header-phone { font-weight:bold; font-size:1.1em; color:var(--accent-orange); margin-left:20px; }
-.header-phone a { color:var(--accent-orange); text-decoration:none; }
-.header-phone a:hover { text-decoration:underline; }
+nav a{
+  margin:0 12px;
+  color:var(--blue);
+  font-weight:600;
+  text-decoration:none;
+}
+nav a:hover{color:var(--orange)}
+.call{
+  font-weight:bold;
+  color:var(--orange);
+}
+.call a{color:inherit;text-decoration:none}
 
 /* HERO */
-.hero {
-  background: linear-gradient(135deg, #e6f0fa, #ffffff);
-  padding:80px 20px;
+.hero{
+  padding:90px 20px;
   text-align:center;
-  overflow: hidden;
+  background:linear-gradient(135deg,#e6f0fa,#fff);
 }
-.hero h1 { color:var(--primary-blue); font-size:2.8em; margin-bottom:15px; opacity:0; transform: translateY(50px); transition:0.8s ease-out; }
-.hero h1.show { opacity:1; transform: translateY(0); }
-.hero p { font-size:1.2em; max-width:700px; margin:20px auto 35px; line-height:1.5; opacity:0; transform: translateY(50px); transition:0.8s ease-out 0.2s; }
-.hero p.show { opacity:1; transform: translateY(0); }
-.hero .btn { 
-  padding:15px 35px;
+.hero h1{
+  font-size:2.7em;
+  color:var(--blue);
+  margin-bottom:15px;
+}
+.hero p{
+  max-width:780px;
+  margin:20px auto 35px;
+  font-size:1.15em;
+  line-height:1.6;
+}
+.btn{
+  padding:15px 36px;
   border-radius:8px;
+  font-size:1.1em;
   font-weight:bold;
   text-decoration:none;
-  font-size:1.15em;
-  transition:0.5s ease, transform 0.3s ease;
-  margin:5px;
+  margin:6px;
   display:inline-block;
-  opacity:0;
-  transform: translateY(50px);
+  transition:.3s;
 }
-.btn.show { opacity:1; transform: translateY(0); }
-.btn:hover { transform: translateY(-5px) scale(1.05); }
-.btn-blue { background:var(--secondary-blue); color:#fff; }
-.btn-blue:hover { background:var(--primary-blue); }
-.btn-orange { background:var(--accent-orange); color:#fff; }
-.btn-orange:hover { background:#e65500; }
+.btn-blue{background:var(--blue2);color:#fff}
+.btn-blue:hover{background:var(--blue)}
+.btn-orange{background:var(--orange);color:#fff}
+.btn-orange:hover{background:#e65500}
 
 /* TRUST BAR */
-.trust-bar {
-  background:#ffffff;
-  color:#333;
-  font-weight:bold;
-  text-align:center;
-  padding:10px 0;
+.trust{
+  background:#fff;
   border-top:1px solid #e0e0e0;
   border-bottom:1px solid #e0e0e0;
+  text-align:center;
+  padding:12px;
+  font-weight:bold;
 }
-.trust-bar a { color:var(--accent-orange); text-decoration:none; }
-.trust-bar a:hover { text-decoration:underline; }
+
+/* SECTION */
+.section{
+  max-width:1000px;
+  margin:55px auto;
+  background:#fff;
+  padding:40px;
+  border-radius:14px;
+  box-shadow:0 4px 18px rgba(0,0,0,.08);
+  text-align:center;
+}
+.section h2{
+  color:var(--blue);
+  margin-bottom:30px;
+}
 
 /* SERVICES */
-.section {
-  max-width:950px;
-  margin:50px auto;
-  padding:35px;
-  background:#fff;
-  border-radius:12px;
-  box-shadow:0 3px 18px rgba(0,0,0,0.08);
-  text-align:center;
-}
-.section h2 { color:var(--primary-blue); margin-bottom:30px; opacity:0; transform: translateY(40px); transition:0.8s ease-out; }
-.section h2.show { opacity:1; transform: translateY(0); }
-.cards {
+.cards{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
   gap:25px;
 }
-.card {
-  background:var(--card-bg);
+.card{
+  background:var(--card);
   padding:25px;
-  border-radius:12px;
-  text-align:center;
-  transition:0.5s;
-  cursor:pointer;
-  font-size:1.1em;
-  opacity:0;
-  transform: translateY(40px);
+  border-radius:14px;
+  transition:.3s;
 }
-.card.show { opacity:1; transform: translateY(0); }
-.card:hover { background:var(--secondary-blue); color:#fff; transform:translateY(-5px); }
-.card span { display:block; margin-top:10px; font-size:0.9em; color:#555; }
+.card:hover{
+  background:var(--blue2);
+  color:#fff;
+  transform:translateY(-6px);
+}
+.card small{
+  display:block;
+  margin-top:10px;
+  font-size:.9em;
+}
 
 /* TESTIMONIALS */
-.testimonials {
+.testimonials{
   max-width:900px;
-  margin:60px auto;
+  margin:70px auto;
   text-align:center;
 }
-.testimonials h2 { margin-bottom:25px; color:var(--primary-blue); opacity:0; transform: translateY(40px); transition:0.8s ease-out; }
-.testimonials h2.show { opacity:1; transform: translateY(0); }
-.testimonials-slider {
+.slider{
   display:flex;
   overflow:hidden;
-  transition: transform 0.5s ease-in-out;
 }
-.testimonial-card {
+.testimonial{
   min-width:100%;
-  background:var(--card-bg);
-  margin:0 10px;
+  background:var(--card);
   padding:25px;
-  border-radius:12px;
-  opacity:0;
-  transform: translateY(40px);
-  transition:0.8s ease-out;
+  border-radius:14px;
 }
-.testimonial-card.show { opacity:1; transform: translateY(0); }
-.testimonial-card p { font-style:italic; line-height:1.4; }
-.testimonial-card div { margin-top:10px; font-weight:bold; color:var(--primary-blue); }
+.testimonial p{font-style:italic}
+.testimonial span{
+  display:block;
+  margin-top:10px;
+  color:var(--blue);
+  font-weight:bold;
+}
 
 /* FOOTER */
-footer {
-  background:var(--primary-blue);
-  color:white;
-  padding:50px 20px;
+footer{
+  background:var(--blue);
+  color:#fff;
   text-align:center;
+  padding:50px 20px;
 }
-footer h2 { color:var(--gold); }
-footer p { margin:8px 0; font-size:0.95em; }
-footer a { color:var(--gold); text-decoration:none; margin:0 6px; }
-footer a:hover { text-decoration:underline; }
+footer a{
+  color:#FFD700;
+  text-decoration:none;
+}
+footer a:hover{text-decoration:underline}
 
 /* MOBILE */
 @media(max-width:768px){
-  header { flex-direction:column; text-align:center; }
-  .header-left { justify-content:center; }
-  nav { justify-content:center; margin:15px 0; }
-  .header-phone { margin:10px 0; }
-  .hero h1 { font-size:2.1em; }
-  .hero p { font-size:1em; }
+  .hero h1{font-size:2.1em}
+  nav{margin-top:10px}
 }
 </style>
 </head>
+
 <body>
 
 <header id="header">
-  <div class="header-left">
-    <img src="Logo.png" alt="Plumbing Gurus Logo">
+  <div class="header-wrap">
+    <img src="LOGO.png" alt="Plumbing Gurus Logo" class="logo">
+
     <nav>
-      <a href="#hero">Home</a>
+      <a href="#home">Home</a>
       <a href="#services">Services</a>
       <a href="#estimate">Estimate</a>
       <a href="#booking">Booking</a>
-      <a href="#education">Education</a>
     </nav>
-    <span class="header-phone"><a href="tel:+12109068524">Call Now: (210) 906-8524</a></span>
+
+    <div class="call">
+      <a href="tel:+12109068524">(210) 906-8524</a>
+    </div>
   </div>
 </header>
 
-<div class="trust-bar">
-📍 Serving San Antonio & Surrounding Areas • 📞 <a href="tel:+12109068524">Call Now</a>
-</div>
+<section class="trust">
+  📍 Serving San Antonio & Surrounding Areas • 📞 Call Anytime
+</section>
 
-<div class="hero" id="hero">
+<section class="hero" id="home">
   <h1>Plumbing Services Coordinated the Right Way</h1>
   <p>
-Plumbing Gurus coordinates professional plumbing services and dispatches qualified technicians.
-Minor non-licensed plumbing work is performed in-house where allowed by law.
-All licensed plumbing work is referred to independent licensed professionals.
+    Plumbing Gurus is a professional plumbing coordination and dispatch service.
+    We provide minor non-regulated plumbing services in-house and connect customers
+    with independent licensed plumbing professionals when required.
   </p>
+
   <a href="#estimate" class="btn btn-blue">Get Estimate</a>
   <a href="#booking" class="btn btn-orange">Book Service</a>
-</div>
+</section>
 
-<div class="section" id="services">
+<section class="section" id="services">
   <h2>Services We Coordinate & Provide</h2>
-  <div class="cards">
-    <div class="card">💧 Leak Detection & Minor Repairs*<span>Quick response to small leaks and drip fixes where licensing is not required.</span></div>
-    <div class="card">🚽 Toilet Repairs & Replacements*<span>Simple replacements or repairs handled in-house.</span></div>
-    <div class="card">🍽️ Drain Clearing (Non-Invasive)*<span>Minor clogs cleared safely without licensed intervention.</span></div>
-    <div class="card">🔥 Water Heater Services (Licensed Partner)<span>Installation and major service handled by licensed partners.</span></div>
-    <div class="card">🚿 Fixture Installation*<span>Basic faucet and shower fixture installation performed in-house.</span></div>
-    <div class="card">🛁 Shower & Bath Repairs*<span>Minor repairs handled where permitted by law.</span></div>
-  </div>
-  <small>*In-house services are limited to non-regulated plumbing work where licensing is not required.</small>
-</div>
 
-<div class="testimonials" id="testimonials">
-  <h2>What Customers Say</h2>
-  <div class="testimonials-slider" id="testimonial-slider">
-    <div class="testimonial-card">
-      <p>"Quick and professional service! Saved me from a major leak."</p>
-      <div>— Alex T., San Antonio ⭐⭐⭐⭐⭐</div>
+  <div class="cards">
+    <div class="card">
+      💧 Minor Leak Repairs*
+      <small>Non-structural leak repairs where licensing is not required.</small>
     </div>
-    <div class="testimonial-card">
-      <p>"Highly recommended. Coordinated everything smoothly."</p>
-      <div>— Maria S., Austin ⭐⭐⭐⭐⭐</div>
+    <div class="card">
+      🚽 Toilet Repairs & Replacements*
+      <small>Basic repairs and replacements handled in-house.</small>
     </div>
-    <div class="testimonial-card">
-      <p>"Excellent communication and fast response!"</p>
-      <div>— James L., San Antonio ⭐⭐⭐⭐⭐</div>
+    <div class="card">
+      🍽️ Drain Clearing*
+      <small>Non-invasive drain clearing services.</small>
+    </div>
+    <div class="card">
+      🔥 Water Heater Services
+      <small>Referred to licensed plumbing professionals.</small>
+    </div>
+    <div class="card">
+      🚿 Fixture Installation*
+      <small>Faucets, shower heads, and minor fixtures.</small>
+    </div>
+    <div class="card">
+      🛁 Shower & Bath Repairs*
+      <small>Minor repairs where permitted by law.</small>
     </div>
   </div>
-</div>
+
+  <p style="margin-top:18px;font-size:.9em;">
+    *In-house services are limited to non-regulated plumbing work where licensing is not required.
+  </p>
+</section>
+
+<section class="testimonials">
+  <h2>What Customers Say</h2>
+
+  <div class="slider" id="slider">
+    <div class="testimonial">
+      <p>"Fast response and very professional coordination."</p>
+      <span>— Alex T., San Antonio ⭐⭐⭐⭐⭐</span>
+    </div>
+    <div class="testimonial">
+      <p>"They handled everything smoothly and clearly."</p>
+      <span>— Maria S., TX ⭐⭐⭐⭐⭐</span>
+    </div>
+    <div class="testimonial">
+      <p>"Great communication and honest service."</p>
+      <span>— James L., TX ⭐⭐⭐⭐⭐</span>
+    </div>
+  </div>
+</section>
 
 <footer>
-  <p>© 2025 Plumbing Gurus. Plumbing Coordination, Dispatch & Referral Services.</p>
-  <p>Minor non-regulated plumbing services may be performed in-house. Licensed plumbing work is referred to independent licensed professionals.</p>
-  <p>Servicing San Antonio • Universal City • Selma • Converse • Live Oak</p>
-  <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+  <p>© 2025 Plumbing Gurus</p>
+  <p>
+    Plumbing Coordination, Dispatch & Referral Services.<br>
+    Minor non-regulated plumbing services may be performed in-house.<br>
+    Licensed plumbing work is referred to independent licensed professionals.
+  </p>
+  <p>
+    <a href="terms.html">Terms & Conditions</a> |
+    <a href="privacy.html">Privacy Policy</a>
+  </p>
 </footer>
 
 <script>
-// Sticky header shadow
-window.addEventListener('scroll', function() {
-  const header = document.getElementById('header');
-  if(window.scrollY > 10) header.classList.add('scrolled');
-  else header.classList.remove('scrolled');
-
-  document.querySelectorAll('.card, .testimonial-card, .section h2, .testimonials h2').forEach(el=>{
-    if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('show');
-  });
+/* Sticky header shadow */
+window.addEventListener("scroll",()=>{
+  document.getElementById("header")
+    .classList.toggle("scrolled",window.scrollY>10);
 });
 
-// Hero animation on load
-window.addEventListener('load', () => {
-  document.querySelector('.hero h1').classList.add('show');
-  document.querySelector('.hero p').classList.add('show');
-  document.querySelectorAll('.hero .btn').forEach(btn => btn.classList.add('show'));
-});
-
-// Testimonials slider
-const slider = document.getElementById('testimonial-slider');
-const slides = slider.children;
-let currentIndex = 0;
-function showSlide(index){ slider.style.transform = `translateX(-${index*100}%)`; }
-function nextSlide(){ currentIndex = (currentIndex + 1) % slides.length; showSlide(currentIndex); }
-setInterval(nextSlide, 5000);
+/* Testimonials slider */
+const slider=document.getElementById("slider");
+let i=0;
+setInterval(()=>{
+  i=(i+1)%slider.children.length;
+  slider.style.transform=`translateX(-${i*100}%)`;
+},5000);
 </script>
 
 </body>
