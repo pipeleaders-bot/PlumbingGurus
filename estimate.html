@@ -1,100 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plumbing Gurus | Estimate</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="icon" href="images/LOGO.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Your Plumbing Estimate | Plumbing Gurus</title>
+  <link rel="stylesheet" href="styles.css"> <!-- optional external CSS -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.2em;
+    }
+    main {
+      max-width: 700px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #0077cc;
+      margin-bottom: 20px;
+    }
+    form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+    form button {
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    form button:hover {
+      background-color: #005fa3;
+    }
+    .disclaimer {
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 20px;
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-  <img src="images/LOGO.png" alt="Plumbing Gurus Logo" class="logo">
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="estimate.html">Get Estimate</a>
-    <a href="booking.html">Book</a>
-    <a href="education.html">Education</a>
-  </nav>
-  <div class="call">(210) 906-8524</div>
+  <h1>Get Your Plumbing Estimate</h1>
+  <p>We coordinate plumbing services with licensed Texas Master Plumbers</p>
 </header>
 
-<section class="hero">
-  <h1>Get a Preliminary Plumbing Estimate</h1>
-  <p>Provide your info below, and our AI-assisted estimator will give you a preliminary cost. All licensed work is performed by certified plumbers.</p>
-</section>
-
-<section class="section">
+<main>
   <h2>Estimate Form</h2>
-  <form id="estimate-form" action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Email Address" required>
-    <input type="tel" name="phone" placeholder="Phone Number" required>
+  <p>Fill out the form below to get a preliminary estimate. Our team will connect you with a licensed plumber for final pricing and service.</p>
 
-    <label for="service">Service Needed:</label>
-    <select name="service" id="service" required>
-      <option value="" disabled selected>Select a service</option>
-      <option value="Leak Repair">Leak Repair</option>
-      <option value="Toilet Service">Toilet Service</option>
-      <option value="Clog Removal">Clog Removal</option>
-      <option value="Water Heater">Water Heater</option>
-      <option value="Faucet & Fixture">Faucet & Fixture</option>
-      <option value="Shower & Bath">Shower & Bath</option>
+  <form action="/submit-estimate" method="POST">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" placeholder="John Doe" required>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" placeholder="example@email.com" required>
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" placeholder="(210) 555-1234" required>
+
+    <label for="issue">Type of Plumbing Issue (for estimate coordination)</label>
+    <select id="issue" name="issue" required>
+      <option value="">--Select Issue--</option>
+      <option value="leak">Leak / Water Issue</option>
+      <option value="drain">Drain / Clog Inquiry</option>
+      <option value="fixture">Fixture / Faucet Inquiry</option>
+      <option value="water-heater">Water Heater Inquiry</option>
+      <option value="other">Other (describe below)</option>
     </select>
 
-    <label for="severity">Issue Severity (1-5):</label>
-    <input type="number" name="severity" id="severity" min="1" max="5" required>
+    <label for="severity">Issue Severity (1 = minor, 5 = urgent)</label>
+    <select id="severity" name="severity" required>
+      <option value="">--Select Severity--</option>
+      <option value="1">1 - Minor</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 - Urgent</option>
+    </select>
 
-    <button type="submit" class="primary">Get Estimate</button>
+    <label for="details">Additional Details</label>
+    <textarea id="details" name="details" placeholder="Describe the issue here..." rows="4"></textarea>
+
+    <button type="submit">Get Estimate</button>
   </form>
 
-  <div id="ai-response" style="margin-top:25px; font-weight:bold;"></div>
-
-  <p class="disclaimer" style="margin-top:30px;">
-    Customers are responsible for confirming pricing and licensing status before work begins. All licensed plumbing services are performed by certified professionals. Estimates provided are preliminary and may vary after on-site evaluation.
-  </p>
-</section>
-
-<footer>
-  <p>© 2025 Plumbing Gurus. Dispatch & referral services only.</p>
-  <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
-</footer>
-
-<script>
-document.getElementById('estimate-form').addEventListener('submit', function(e) {
-  e.preventDefault(); // Prevent default form submission so we can show estimate first
-
-  const name = this.name.value;
-  const service = this.service.value;
-  const severity = parseInt(this.severity.value) || 1;
-
-  let baseCost = 0;
-  switch(service) {
-    case 'Leak Repair': baseCost = 150; break;
-    case 'Toilet Service': baseCost = 90; break;
-    case 'Clog Removal': baseCost = 120; break;
-    case 'Water Heater': baseCost = 250; break;
-    case 'Faucet & Fixture': baseCost = 80; break;
-    case 'Shower & Bath': baseCost = 180; break;
-    default: baseCost = 100; break;
-  }
-
-  const estimate = baseCost * severity;
-
-  // Display AI-assisted preliminary estimate
-  document.getElementById('ai-response').innerHTML = `
-    Preliminary AI Estimate:<br>
-    Dear ${name}, based on your request for ${service} with issue severity level ${severity}, 
-    the estimated cost is approximately <strong>$${estimate}</strong>. 
-    Final pricing will be confirmed after on-site evaluation by a licensed plumber.
-  `;
-
-  // Submit form to FormSubmit
-  this.submit();
-});
-</script>
+  <div class="disclaimer">
+    <p>
+      Plumbing Gurus LLC is a **service coordination company**. All plumbing work is performed by independently **licensed Texas Master Plumbers**. Plumbing Gurus LLC is **not a licensed plumbing contractor**. Preliminary estimates are provided for planning purposes only and may change after an on-site evaluation by a licensed plumber.
+    </p>
+  </div>
+</main>
 
 </body>
 </html>
