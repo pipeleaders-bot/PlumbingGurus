@@ -2,96 +2,256 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Education | Plumbing Gurus</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/style.css">
+<title>Plumbing Gurus | Plumbing Education</title>
+
+<link rel="icon" href="images/LOGO.png" type="image/png">
+
 <style>
-body { font-family: Arial, sans-serif; margin:0; background:#f4f4f4; color:#333; }
-header { background:#ffffff; padding:15px 40px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #e0e0e0; }
-.header-left, .header-right { display:flex; align-items:center; }
-.header-left img, .header-right img { height:100px; max-width:360px; object-fit:contain; }
-nav { margin-left:30px; }
-nav a { color:#00539C; margin:0 18px; text-decoration:none; font-weight:600; font-size:1.05em; }
-nav a:hover { color:#FF6600; }
-.header-phone { color:#FF6600; font-weight:bold; font-size:1.2em; margin-left:30px; }
-.header-phone span { color:#00539C; }
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:#f5f7fa;
+  color:#333;
+}
 
-.hero { background: linear-gradient(135deg,#e6f0fa,#ffffff); padding:40px 20px 20px; text-align:center; }
-.hero h1 { color:#00539C; font-size:2.5em; margin-bottom:15px;}
-.hero p { font-size:1.1em; max-width:700px; margin:0 auto 20px;}
+/* HEADER */
+header{
+  background:#fff;
+  border-bottom:1px solid #e6e6e6;
+  padding:14px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+.logo{
+  height:64px;
+  max-width:240px;
+  object-fit:contain;
+}
+nav{
+  display:flex;
+  gap:18px;
+}
+nav a{
+  text-decoration:none;
+  font-weight:600;
+  color:#004a8f;
+}
+nav a:hover{color:#ff6a00}
+.call{
+  font-weight:700;
+  color:#ff6a00;
+}
 
-.section { max-width:950px; margin:40px auto; padding:30px 25px; background:#ffffff; border-radius:12px; }
-.section h2 { color:#00539C; margin-bottom:20px; }
-.section p { margin-bottom:15px; line-height:1.6; }
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,#eaf2fb,#ffffff);
+  padding:70px 20px;
+  text-align:center;
+}
+.hero h1{
+  color:#004a8f;
+  font-size:2.4rem;
+  margin-bottom:12px;
+}
+.hero p{
+  max-width:760px;
+  margin:0 auto;
+  font-size:1.1rem;
+}
 
-.cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:20px; }
-.card { background:#f9f9f9; padding:15px; border-radius:8px; box-shadow:0 1px 6px rgba(0,0,0,0.1); }
-.card h3 { color:#00539C; margin-bottom:10px; }
-.card p { font-size:0.95em; }
-footer { background:#00539C; color:white; padding:30px 20px; text-align:center; }
-footer a { color:white; text-decoration:underline; margin:0 5px; }
+/* SECTION */
+.section{
+  max-width:1100px;
+  margin:60px auto;
+  padding:40px;
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 6px 22px rgba(0,0,0,0.08);
+}
+.section h2{
+  text-align:center;
+  color:#004a8f;
+  margin-bottom:30px;
+}
+
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+}
+.card{
+  background:#f1f5f9;
+  padding:26px;
+  border-radius:14px;
+  transition:.3s;
+}
+.card h3{
+  margin-top:0;
+  color:#004a8f;
+}
+.card:hover{
+  background:#0077cc;
+  color:#fff;
+  transform:translateY(-4px);
+}
+.card:hover h3{color:#fff}
+
+/* CTA */
+.cta{
+  text-align:center;
+  margin-top:40px;
+}
+.cta a{
+  display:inline-block;
+  margin:10px;
+  padding:14px 34px;
+  border-radius:10px;
+  font-weight:700;
+  text-decoration:none;
+}
+.primary{
+  background:#0077cc;
+  color:#fff;
+}
+.primary:hover{background:#005fa3}
+.secondary{
+  background:#ff6a00;
+  color:#fff;
+}
+.secondary:hover{background:#e65c00}
+
+/* DISCLAIMER */
+.disclaimer{
+  margin-top:30px;
+  font-size:.9rem;
+  color:#555;
+  line-height:1.5;
+}
+
+/* FOOTER */
+footer{
+  background:#004a8f;
+  color:#fff;
+  text-align:center;
+  padding:50px 20px;
+}
+footer a{
+  color:#ffd000;
+  text-decoration:none;
+  font-weight:600;
+}
+footer a:hover{text-decoration:underline}
+
+/* MOBILE */
+@media(max-width:768px){
+  header{justify-content:center;gap:14px}
+  nav{justify-content:center;flex-wrap:wrap}
+  .hero h1{font-size:2rem}
+}
 </style>
 </head>
+
 <body>
 
 <header>
-  <div class="header-left">
-    <img src="images/LOGO.png" alt="Plumbing Gurus Logo">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="estimate.html">Estimate</a>
-      <a href="booking.html">Book Service</a>
-      <a href="contact.html">Contact</a>
-      <a href="education.html">Education</a>
-    </nav>
-    <span class="header-phone">Call Now: <span>(210)</span> <span style="color:#FF6600;">906-8524</span></span>
-  </div>
-  <div class="header-right">
-    <a href="estimate.html"><img src="images/LOGO.png" alt="Alternate Logo"></a>
-  </div>
+  <img src="images/LOGO.png" alt="Plumbing Gurus Logo" class="logo">
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="estimate.html">Estimate</a>
+    <a href="booking.html">Book</a>
+    <a href="education.html">Education</a>
+  </nav>
+
+  <div class="call">(210) 906-8524</div>
 </header>
 
-<div class="hero">
-  <h1>How Plumbing Keeps America Healthy</h1>
-  <p>Plumbers play a crucial role in public health and safety. Understanding proper plumbing helps you maintain a healthy home and community.</p>
-</div>
+<section class="hero">
+  <h1>Plumbing Tips & Guidance</h1>
+  <p>
+    Learn how to maintain your plumbing, troubleshoot minor issues, and
+    understand when to call a professional. Plumbing Gurus shares knowledge
+    safely and clearly.
+  </p>
+</section>
 
-<div class="section">
-  <h2>Why Plumbing Matters</h2>
-  <p>Clean water, proper waste removal, and safe sanitation depend on skilled plumbing. Even small leaks or clogs can create health hazards if ignored. Plumbers ensure that your home or business has reliable, safe water systems.</p>
-</div>
-
-<div class="section">
-  <h2>Tips to Maintain Healthy Plumbing</h2>
+<section class="section">
+  <h2>DIY Maintenance Tips</h2>
   <div class="cards">
     <div class="card">
       <h3>Prevent Clogs</h3>
-      <p>Don’t pour grease down the drain. Regularly check your pipes for slow drainage and remove hair from bathroom drains.</p>
+      <p>Use strainers in sinks and showers. Avoid pouring grease or coffee grounds down drains.</p>
     </div>
     <div class="card">
-      <h3>Fix Leaks Quickly</h3>
-      <p>Even small leaks can lead to mold, water damage, and higher water bills. Inspect pipes and faucets regularly and act quickly.</p>
+      <h3>Check for Leaks</h3>
+      <p>Regularly inspect under sinks and around toilets for small leaks. Early detection saves water and money.</p>
     </div>
     <div class="card">
       <h3>Water Heater Care</h3>
-      <p>Flush your water heater annually to remove sediment, and check the temperature to prevent scalding and extend the heater’s life.</p>
-    </div>
-    <div class="card">
-      <h3>Sanitation Awareness</h3>
-      <p>Proper plumbing prevents harmful bacteria and viruses from contaminating your home. Keep toilets, sinks, and drains clean and maintained.</p>
+      <p>Flush your water heater annually to remove sediment and improve efficiency. Only perform if safe.</p>
     </div>
   </div>
+</section>
+
+<section class="section">
+  <h2>Common Plumbing Problems</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Dripping Faucets</h3>
+      <p>Often caused by worn washers or seals. Minor DIY repairs are possible, but major repairs may require a professional.</p>
+    </div>
+    <div class="card">
+      <h3>Slow Drains</h3>
+      <p>Usually due to buildup. Use a plunger or safe chemical-free solutions before calling a licensed plumber.</p>
+    </div>
+    <div class="card">
+      <h3>Running Toilets</h3>
+      <p>Check flapper and fill valve. Simple fixes can be done by homeowners; persistent issues should be referred.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>When to Call a Professional</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Major Leaks</h3>
+      <p>Water line breaks, flooding, or large leaks require licensed plumbing professionals.</p>
+    </div>
+    <div class="card">
+      <h3>Gas Lines / Water Heaters</h3>
+      <p>Never attempt repairs on gas or high-pressure water systems yourself — always contact a professional.</p>
+    </div>
+    <div class="card">
+      <h3>Complex Drain Issues</h3>
+      <p>Backed-up main lines, sewer problems, or persistent clogs should be addressed by trained plumbers.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <a href="estimate.html" class="primary">Get an Estimate</a>
+  <a href="booking.html" class="secondary">Book Service</a>
 </div>
 
-<div class="section">
-  <h2>How Plumbing Supports the Community</h2>
-  <p>Plumbers don’t just fix pipes—they protect public health by maintaining safe water systems, supporting fire safety with functional sprinklers, and helping businesses and homes stay compliant with health regulations.</p>
+<div class="section disclaimer">
+  Plumbing Gurus provides educational content for homeowners. Minor plumbing tasks may be performed
+  directly where legally permitted. Licensed plumbing work is coordinated with independent professionals.
+  Always prioritize safety and never perform work beyond your skill or legal allowance.
 </div>
 
 <footer>
-  <p>© 2025 Plumbing Gurus. Coordinating & fixture services only.</p>
-  <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+  <p>© 2025 Plumbing Gurus</p>
+  <p>
+    <a href="terms.html">Terms & Conditions</a> |
+    <a href="privacy.html">Privacy Policy</a>
+  </p>
 </footer>
 
 </body>
