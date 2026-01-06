@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plumbing Gurus | Booking – San Antonio TX</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="images/LOGO.png" type="image/png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking | Plumbing Gurus – San Antonio TX</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="images/LOGO.png" type="image/png">
 </head>
 <body>
 
@@ -16,7 +16,7 @@
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
     <a href="estimate.html">Estimate</a>
-    <a href="booking.html">Booking</a>
+    <a href="booking.html" class="active">Booking</a>
     <a href="compliance.html">Compliance</a>
   </nav>
 
@@ -34,9 +34,9 @@
 </section>
 
 <section class="section">
-  <h2>Service Request Form</h2>
+  <h2>Service Booking Form</h2>
 
-  <form action="#" method="post">
+  <form action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
     <div class="cards">
 
       <div class="card">
@@ -55,20 +55,24 @@
       </div>
 
       <div class="card">
-        <label for="service">Describe Your Issue</label>
-        <textarea id="service" name="service" rows="4" placeholder="Provide a brief description" required></textarea>
+        <label for="service">Service Requested</label>
+        <textarea id="service" name="service" rows="4" placeholder="Describe your request" required></textarea>
       </div>
 
       <div class="card">
         <label>
-          <input type="checkbox" required>
-          I understand Plumbing Gurus coordinates service and does <strong>not</strong> perform regulated plumbing work.
-          All plumbing work is performed by independently licensed plumbing professionals.
+          <input type="checkbox" name="consent" required>
+          I understand Plumbing Gurus coordinates service and does <strong>not</strong> perform regulated plumbing work. All licensed plumbing work is completed by independent professionals.
         </label>
       </div>
 
+      <!-- Optional: redirect to thank-you page -->
+      <input type="hidden" name="_next" value="https://www.plumbinggurus.us/thank-you.html">
+      <!-- Optional: disable captcha -->
+      <input type="hidden" name="_captcha" value="false">
+
       <div class="card">
-        <button type="submit">Submit Request</button>
+        <button type="submit">Submit Booking Request</button>
       </div>
 
     </div>
@@ -79,18 +83,8 @@
   <h2>Important Notice</h2>
   <div class="box">
     <p>
-      Plumbing Gurus is not a plumbing contractor. All regulated plumbing work is performed by independently licensed professionals.  
-      Service coordination and scheduling fees are separate from plumbing labor or materials.  
-      Estimates are informational only; final pricing is determined by the licensed plumber.
-    </p>
-  </div>
-</section>
-
-<section class="section">
-  <h2>Service Area</h2>
-  <div class="box">
-    <p>
-      We proudly serve <strong>San Antonio and surrounding Bexar County areas</strong>.
+      Plumbing Gurus is a coordination and dispatch service. All regulated plumbing work is performed by independently licensed professionals.  
+      Service coordination fees are separate from labor and materials. Estimates are informational only.
     </p>
   </div>
 </section>
@@ -103,5 +97,7 @@
   </p>
 </footer>
 
+</body>
+</html>
 </body>
 </html>
