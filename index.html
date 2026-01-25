@@ -1,431 +1,365 @@
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Reliable Handyman & Home Services | Plumbing Gurus | San Antonio TX</title><meta name="description" content="San Antonio’s trusted and reliable handyman and home services. Professional and honest service by Plumbing Gurus.">
-<meta name="keywords" content="handyman san antonio, home repair, fixture installation, local delivery, minor leak check">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Reliable Handyman in San Antonio | Plumbing Gurus</title><meta name="description" content="Reliable handyman and home services in San Antonio. Same-week appointments, honest pricing, and online quotes by Plumbing Gurus.">
+<meta name="keywords" content="handyman san antonio, home repair san antonio, fixture replacement non plumbing, local delivery">
 <meta name="theme-color" content="#0B3C5D"><link rel="icon" href="images/LOGO.png">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><!-- Feather Icons --><script src="https://unpkg.com/feather-icons"></script><style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"><!-- Feather Icons --><script src="https://unpkg.com/feather-icons"></script><!-- Local Business Schema --><script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LocalBusiness",
+  "name":"Plumbing Gurus",
+  "url":"https://www.plumbinggurus.us",
+  "logo":"https://www.plumbinggurus.us/images/LOGO.png",
+  "telephone":"+12109068524",
+  "address":{
+    "@type":"PostalAddress",
+    "addressLocality":"San Antonio",
+    "addressRegion":"TX",
+    "addressCountry":"US"
+  },
+  "priceRange":"$50-$500",
+  "description":"Reliable handyman and home services in San Antonio. Job-specific insurance when required.",
+  "areaServed":"San Antonio"
+}
+</script><style>
 
-:root {
-  --primary: #0B3C5D;
-  --accent: #1D6FA3;
-  --light: #f9fbfd;
-  --gray: #eef2f6;
-  --dark: #0a1f2e;
+:root{
+  --primary:#0B3C5D;
+  --accent:#1D6FA3;
+  --light:#f9fbfd;
+  --gray:#eef2f6;
+  --dark:#081824;
 }
 
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:'Inter',system-ui,Arial,sans-serif;
+  background:var(--light);
+  color:#1f2933;
+  line-height:1.6;
 }
 
-body {
-  margin: 0;
-  font-family: 'Poppins', Arial, sans-serif;
-  background: var(--light);
-  color: #1f2933;
-  line-height: 1.6;
-}
+h1,h2,h3{font-family:'Poppins',sans-serif;}
 
 /* Header */
-header {
-  background: rgba(255,255,255,.98);
-  padding: 18px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 2px 12px rgba(0,0,0,.08);
-  position: sticky;
-  top: 0;
-  z-index: 999;
+header{
+  background:#fff;
+  padding:18px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+  position:sticky;
+  top:0;
+  z-index:999;
 }
 
-.logo {
-  height: 60px;
+.logo{height:60px;}
+
+nav a{
+  margin:0 14px;
+  text-decoration:none;
+  color:#1f2933;
+  font-weight:500;
 }
 
-nav a {
-  margin: 0 16px;
-  text-decoration: none;
-  color: #1f2933;
-  font-weight: 500;
-  font-size: 15px;
+nav a:hover{color:var(--primary);}
+
+.header-phone{
+  display:flex;
+  align-items:center;
+  gap:6px;
 }
 
-nav a:hover,
-nav a.active {
-  color: var(--primary);
-}
-
-.header-phone a {
-  color: var(--primary);
-  text-decoration: none;
-  font-weight: 600;
+.header-phone a{
+  color:var(--primary);
+  text-decoration:none;
+  font-weight:600;
 }
 
 /* Hero */
-.hero {
-  min-height: 85vh;
-  background:
-    linear-gradient(rgba(11,60,93,.75), rgba(11,60,93,.85)),
-    url('https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1600&q=80');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  display: flex;
-  align-items: center;
+.hero{
+  min-height:90vh;
+  background:linear-gradient(rgba(11,60,93,.8),rgba(11,60,93,.9)),url('https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1600&q=80');
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+  display:flex;
+  align-items:center;
 }
 
-.hero-inner {
-  max-width: 1200px;
-  margin: auto;
-  padding: 40px;
+.hero-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:40px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
 }
 
-.hero h1 {
-  font-size: 48px;
-  max-width: 700px;
-  line-height: 1.2;
+.hero h1{font-size:44px;line-height:1.2;}
+
+.hero p{font-size:18px;max-width:520px;}
+
+/* Form */
+.hero-form{
+  background:#fff;
+  color:#111;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
-.hero p {
-  font-size: 20px;
-  max-width: 600px;
-  opacity: .95;
+.hero-form h3{color:var(--primary);}
+
+.hero-form input,
+.hero-form select,
+.hero-form textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-family:Inter;
 }
 
-.hero-btns {
-  margin-top: 30px;
+.hero-form button{
+  width:100%;
+  padding:14px;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
 }
 
-.hero-btns a {
-  display: inline-block;
-  margin-right: 15px;
-  padding: 14px 34px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.btn-primary {
-  background: white;
-  color: var(--primary);
-}
-
-.btn-outline {
-  border: 2px solid white;
-  color: white;
-}
+.hero-form button:hover{background:var(--accent);}
 
 /* Sections */
-.section {
-  max-width: 1200px;
-  margin: auto;
-  padding: 90px 30px;
+.section{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 30px;
 }
 
-.section h2 {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 50px;
-  color: var(--primary);
+.section h2{
+  text-align:center;
+  color:var(--primary);
+  font-size:34px;
+  margin-bottom:50px;
 }
 
-/* Features */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  gap: 35px;
+/* Cards */
+.features,
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
 }
 
-.feature {
-  background: white;
-  padding: 35px 25px;
-  border-radius: 18px;
-  text-align: center;
-  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+.feature,
+.service-card{
+  background:#fff;
+  padding:30px;
+  border-radius:18px;
+  text-align:center;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+  cursor:pointer;
+  transition:.2s;
 }
 
-.feature i {
-  width: 36px;
-  height: 36px;
-  color: var(--primary);
-  margin-bottom: 10px;
+.feature:hover,
+.service-card:hover,
+.feature:active,
+.service-card:active{
+  transform:translateY(-4px);
+  box-shadow:0 12px 25px rgba(11,60,93,.2);
 }
 
-.feature h3 {
-  color: var(--primary);
-  margin-top: 10px;
+.feature i,
+.service-card i{
+  width:36px;
+  height:36px;
+  color:var(--primary);
+  margin-bottom:10px;
 }
 
-/* Touch & Hover Effects */
-.feature, .service-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
-  cursor: pointer;
-}
-
-.feature:hover, .service-card:hover,
-.feature:active, .service-card:active {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 10px 25px rgba(11,60,93,0.18);
-  border: 1px solid rgba(11,60,93,0.15);
-}
-
-/* Services */
-.services {
-  background: var(--gray);
-}
-
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  gap: 30px;
-}
-
-.service-card {
-  background: white;
-  padding: 30px;
-  border-radius: 18px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.06);
-}
-
-.service-card i {
-  width: 32px;
-  height: 32px;
-  color: var(--primary);
-  margin-bottom: 10px;
-}
-
-.service-card h3 {
-  color: var(--primary);
-}
+.feature h3,
+.service-card h3{color:var(--primary);}
 
 /* CTA */
-.cta {
-  background: linear-gradient(to right, var(--primary), var(--accent));
-  color: white;
-  text-align: center;
+.cta{
+  background:linear-gradient(to right,var(--primary),var(--accent));
+  color:#fff;
+  text-align:center;
 }
 
-.cta h2 {
-  color: white;
-}
-
-.cta a {
-  background: white;
-  color: var(--primary);
-  padding: 15px 38px;
-  border-radius: 40px;
-  font-weight: 600;
-  text-decoration: none;
+.cta a{
+  display:inline-block;
+  margin-top:20px;
+  background:#fff;
+  color:var(--primary);
+  padding:14px 34px;
+  border-radius:40px;
+  font-weight:600;
+  text-decoration:none;
 }
 
 /* Reviews */
-.review-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-  gap: 30px;
+.review-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
 }
 
-.review {
-  background: white;
-  padding: 30px;
-  border-radius: 18px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+.review{
+  background:#fff;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
 }
 
 /* Contact */
-.contact {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-  gap: 40px;
+.contact{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:40px;
 }
 
-.contact-box {
-  background: white;
-  padding: 35px;
-  border-radius: 18px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+.contact-box{
+  background:#fff;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
 }
 
 /* Footer */
-footer {
-  background: var(--dark);
-  color: #cbd5e1;
-  padding: 50px 25px;
-  text-align: center;
+footer{
+  background:var(--dark);
+  color:#cbd5e1;
+  text-align:center;
+  padding:50px 25px;
 }
 
-footer a {
-  color: #cbd5e1;
-  text-decoration: none;
-}
+footer a{color:#cbd5e1;text-decoration:none;}
 
 /* Sticky */
-.sticky-book {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: var(--primary);
-  color: white;
-  padding: 15px 26px;
-  border-radius: 999px;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 6px 18px rgba(0,0,0,.25);
-  z-index: 9999;
+.sticky-book{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:var(--primary);
+  color:#fff;
+  padding:15px 26px;
+  border-radius:999px;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
 }
 
-</style></head><body><!-- Header --><header>  <img src="images/LOGO.png" class="logo" alt="Plumbing Gurus Logo">  <nav>
-    <a href="index.html" class="active">Home</a>
-    <a href="services.html">Services</a>
-    <a href="estimate.html">Estimate</a>
-    <a href="booking.html">Booking</a>
-    <a href="compliance.html">Compliance</a>
-  </nav>  <div class="header-phone">
-    <i data-feather="phone"></i>
-    <a href="tel:+12109068524">(210) 906-8524</a>
-  </div></header><!-- Hero --><section class="hero">
-  <div class="hero-inner"><h1>San Antonio’s Reliable Handyman & Home Services</h1>
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}
+}
 
-<p>
-  On-time. Professional. Fair pricing. Trusted by local homeowners.
-</p>
-
-<p style="font-size:14px;opacity:.9;">
-  Plumbing Gurus provides handyman services only. No licensed plumbing performed.
-</p>
-
-<div class="hero-form">
-  <h3 style="margin-bottom:10px;">Get Your Quote in 60 Seconds</h3>
-  <p style="font-size:14px;opacity:.9;margin-bottom:15px;">No pressure. No spam. Direct to Chris.</p>
-
-  <form action="https://formsubmit.co/pipeleaders@gmail.com" method="POST" style="max-width:420px;">
-
-    <!-- FormSubmit Settings -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_subject" value="New Plumbing Gurus Lead">
-    <input type="hidden" name="_next" value="thankyou.html">
-
-    <input type="text" name="name" placeholder="Your Name" required
-      style="width:100%;padding:12px;border-radius:8px;border:none;margin-bottom:10px;">
-
-    <input type="tel" name="phone" placeholder="Phone Number" required
-      style="width:100%;padding:12px;border-radius:8px;border:none;margin-bottom:10px;">
-
-    <select name="service" required
-      style="width:100%;padding:12px;border-radius:8px;border:none;margin-bottom:10px;">
-      <option value="">Select Service</option>
-      <option>Handyman Repairs</option>
-      <option>Fixture Installation</option>
-      <option>Leak Inspection</option>
-      <option>Local Delivery</option>
-      <option>Property Support</option>
-    </select>
-
-    <textarea name="message" placeholder="Brief description (optional)"
-      style="width:100%;padding:12px;border-radius:8px;border:none;margin-bottom:12px;"></textarea>
-
-    <button type="submit"
-      style="width:100%;padding:14px;border:none;border-radius:30px;background:white;color:#0B3C5D;font-weight:600;font-size:16px;cursor:pointer;">
-      <i data-feather="send"></i> Get Free Quote
-    </button>
-
-  </form>
+</style></head><body><!-- Header --><header><img src="images/LOGO.png" class="logo" alt="Plumbing Gurus Logo"><nav>
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="estimate.html">Estimate</a>
+<a href="booking.html">Booking</a>
+<a href="compliance.html">Compliance</a>
+</nav><div class="header-phone">
+<i data-feather="phone"></i>
+<a href="tel:+12109068524">(210) 906-8524</a>
+</div></header><!-- Hero --><section class="hero"><div class="hero-inner"><div>
+<h1>Reliable Handyman Services in San Antonio</h1><p>
+Same-week appointments • Upfront pricing • Job-specific insurance when required
+</p><p style="font-size:14px;opacity:.9;">
+No licensed plumbing performed. Licensed work referred when required.
+</p><div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;font-size:14px;">
+<span>✔ Same-week slots</span>
+<span>✔ Deposit-held bookings</span>
+<span>✔ Local pros</span>
 </div>
+</div><!-- Lead Form --><div class="hero-form"><h3>Get Your Quote in 60 Seconds</h3>
+<p style="font-size:14px;">Direct to Chris. No spam.</p><form action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST"><input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_subject" value="New Plumbing Gurus Lead">
+<input type="hidden" name="_next" value="thankyou.html"><input type="text" name="name" placeholder="Your Name" required><input type="tel" name="phone" placeholder="Phone Number" required><select name="service" required>
+<option value="">Select Service</option>
+<option>Handyman Repairs</option>
+<option>Fixture Replacement (Non-Plumbing)</option><option>Local Delivery</option>
+<option>Property Support</option>
+</select><textarea name="message" placeholder="Describe your project (optional)"></textarea><button type="submit"><i data-feather="send"></i> Get Free Quote</button>
 
-  </div>
-</section><!-- Why Us --><section class="section">  <h2>Why Homeowners Choose Us</h2>  <div class="features"><div class="feature">
-  <i data-feather="check-circle"></i>
-  <h3>Reliable Service</h3>
-  <p>We show up on time and finish the job right.</p>
-</div>
+</form></div></div></section><!-- Why Us --><section class="section"><h2>Why Choose Plumbing Gurus</h2><div class="features"><div class="feature">
+<i data-feather="check-circle"></i>
+<h3>Reliable</h3>
+<p>We show up and finish the job right.</p>
+</div><div class="feature">
+<i data-feather="dollar-sign"></i>
+<h3>Honest Pricing</h3>
+<p>No hidden fees or surprises.</p>
+</div><div class="feature">
+<i data-feather="shield"></i>
+<h3>Job-Specific Insurance</h3>
+<p>Coverage arranged when required.</p>
+</div><div class="feature">
+<i data-feather="map-pin"></i>
+<h3>Local</h3>
+<p>Serving San Antonio & Bexar County.</p>
+</div></div></section><!-- Services --><section class="section"><h2>Our Services</h2><div class="service-grid"><div class="service-card" data-service="Handyman Repairs">
+<i data-feather="tool"></i>
+<h3>Handyman Repairs</h3>
+<p>Doors, drywall, shelves, hardware.</p>
+</div><div class="service-card" data-service="Fixture Replacement (Non-Plumbing)">
+<i data-feather="droplet"></i>
+<h3>Fixture Replacement (Non-Plumbing)</h3>
+<p>Customer-supplied fixtures replaced without modifying water or drain lines. Licensed plumber used when required.</p>
+</div><div class="service-card" data-service="Local Delivery">
+<i data-feather="truck"></i>
+<h3>Local Delivery</h3>
+<p>Furniture & appliance delivery.</p>
+</div></div></section><!-- CTA --><section class="section cta"><h2>Book Before Spots Fill</h2><p>Limited weekly availability.</p><a href="booking.html"><i data-feather="calendar"></i> Schedule Now</a>
 
-<div class="feature">
-  <i data-feather="dollar-sign"></i>
-  <h3>Transparent Pricing</h3>
-  <p>No surprises. No pressure. No hidden fees.</p>
-</div>
+</section><!-- Reviews --><section class="section"><h2>Customer Reviews</h2><div class="review-grid"><div class="review">
+★★★★★<br>
+"Fixed my door in under an hour. Very professional."<br>
+<strong>- Maria G., Stone Oak</strong>
+</div><div class="review">
+★★★★★<br>
+"Clear pricing and showed up early."<br>
+<strong>- James R., Southtown</strong>
+</div><div class="review">
+★★★★★<br>
+"Honest work and great communication."<br>
+<strong>- Luis M., West SA</strong>
+</div></div></section><!-- Contact --><section id="contact" class="section"><h2>Contact Us</h2><div class="contact"><div class="contact-box">
+<h3><i data-feather="phone"></i> Contact</h3>
+<p>(210) 906-8524</p>
+<p>pipeleaders@gmail.com</p>
+<p>San Antonio, TX</p>
+</div><div class="contact-box">
+<h3><i data-feather="map"></i> Service Area</h3><iframe src="https://www.google.com/maps?q=San+Antonio+TX&output=embed"
+width="100%" height="260" style="border:0;">
+</iframe></div></div></section><!-- Footer --><footer><p>© 2026 Plumbing Gurus — Reliable Handyman Services</p><p>
+Handyman services only. Licensed plumbing referred when required.
+</p><p>
+<a href="terms.html">Terms</a> | <a href="privacy.html">Privacy</a>
+</p></footer><!-- Sticky --><a href="booking.html" class="sticky-book"><i data-feather="calendar"></i> Book Now</a>
 
-<div class="feature">
-  <i data-feather="shield"></i>
-  <h3>Job-Specific Insurance Coverage</h3>
-  <p>Insurance coverage arranged per project when required.</p>
-</div>
+<!-- Scripts --><script>
+feather.replace();
 
-<div class="feature">
-  <i data-feather="map-pin"></i>
-  <h3>Local Expertise</h3>
-  <p>San Antonio owned and operated.</p>
-</div>
-
-  </div></section><!-- Services --><section class="section services">  <h2>Our Services</h2>  <div class="service-grid"><div class="service-card">
-  <i data-feather="tool"></i>
-  <h3>Handyman Repairs</h3>
-  <p>Precision repairs for doors, drywall, fixtures, and hardware.</p>
-</div>
-
-<div class="service-card">
-  <i data-feather="droplet"></i>
-  <h3>Fixture Installation</h3>
-  <p>High-end faucet, toilet, and hardware replacements.</p>
-</div>
-
-<div class="service-card">
-  <i data-feather="search"></i>
-  <h3>Leak Inspection</h3>
-  <p>Non-invasive leak checks and adjustments.</p>
-</div>
-
-<div class="service-card">
-  <i data-feather="truck"></i>
-  <h3>Property Support</h3>
-  <p>Make-ready, turnovers, and premium maintenance.</p>
-</div>
-
-  </div></section><!-- CTA --><section class="section cta">  <h2>Schedule Your Service Today</h2>  <p>Limited weekly availability. Reserve your spot.</p><a href="booking.html"><i data-feather="calendar"></i> Book Appointment</a>
-
-</section><!-- Reviews --><section class="section">  <h2>Client Testimonials</h2>  <div class="review-grid"><div class="review">
-  ★★★★★<br>
-  "Professional, clean, and respectful. Highly recommend."
-  <br><strong>- Maria G.</strong>
-</div>
-
-<div class="review">
-  ★★★★★<br>
-  "Best handyman experience I’ve had in San Antonio."
-  <br><strong>- James R.</strong>
-</div>
-
-<div class="review">
-  ★★★★★<br>
-  "Worth every dollar. Quality work and great communication."
-  <br><strong>- Luis M.</strong>
-</div>
-
-  </div></section><!-- Contact --><section id="contact" class="section">  <h2>Contact Us</h2>  <div class="contact"><div class="contact-box">
-  <h3><i data-feather="phone"></i> Contact Information</h3>
-  <p>📞 (210) 906-8524</p>
-  <p>📧 pipeleaders@gmail.com</p>
-  <p>📍 San Antonio, TX</p>
-</div>
-
-<div class="contact-box">
-  <h3><i data-feather="map"></i> Service Area</h3>
-  <iframe 
-    src="https://www.google.com/maps?q=San+Antonio+TX&output=embed"
-    width="100%" height="260" style="border:0;">
-  </iframe>
-</div>
-
-  </div></section><!-- Footer --><footer>  <p>© 2026 Plumbing Gurus — Reliable Handyman & Home Services</p>  <p>
-    Handyman services only. No licensed plumbing services provided.
-    Licensed work referred to independent professionals when required.
-  </p>  <p>
-    <a href="terms.html">Terms</a> | <a href="privacy.html">Privacy</a>
-  </p></footer><!-- Sticky Button --><a href="booking.html" class="sticky-book"><i data-feather="calendar"></i> Book Now</a>
-
-<!-- Activate Icons --><script>
-  feather.replace();
+document.querySelectorAll('.service-card').forEach(card=>{
+  card.addEventListener('click',()=>{
+    const svc = encodeURIComponent(card.dataset.service);
+    window.location = 'booking.html?service='+svc;
+  });
+});
 </script></body>
 </html>
