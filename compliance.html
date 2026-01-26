@@ -4,65 +4,108 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Compliance & Licensing | Plumbing Gurus | San Antonio</title>
+<title>Compliance & Legal | Plumbing Gurus | San Antonio</title>
 
-<meta name="description" content="Compliance and licensing information for Plumbing Gurus handyman and fixture replacement services in San Antonio.">
+<meta name="description" content="Compliance, licensing, and legal information for Plumbing Gurus handyman and home services in San Antonio.">
+
+<meta name="keywords" content="handyman compliance san antonio, plumbing gurus legal, licensed plumbing referral">
 
 <meta name="theme-color" content="#0B3C5D">
 
 <link rel="icon" href="images/LOGO.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/feather-icons"></script>
 
 <style>
 
 :root{
   --primary:#0B3C5D;
+  --accent:#1D6FA3;
   --light:#f9fbfd;
+  --gray:#eef2f6;
   --dark:#081824;
 }
 
+*{box-sizing:border-box;}
+
 body{
   margin:0;
-  font-family:'Inter',system-ui,Arial,sans-serif;
+  font-family:'Inter',Arial,sans-serif;
   background:var(--light);
   color:#1f2933;
-  line-height:1.7;
+  line-height:1.6;
 }
 
-h1,h2{
-  font-family:'Poppins',sans-serif;
-  color:var(--primary);
-}
+h1,h2,h3{font-family:'Poppins',sans-serif;}
 
 header{
   background:#fff;
-  padding:20px 40px;
+  padding:18px 40px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   box-shadow:0 2px 10px rgba(0,0,0,.08);
+  position:sticky;
+  top:0;
+  z-index:999;
 }
 
-.logo{
-  height:55px;
-}
+.logo{height:60px;}
 
 nav a{
-  margin:0 12px;
+  margin:0 14px;
   text-decoration:none;
   color:#1f2933;
   font-weight:500;
 }
 
-nav a:hover{
-  color:var(--primary);
+nav a:hover{color:var(--primary);}
+
+.header-phone{
+  display:flex;
+  align-items:center;
+  gap:6px;
 }
+
+.header-phone a{
+  color:var(--primary);
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* Hero */
+
+.hero{
+  background:
+  linear-gradient(rgba(11,60,93,.9),rgba(11,60,93,.95)),
+  url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=80');
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+  text-align:center;
+  padding:90px 25px;
+}
+
+.hero h1{font-size:42px;}
+
+.hero p{
+  font-size:17px;
+  max-width:750px;
+  margin:auto;
+  opacity:.95;
+}
+
+/* Section */
 
 .section{
   max-width:900px;
   margin:auto;
   padding:80px 25px;
 }
+
+/* Boxes */
 
 .box{
   background:#fff;
@@ -72,20 +115,32 @@ nav a:hover{
   margin-bottom:35px;
 }
 
-.box h2{
-  margin-top:0;
-}
+.box h2{color:var(--primary);}
+
+/* Footer */
 
 footer{
   background:var(--dark);
   color:#cbd5e1;
   text-align:center;
-  padding:45px 25px;
+  padding:50px 25px;
 }
 
-footer a{
-  color:#cbd5e1;
+footer a{color:#cbd5e1;text-decoration:none;}
+
+/* Sticky */
+
+.sticky-book{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:var(--primary);
+  color:#fff;
+  padding:15px 26px;
+  border-radius:999px;
+  font-weight:600;
   text-decoration:none;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
 }
 
 </style>
@@ -94,41 +149,51 @@ footer a{
 <body>
 
 <!-- Header -->
+
 <header>
 
-<img src="images/LOGO.png" class="logo" alt="Plumbing Gurus Logo">
+<img src="images/LOGO.png" class="logo">
 
 <nav>
 <a href="index.html">Home</a>
 <a href="services.html">Services</a>
+<a href="estimate.html">Estimate</a>
 <a href="booking.html">Booking</a>
 <a href="about.html">About</a>
 <a href="compliance.html">Compliance</a>
 </nav>
 
+<div class="header-phone">
+<i data-feather="phone"></i>
+<a href="tel:+12109068524">(210) 906-8524</a>
+</div>
+
 </header>
 
+<!-- Hero -->
 
-<!-- Main -->
-<section class="section">
+<section class="hero">
 
-<h1>Compliance & Licensing Information</h1>
+<h1>Compliance & Legal Information</h1>
 
-<p style="max-width:800px;margin-bottom:40px;">
-Plumbing Gurus is committed to operating in full compliance with Texas laws and industry regulations. This page outlines our service scope and legal standards.
+<p>
+Our commitment to operating responsibly, transparently,
+and within Texas regulations.
 </p>
 
+</section>
+
+<!-- Compliance -->
+
+<section class="section">
 
 <div class="box">
 
 <h2>Service Classification</h2>
 
 <p>
-Plumbing Gurus operates as a handyman and home maintenance service provider. We provide non-plumbing fixture replacement, hardware installation, and general home services.
-</p>
-
-<p>
-We do not perform regulated plumbing, gas, sewer, or underground utility work.
+Plumbing Gurus operates primarily as a handyman and home services provider.
+We do not perform regulated plumbing, gas, sewer, or utility work.
 </p>
 
 </div>
@@ -139,11 +204,9 @@ We do not perform regulated plumbing, gas, sewer, or underground utility work.
 <h2>Licensing Policy</h2>
 
 <p>
-All work requiring a Texas plumbing license is referred to independently licensed professionals.
-</p>
-
-<p>
-We do not modify water lines, drain lines, gas lines, or sewer connections.
+Any plumbing work requiring licensure under Texas law is referred
+directly to independently licensed professionals. Plumbing Gurus
+does not modify water lines, drain lines, gas systems, or sewer connections.
 </p>
 
 </div>
@@ -151,14 +214,12 @@ We do not modify water lines, drain lines, gas lines, or sewer connections.
 
 <div class="box">
 
-<h2>Fixture Replacement Policy</h2>
+<h2>Referral & Dispatch Services</h2>
 
 <p>
-Fixture replacement services are limited to customer-supplied fixtures that can be replaced without altering existing plumbing infrastructure.
-</p>
-
-<p>
-Any installation requiring pipe modification, soldering, cutting, or pressure testing is referred to a licensed plumber.
+When specialized or regulated services are required, we may assist
+with scheduling and referral coordination for licensed contractors.
+This service is limited and separate from our handyman operations.
 </p>
 
 </div>
@@ -169,11 +230,8 @@ Any installation requiring pipe modification, soldering, cutting, or pressure te
 <h2>Insurance Coverage</h2>
 
 <p>
-Job-specific insurance coverage is arranged when required based on project scope and customer requirements.
-</p>
-
-<p>
-Coverage details are disclosed prior to service when applicable.
+Job-specific insurance coverage may be arranged when required
+based on project scope and client needs.
 </p>
 
 </div>
@@ -181,29 +239,12 @@ Coverage details are disclosed prior to service when applicable.
 
 <div class="box">
 
-<h2>Permits & Regulations</h2>
+<h2>Customer Responsibilities</h2>
 
 <p>
-Customers are responsible for identifying and disclosing any permit requirements, HOA restrictions, or municipal regulations affecting their property.
-</p>
-
-<p>
-We assist in coordination with licensed professionals when permits are required.
-</p>
-
-</div>
-
-
-<div class="box">
-
-<h2>Customer Responsibility</h2>
-
-<p>
-Customers agree to provide accurate project information and disclose existing conditions that may affect service delivery.
-</p>
-
-<p>
-Failure to disclose relevant conditions may result in service delays or referral to licensed providers.
+Customers are responsible for disclosing existing conditions,
+permits, HOA restrictions, and property limitations prior to service.
+Failure to disclose relevant information may affect service availability.
 </p>
 
 </div>
@@ -211,32 +252,43 @@ Failure to disclose relevant conditions may result in service delays or referral
 
 <div class="box">
 
-<h2>Legal Notice</h2>
+<h2>Legal Disclaimer</h2>
 
 <p>
-Information on this website is provided for general guidance only and does not constitute legal advice.
-</p>
-
-<p>
-Service offerings may be modified to comply with changes in state or local regulations.
+Information on this website is provided for general guidance only
+and does not constitute legal advice. Service offerings, pricing,
+and availability may change based on regulatory requirements.
 </p>
 
 </div>
-
 
 </section>
 
-
 <!-- Footer -->
+
 <footer>
 
 <p>© 2026 Plumbing Gurus — Compliance First</p>
 
 <p>
-Handyman and non-plumbing fixture services only.
+Handyman services only. Licensed plumbing referred when required.
+</p>
+
+<p>
+<a href="terms.html">Terms</a> | <a href="privacy.html">Privacy</a>
 </p>
 
 </footer>
+
+<!-- Sticky -->
+
+<a href="booking.html" class="sticky-book">
+<i data-feather="calendar"></i> Book Now
+</a>
+
+<script>
+feather.replace();
+</script>
 
 </body>
 </html>
