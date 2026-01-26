@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Terms & Conditions | Plumbing Gurus</title>
+
+<meta name="description" content="Terms and conditions for Plumbing Gurus handyman and home services in San Antonio.">
+
+<meta name="theme-color" content="#0B3C5D">
+
+<link rel="icon" href="images/LOGO.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+  margin:0;
+  font-family:Inter,Arial,sans-serif;
+  background:#f9fbfd;
+  color:#1f2933;
+  line-height:1.7;
+}
+
+header{
+  background:#0B3C5D;
+  color:#fff;
+  padding:40px 20px;
+  text-align:center;
+}
+
+.section{
+  max-width:900px;
+  margin:auto;
+  padding:70px 25px;
+}
+
+h1,h2{font-family:Poppins;}
+
+.box{
+  background:#fff;
+  padding:30px;
+  border-radius:14px;
+  box-shadow:0 4px 12px rgba(0,0,0,.06);
+  margin-bottom:30px;
+}
+
+footer{
+  background:#081824;
+  color:#cbd5e1;
+  text-align:center;
+  padding:40px 20px;
+}
+
+footer a{color:#cbd5e1;text-decoration:none;}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Terms & Conditions</h1>
+<p>Plumbing Gurus — San Antonio, TX</p>
+</header>
+
+<section class="section">
+
+<div class="box">
+<h2>1. Services</h2>
+<p>
+Plumbing Gurus provides handyman, fixture replacement (non-plumbing),
+delivery, and referral services. We do not perform licensed plumbing,
+gas, or sewer work.
+</p>
+</div>
+
+<div class="box">
+<h2>2. Estimates & Pricing</h2>
+<p>
+All estimates are informational only and subject to change after
+inspection. Final pricing is confirmed prior to service.
+</p>
+</div>
+
+<div class="box">
+<h2>3. Appointments & Cancellations</h2>
+<p>
+Appointments are confirmed after review. Customers must provide at
+least 24 hours’ notice for cancellations when possible.
+</p>
+</div>
+
+<div class="box">
+<h2>4. Payments</h2>
+<p>
+Payment is due upon completion of services unless otherwise agreed.
+Deposits may be required for certain projects.
+</p>
+</div>
+
+<div class="box">
+<h2>5. Referrals & Third Parties</h2>
+<p>
+When licensed work is required, Plumbing Gurus may refer customers
+to independent professionals. We are not responsible for third-party
+services.
+</p>
+</div>
+
+<div class="box">
+<h2>6. Liability</h2>
+<p>
+Plumbing Gurus is not responsible for pre-existing conditions,
+hidden defects, or issues outside the agreed scope of work.
+</p>
+</div>
+
+<div class="box">
+<h2>7. Customer Responsibilities</h2>
+<p>
+Customers must provide accurate information regarding property
+conditions, permits, and access.
+</p>
+</div>
+
+<div class="box">
+<h2>8. Changes to Terms</h2>
+<p>
+These terms may be updated at any time without prior notice.
+Continued use of our services constitutes acceptance.
+</p>
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 Plumbing Gurus — All Rights Reserved</p>
+
+<p>
+<a href="index.html">Home</a> |
+<a href="privacy.html">Privacy Policy</a>
+</p>
+
+</footer>
+
+</body>
+</html>
