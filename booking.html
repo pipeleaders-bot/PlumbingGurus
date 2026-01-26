@@ -6,10 +6,17 @@
 
 <title>Book Service | Plumbing Gurus | San Antonio</title>
 
-<meta name="description" content="Book reliable handyman services in San Antonio. Secure online booking with Plumbing Gurus.">
+<meta name="description" content="Book handyman and home services online in San Antonio. Same-week availability and fast confirmation from Plumbing Gurus.">
+
+<meta name="keywords" content="book handyman san antonio, home repair appointment, fixture replacement booking">
+
+<meta name="theme-color" content="#0B3C5D">
 
 <link rel="icon" href="images/LOGO.png">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/feather-icons"></script>
 
 <style>
 
@@ -17,29 +24,38 @@
   --primary:#0B3C5D;
   --accent:#1D6FA3;
   --light:#f9fbfd;
+  --gray:#eef2f6;
   --dark:#081824;
 }
 
+*{box-sizing:border-box;}
+
 body{
   margin:0;
-  font-family:Inter,Arial,sans-serif;
+  font-family:'Inter',Arial,sans-serif;
   background:var(--light);
   color:#1f2933;
+  line-height:1.6;
 }
+
+h1,h2,h3{font-family:'Poppins',sans-serif;}
 
 header{
   background:#fff;
-  padding:18px 30px;
-  box-shadow:0 2px 10px rgba(0,0,0,.08);
+  padding:18px 40px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+  position:sticky;
+  top:0;
+  z-index:999;
 }
 
-.logo{height:50px;}
+.logo{height:60px;}
 
 nav a{
-  margin:0 10px;
+  margin:0 14px;
   text-decoration:none;
   color:#1f2933;
   font-weight:500;
@@ -47,40 +63,75 @@ nav a{
 
 nav a:hover{color:var(--primary);}
 
-.section{
+.header-phone{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.header-phone a{
+  color:var(--primary);
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* Hero */
+
+.hero{
+  background:
+  linear-gradient(rgba(11,60,93,.85),rgba(11,60,93,.9)),
+  url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=80');
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+  text-align:center;
+  padding:90px 25px;
+}
+
+.hero h1{font-size:42px;}
+
+.hero p{
+  font-size:18px;
   max-width:700px;
   margin:auto;
-  padding:60px 20px;
 }
 
-h1{
-  font-family:Poppins,sans-serif;
-  color:var(--primary);
-  text-align:center;
+/* Section */
+
+.section{
+  max-width:900px;
+  margin:auto;
+  padding:80px 25px;
 }
 
-.sub{
-  text-align:center;
-  margin-bottom:30px;
-  font-size:15px;
-  opacity:.85;
-}
+/* Form */
 
 .form-box{
   background:#fff;
-  padding:30px;
+  padding:35px;
   border-radius:18px;
-  box-shadow:0 6px 18px rgba(0,0,0,.1);
+  box-shadow:0 8px 22px rgba(0,0,0,.08);
 }
 
-input,select,textarea{
+.form-box h2{
+  color:var(--primary);
+  text-align:center;
+  margin-bottom:25px;
+}
+
+input,
+select,
+textarea{
   width:100%;
   padding:12px;
-  margin-bottom:12px;
+  margin-bottom:14px;
   border-radius:8px;
   border:1px solid #ccc;
   font-family:Inter;
+  font-size:15px;
 }
+
+textarea{resize:vertical;}
 
 button{
   width:100%;
@@ -98,54 +149,95 @@ button:hover{background:var(--accent);}
 
 .note{
   font-size:13px;
-  margin-top:15px;
-  opacity:.85;
   text-align:center;
+  margin-top:18px;
+  opacity:.8;
 }
+
+/* Footer */
 
 footer{
   background:var(--dark);
   color:#cbd5e1;
   text-align:center;
-  padding:35px 20px;
-  margin-top:60px;
+  padding:50px 25px;
+  margin-top:70px;
 }
 
 footer a{color:#cbd5e1;text-decoration:none;}
+
+/* Sticky */
+
+.sticky-book{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:var(--primary);
+  color:#fff;
+  padding:15px 26px;
+  border-radius:999px;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+}
 
 </style>
 </head>
 
 <body>
 
+<!-- Header -->
+
 <header>
 
-<img src="images/LOGO.png" class="logo" alt="Plumbing Gurus Logo">
+<img src="images/LOGO.png" class="logo">
 
 <nav>
 <a href="index.html">Home</a>
 <a href="services.html">Services</a>
+<a href="estimate.html">Estimate</a>
 <a href="booking.html">Booking</a>
+<a href="about.html">About</a>
 <a href="compliance.html">Compliance</a>
 </nav>
 
+<div class="header-phone">
+<i data-feather="phone"></i>
+<a href="tel:+12109068524">(210) 906-8524</a>
+</div>
+
 </header>
 
+<!-- Hero -->
 
-<section class="section">
+<section class="hero">
 
 <h1>Book Your Service</h1>
 
-<p class="sub">
-Secure your appointment. Same-week availability when possible.
+<p>
+Schedule your appointment online and receive confirmation within 24 hours.
 </p>
+
+<p style="font-size:14px;opacity:.9;">
+No licensed plumbing performed. Regulated work referred when required.
+</p>
+
+</section>
+
+<!-- Booking Form -->
+
+<section class="section">
 
 <div class="form-box">
 
+<h2>Appointment Request</h2>
+
 <form action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
 
+<!-- FormSubmit Settings -->
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_subject" value="New Booking Request">
+<input type="hidden" name="_template" value="table">
 <input type="hidden" name="_next" value="thankyou.html">
 
 <label>Full Name</label>
@@ -154,51 +246,75 @@ Secure your appointment. Same-week availability when possible.
 <label>Phone Number</label>
 <input type="tel" name="phone" required>
 
+<label>Email (Optional)</label>
+<input type="email" name="email">
+
 <label>Service Type</label>
-<select name="service" id="service" required>
+<select name="service" required>
 <option value="">Select Service</option>
 <option>Handyman Repairs</option>
 <option>Fixture Replacement (Non-Plumbing)</option>
 <option>Local Delivery</option>
 <option>Property Support</option>
+<option>Referral / Dispatch</option>
 </select>
 
-<label>Preferred Date / Time</label>
-<input type="text" name="schedule" placeholder="Example: Tue afternoon">
+<label>Service Address</label>
+<input type="text" name="address" required>
+
+<label>Preferred Date</label>
+<input type="date" name="date">
+
+<label>Preferred Time</label>
+<select name="time">
+<option>Morning (8am–12pm)</option>
+<option>Afternoon (12pm–4pm)</option>
+<option>Evening (4pm–7pm)</option>
+<option>Flexible</option>
+</select>
 
 <label>Project Details</label>
-<textarea name="details" rows="4"></textarea>
+<textarea name="details" rows="5"></textarea>
 
-<button type="submit">Submit Booking Request</button>
+<button type="submit">
+<i data-feather="calendar"></i> Request Booking
+</button>
 
 </form>
 
 <p class="note">
-Deposit may be required to reserve appointments.<br>
-Licensed plumbing work is referred when required.
+This form submits a booking request. Appointments are confirmed after review.
+Final pricing is provided after evaluation. Licensed plumbing is referred.
 </p>
 
 </div>
 
 </section>
 
+<!-- Footer -->
 
 <footer>
 
-<p>© 2026 Plumbing Gurus — Reliable Handyman Services</p>
+<p>© 2026 Plumbing Gurus — Reliable Home Services</p>
 
 <p>
-<a href="contact.html">Contact</a> | <a href="privacy.html">Privacy</a>
+Handyman services only. Licensed plumbing referred.
+</p>
+
+<p>
+<a href="terms.html">Terms</a> | <a href="privacy.html">Privacy</a>
 </p>
 
 </footer>
 
+<!-- Sticky -->
+
+<a href="booking.html" class="sticky-book">
+<i data-feather="calendar"></i> Book Now
+</a>
 
 <script>
-const p = new URLSearchParams(window.location.search);
-if(p.get("service")){
-  document.getElementById("service").value = p.get("service");
-}
+feather.replace();
 </script>
 
 </body>
