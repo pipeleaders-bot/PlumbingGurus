@@ -5,11 +5,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Local & Regional Delivery in San Antonio | Plumbing Gurus</title>
+<title>Delivery Estimate | Plumbing Gurus</title>
 
-<meta name="description" content="Fast local and regional delivery services in San Antonio. Furniture, appliances, packages, and equipment delivered safely. Same-day options available.">
+<meta name="description" content="Get instant delivery estimates based on real distance, item size, and weight. Serving San Antonio and surrounding cities.">
 
-<meta name="keywords" content="delivery service san antonio, furniture delivery, appliance delivery, local courier, same day delivery">
+<meta name="keywords" content="delivery estimate san antonio, courier pricing, furniture delivery quote">
 
 <meta name="theme-color" content="#0d4b73">
 
@@ -21,14 +21,14 @@
 
 <style>
 
-/* ===== MATCH MAIN SITE STYLE ===== */
+/* ===== SYSTEM ===== */
 
 :root{
   --blue1:#0d4b73;
   --blue2:#1D6FA3;
   --orange:#ff8a00;
   --dark:#050b14;
-  --glass:rgba(255,255,255,.92);
+  --glass:rgba(255,255,255,.95);
 }
 
 *{box-sizing:border-box;}
@@ -58,7 +58,7 @@ header{
   position:fixed;
   top:0;
   width:100%;
-  padding:18px 50px;
+  padding:25px;
   background:rgba(5,11,20,.75);
   backdrop-filter:blur(14px);
   display:flex;
@@ -67,16 +67,14 @@ header{
   z-index:999;
 }
 
-.logo{height:80px;}
+.logo{height:100px;}
 
 nav a{
-  margin:0 18px;
+  margin:0 16px;
   color:#fff;
   text-decoration:none;
   opacity:.85;
 }
-
-nav a:hover{opacity:1;}
 
 .phone{
   color:var(--orange);
@@ -87,22 +85,261 @@ nav a:hover{opacity:1;}
 /* HERO */
 
 .hero{
-  min-height:70vh;
+  min-height:55vh;
   display:flex;
   align-items:center;
-  padding-top:140px;
+  padding-top:180px;
 }
 
 .hero-wrap{
-  max-width:1200px;
+  max-width:1000px;
   margin:auto;
-  padding:40px;
+  padding:30px;
   text-align:center;
 }
 
-.hero h1{
-  font-size:52px;
+.hero h1{font-size:48px;}
+.hero p{font-size:20px;opacity:.9;}
+
+/* SECTION */
+
+.section{
+  max-width:1100px;
+  margin:80px auto;
+  padding:0 30px;
 }
+
+/* ESTIMATOR */
+
+.estimator{
+  background:var(--glass);
+  color:#111;
+  padding:45px;
+  border-radius:28px;
+  max-width:700px;
+  margin:auto;
+  box-shadow:0 30px 70px rgba(0,0,0,.6);
+}
+
+.estimator h2{
+  text-align:center;
+  color:var(--blue1);
+}
+
+.estimator label{
+  font-weight:600;
+  display:block;
+  margin-top:14px;
+}
+
+.estimator input,
+.estimator select{
+  width:100%;
+  padding:14px;
+  margin-top:6px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+.estimator button{
+  width:100%;
+  padding:16px;
+  margin-top:18px;
+  background:linear-gradient(90deg,var(--orange),#ffb347);
+  border:none;
+  border-radius:40px;
+  color:#fff;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+#result{
+  margin-top:22px;
+  text-align:center;
+  font-size:22px;
+  font-weight:700;
+  color:var(--blue1);
+}
+
+/* FOOTER */
+
+footer{
+  background:#02060c;
+  padding:45px;
+  text-align:center;
+  color:#aaa;
+  margin-top:80px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .logo{height:80px;}
+  nav{display:none;}
+  .hero h1{font-size:34px;}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<header>
+
+<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo">
+
+<nav>
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="delivery.html">Delivery</a>
+<a href="booking.html">Book</a>
+</nav>
+
+<a href="tel:+12109068524" class="phone">(210) 906-8524</a>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-wrap">
+
+<h1>Instant Delivery Estimate</h1>
+<p>Enter pickup & drop-off locations to get a real price instantly.</p>
+
+</div>
+
+</section>
+
+<!-- ESTIMATOR -->
+
+<section class="section">
+
+<div class="estimator">
+
+<h2>Calculate Your Delivery</h2>
+
+<label>Pickup Address</label>
+<input id="pickup" type="text" placeholder="Enter pickup location">
+
+<label>Drop-Off Address</label>
+<input id="dropoff" type="text" placeholder="Enter drop-off location">
+
+<label>Item Size</label>
+<select id="size">
+<option value="0">Small (+$0)</option>
+<option value="15">Medium (+$15)</option>
+<option value="30">Large (+$30)</option>
+<option value="45">Extra Large (+$45)</option>
+</select>
+
+<label>Item Weight</label>
+<select id="weight">
+<option value="0">Under 50 lbs (+$0)</option>
+<option value="15">50–100 lbs (+$15)</option>
+<option value="30">100–200 lbs (+$30)</option>
+<option value="45">200+ lbs (+$45)</option>
+</select>
+
+<button onclick="calculate()">Get Estimate</button>
+
+<div id="result"></div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>© 2026 Plumbing Gurus LLC — Delivery Services</p>
+<p>Final pricing confirmed before service.</p>
+
+</footer>
+
+<!-- GOOGLE MAPS API -->
+
+<script
+src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&libraries=places">
+</script>
+
+<script>
+
+lucide.createIcons();
+
+/* AUTOCOMPLETE */
+
+let pickupInput = document.getElementById("pickup");
+let dropoffInput = document.getElementById("dropoff");
+
+new google.maps.places.Autocomplete(pickupInput);
+new google.maps.places.Autocomplete(dropoffInput);
+
+/* CALCULATOR */
+
+function calculate(){
+
+  let pickup = pickupInput.value;
+  let dropoff = dropoffInput.value;
+
+  if(pickup === "" || dropoff === ""){
+    document.getElementById("result").innerHTML =
+      "Please enter both addresses.";
+    return;
+  }
+
+  let service = new google.maps.DistanceMatrixService();
+
+  service.getDistanceMatrix({
+
+    origins:[pickup],
+    destinations:[dropoff],
+    travelMode:"DRIVING",
+
+  }, function(response, status){
+
+    if(status !== "OK"){
+      document.getElementById("result").innerHTML =
+        "Unable to calculate distance.";
+      return;
+    }
+
+    let meters =
+      response.rows[0].elements[0].distance.value;
+
+    let miles = meters / 1609.34;
+
+    let size = Number(document.getElementById("size").value);
+    let weight = Number(document.getElementById("weight").value);
+
+    let base = 35;
+    let perMile = 1.75;
+
+    let distanceCost = miles * perMile;
+
+    let total = base + distanceCost + size + weight;
+
+    total = Math.round(total);
+
+    document.getElementById("result").innerHTML =
+      "Estimated Price: $" + total +
+      "<br><small>Distance: " + miles.toFixed(1) + " miles</small>";
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>}
 
 .hero p{
   font-size:20px;
