@@ -7,7 +7,7 @@
 
 <title>Elite Handyman Services in San Antonio | Plumbing Gurus</title>
 
-<meta name="description" content="Elite handyman and fixture repair in San Antonio. Fast response. Modern service. Trusted professionals. Book today.">
+<meta name="description" content="Elite handyman and fixture repair in San Antonio. Fast response. Trusted professionals. Book today.">
 
 <meta name="keywords" content="handyman san antonio, home repair near me, fixture repair, toilet repair, faucet repair">
 
@@ -21,7 +21,7 @@
 
 <style>
 
-/* ================= CORE SYSTEM ================= */
+/* ================= SYSTEM ================= */
 
 :root{
   --blue1:#0d4b73;
@@ -43,7 +43,7 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= ANIMATED BACKGROUND ================= */
+/* ================= BACKGROUND ================= */
 
 .bg{
   position:fixed;
@@ -53,12 +53,12 @@ body{
     radial-gradient(circle at 20% 20%, #35a0d9, transparent 40%),
     radial-gradient(circle at 80% 30%, #1D6FA3, transparent 45%),
     radial-gradient(circle at 50% 80%, #0d4b73, transparent 45%);
-  animation:move 20s linear infinite;
+  animation:move 22s linear infinite;
 }
 
 @keyframes move{
   0%{transform:translate(0,0);}
-  50%{transform:translate(-50px,30px);}
+  50%{transform:translate(-60px,40px);}
   100%{transform:translate(0,0);}
 }
 
@@ -69,8 +69,8 @@ header{
   top:0;
   width:100%;
   padding:18px 50px;
-  background:rgba(5,11,20,.7);
-  backdrop-filter:blur(12px);
+  background:rgba(5,11,20,.75);
+  backdrop-filter:blur(14px);
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -120,7 +120,6 @@ nav a:hover{opacity:1;}
   font-size:60px;
   line-height:1.05;
   margin-bottom:25px;
-  letter-spacing:-1px;
 }
 
 .hero p{
@@ -152,7 +151,6 @@ nav a:hover{opacity:1;}
 
 .card h3{
   color:var(--blue1);
-  margin-bottom:15px;
 }
 
 .card input,
@@ -174,7 +172,6 @@ nav a:hover{opacity:1;}
   color:#fff;
   font-size:16px;
   font-weight:600;
-  cursor:pointer;
 }
 
 /* ================= STATS ================= */
@@ -192,15 +189,30 @@ nav a:hover{opacity:1;}
   color:#fff;
 }
 
+/* ================= PREMIUM ICON ================= */
+
 .icon{
-  width:55px;
-  height:55px;
-  background:rgba(255,255,255,.15);
+  width:60px;
+  height:60px;
+  background:linear-gradient(145deg,#1D6FA3,#0d4b73);
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  margin:0 auto 12px;
+  margin:0 auto 14px;
+  color:#fff;
+  box-shadow:0 10px 25px rgba(0,0,0,.4);
+  animation:float 4s ease-in-out infinite;
+}
+
+.service:hover .icon{
+  transform:scale(1.15) rotate(6deg);
+}
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-6px);}
+  100%{transform:translateY(0);}
 }
 
 /* ================= SERVICES ================= */
@@ -224,18 +236,34 @@ nav a:hover{opacity:1;}
   gap:40px;
 }
 
+/* IMAGE CARD */
+
 .service{
-  background:rgba(255,255,255,.07);
-  padding:40px;
+  position:relative;
+  min-height:320px;
+  background-size:cover;
+  background-position:center;
   border-radius:26px;
-  backdrop-filter:blur(12px);
-  transition:.3s;
-  text-align:center;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-end;
+  color:#fff;
+  box-shadow:0 15px 35px rgba(0,0,0,.4);
 }
 
-.service:hover{
-  transform:translateY(-12px);
-  background:rgba(255,255,255,.12);
+.service .overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,
+    rgba(5,11,20,.9),
+    rgba(5,11,20,.4),
+    transparent);
+}
+
+.service-content{
+  position:relative;
+  padding:25px;
+  width:100%;
 }
 
 /* ================= CTA ================= */
@@ -297,7 +325,7 @@ footer{
 
 <div>
 
-<h1>Modern Handyman Service for San Antonio Homes</h1>
+<h1>Trusted Handyman Service for San Antonio Homes</h1>
 
 <p>Fast response. Premium workmanship. No stress.</p>
 
@@ -381,28 +409,68 @@ footer{
 
 <div class="grid">
 
-<div class="service">
+<!-- Minor Repairs (DRILL IMAGE) -->
+<div class="service"
+style="background-image:url('https://images.unsplash.com/photo-1581141849291-1125c7b692b5?auto=format&fit=crop&w=800&q=80');">
+
+<div class="overlay"></div>
+
+<div class="service-content">
+
 <div class="icon"><i data-lucide="tool"></i></div>
+
 <h3>Minor Repairs</h3>
 <p>Doors, drywall, shelving.</p>
+
+</div>
 </div>
 
-<div class="service">
+<!-- Fixture Repair -->
+<div class="service"
+style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80');">
+
+<div class="overlay"></div>
+
+<div class="service-content">
+
 <div class="icon"><i data-lucide="droplet"></i></div>
+
 <h3>Fixture Repair</h3>
 <p>Faucets and sinks.</p>
+
+</div>
 </div>
 
-<div class="service">
+<!-- Toilet Service -->
+<div class="service"
+style="background-image:url('https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80');">
+
+<div class="overlay"></div>
+
+<div class="service-content">
+
 <div class="icon"><i data-lucide="wrench"></i></div>
+
 <h3>Toilet Service</h3>
 <p>Adjustments & installs.</p>
+
+</div>
 </div>
 
-<div class="service">
+<!-- Maintenance -->
+<div class="service"
+style="background-image:url('https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=800&q=80');">
+
+<div class="overlay"></div>
+
+<div class="service-content">
+
 <div class="icon"><i data-lucide="home"></i></div>
+
 <h3>Maintenance</h3>
 <p>General upkeep.</p>
+
+</div>
 </div>
 
 </div>
@@ -414,7 +482,6 @@ footer{
 <section class="cta">
 
 <h2>Ready to Upgrade Your Home?</h2>
-
 <p>Book today and get fast, professional service.</p>
 
 <a href="booking.html" style="color:#fff;font-weight:600;">
