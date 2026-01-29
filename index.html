@@ -7,13 +7,13 @@
 
 <title>Elite Handyman Services in San Antonio | Plumbing Gurus</title>
 
-<meta name="description" content="Trusted handyman services in San Antonio. Fast response, fair pricing, and easy booking. Call, text, or book online today.">
+<meta name="description" content="Elite handyman and fixture repair in San Antonio. Fast response. Trusted professionals. Book today.">
 
 <meta name="keywords" content="handyman san antonio, home repair near me, fixture repair, toilet repair, faucet repair">
 
 <meta name="theme-color" content="#0d4b73">
 
-<link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
+<link rel="icon" href="images/LOGO.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -26,9 +26,11 @@
 :root{
   --blue1:#0d4b73;
   --blue2:#1D6FA3;
+  --blue3:#35a0d9;
   --orange:#ff8a00;
   --dark:#050b14;
   --glass:rgba(255,255,255,.92);
+  --text:#1f2933;
 }
 
 *{box-sizing:border-box;}
@@ -36,12 +38,12 @@
 body{
   margin:0;
   font-family:'Inter',sans-serif;
+  color:var(--text);
   background:#050b14;
-  color:#fff;
   overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* ================= BACKGROUND ================= */
 
 .bg{
   position:fixed;
@@ -51,41 +53,34 @@ body{
     radial-gradient(circle at 20% 20%, #35a0d9, transparent 40%),
     radial-gradient(circle at 80% 30%, #1D6FA3, transparent 45%),
     radial-gradient(circle at 50% 80%, #0d4b73, transparent 45%);
+  animation:move 22s linear infinite;
 }
 
-/* HEADER */
+@keyframes move{
+  0%{transform:translate(0,0);}
+  50%{transform:translate(-60px,40px);}
+  100%{transform:translate(0,0);}
+}
+
+/* ================= HEADER ================= */
 
 header{
   position:fixed;
   top:0;
   width:100%;
-  padding:22px 20px;
-  background:rgba(5,11,20,.8);
+  padding:18px 50px;
+  background:rgba(5,11,20,.75);
   backdrop-filter:blur(14px);
   display:flex;
-  flex-wrap:wrap;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   z-index:999;
 }
 
-/* LOGO */
-
-.logo{
-  height:130px;
-  margin-left:-25px;
-}
-
-/* NAV */
-
-nav{
-  flex:1 1 100%;
-  text-align:center;
-  margin-top:6px;
-}
+.logo{height:50px;}
 
 nav a{
-  margin:5px 10px;
+  margin:0 18px;
   color:#fff;
   text-decoration:none;
   font-weight:500;
@@ -94,211 +89,208 @@ nav a{
 
 nav a:hover{opacity:1;}
 
-/* BOOK BUTTON */
-
-.book-btn{
-  background:linear-gradient(90deg,#ff8a00,#ffb347);
-  padding:8px 18px;
-  border-radius:30px;
-  color:#fff!important;
-  font-weight:600;
-  animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(255,138,0,.7);}
-  70%{box-shadow:0 0 0 12px rgba(255,138,0,0);}
-  100%{box-shadow:0 0 0 0 rgba(255,138,0,0);}
-}
-
-/* PHONE */
-
 .phone{
   color:var(--orange);
   font-weight:600;
   text-decoration:none;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
   min-height:100vh;
   display:flex;
   align-items:center;
-  padding-top:200px;
+  padding-top:120px;
 }
 
 .hero-wrap{
-  max-width:1200px;
+  max-width:1250px;
   margin:auto;
-  padding:40px;
+  padding:50px;
   display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:50px;
+  grid-template-columns:1.3fr .7fr;
+  gap:70px;
+  color:#fff;
 }
 
+/* TEXT */
+
 .hero h1{
-  font-size:54px;
-  line-height:1.1;
+  font-size:60px;
+  line-height:1.05;
+  margin-bottom:25px;
 }
 
 .hero p{
-  font-size:20px;
+  font-size:22px;
   opacity:.9;
 }
 
-/* TAGS */
-
 .hero-tags{
   display:flex;
-  gap:12px;
-  margin:25px 0;
-  flex-wrap:wrap;
+  gap:14px;
+  margin:30px 0;
 }
 
 .tag{
   background:rgba(255,255,255,.12);
-  padding:7px 15px;
+  padding:8px 18px;
   border-radius:50px;
-  font-size:13px;
+  font-size:14px;
 }
 
-/* FORM */
+/* ================= FORM ================= */
 
 .card{
   background:var(--glass);
-  color:#111;
-  border-radius:24px;
-  padding:35px;
-  box-shadow:0 30px 70px rgba(0,0,0,.5);
+  border-radius:28px;
+  padding:40px;
+  box-shadow:0 40px 80px rgba(0,0,0,.6);
+}
+
+.card h3{
+  color:var(--blue1);
 }
 
 .card input,
 .card select,
 .card textarea{
   width:100%;
-  padding:12px;
-  margin-bottom:12px;
-  border-radius:8px;
+  padding:14px;
+  margin-bottom:14px;
+  border-radius:10px;
   border:1px solid #ccc;
 }
 
 .card button{
   width:100%;
-  padding:14px;
-  background:linear-gradient(90deg,#ff8a00,#ffb347);
+  padding:16px;
+  background:linear-gradient(90deg,var(--orange),#ffb347);
   border:none;
   border-radius:40px;
   color:#fff;
+  font-size:16px;
   font-weight:600;
 }
 
-/* STATS */
+/* ================= STATS ================= */
 
 .stats{
-  max-width:1100px;
-  margin:-60px auto 0;
+  max-width:1150px;
+  margin:-80px auto 0;
   background:rgba(255,255,255,.08);
-  border-radius:22px;
-  padding:35px;
+  backdrop-filter:blur(15px);
+  border-radius:25px;
+  padding:45px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
   text-align:center;
+  color:#fff;
 }
 
-/* ICON */
+/* ================= PREMIUM ICON ================= */
 
 .icon{
-  width:50px;
-  height:50px;
+  width:60px;
+  height:60px;
   background:linear-gradient(145deg,#1D6FA3,#0d4b73);
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  margin:0 auto 10px;
+  margin:0 auto 14px;
+  color:#fff;
+  box-shadow:0 10px 25px rgba(0,0,0,.4);
+  animation:float 4s ease-in-out infinite;
 }
 
-/* SECTION */
+.service:hover .icon{
+  transform:scale(1.15) rotate(6deg);
+}
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-6px);}
+  100%{transform:translateY(0);}
+}
+
+/* ================= SERVICES ================= */
 
 .section{
-  max-width:1200px;
-  margin:100px auto;
-  padding:0 30px;
+  max-width:1250px;
+  margin:120px auto;
+  padding:0 40px;
+  color:#fff;
 }
 
 .section h2{
   text-align:center;
-  font-size:40px;
-  margin-bottom:50px;
+  font-size:42px;
+  margin-bottom:70px;
 }
 
-/* CTA */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
+}
+
+/* IMAGE CARD */
+
+.service{
+  position:relative;
+  min-height:320px;
+  background-size:cover;
+  background-position:center;
+  border-radius:26px;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-end;
+  color:#fff;
+  box-shadow:0 15px 35px rgba(0,0,0,.4);
+}
+
+.service .overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,
+    rgba(5,11,20,.9),
+    rgba(5,11,20,.4),
+    transparent);
+}
+
+.service-content{
+  position:relative;
+  padding:25px;
+  width:100%;
+}
+
+/* ================= CTA ================= */
 
 .cta{
-  background:linear-gradient(90deg,#0d4b73,#1D6FA3);
   text-align:center;
-  padding:90px 30px;
+  padding:120px 40px;
+  background:linear-gradient(90deg,#0d4b73,#1D6FA3);
+  color:#fff;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
   background:#02060c;
-  padding:40px;
+  padding:50px;
   text-align:center;
   color:#aaa;
 }
 
-/* STICKY BUTTONS */
+/* ================= MOBILE ================= */
 
-.sticky-call,
-.sticky-text{
-  position:fixed;
-  right:18px;
-  padding:14px 20px;
-  border-radius:50px;
-  color:#fff;
-  font-weight:600;
-  text-decoration:none;
-  box-shadow:0 8px 20px rgba(0,0,0,.4);
-  z-index:9999;
-}
+@media(max-width:950px){
 
-.sticky-call{
-  bottom:90px;
-  background:#ff8a00;
-}
-
-.sticky-text{
-  bottom:25px;
-  background:#25D366;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-  .logo{
-    height:90px;
-    margin-left:-10px;
-  }
-
-  .hero{
-    padding-top:170px;
-  }
-
-  .hero-wrap{
-    grid-template-columns:1fr;
-  }
-
-  .hero h1{
-    font-size:34px;
-  }
-
-  .stats{
-    grid-template-columns:1fr 1fr;
-  }
+  .hero-wrap{grid-template-columns:1fr;}
+  .hero h1{font-size:38px;}
+  .stats{grid-template-columns:1fr 1fr;}
 
 }
 
@@ -311,13 +303,13 @@ footer{
 
 <header>
 
-<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo">
+<img src="images/LOGO.png" class="logo">
 
 <nav>
-<a href="index.html">Home</a>
+<a href="#">Home</a>
 <a href="services.html">Services</a>
 <a href="delivery.html">Delivery</a>
-<a href="booking.html" class="book-btn">Book Now</a>
+<a href="booking.html">Book</a>
 <a href="compliance.html">Compliance</a>
 </nav>
 
@@ -344,6 +336,8 @@ footer{
 </div>
 
 </div>
+
+<!-- FORM -->
 
 <div class="card">
 
@@ -407,14 +401,92 @@ footer{
 
 </div>
 
+<!-- SERVICES -->
+
+<section class="section">
+
+<h2>Our Core Services</h2>
+
+<div class="grid">
+
+<!-- Minor Repairs (DRILL IMAGE) -->
+<div class="service"
+style="background-image:url('https://images.unsplash.com/photo-1581141849291-1125c7b692b5?auto=format&fit=crop&w=800&q=80');">
+
+<div class="overlay"></div>
+
+<div class="service-content">
+
+<div class="icon"><i data-lucide="tool"></i></div>
+
+<h3>Minor Repairs</h3>
+<p>Doors, drywall, shelving.</p>
+
+</div>
+</div>
+
+<!-- Fixture Repair -->
+<div class="service"
+style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80');">
+
+<div class="overlay"></div>
+
+<div class="service-content">
+
+<div class="icon"><i data-lucide="droplet"></i></div>
+
+<h3>Fixture Repair</h3>
+<p>Faucets and sinks.</p>
+
+</div>
+</div>
+
+<!-- Toilet Service -->
+<div class="service"
+style="background-image:url('https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80');">
+
+<div class="overlay"></div>
+
+<div class="service-content">
+
+<div class="icon"><i data-lucide="wrench"></i></div>
+
+<h3>Toilet Service</h3>
+<p>Adjustments & installs.</p>
+
+</div>
+</div>
+
+<!-- Maintenance -->
+<div class="service"
+style="background-image:url('https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=800&q=80');">
+
+<div class="overlay"></div>
+
+<div class="service-content">
+
+<div class="icon"><i data-lucide="home"></i></div>
+
+<h3>Maintenance</h3>
+<p>General upkeep.</p>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
 <!-- CTA -->
 
 <section class="cta">
 
-<h2>Ready to Get Started?</h2>
-<p>Call, text, or book online today.</p>
+<h2>Ready to Upgrade Your Home?</h2>
+<p>Book today and get fast, professional service.</p>
 
-<a href="booking.html" class="book-btn">Schedule Now</a>
+<a href="booking.html" style="color:#fff;font-weight:600;">
+Schedule Now →
+</a>
 
 </section>
 
@@ -422,16 +494,10 @@ footer{
 
 <footer>
 
-<p>© 2026 Plumbing Gurus LLC — Handyman Services</p>
+<p>© 2026 Plumbing Gurus LLC — Handyman & Fixture Repair</p>
 <p>Non-regulated work only. Licensed services referred.</p>
 
 </footer>
-
-<!-- STICKY BUTTONS -->
-
-<a href="tel:+12109068524" class="sticky-call">📞 Call Now</a>
-
-<a href="https://wa.me/12109068524" target="_blank" class="sticky-text">💬 Text / WhatsApp</a>
 
 <script>
 lucide.createIcons();
