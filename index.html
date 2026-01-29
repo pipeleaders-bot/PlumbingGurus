@@ -5,13 +5,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plumbing Gurus | Executive Home Services – San Antonio</title>
+<title>San Antonio Handyman & Plumbing Repair | Plumbing Gurus</title>
 
-<meta name="description" content="Premium plumbing and handyman services in San Antonio. Trusted professionals. Executive-level service. Book today.">
+<meta name="description" content="Luxury handyman and plumbing repair in San Antonio. Fast. Professional. Premium service.">
 
 <meta name="theme-color" content="#0d4b73">
 
-<link rel="icon" href="Logo.png">
+<link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -43,7 +43,7 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= BACKGROUND ================= */
+/* ================= ANIMATED BACKGROUND ================= */
 
 .bg{
   position:fixed;
@@ -53,7 +53,7 @@ body{
     radial-gradient(circle at 20% 20%, #35a0d9, transparent 40%),
     radial-gradient(circle at 80% 30%, #1D6FA3, transparent 45%),
     radial-gradient(circle at 50% 80%, #0d4b73, transparent 45%);
-  animation:floatBG 22s linear infinite;
+  animation:floatBG 20s linear infinite;
 }
 
 @keyframes floatBG{
@@ -66,20 +66,21 @@ body{
 
 header{
   position:fixed;
-  top:0;
   width:100%;
+  top:0;
   padding:18px 50px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(2,8,20,.85);
+  background:rgba(2,8,20,.7);
   backdrop-filter:blur(20px);
   z-index:999;
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .logo{
-  height:60px;
+  height:65px;
+  margin-left:-10px;
   filter:drop-shadow(0 0 15px rgba(53,160,217,.6));
 }
 
@@ -128,7 +129,7 @@ nav a:hover::after{
   min-height:100vh;
   display:flex;
   align-items:center;
-  padding-top:140px;
+  padding-top:120px;
 }
 
 .hero-wrap{
@@ -170,19 +171,20 @@ nav a:hover::after{
   border:1px solid rgba(255,255,255,.15);
 }
 
-/* ================= FORM ================= */
+/* ================= FORM CARD ================= */
 
 .card{
-  background:rgba(255,255,255,.97);
+  background:rgba(255,255,255,.95);
   border-radius:30px;
   padding:45px;
   color:#000;
   box-shadow:0 40px 100px rgba(0,0,0,.7);
+  transform-style:preserve-3d;
   transition:.4s;
 }
 
 .card:hover{
-  transform:translateY(-6px);
+  transform:rotateY(4deg) rotateX(4deg);
 }
 
 .card h3{
@@ -213,15 +215,16 @@ nav a:hover::after{
 }
 
 .card button:hover{
+  transform:translateY(-2px);
   box-shadow:0 15px 40px rgba(255,138,0,.6);
 }
 
-/* ================= TRUST BAR ================= */
+/* ================= STATS ================= */
 
-.trust{
+.stats{
   max-width:1200px;
-  margin:-80px auto 0;
-  padding:40px;
+  margin:-90px auto 0;
+  padding:50px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
   background:var(--glass);
@@ -230,23 +233,37 @@ nav a:hover::after{
   border:1px solid rgba(255,255,255,.15);
 }
 
-.trust div{
+.stat{
   text-align:center;
 }
 
+.stat h3{
+  font-size:36px;
+  margin:10px 0;
+}
+
+/* ICON */
+
 .icon{
-  width:55px;
-  height:55px;
+  width:60px;
+  height:60px;
   background:linear-gradient(145deg,#1D6FA3,#0d4b73);
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  margin:auto auto 12px;
-  box-shadow:0 0 25px rgba(53,160,217,.7);
+  margin:auto;
+  box-shadow:0 0 30px rgba(53,160,217,.7);
+  animation:pulse 3s infinite;
 }
 
-/* ================= SECTIONS ================= */
+@keyframes pulse{
+  0%{box-shadow:0 0 15px rgba(53,160,217,.4);}
+  50%{box-shadow:0 0 35px rgba(53,160,217,.9);}
+  100%{box-shadow:0 0 15px rgba(53,160,217,.4);}
+}
+
+/* ================= SERVICES ================= */
 
 .section{
   max-width:1300px;
@@ -257,25 +274,8 @@ nav a:hover::after{
 .section h2{
   text-align:center;
   font-size:44px;
-  margin-bottom:60px;
+  margin-bottom:70px;
 }
-
-/* ABOUT */
-
-.about{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-  align-items:center;
-}
-
-.about p{
-  font-size:18px;
-  line-height:1.7;
-  opacity:.9;
-}
-
-/* SERVICES */
 
 .grid{
   display:grid;
@@ -284,28 +284,35 @@ nav a:hover::after{
 }
 
 .service{
-  background:var(--glass);
-  border-radius:25px;
-  padding:35px;
-  border:1px solid rgba(255,255,255,.15);
-  transition:.3s;
+  min-height:330px;
+  background-size:cover;
+  background-position:center;
+  border-radius:28px;
+  overflow:hidden;
+  position:relative;
+  transition:.4s;
 }
 
 .service:hover{
-  transform:translateY(-8px);
+  transform:translateY(-10px) scale(1.02);
 }
 
-/* CONTACT */
-
-.contact-box{
-  background:var(--glass);
-  padding:40px;
-  border-radius:25px;
-  text-align:center;
-  border:1px solid rgba(255,255,255,.15);
+.overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,
+  rgba(2,8,20,.95),
+  rgba(2,8,20,.4),
+  transparent);
 }
 
-/* CTA */
+.service-content{
+  position:absolute;
+  bottom:0;
+  padding:25px;
+}
+
+/* ================= CTA ================= */
 
 .cta{
   text-align:center;
@@ -322,9 +329,14 @@ nav a:hover::after{
   color:#000;
   text-decoration:none;
   font-weight:700;
+  transition:.3s;
 }
 
-/* FOOTER */
+.cta a:hover{
+  transform:scale(1.05);
+}
+
+/* ================= FOOTER ================= */
 
 footer{
   background:#01040a;
@@ -333,7 +345,7 @@ footer{
   color:#aaa;
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:900px){
 
@@ -341,20 +353,16 @@ footer{
 
   .hero-wrap{
     grid-template-columns:1fr;
+    gap:50px;
   }
 
   .hero h1{
     font-size:40px;
   }
 
-  .about{
-    grid-template-columns:1fr;
-  }
-
-  .trust{
+  .stats{
     grid-template-columns:1fr 1fr;
   }
-
 }
 
 </style>
@@ -366,13 +374,13 @@ footer{
 
 <header>
 
-<img src="Logo.png" class="logo">
+<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo">
 
 <nav>
-<a href="#about">About</a>
-<a href="#services">Services</a>
-<a href="#estimate">Estimate</a>
-<a href="#contact">Contact</a>
+<a href="#">Home</a>
+<a href="services.html">Services</a>
+<a href="booking.html">Book</a>
+<a href="compliance.html">Compliance</a>
 </nav>
 
 <a href="tel:+12109068524" class="phone">Call Now</a>
@@ -387,41 +395,43 @@ footer{
 
 <div>
 
-<h1>Executive-Level Home Services in San Antonio</h1>
+<h1>Luxury Handyman & Plumbing Services in San Antonio</h1>
 
-<p>Professional plumbing and repair services built on precision, integrity, and modern systems.</p>
+<p>Where premium craftsmanship meets modern technology.</p>
 
 <div class="hero-tags">
 <span class="tag">⭐ Elite Rated</span>
-<span class="tag">⚡ Fast Response</span>
+<span class="tag">⚡ Fast Service</span>
 <span class="tag">✔ Verified</span>
 </div>
 
 </div>
 
-<div class="card" id="estimate">
+<!-- FORM -->
 
-<h3>Request Free Estimate</h3>
+<div class="card">
+
+<h3>Request Free Quote</h3>
 
 <form action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
 
 <input type="hidden" name="_captcha" value="false">
 
-<input type="text" name="name" placeholder="Name" required>
-<input type="tel" name="phone" placeholder="Phone" required>
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="tel" name="phone" placeholder="Phone Number" required>
 
 <select name="service" required>
 <option value="">Select Service</option>
-<option>Plumbing Repair</option>
-<option>Fixture Installation</option>
-<option>Leak Detection</option>
+<option>Minor Repairs</option>
+<option>Fixture Repair</option>
+<option>Toilet Repair</option>
+<option>Leak Repair</option>
 <option>Maintenance</option>
-<option>Other</option>
 </select>
 
-<textarea name="message" placeholder="Project Details"></textarea>
+<textarea name="message" placeholder="Describe your project"></textarea>
 
-<button>Get Estimate</button>
+<button>Get Quote</button>
 
 </form>
 
@@ -431,113 +441,75 @@ footer{
 
 </section>
 
-<!-- TRUST -->
+<!-- STATS -->
 
-<div class="trust">
+<div class="stats">
 
-<div>
+<div class="stat">
 <div class="icon"><i data-lucide="users"></i></div>
-<p>500+ Clients</p>
+<h3>500+</h3>
+<p>Projects</p>
 </div>
 
-<div>
+<div class="stat">
 <div class="icon"><i data-lucide="star"></i></div>
-<p>5-Star Rated</p>
+<h3>5.0</h3>
+<p>Rating</p>
 </div>
 
-<div>
+<div class="stat">
+<div class="icon"><i data-lucide="clock"></i></div>
+<h3>24hr</h3>
+<p>Response</p>
+</div>
+
+<div class="stat">
 <div class="icon"><i data-lucide="shield"></i></div>
+<h3>100%</h3>
 <p>Compliant</p>
 </div>
 
-<div>
-<div class="icon"><i data-lucide="clock"></i></div>
-<p>24hr Response</p>
 </div>
-
-</div>
-
-<!-- ABOUT -->
-
-<section class="section" id="about">
-
-<h2>About Plumbing Gurus</h2>
-
-<div class="about">
-
-<div>
-
-<p>
-Plumbing Gurus was built to bring structure, professionalism, and transparency to home services in San Antonio.
-We operate with modern systems, verified partners, and strict quality control to ensure every client receives
-executive-level service.
-</p>
-
-<p>
-Our mission is simple: deliver reliable solutions without shortcuts, surprises, or wasted time.
-</p>
-
-</div>
-
-<div>
-
-<div class="contact-box">
-<h3>Our Commitment</h3>
-<p>✔ Integrity</p>
-<p>✔ Precision</p>
-<p>✔ Accountability</p>
-<p>✔ Customer Success</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
 
 <!-- SERVICES -->
 
-<section class="section" id="services">
+<section class="section">
 
-<h2>Our Services</h2>
+<h2>Premium Services</h2>
 
 <div class="grid">
 
-<div class="service">
-<h3>Plumbing Repairs</h3>
-<p>Leak detection, pipe repairs, pressure issues.</p>
+<div class="service" style="background-image:url('https://images.unsplash.com/photo-1581141849291-1125c7b692b5?auto=format&fit=crop&w=800&q=80');">
+<div class="overlay"></div>
+<div class="service-content">
+<h3>Minor Repairs</h3>
+<p>Precision work</p>
+</div>
 </div>
 
-<div class="service">
-<h3>Fixture Installation</h3>
-<p>Faucets, toilets, sinks, disposals.</p>
+<div class="service" style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80');">
+<div class="overlay"></div>
+<div class="service-content">
+<h3>Fixture Repair</h3>
+<p>Luxury finish</p>
+</div>
 </div>
 
-<div class="service">
+<div class="service" style="background-image:url('https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80');">
+<div class="overlay"></div>
+<div class="service-content">
+<h3>Toilet Service</h3>
+<p>Expert installs</p>
+</div>
+</div>
+
+<div class="service" style="background-image:url('https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=800&q=80');">
+<div class="overlay"></div>
+<div class="service-content">
 <h3>Maintenance</h3>
-<p>Preventative care and inspections.</p>
+<p>Total care</p>
 </div>
-
-<div class="service">
-<h3>Emergency Support</h3>
-<p>Rapid response for urgent issues.</p>
 </div>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section class="section" id="contact">
-
-<h2>Contact</h2>
-
-<div class="contact-box">
-
-<p><strong>Phone:</strong> (210) 906-8524</p>
-<p><strong>Service Area:</strong> San Antonio & Surroundings</p>
-<p><strong>Hours:</strong> Mon–Sat | 8am–7pm</p>
 
 </div>
 
@@ -547,23 +519,17 @@ Our mission is simple: deliver reliable solutions without shortcuts, surprises, 
 
 <section class="cta">
 
-<h2>Ready to Work With Professionals?</h2>
+<h2>Experience Premium Service Today</h2>
 
-<p>Schedule your service with confidence.</p>
+<p>Modern. Reliable. Professional.</p>
 
-<a href="#estimate">Get Started</a>
+<a href="booking.html">Book Appointment</a>
 
 </section>
 
 <footer>
 
-<p>© 2026 Plumbing Gurus LLC</p>
-
-<p>
-<a href="privacy.html">Privacy</a> |
-<a href="terms.html">Terms</a> |
-<a href="compliance.html">Compliance</a>
-</p>
+<p>© 2026 Plumbing Gurus LLC — Luxury Home Services</p>
 
 </footer>
 
