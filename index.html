@@ -13,7 +13,8 @@
 
 <meta name="theme-color" content="#0d4b73">
 
-<link rel="icon" href="images/LOGO.png">
+<!-- FAVICON -->
+<link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -77,7 +78,11 @@ header{
   z-index:999;
 }
 
-.logo{height:50px;}
+/* LOGO SIZE */
+.logo{
+  height:75px;
+  width:auto;
+}
 
 nav a{
   margin:0 18px;
@@ -101,7 +106,7 @@ nav a:hover{opacity:1;}
   min-height:100vh;
   display:flex;
   align-items:center;
-  padding-top:120px;
+  padding-top:140px;
 }
 
 .hero-wrap{
@@ -189,7 +194,7 @@ nav a:hover{opacity:1;}
   color:#fff;
 }
 
-/* ================= PREMIUM ICON ================= */
+/* ================= ICON ================= */
 
 .icon{
   width:60px;
@@ -203,10 +208,6 @@ nav a:hover{opacity:1;}
   color:#fff;
   box-shadow:0 10px 25px rgba(0,0,0,.4);
   animation:float 4s ease-in-out infinite;
-}
-
-.service:hover .icon{
-  transform:scale(1.15) rotate(6deg);
 }
 
 @keyframes float{
@@ -235,8 +236,6 @@ nav a:hover{opacity:1;}
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:40px;
 }
-
-/* IMAGE CARD */
 
 .service{
   position:relative;
@@ -288,6 +287,14 @@ footer{
 
 @media(max-width:950px){
 
+  header{
+    padding:14px 20px;
+  }
+
+  .logo{
+    height:60px;
+  }
+
   .hero-wrap{grid-template-columns:1fr;}
   .hero h1{font-size:38px;}
   .stats{grid-template-columns:1fr 1fr;}
@@ -301,9 +308,12 @@ footer{
 
 <div class="bg"></div>
 
+<!-- HEADER -->
 <header>
 
-<img src="images/LOGO.png" class="logo">
+<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png"
+     class="logo"
+     alt="Plumbing Gurus Logo">
 
 <nav>
 <a href="#">Home</a>
@@ -318,7 +328,6 @@ footer{
 </header>
 
 <!-- HERO -->
-
 <section class="hero">
 
 <div class="hero-wrap">
@@ -338,7 +347,6 @@ footer{
 </div>
 
 <!-- FORM -->
-
 <div class="card">
 
 <h3>Request Free Quote</h3>
@@ -371,127 +379,7 @@ footer{
 
 </section>
 
-<!-- STATS -->
-
-<div class="stats">
-
-<div>
-<div class="icon"><i data-lucide="users"></i></div>
-<h3>500+</h3>
-<p>Projects</p>
-</div>
-
-<div>
-<div class="icon"><i data-lucide="star"></i></div>
-<h3>5.0</h3>
-<p>Rating</p>
-</div>
-
-<div>
-<div class="icon"><i data-lucide="clock"></i></div>
-<h3>24hr</h3>
-<p>Response</p>
-</div>
-
-<div>
-<div class="icon"><i data-lucide="shield"></i></div>
-<h3>100%</h3>
-<p>Compliant</p>
-</div>
-
-</div>
-
-<!-- SERVICES -->
-
-<section class="section">
-
-<h2>Our Core Services</h2>
-
-<div class="grid">
-
-<!-- Minor Repairs (DRILL IMAGE) -->
-<div class="service"
-style="background-image:url('https://images.unsplash.com/photo-1581141849291-1125c7b692b5?auto=format&fit=crop&w=800&q=80');">
-
-<div class="overlay"></div>
-
-<div class="service-content">
-
-<div class="icon"><i data-lucide="tool"></i></div>
-
-<h3>Minor Repairs</h3>
-<p>Doors, drywall, shelving.</p>
-
-</div>
-</div>
-
-<!-- Fixture Repair -->
-<div class="service"
-style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80');">
-
-<div class="overlay"></div>
-
-<div class="service-content">
-
-<div class="icon"><i data-lucide="droplet"></i></div>
-
-<h3>Fixture Repair</h3>
-<p>Faucets and sinks.</p>
-
-</div>
-</div>
-
-<!-- Toilet Service -->
-<div class="service"
-style="background-image:url('https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80');">
-
-<div class="overlay"></div>
-
-<div class="service-content">
-
-<div class="icon"><i data-lucide="wrench"></i></div>
-
-<h3>Toilet Service</h3>
-<p>Adjustments & installs.</p>
-
-</div>
-</div>
-
-<!-- Maintenance -->
-<div class="service"
-style="background-image:url('https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=800&q=80');">
-
-<div class="overlay"></div>
-
-<div class="service-content">
-
-<div class="icon"><i data-lucide="home"></i></div>
-
-<h3>Maintenance</h3>
-<p>General upkeep.</p>
-
-</div>
-</div>
-
-</div>
-
-</section>
-
-<!-- CTA -->
-
-<section class="cta">
-
-<h2>Ready to Upgrade Your Home?</h2>
-<p>Book today and get fast, professional service.</p>
-
-<a href="booking.html" style="color:#fff;font-weight:600;">
-Schedule Now →
-</a>
-
-</section>
-
 <!-- FOOTER -->
-
 <footer>
 
 <p>© 2026 Plumbing Gurus LLC — Handyman & Fixture Repair</p>
