@@ -82,7 +82,6 @@ header{
 .logo{
   height:90px;
   width:auto;
-  filter:drop-shadow(0 3px 6px rgba(0,0,0,.4));
 }
 
 nav a{
@@ -107,7 +106,7 @@ nav a:hover{opacity:1;}
   min-height:100vh;
   display:flex;
   align-items:center;
-  padding-top:150px;
+  padding-top:140px;
 }
 
 .hero-wrap{
@@ -195,7 +194,7 @@ nav a:hover{opacity:1;}
   color:#fff;
 }
 
-/* ================= ICON ================= */
+/* ================= PREMIUM ICON ================= */
 
 .icon{
   width:60px;
@@ -209,6 +208,10 @@ nav a:hover{opacity:1;}
   color:#fff;
   box-shadow:0 10px 25px rgba(0,0,0,.4);
   animation:float 4s ease-in-out infinite;
+}
+
+.service:hover .icon{
+  transform:scale(1.15) rotate(6deg);
 }
 
 @keyframes float{
@@ -237,6 +240,8 @@ nav a:hover{opacity:1;}
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:40px;
 }
+
+/* IMAGE CARD */
 
 .service{
   position:relative;
@@ -288,10 +293,6 @@ footer{
 
 @media(max-width:950px){
 
-  header{
-    padding:14px 20px;
-  }
-
   .logo{
     height:75px;
   }
@@ -309,12 +310,9 @@ footer{
 
 <div class="bg"></div>
 
-<!-- HEADER -->
 <header>
 
-<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png"
-     class="logo"
-     alt="Plumbing Gurus Logo">
+<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo" alt="Plumbing Gurus Logo">
 
 <nav>
 <a href="#">Home</a>
@@ -329,6 +327,7 @@ footer{
 </header>
 
 <!-- HERO -->
+
 <section class="hero">
 
 <div class="hero-wrap">
@@ -348,6 +347,7 @@ footer{
 </div>
 
 <!-- FORM -->
+
 <div class="card">
 
 <h3>Request Free Quote</h3>
@@ -380,7 +380,6 @@ footer{
 
 </section>
 
-<!-- FOOTER -->
 <footer>
 
 <p>© 2026 Plumbing Gurus LLC — Handyman & Fixture Repair</p>
