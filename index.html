@@ -53,14 +53,14 @@ body{
     radial-gradient(circle at 50% 80%, #0d4b73, transparent 45%);
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 header{
   position:fixed;
   top:0;
   width:100%;
-  padding:22px 15px;
-  background:rgba(5,11,20,.85);
+  padding:22px 20px;
+  background:rgba(5,11,20,.8);
   backdrop-filter:blur(14px);
   display:flex;
   flex-wrap:wrap;
@@ -73,7 +73,7 @@ header{
 
 .logo{
   height:130px;
-  margin-left:-65px; /* MAX LEFT DESKTOP */
+  margin-left:-25px;
 }
 
 /* NAV */
@@ -98,7 +98,7 @@ nav a:hover{opacity:1;}
 
 .book-btn{
   background:linear-gradient(90deg,#ff8a00,#ffb347);
-  padding:7px 18px;
+  padding:8px 18px;
   border-radius:30px;
   color:#fff!important;
   font-weight:600;
@@ -117,10 +117,9 @@ nav a:hover{opacity:1;}
   color:var(--orange);
   font-weight:600;
   text-decoration:none;
-  white-space:nowrap;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
   min-height:100vh;
@@ -220,6 +219,20 @@ nav a:hover{opacity:1;}
   margin:0 auto 10px;
 }
 
+/* SECTION */
+
+.section{
+  max-width:1200px;
+  margin:100px auto;
+  padding:0 30px;
+}
+
+.section h2{
+  text-align:center;
+  font-size:40px;
+  margin-bottom:50px;
+}
+
 /* CTA */
 
 .cta{
@@ -262,44 +275,17 @@ footer{
   background:#25D366;
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 
 @media(max-width:900px){
 
-  header{
-    padding:12px 10px;
-    flex-direction:column;
-    align-items:center;
-  }
-
   .logo{
-    height:80px;
-    margin-left:-35px; /* MAX LEFT MOBILE */
-  }
-
-  nav{
-    width:100%;
-    margin:5px 0;
-  }
-
-  nav a{
-    font-size:13px;
-    margin:4px 6px;
-  }
-
-  .book-btn{
-    margin-top:6px;
-    font-size:13px;
-    padding:6px 14px;
-  }
-
-  .phone{
-    font-size:14px;
-    margin-top:4px;
+    height:90px;
+    margin-left:-10px;
   }
 
   .hero{
-    padding-top:180px;
+    padding-top:170px;
   }
 
   .hero-wrap{
@@ -307,7 +293,7 @@ footer{
   }
 
   .hero h1{
-    font-size:32px;
+    font-size:34px;
   }
 
   .stats{
@@ -325,7 +311,7 @@ footer{
 
 <header>
 
-<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo" alt="Plumbing Gurus Logo">
+<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo">
 
 <nav>
 <a href="index.html">Home</a>
@@ -390,6 +376,36 @@ footer{
 </div>
 
 </section>
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div>
+<div class="icon"><i data-lucide="users"></i></div>
+<h3>500+</h3>
+<p>Projects</p>
+</div>
+
+<div>
+<div class="icon"><i data-lucide="star"></i></div>
+<h3>5.0</h3>
+<p>Rating</p>
+</div>
+
+<div>
+<div class="icon"><i data-lucide="clock"></i></div>
+<h3>24hr</h3>
+<p>Response</p>
+</div>
+
+<div>
+<div class="icon"><i data-lucide="shield"></i></div>
+<h3>100%</h3>
+<p>Compliant</p>
+</div>
+
+</div>
 
 <!-- CTA -->
 
