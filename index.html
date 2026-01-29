@@ -70,7 +70,7 @@ header{
   top:0;
   width:100%;
   padding:18px 50px;
-  background:rgba(5,11,20,.75);
+  background:rgba(5,11,20,.8);
   backdrop-filter:blur(14px);
   display:flex;
   justify-content:space-between;
@@ -106,7 +106,7 @@ nav a:hover{opacity:1;}
   min-height:100vh;
   display:flex;
   align-items:center;
-  padding-top:140px;
+  padding-top:180px;
 }
 
 .hero-wrap{
@@ -114,9 +114,16 @@ nav a:hover{opacity:1;}
   margin:auto;
   padding:50px;
   display:grid;
-  grid-template-columns:1.3fr .7fr;
+  grid-template-columns:1.2fr .8fr;
   gap:70px;
   color:#fff;
+}
+
+/* HERO IMAGE */
+.hero-image img{
+  width:100%;
+  border-radius:25px;
+  box-shadow:0 25px 60px rgba(0,0,0,.6);
 }
 
 /* TEXT */
@@ -182,6 +189,8 @@ nav a:hover{opacity:1;}
 /* ================= STATS ================= */
 
 .stats{
+  position:relative;
+  z-index:2;
   max-width:1150px;
   margin:-80px auto 0;
   background:rgba(255,255,255,.08);
@@ -194,7 +203,7 @@ nav a:hover{opacity:1;}
   color:#fff;
 }
 
-/* ================= PREMIUM ICON ================= */
+/* ================= ICON ================= */
 
 .icon{
   width:60px;
@@ -208,10 +217,6 @@ nav a:hover{opacity:1;}
   color:#fff;
   box-shadow:0 10px 25px rgba(0,0,0,.4);
   animation:float 4s ease-in-out infinite;
-}
-
-.service:hover .icon{
-  transform:scale(1.15) rotate(6deg);
 }
 
 @keyframes float{
@@ -240,8 +245,6 @@ nav a:hover{opacity:1;}
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:40px;
 }
-
-/* IMAGE CARD */
 
 .service{
   position:relative;
@@ -293,13 +296,29 @@ footer{
 
 @media(max-width:950px){
 
+  header{
+    padding:14px 20px;
+  }
+
   .logo{
     height:75px;
   }
 
-  .hero-wrap{grid-template-columns:1fr;}
-  .hero h1{font-size:38px;}
-  .stats{grid-template-columns:1fr 1fr;}
+  .hero-wrap{
+    grid-template-columns:1fr;
+  }
+
+  .hero-image{
+    order:-1;
+  }
+
+  .hero h1{
+    font-size:38px;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
 
 }
 
@@ -310,9 +329,12 @@ footer{
 
 <div class="bg"></div>
 
+<!-- HEADER -->
 <header>
 
-<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo" alt="Plumbing Gurus Logo">
+<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png"
+     class="logo"
+     alt="Plumbing Gurus Logo">
 
 <nav>
 <a href="#">Home</a>
@@ -327,7 +349,6 @@ footer{
 </header>
 
 <!-- HERO -->
-
 <section class="hero">
 
 <div class="hero-wrap">
@@ -346,39 +367,123 @@ footer{
 
 </div>
 
-<!-- FORM -->
+<!-- HERO IMAGE -->
+<div class="hero-image">
+<img src="images/hero-plumber.jpg" alt="Professional Plumbing Service">
+</div>
 
-<div class="card">
+</div>
 
-<h3>Request Free Quote</h3>
+</section>
 
-<form action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
+<!-- STATS -->
 
-<input type="hidden" name="_captcha" value="false">
+<div class="stats">
 
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="tel" name="phone" placeholder="Phone Number" required>
+<div>
+<div class="icon"><i data-lucide="users"></i></div>
+<h3>500+</h3>
+<p>Projects</p>
+</div>
 
-<select name="service">
-<option>Select Service</option>
-<option>Minor Repairs</option>
-<option>Fixture Repair</option>
-<option>Toilet Repair</option>
-<option>Leak Repair</option>
-<option>Maintenance</option>
-</select>
+<div>
+<div class="icon"><i data-lucide="star"></i></div>
+<h3>5.0</h3>
+<p>Rating</p>
+</div>
 
-<textarea name="message" placeholder="Describe your project"></textarea>
+<div>
+<div class="icon"><i data-lucide="clock"></i></div>
+<h3>24hr</h3>
+<p>Response</p>
+</div>
 
-<button>Get Quote</button>
+<div>
+<div class="icon"><i data-lucide="shield"></i></div>
+<h3>100%</h3>
+<p>Compliant</p>
+</div>
 
-</form>
+</div>
+
+<!-- SERVICES -->
+
+<section class="section">
+
+<h2>Our Core Services</h2>
+
+<div class="grid">
+
+<div class="service"
+style="background-image:url('https://images.unsplash.com/photo-1581141849291-1125c7b692b5?auto=format&fit=crop&w=800&q=80');">
+
+<div class="overlay"></div>
+
+<div class="service-content">
+<div class="icon"><i data-lucide="tool"></i></div>
+<h3>Minor Repairs</h3>
+<p>Doors, drywall, shelving.</p>
+</div>
+
+</div>
+
+<div class="service"
+style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80');">
+
+<div class="overlay"></div>
+
+<div class="service-content">
+<div class="icon"><i data-lucide="droplet"></i></div>
+<h3>Fixture Repair</h3>
+<p>Faucets and sinks.</p>
+</div>
+
+</div>
+
+<div class="service"
+style="background-image:url('https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80');">
+
+<div class="overlay"></div>
+
+<div class="service-content">
+<div class="icon"><i data-lucide="wrench"></i></div>
+<h3>Toilet Service</h3>
+<p>Adjustments & installs.</p>
+</div>
+
+</div>
+
+<div class="service"
+style="background-image:url('https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=800&q=80');">
+
+<div class="overlay"></div>
+
+<div class="service-content">
+<div class="icon"><i data-lucide="home"></i></div>
+<h3>Maintenance</h3>
+<p>General upkeep.</p>
+</div>
 
 </div>
 
 </div>
 
 </section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<h2>Ready to Upgrade Your Home?</h2>
+<p>Book today and get fast, professional service.</p>
+
+<a href="booking.html" style="color:#fff;font-weight:600;">
+Schedule Now →
+</a>
+
+</section>
+
+<!-- FOOTER -->
 
 <footer>
 
