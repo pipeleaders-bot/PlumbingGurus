@@ -21,11 +21,8 @@
 :root{
   --blue1:#0d4b73;
   --blue2:#1D6FA3;
-  --blue3:#35a0d9;
   --orange:#ff8a00;
   --dark:#050b14;
-  --glass:rgba(255,255,255,.92);
-  --text:#1f2933;
 }
 
 *{box-sizing:border-box;}
@@ -35,10 +32,9 @@ body{
   font-family:'Inter',sans-serif;
   color:#fff;
   background:#050b14;
-  overflow-x:hidden;
 }
 
-/* Background */
+/* BACKGROUND */
 .bg{
   position:fixed;
   inset:0;
@@ -47,22 +43,15 @@ body{
     radial-gradient(circle at 20% 20%, #35a0d9, transparent 40%),
     radial-gradient(circle at 80% 30%, #1D6FA3, transparent 45%),
     radial-gradient(circle at 50% 80%, #0d4b73, transparent 45%);
-  animation:move 22s linear infinite;
 }
 
-@keyframes move{
-  0%{transform:translate(0,0);}
-  50%{transform:translate(-60px,40px);}
-  100%{transform:translate(0,0);}
-}
-
-/* Header */
+/* HEADER */
 header{
   position:fixed;
   top:0;
   width:100%;
   padding:18px 50px;
-  background:rgba(5,11,20,.75);
+  background:rgba(5,11,20,.8);
   backdrop-filter:blur(14px);
   display:flex;
   justify-content:space-between;
@@ -76,19 +65,26 @@ nav a{
   margin:0 18px;
   color:#fff;
   text-decoration:none;
-  font-weight:500;
   opacity:.85;
 }
 
 nav a:hover{opacity:1;}
 
-.phone{
-  color:var(--orange);
-  font-weight:600;
+.book-btn{
+  background:linear-gradient(90deg,#ff8a00,#ffb347);
+  color:#000;
+  padding:10px 22px;
+  border-radius:30px;
   text-decoration:none;
+  font-weight:700;
+  transition:.3s;
 }
 
-/* Hero */
+.book-btn:hover{
+  transform:scale(1.05);
+}
+
+/* HERO */
 .hero{
   min-height:70vh;
   display:flex;
@@ -103,18 +99,14 @@ nav a:hover{opacity:1;}
   text-align:center;
 }
 
-.hero h1{
-  font-size:52px;
-  line-height:1.1;
-}
+.hero h1{font-size:52px;}
 
 .hero p{
   font-size:22px;
   opacity:.9;
-  margin-top:20px;
 }
 
-/* Sections */
+/* SECTION */
 .section{
   max-width:1250px;
   margin:100px auto;
@@ -127,14 +119,14 @@ nav a:hover{opacity:1;}
   margin-bottom:60px;
 }
 
-/* Grid */
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:40px;
 }
 
-/* Image Cards */
+/* IMAGE CARDS */
 .service{
   position:relative;
   min-height:320px;
@@ -144,10 +136,9 @@ nav a:hover{opacity:1;}
   overflow:hidden;
   display:flex;
   align-items:flex-end;
-  color:#fff;
   box-shadow:0 15px 35px rgba(0,0,0,.4);
-  transition:.3s;
   cursor:pointer;
+  transition:.3s;
 }
 
 .service:hover{
@@ -181,12 +172,12 @@ nav a:hover{opacity:1;}
   padding:14px 36px;
   background:#fff;
   color:#000;
-  text-decoration:none;
   border-radius:40px;
-  font-weight:600;
+  text-decoration:none;
+  font-weight:700;
 }
 
-/* Footer */
+/* FOOTER */
 footer{
   background:#02060c;
   padding:50px;
@@ -194,10 +185,13 @@ footer{
   color:#aaa;
 }
 
-/* Mobile */
+/* MOBILE */
 @media(max-width:900px){
+
   header{padding:14px 20px;}
+
   .hero h1{font-size:38px;}
+
 }
 
 </style>
@@ -207,9 +201,11 @@ footer{
 
 <div class="bg"></div>
 
+<!-- HEADER -->
+
 <header>
 
-<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo" alt="Plumbing Gurus Logo">
+<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo">
 
 <nav>
 <a href="index.html">Home</a>
@@ -219,11 +215,11 @@ footer{
 <a href="compliance.html">Compliance</a>
 </nav>
 
-<a href="tel:+12109068524" class="phone">(210) 906-8524</a>
+<a href="booking.html" class="book-btn">Book Now</a>
 
 </header>
 
-<!-- Hero -->
+<!-- HERO -->
 
 <section class="hero">
 
@@ -231,13 +227,13 @@ footer{
 
 <h1>Professional Delivery & Logistics</h1>
 
-<p>Secure transport, vendor sourcing, and scheduled drop-offs for your home projects.</p>
+<p>Secure transport, vendor sourcing, and scheduled drop-offs.</p>
 
 </div>
 
 </section>
 
-<!-- Delivery Image Cards -->
+<!-- DELIVERY CARDS -->
 
 <section class="section">
 
@@ -245,10 +241,11 @@ footer{
 
 <div class="grid">
 
-<!-- Package Handling -->
+<!-- Package -->
 <div class="service"
 onclick="location.href='booking.html'"
 style="background-image:url('https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&w=900');">
+
 <div class="overlay"></div>
 <div class="service-content">
 <h3>Package Handling</h3>
@@ -256,10 +253,11 @@ style="background-image:url('https://images.pexels.com/photos/4348404/pexels-pho
 </div>
 </div>
 
-<!-- Material Transport -->
+<!-- Transport -->
 <div class="service"
 onclick="location.href='booking.html'"
 style="background-image:url('https://images.pexels.com/photos/5632396/pexels-photo-5632396.jpeg?auto=compress&cs=tinysrgb&w=900');">
+
 <div class="overlay"></div>
 <div class="service-content">
 <h3>Material Transport</h3>
@@ -267,10 +265,11 @@ style="background-image:url('https://images.pexels.com/photos/5632396/pexels-pho
 </div>
 </div>
 
-<!-- Drop-Off -->
+<!-- Residential (FIXED IMAGE) -->
 <div class="service"
 onclick="location.href='booking.html'"
-style="background-image:url('https://images.pexels.com/photos/2923150/pexels-photo-2923150.jpeg?auto=compress&cs=tinysrgb&w=900');">
+style="background-image:url('https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=900');">
+
 <div class="overlay"></div>
 <div class="service-content">
 <h3>Residential Drop-Off</h3>
@@ -278,10 +277,11 @@ style="background-image:url('https://images.pexels.com/photos/2923150/pexels-pho
 </div>
 </div>
 
-<!-- Supplier Pickup -->
+<!-- Supplier -->
 <div class="service"
 onclick="location.href='booking.html'"
 style="background-image:url('https://images.pexels.com/photos/4427439/pexels-photo-4427439.jpeg?auto=compress&cs=tinysrgb&w=900');">
+
 <div class="overlay"></div>
 <div class="service-content">
 <h3>Supplier Pickup</h3>
@@ -304,6 +304,8 @@ style="background-image:url('https://images.pexels.com/photos/4427439/pexels-pho
 <a href="booking.html">Book Delivery</a>
 
 </section>
+
+<!-- FOOTER -->
 
 <footer>
 
