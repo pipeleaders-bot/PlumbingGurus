@@ -7,7 +7,7 @@
 
 <title>Delivery Booking | Plumbing Gurus – San Antonio</title>
 
-<meta name="description" content="Book professional delivery and material transport in San Antonio with instant price estimates.">
+<meta name="description" content="Book professional delivery in San Antonio with instant pricing and smart estimates.">
 
 <meta name="theme-color" content="#0d4b73">
 
@@ -31,11 +31,13 @@ body{
   color:#fff;
 }
 
+/* HEADER */
+
 header{
   position:fixed;
   top:0;
   width:100%;
-  padding:18px 50px;
+  padding:18px 40px;
   background:rgba(5,11,20,.85);
   backdrop-filter:blur(14px);
   display:flex;
@@ -47,7 +49,7 @@ header{
 .logo{height:55px;}
 
 nav a{
-  margin:0 18px;
+  margin:0 16px;
   color:#fff;
   text-decoration:none;
   opacity:.85;
@@ -64,28 +66,31 @@ nav a:hover{opacity:1;}
   font-weight:700;
 }
 
+/* MAIN */
+
 .section{
-  max-width:900px;
+  max-width:950px;
   margin:140px auto;
-  padding:0 30px;
+  padding:0 25px;
 }
 
 h1{
   text-align:center;
-  font-size:46px;
+  font-size:44px;
 }
 
-p.sub{
+.sub{
   text-align:center;
   opacity:.9;
-  margin-bottom:50px;
-  font-size:18px;
+  margin-bottom:40px;
 }
+
+/* FORM */
 
 .form-box{
   background:rgba(255,255,255,.05);
   border-radius:25px;
-  padding:40px;
+  padding:35px;
   border:1px solid rgba(255,255,255,.15);
 }
 
@@ -103,6 +108,11 @@ label{
   opacity:.9;
 }
 
+.checks label{
+  display:block;
+  margin-bottom:10px;
+}
+
 button{
   width:100%;
   padding:15px;
@@ -111,7 +121,6 @@ button{
   border-radius:40px;
   font-weight:700;
   cursor:pointer;
-  margin-top:10px;
 }
 
 button:hover{opacity:.9;}
@@ -129,6 +138,31 @@ button:hover{opacity:.9;}
   font-weight:700;
 }
 
+.autobox{
+  position:relative;
+}
+
+.suggestions{
+  position:absolute;
+  background:#111;
+  width:100%;
+  border-radius:10px;
+  z-index:99;
+  max-height:180px;
+  overflow-y:auto;
+  display:none;
+}
+
+.suggestions div{
+  padding:10px;
+  cursor:pointer;
+  border-bottom:1px solid #222;
+}
+
+.suggestions div:hover{
+  background:#222;
+}
+
 footer{
   background:#02060c;
   padding:40px;
@@ -137,14 +171,18 @@ footer{
   margin-top:80px;
 }
 
+/* MOBILE */
+
 @media(max-width:700px){
-  h1{font-size:34px;}
+  h1{font-size:32px;}
 }
 
 </style>
 </head>
 
 <body>
+
+<!-- HEADER -->
 
 <header>
 
@@ -161,11 +199,13 @@ footer{
 
 </header>
 
+<!-- MAIN -->
+
 <section class="section">
 
 <h1>Delivery Booking</h1>
 
-<p class="sub">Get an instant estimate and schedule your delivery.</p>
+<p class="sub">Instant estimate with smart pricing.</p>
 
 <div class="form-box">
 
@@ -175,29 +215,55 @@ method="POST">
 
 <input type="hidden" name="_captcha" value="false">
 
-<!-- Hidden outputs -->
 <input type="hidden" name="distance">
 <input type="hidden" name="estimate">
 
+<!-- Pickup -->
+
 <label>Pickup Address</label>
-<input type="text" id="pickup" name="pickup" required>
+
+<div class="autobox">
+<input type="text" id="pickup" name="pickup" autocomplete="off" required>
+<div class="suggestions" id="pickSug"></div>
+</div>
+
+<!-- Dropoff -->
 
 <label>Drop-Off Address</label>
-<input type="text" id="dropoff" name="dropoff" required>
+
+<div class="autobox">
+<input type="text" id="dropoff" name="dropoff" autocomplete="off" required>
+<div class="suggestions" id="dropSug"></div>
+</div>
 
 <label>Pickup Time</label>
-<input type="time" id="time" name="time" required>
+<input type="time" id="time" required>
 
 <label>Load Size</label>
 <select id="size" name="size">
-  <option value="small">Small (Boxes)</option>
-  <option value="medium">Medium (Furniture)</option>
-  <option value="large">Large (Appliances/Bulk)</option>
+<option value="small">Small (Boxes)</option>
+<option value="medium">Medium (Furniture)</option>
+<option value="large">Large (Appliances)</option>
 </select>
 
+<div class="checks">
+
 <label>
-<input type="checkbox" id="sameday"> Same-Day Service (+$25)
+<input type="checkbox" id="sameday">
+ Same-Day Service (+$25)
 </label>
+
+<label>
+<input type="checkbox" id="heavy">
+ Heavy Item 100+ lbs (+$35)
+</label>
+
+<label>
+<input type="checkbox" id="fragile">
+ Fragile / Glass (+$25)
+</label>
+
+</div>
 
 <button type="button" onclick="calculate()">Calculate Estimate</button>
 
@@ -219,12 +285,15 @@ Confirm & Book Delivery
 
 <script>
 
-// PRICING
+/* PRICING */
+
 const BASE = 45;
 const PER_MILE = 2.75;
 const HANDLING = 15;
 const RUSH = 20;
 const SAMEDAY = 25;
+const HEAVY = 35;
+const FRAGILE = 25;
 
 const SIZE = {
   small:0,
@@ -232,78 +301,120 @@ const SIZE = {
   large:50
 };
 
-// Geocode
-async function geo(address){
-  const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`;
+/* AUTOCOMPLETE */
+
+async function suggest(val, box){
+  if(val.length < 3){
+    box.style.display="none";
+    return;
+  }
+
+  const url = `https://nominatim.openstreetmap.org/search?format=json&limit=5&q=${encodeURIComponent(val)}`;
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  box.innerHTML="";
+  box.style.display="block";
+
+  data.forEach(item=>{
+    const d = document.createElement("div");
+    d.textContent = item.display_name;
+    d.onclick = ()=> {
+      box.previousElementSibling.value = item.display_name;
+      box.style.display="none";
+    };
+    box.appendChild(d);
+  });
+}
+
+pickup.oninput = ()=> suggest(pickup.value, pickSug);
+dropoff.oninput = ()=> suggest(dropoff.value, dropSug);
+
+/* GEO */
+
+async function geo(addr){
+  const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(addr)}`;
   const res = await fetch(url);
   const data = await res.json();
   return data[0];
 }
 
-// Distance
-function miles(lat1, lon1, lat2, lon2){
+/* DISTANCE */
+
+function miles(a,b,c,d){
   const R = 3958.8;
-  const dLat = (lat2-lat1)*Math.PI/180;
-  const dLon = (lon2-lon1)*Math.PI/180;
-  const a =
+  const dLat = (c-a)*Math.PI/180;
+  const dLon = (d-b)*Math.PI/180;
+
+  const x =
     Math.sin(dLat/2)**2 +
-    Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*
+    Math.cos(a*Math.PI/180)*
+    Math.cos(c*Math.PI/180)*
     Math.sin(dLon/2)**2;
-  return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
+
+  return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x));
 }
 
-// Calculate
+/* CALCULATE */
+
 async function calculate(){
 
-  const p = document.getElementById('pickup').value;
-  const d = document.getElementById('dropoff').value;
-  const t = document.getElementById('time').value;
-  const s = document.getElementById('size').value;
-  const sd = document.getElementById('sameday').checked;
+  const p = pickup.value;
+  const d = dropoff.value;
+  const t = time.value;
+  const s = size.value;
 
   if(!p || !d || !t){
-    alert("Please fill all fields");
+    alert("Please complete all fields");
     return;
   }
 
-  const pGeo = await geo(p);
-  const dGeo = await geo(d);
+  const pg = await geo(p);
+  const dg = await geo(d);
 
-  if(!pGeo || !dGeo){
+  if(!pg || !dg){
     alert("Address not found");
     return;
   }
 
   const dist = miles(
-    pGeo.lat,pGeo.lon,
-    dGeo.lat,dGeo.lon
+    pg.lat,pg.lon,
+    dg.lat,dg.lon
   );
 
-  let total = BASE + (dist*PER_MILE) + HANDLING + SIZE[s];
+  let total =
+    BASE +
+    (dist * PER_MILE) +
+    HANDLING +
+    SIZE[s];
 
-  // Rush Hour
   const hour = parseInt(t.split(':')[0]);
 
   if((hour>=7 && hour<=9) || (hour>=16 && hour<=19)){
     total += RUSH;
   }
 
-  if(sd) total += SAMEDAY;
+  if(sameday.checked) total += SAMEDAY;
+  if(heavy.checked) total += HEAVY;
+  if(fragile.checked) total += FRAGILE;
 
   total = total.toFixed(2);
 
-  document.querySelector('[name=distance]').value = dist.toFixed(2)+" miles";
-  document.querySelector('[name=estimate]').value = "$"+total;
+  document.querySelector('[name=distance]').value =
+    dist.toFixed(2)+" miles";
 
-  const box = document.getElementById('resultBox');
+  document.querySelector('[name=estimate]').value =
+    "$"+total;
 
-  box.style.display="block";
-  box.innerHTML = `
+  resultBox.style.display="block";
+
+  resultBox.innerHTML = `
     Distance: <span>${dist.toFixed(2)} mi</span><br>
     Estimated Total: <span>$${total}</span>
   `;
 
-  document.getElementById('submitBtn').style.display="block";
+  submitBtn.style.display="block";
 }
 
 </script>
