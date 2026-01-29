@@ -5,9 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Delivery Services | Plumbing Gurus – San Antonio</title>
+<title>Delivery Booking | Plumbing Gurus – San Antonio</title>
 
-<meta name="description" content="Professional delivery and material transport services in San Antonio. Secure sourcing and scheduled drop-off.">
+<meta name="description" content="Book professional delivery and material transport in San Antonio with instant price estimates.">
 
 <meta name="theme-color" content="#0d4b73">
 
@@ -17,41 +17,26 @@
 
 <style>
 
-/* ROOT */
 :root{
-  --blue1:#0d4b73;
+  --blue:#0d4b73;
   --blue2:#1D6FA3;
   --orange:#ff8a00;
   --dark:#050b14;
 }
 
-*{box-sizing:border-box;}
-
 body{
   margin:0;
   font-family:'Inter',sans-serif;
-  color:#fff;
   background:#050b14;
+  color:#fff;
 }
 
-/* BACKGROUND */
-.bg{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  background:
-    radial-gradient(circle at 20% 20%, #35a0d9, transparent 40%),
-    radial-gradient(circle at 80% 30%, #1D6FA3, transparent 45%),
-    radial-gradient(circle at 50% 80%, #0d4b73, transparent 45%);
-}
-
-/* HEADER */
 header{
   position:fixed;
   top:0;
   width:100%;
   padding:18px 50px;
-  background:rgba(5,11,20,.8);
+  background:rgba(5,11,20,.85);
   backdrop-filter:blur(14px);
   display:flex;
   justify-content:space-between;
@@ -77,131 +62,89 @@ nav a:hover{opacity:1;}
   border-radius:30px;
   text-decoration:none;
   font-weight:700;
-  transition:.3s;
 }
 
-.book-btn:hover{
-  transform:scale(1.05);
+.section{
+  max-width:900px;
+  margin:140px auto;
+  padding:0 30px;
 }
 
-/* HERO */
-.hero{
-  min-height:70vh;
-  display:flex;
-  align-items:center;
-  padding-top:120px;
-}
-
-.hero-wrap{
-  max-width:1200px;
-  margin:auto;
-  padding:40px;
+h1{
   text-align:center;
+  font-size:46px;
 }
 
-.hero h1{font-size:52px;}
+p.sub{
+  text-align:center;
+  opacity:.9;
+  margin-bottom:50px;
+  font-size:18px;
+}
 
-.hero p{
-  font-size:22px;
+.form-box{
+  background:rgba(255,255,255,.05);
+  border-radius:25px;
+  padding:40px;
+  border:1px solid rgba(255,255,255,.15);
+}
+
+input, select{
+  width:100%;
+  padding:14px;
+  margin-bottom:15px;
+  border-radius:10px;
+  border:none;
+  font-size:15px;
+}
+
+label{
+  font-size:14px;
   opacity:.9;
 }
 
-/* SECTION */
-.section{
-  max-width:1250px;
-  margin:100px auto;
-  padding:0 40px;
-}
-
-.section h2{
-  text-align:center;
-  font-size:42px;
-  margin-bottom:60px;
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:40px;
-}
-
-/* IMAGE CARDS */
-.service{
-  position:relative;
-  min-height:320px;
-  background-size:cover;
-  background-position:center;
-  border-radius:26px;
-  overflow:hidden;
-  display:flex;
-  align-items:flex-end;
-  box-shadow:0 15px 35px rgba(0,0,0,.4);
-  cursor:pointer;
-  transition:.3s;
-}
-
-.service:hover{
-  transform:translateY(-8px) scale(1.02);
-}
-
-.overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top,
-    rgba(5,11,20,.9),
-    rgba(5,11,20,.4),
-    transparent);
-}
-
-.service-content{
-  position:relative;
-  padding:25px;
-}
-
-/* CTA */
-.cta{
-  text-align:center;
-  padding:100px 40px;
-  background:linear-gradient(90deg,#0d4b73,#1D6FA3);
-}
-
-.cta a{
-  display:inline-block;
-  margin-top:20px;
-  padding:14px 36px;
-  background:#fff;
-  color:#000;
+button{
+  width:100%;
+  padding:15px;
+  background:linear-gradient(90deg,#ff8a00,#ffb347);
+  border:none;
   border-radius:40px;
-  text-decoration:none;
+  font-weight:700;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+button:hover{opacity:.9;}
+
+.result{
+  margin-top:25px;
+  padding:20px;
+  background:rgba(0,0,0,.4);
+  border-radius:15px;
+  display:none;
+}
+
+.result span{
+  color:#ffb347;
   font-weight:700;
 }
 
-/* FOOTER */
 footer{
   background:#02060c;
-  padding:50px;
+  padding:40px;
   text-align:center;
   color:#aaa;
+  margin-top:80px;
 }
 
-/* MOBILE */
-@media(max-width:900px){
-
-  header{padding:14px 20px;}
-
-  .hero h1{font-size:38px;}
-
+@media(max-width:700px){
+  h1{font-size:34px;}
 }
 
 </style>
 </head>
 
 <body>
-
-<div class="bg"></div>
-
-<!-- HEADER -->
 
 <header>
 
@@ -210,7 +153,6 @@ footer{
 <nav>
 <a href="index.html">Home</a>
 <a href="services.html">Services</a>
-<a href="booking.html">Book</a>
 <a href="delivery.html">Delivery</a>
 <a href="compliance.html">Compliance</a>
 </nav>
@@ -219,106 +161,152 @@ footer{
 
 </header>
 
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="hero-wrap">
-
-<h1>Professional Delivery & Logistics</h1>
-
-<p>Secure transport, vendor sourcing, and scheduled drop-offs.</p>
-
-</div>
-
-</section>
-
-<!-- DELIVERY CARDS -->
-
 <section class="section">
 
-<h2>Our Delivery Solutions</h2>
+<h1>Delivery Booking</h1>
 
-<div class="grid">
+<p class="sub">Get an instant estimate and schedule your delivery.</p>
 
-<!-- Package -->
-<div class="service"
-onclick="location.href='booking.html'"
-style="background-image:url('https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&w=900');">
+<div class="form-box">
 
-<div class="overlay"></div>
-<div class="service-content">
-<h3>Package Handling</h3>
-<p>Careful transport of boxed materials.</p>
-</div>
-</div>
+<form id="deliveryForm"
+action="https://formsubmit.co/pipeleaders@gmail.com"
+method="POST">
 
-<!-- Transport -->
-<div class="service"
-onclick="location.href='booking.html'"
-style="background-image:url('https://images.pexels.com/photos/5632396/pexels-photo-5632396.jpeg?auto=compress&cs=tinysrgb&w=900');">
+<input type="hidden" name="_captcha" value="false">
 
-<div class="overlay"></div>
-<div class="service-content">
-<h3>Material Transport</h3>
-<p>Secure loading and delivery.</p>
-</div>
-</div>
+<!-- Hidden outputs -->
+<input type="hidden" name="distance">
+<input type="hidden" name="estimate">
 
-<!-- Residential (FIXED IMAGE) -->
-<div class="service"
-onclick="location.href='booking.html'"
-style="background-image:url('https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&cs=tinysrgb&w=900');">
+<label>Pickup Address</label>
+<input type="text" id="pickup" name="pickup" required>
 
-<div class="overlay"></div>
-<div class="service-content">
-<h3>Residential Drop-Off</h3>
-<p>Professional home delivery.</p>
-</div>
-</div>
+<label>Drop-Off Address</label>
+<input type="text" id="dropoff" name="dropoff" required>
 
-<!-- Supplier -->
-<div class="service"
-onclick="location.href='booking.html'"
-style="background-image:url('https://images.pexels.com/photos/4427439/pexels-photo-4427439.jpeg?auto=compress&cs=tinysrgb&w=900');">
+<label>Pickup Time</label>
+<input type="time" id="time" name="time" required>
 
-<div class="overlay"></div>
-<div class="service-content">
-<h3>Supplier Pickup</h3>
-<p>Fast vendor sourcing.</p>
-</div>
-</div>
+<label>Load Size</label>
+<select id="size" name="size">
+  <option value="small">Small (Boxes)</option>
+  <option value="medium">Medium (Furniture)</option>
+  <option value="large">Large (Appliances/Bulk)</option>
+</select>
+
+<label>
+<input type="checkbox" id="sameday"> Same-Day Service (+$25)
+</label>
+
+<button type="button" onclick="calculate()">Calculate Estimate</button>
+
+<div class="result" id="resultBox"></div>
+
+<button type="submit" id="submitBtn" style="display:none;">
+Confirm & Book Delivery
+</button>
+
+</form>
 
 </div>
 
 </section>
-
-<!-- CTA -->
-
-<section class="cta">
-
-<h2>Need Something Delivered?</h2>
-
-<p>Schedule your service in minutes.</p>
-
-<a href="booking.html">Book Delivery</a>
-
-</section>
-
-<!-- FOOTER -->
 
 <footer>
-
 <p>© 2026 Plumbing Gurus LLC</p>
-
-<p>
-<a href="index.html">Home</a> |
-<a href="services.html">Services</a> |
-<a href="booking.html">Book</a> |
-<a href="compliance.html">Compliance</a>
-</p>
-
 </footer>
+
+<script>
+
+// PRICING
+const BASE = 45;
+const PER_MILE = 2.75;
+const HANDLING = 15;
+const RUSH = 20;
+const SAMEDAY = 25;
+
+const SIZE = {
+  small:0,
+  medium:25,
+  large:50
+};
+
+// Geocode
+async function geo(address){
+  const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  return data[0];
+}
+
+// Distance
+function miles(lat1, lon1, lat2, lon2){
+  const R = 3958.8;
+  const dLat = (lat2-lat1)*Math.PI/180;
+  const dLon = (lon2-lon1)*Math.PI/180;
+  const a =
+    Math.sin(dLat/2)**2 +
+    Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*
+    Math.sin(dLon/2)**2;
+  return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
+}
+
+// Calculate
+async function calculate(){
+
+  const p = document.getElementById('pickup').value;
+  const d = document.getElementById('dropoff').value;
+  const t = document.getElementById('time').value;
+  const s = document.getElementById('size').value;
+  const sd = document.getElementById('sameday').checked;
+
+  if(!p || !d || !t){
+    alert("Please fill all fields");
+    return;
+  }
+
+  const pGeo = await geo(p);
+  const dGeo = await geo(d);
+
+  if(!pGeo || !dGeo){
+    alert("Address not found");
+    return;
+  }
+
+  const dist = miles(
+    pGeo.lat,pGeo.lon,
+    dGeo.lat,dGeo.lon
+  );
+
+  let total = BASE + (dist*PER_MILE) + HANDLING + SIZE[s];
+
+  // Rush Hour
+  const hour = parseInt(t.split(':')[0]);
+
+  if((hour>=7 && hour<=9) || (hour>=16 && hour<=19)){
+    total += RUSH;
+  }
+
+  if(sd) total += SAMEDAY;
+
+  total = total.toFixed(2);
+
+  document.querySelector('[name=distance]').value = dist.toFixed(2)+" miles";
+  document.querySelector('[name=estimate]').value = "$"+total;
+
+  const box = document.getElementById('resultBox');
+
+  box.style.display="block";
+  box.innerHTML = `
+    Distance: <span>${dist.toFixed(2)} mi</span><br>
+    Estimated Total: <span>$${total}</span>
+  `;
+
+  document.getElementById('submitBtn').style.display="block";
+}
+
+</script>
 
 </body>
 </html>
