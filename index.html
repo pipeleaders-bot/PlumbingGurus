@@ -68,37 +68,39 @@ header{
   position:fixed;
   top:0;
   width:100%;
-  padding:30px 25px;
+  padding:25px 20px;
   background:rgba(5,11,20,.75);
   backdrop-filter:blur(14px);
   display:flex;
+  flex-wrap:wrap; /* allows stacking on mobile */
   justify-content:space-between;
   align-items:center;
-  gap:30px;
+  gap:10px;
   z-index:999;
 }
 
-/* LOGO SHIFTED LEFT */
+/* LOGO */
 .logo{
-  height:160px;
+  height:140px;
   width:auto;
-  max-height:160px;
-  margin-left:-40px; /* more left */
+  max-height:140px;
+  margin-left:-30px;
 }
 
 /* NAV */
 
 nav{
-  flex:1;
+  flex:1 1 100%;
   text-align:center;
 }
 
 nav a{
-  margin:0 18px;
+  margin:6px 12px;
   color:#fff;
   text-decoration:none;
   font-weight:500;
   opacity:.85;
+  display:inline-block;
 }
 
 nav a:hover{opacity:1;}
@@ -116,52 +118,53 @@ nav a:hover{opacity:1;}
   min-height:100vh;
   display:flex;
   align-items:center;
-  padding-top:220px;
+  padding-top:240px;
 }
 
 .hero-wrap{
   max-width:1250px;
   margin:auto;
-  padding:50px;
+  padding:40px;
   display:grid;
   grid-template-columns:1.3fr .7fr;
-  gap:70px;
+  gap:60px;
   color:#fff;
 }
 
 /* TEXT */
 
 .hero h1{
-  font-size:60px;
-  line-height:1.05;
-  margin-bottom:25px;
+  font-size:56px;
+  line-height:1.1;
+  margin-bottom:20px;
 }
 
 .hero p{
-  font-size:22px;
+  font-size:21px;
   opacity:.9;
 }
 
 .hero-tags{
   display:flex;
-  gap:14px;
-  margin:30px 0;
+  flex-wrap:wrap;
+  gap:12px;
+  margin:25px 0;
 }
 
 .tag{
   background:rgba(255,255,255,.12);
-  padding:8px 18px;
+  padding:7px 16px;
   border-radius:50px;
-  font-size:14px;
+  font-size:13px;
 }
 
 /* ================= FORM ================= */
 
 .card{
   background:var(--glass);
-  border-radius:28px;
-  padding:40px;
-  box-shadow:0 40px 80px rgba(0,0,0,.6);
+  border-radius:26px;
+  padding:36px;
+  box-shadow:0 35px 70px rgba(0,0,0,.6);
 }
 
 .card h3{
@@ -172,20 +175,20 @@ nav a:hover{opacity:1;}
 .card select,
 .card textarea{
   width:100%;
-  padding:14px;
-  margin-bottom:14px;
-  border-radius:10px;
+  padding:13px;
+  margin-bottom:12px;
+  border-radius:8px;
   border:1px solid #ccc;
 }
 
 .card button{
   width:100%;
-  padding:16px;
+  padding:15px;
   background:linear-gradient(90deg,var(--orange),#ffb347);
   border:none;
   border-radius:40px;
   color:#fff;
-  font-size:16px;
+  font-size:15px;
   font-weight:600;
 }
 
@@ -193,11 +196,11 @@ nav a:hover{opacity:1;}
 
 .stats{
   max-width:1150px;
-  margin:-80px auto 0;
+  margin:-70px auto 0;
   background:rgba(255,255,255,.08);
-  backdrop-filter:blur(15px);
-  border-radius:25px;
-  padding:45px;
+  backdrop-filter:blur(14px);
+  border-radius:22px;
+  padding:40px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
   text-align:center;
@@ -207,16 +210,16 @@ nav a:hover{opacity:1;}
 /* ================= ICON ================= */
 
 .icon{
-  width:60px;
-  height:60px;
+  width:55px;
+  height:55px;
   background:linear-gradient(145deg,#1D6FA3,#0d4b73);
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  margin:0 auto 14px;
+  margin:0 auto 12px;
   color:#fff;
-  box-shadow:0 10px 25px rgba(0,0,0,.4);
+  box-shadow:0 8px 20px rgba(0,0,0,.4);
   animation:float 4s ease-in-out infinite;
 }
 
@@ -230,36 +233,36 @@ nav a:hover{opacity:1;}
 
 .section{
   max-width:1250px;
-  margin:120px auto;
-  padding:0 40px;
+  margin:110px auto;
+  padding:0 35px;
   color:#fff;
 }
 
 .section h2{
   text-align:center;
-  font-size:42px;
-  margin-bottom:70px;
+  font-size:40px;
+  margin-bottom:60px;
 }
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:40px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:35px;
 }
 
 /* IMAGE CARD */
 
 .service{
   position:relative;
-  min-height:320px;
+  min-height:300px;
   background-size:cover;
   background-position:center;
-  border-radius:26px;
+  border-radius:24px;
   overflow:hidden;
   display:flex;
   align-items:flex-end;
   color:#fff;
-  box-shadow:0 15px 35px rgba(0,0,0,.4);
+  box-shadow:0 12px 30px rgba(0,0,0,.4);
 }
 
 .service .overlay{
@@ -273,7 +276,7 @@ nav a:hover{opacity:1;}
 
 .service-content{
   position:relative;
-  padding:25px;
+  padding:22px;
   width:100%;
 }
 
@@ -281,7 +284,7 @@ nav a:hover{opacity:1;}
 
 .cta{
   text-align:center;
-  padding:120px 40px;
+  padding:100px 35px;
   background:linear-gradient(90deg,#0d4b73,#1D6FA3);
   color:#fff;
 }
@@ -290,27 +293,30 @@ nav a:hover{opacity:1;}
 
 footer{
   background:#02060c;
-  padding:50px;
+  padding:45px;
   text-align:center;
   color:#aaa;
 }
 
 /* ================= MOBILE ================= */
 
-@media(max-width:950px){
+@media(max-width:900px){
 
   .logo{
-    height:120px;
-    margin-left:-20px;
+    height:105px;
+    margin-left:-15px;
   }
 
-  nav{
-    display:none;
+  .hero-wrap{
+    grid-template-columns:1fr;
+    gap:40px;
   }
 
-  .hero-wrap{grid-template-columns:1fr;}
-  .hero h1{font-size:38px;}
-  .stats{grid-template-columns:1fr 1fr;}
+  .hero h1{font-size:36px;}
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
 
 }
 
@@ -328,7 +334,7 @@ footer{
      alt="Plumbing Gurus Logo">
 
 <nav>
-<a href="#">Home</a>
+<a href="index.html">Home</a>
 <a href="services.html">Services</a>
 <a href="delivery.html">Delivery</a>
 <a href="booking.html">Book</a>
