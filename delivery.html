@@ -11,15 +11,13 @@
 
 <meta name="theme-color" content="#0d4b73">
 
-<!-- FAVICON -->
 <link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-/* ================= ROOT ================= */
-
+/* ROOT */
 :root{
   --blue1:#0d4b73;
   --blue2:#1D6FA3;
@@ -40,8 +38,7 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= BACKGROUND ================= */
-
+/* Background */
 .bg{
   position:fixed;
   inset:0;
@@ -59,8 +56,7 @@ body{
   100%{transform:translate(0,0);}
 }
 
-/* ================= HEADER ================= */
-
+/* Header */
 header{
   position:fixed;
   top:0;
@@ -92,8 +88,7 @@ nav a:hover{opacity:1;}
   text-decoration:none;
 }
 
-/* ================= HERO ================= */
-
+/* Hero */
 .hero{
   min-height:70vh;
   display:flex;
@@ -119,8 +114,7 @@ nav a:hover{opacity:1;}
   margin-top:20px;
 }
 
-/* ================= SECTIONS ================= */
-
+/* Sections */
 .section{
   max-width:1250px;
   margin:100px auto;
@@ -133,16 +127,14 @@ nav a:hover{opacity:1;}
   margin-bottom:60px;
 }
 
-/* ================= GRID ================= */
-
+/* Grid */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:40px;
 }
 
-/* ================= IMAGE CARDS ================= */
-
+/* Image Cards */
 .service{
   position:relative;
   min-height:320px;
@@ -176,8 +168,7 @@ nav a:hover{opacity:1;}
   padding:25px;
 }
 
-/* ================= CTA ================= */
-
+/* CTA */
 .cta{
   text-align:center;
   padding:100px 40px;
@@ -195,8 +186,7 @@ nav a:hover{opacity:1;}
   font-weight:600;
 }
 
-/* ================= FOOTER ================= */
-
+/* Footer */
 footer{
   background:#02060c;
   padding:50px;
@@ -204,14 +194,10 @@ footer{
   color:#aaa;
 }
 
-/* ================= MOBILE ================= */
-
+/* Mobile */
 @media(max-width:900px){
-
   header{padding:14px 20px;}
-
   .hero h1{font-size:38px;}
-
 }
 
 </style>
@@ -220,8 +206,6 @@ footer{
 <body>
 
 <div class="bg"></div>
-
-<!-- HEADER -->
 
 <header>
 
@@ -239,7 +223,7 @@ footer{
 
 </header>
 
-<!-- HERO -->
+<!-- Hero -->
 
 <section class="hero">
 
@@ -253,7 +237,7 @@ footer{
 
 </section>
 
-<!-- DELIVERY IMAGE CARDS -->
+<!-- Delivery Image Cards -->
 
 <section class="section">
 
@@ -265,299 +249,44 @@ footer{
 <div class="service"
 onclick="location.href='booking.html'"
 style="background-image:url('https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&w=900');">
-
 <div class="overlay"></div>
-
 <div class="service-content">
 <h3>Package Handling</h3>
 <p>Careful transport of boxed materials.</p>
 </div>
-
 </div>
 
-<!-- Transport -->
+<!-- Material Transport -->
 <div class="service"
 onclick="location.href='booking.html'"
 style="background-image:url('https://images.pexels.com/photos/5632396/pexels-photo-5632396.jpeg?auto=compress&cs=tinysrgb&w=900');">
-
 <div class="overlay"></div>
-
 <div class="service-content">
 <h3>Material Transport</h3>
 <p>Secure loading and delivery.</p>
 </div>
-
 </div>
 
 <!-- Drop-Off -->
 <div class="service"
 onclick="location.href='booking.html'"
-style="background-image:url('https://images.pexels.com/photos/5566159/pexels-photo-5566159.jpeg?auto=compress&cs=tinysrgb&w=900');">
-
+style="background-image:url('https://images.pexels.com/photos/2923150/pexels-photo-2923150.jpeg?auto=compress&cs=tinysrgb&w=900');">
 <div class="overlay"></div>
-
 <div class="service-content">
 <h3>Residential Drop-Off</h3>
 <p>Professional home delivery.</p>
 </div>
-
 </div>
 
 <!-- Supplier Pickup -->
 <div class="service"
 onclick="location.href='booking.html'"
 style="background-image:url('https://images.pexels.com/photos/4427439/pexels-photo-4427439.jpeg?auto=compress&cs=tinysrgb&w=900');">
-
 <div class="overlay"></div>
-
 <div class="service-content">
 <h3>Supplier Pickup</h3>
 <p>Fast vendor sourcing.</p>
 </div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CTA -->
-
-<section class="cta">
-
-<h2>Need Something Delivered?</h2>
-
-<p>Schedule your service in minutes.</p>
-
-<a href="booking.html">Book Delivery</a>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-<p>© 2026 Plumbing Gurus LLC</p>
-
-<p>
-<a href="index.html">Home</a> |
-<a href="services.html">Services</a> |
-<a href="booking.html">Book</a> |
-<a href="compliance.html">Compliance</a>
-</p>
-
-</footer>
-
-</body>
-</html>
-.hero-wrap{
-  max-width:1200px;
-  margin:auto;
-  padding:40px;
-  text-align:center;
-}
-
-.hero h1{
-  font-size:52px;
-  line-height:1.1;
-}
-
-.hero p{
-  font-size:22px;
-  opacity:.9;
-  margin-top:20px;
-}
-
-/* ================= SERVICES / CARDS ================= */
-
-.section{
-  max-width:1250px;
-  margin:100px auto;
-  padding:0 40px;
-}
-
-.section h2{
-  text-align:center;
-  font-size:42px;
-  margin-bottom:60px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:40px;
-}
-
-.service{
-  position:relative;
-  min-height:320px;
-  background-size:cover;
-  background-position:center;
-  border-radius:26px;
-  overflow:hidden;
-  display:flex;
-  align-items:flex-end;
-  color:#fff;
-  box-shadow:0 15px 35px rgba(0,0,0,.4);
-  transition:.3s;
-  cursor:pointer;
-}
-
-.service:hover{
-  transform:translateY(-8px) scale(1.02);
-}
-
-.overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top,
-    rgba(5,11,20,.9),
-    rgba(5,11,20,.4),
-    transparent);
-}
-
-.service-content{
-  position:relative;
-  padding:25px;
-}
-
-/* ================= CTA ================= */
-
-.cta{
-  text-align:center;
-  padding:100px 40px;
-  background:linear-gradient(90deg,#0d4b73,#1D6FA3);
-}
-
-.cta a{
-  display:inline-block;
-  margin-top:20px;
-  padding:14px 36px;
-  background:#fff;
-  color:#000;
-  text-decoration:none;
-  border-radius:40px;
-  font-weight:600;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-  background:#02060c;
-  padding:50px;
-  text-align:center;
-  color:#aaa;
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:900px){
-
-  header{padding:14px 20px;}
-
-  .hero h1{font-size:38px;}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="bg"></div>
-
-<header>
-
-<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo">
-
-<nav>
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="booking.html">Book</a>
-<a href="delivery.html">Delivery</a>
-<a href="compliance.html">Compliance</a>
-</nav>
-
-<a href="tel:+12109068524" class="phone">(210) 906-8524</a>
-
-</header>
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="hero-wrap">
-
-<h1>Professional Delivery & Logistics</h1>
-
-<p>Secure transport, vendor sourcing, and scheduled drop-offs for your home projects.</p>
-
-</div>
-
-</section>
-
-<!-- DELIVERY CARDS -->
-
-<section class="section">
-
-<h2>Our Delivery Solutions</h2>
-
-<div class="grid">
-
-<!-- Package Handling -->
-<div class="service"
-onclick="location.href='booking.html'"
-style="background-image:url('https://images.unsplash.com/photo-1604147706283-d7119b5b822c?auto=format&fit=crop&w=900&q=80');">
-
-<div class="overlay"></div>
-
-<div class="service-content">
-<h3>Package Handling</h3>
-<p>Careful transport of boxed materials.</p>
-</div>
-
-</div>
-
-<!-- Transport -->
-<div class="service"
-onclick="location.href='booking.html'"
-style="background-image:url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80');">
-
-<div class="overlay"></div>
-
-<div class="service-content">
-<h3>Material Transport</h3>
-<p>Secure loading and delivery.</p>
-</div>
-
-</div>
-
-<!-- Drop-Off -->
-<div class="service"
-onclick="location.href='booking.html'"
-style="background-image:url('https://images.unsplash.com/photo-1611095781290-1c50d9c8fd48?auto=format&fit=crop&w=900&q=80');">
-
-<div class="overlay"></div>
-
-<div class="service-content">
-<h3>Residential Drop-Off</h3>
-<p>Professional home delivery.</p>
-</div>
-
-</div>
-
-<!-- Supplier Pickup -->
-<div class="service"
-onclick="location.href='booking.html'"
-style="background-image:url('https://images.unsplash.com/photo-1596079890688-85c9c89c8a7c?auto=format&fit=crop&w=900&q=80');">
-
-<div class="overlay"></div>
-
-<div class="service-content">
-<h3>Supplier Pickup</h3>
-<p>Fast vendor sourcing.</p>
-</div>
-
 </div>
 
 </div>
