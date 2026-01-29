@@ -13,8 +13,7 @@
 
 <meta name="theme-color" content="#0d4b73">
 
-<!-- FAVICON -->
-<link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
+<link rel="icon" href="images/LOGO.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -70,7 +69,7 @@ header{
   top:0;
   width:100%;
   padding:18px 50px;
-  background:rgba(5,11,20,.8);
+  background:rgba(5,11,20,.75);
   backdrop-filter:blur(14px);
   display:flex;
   justify-content:space-between;
@@ -78,11 +77,7 @@ header{
   z-index:999;
 }
 
-/* LOGO */
-.logo{
-  height:90px;
-  width:auto;
-}
+.logo{height:50px;}
 
 nav a{
   margin:0 18px;
@@ -106,7 +101,7 @@ nav a:hover{opacity:1;}
   min-height:100vh;
   display:flex;
   align-items:center;
-  padding-top:180px;
+  padding-top:120px;
 }
 
 .hero-wrap{
@@ -114,16 +109,9 @@ nav a:hover{opacity:1;}
   margin:auto;
   padding:50px;
   display:grid;
-  grid-template-columns:1.2fr .8fr;
+  grid-template-columns:1.3fr .7fr;
   gap:70px;
   color:#fff;
-}
-
-/* HERO IMAGE */
-.hero-image img{
-  width:100%;
-  border-radius:25px;
-  box-shadow:0 25px 60px rgba(0,0,0,.6);
 }
 
 /* TEXT */
@@ -189,8 +177,6 @@ nav a:hover{opacity:1;}
 /* ================= STATS ================= */
 
 .stats{
-  position:relative;
-  z-index:2;
   max-width:1150px;
   margin:-80px auto 0;
   background:rgba(255,255,255,.08);
@@ -203,7 +189,7 @@ nav a:hover{opacity:1;}
   color:#fff;
 }
 
-/* ================= ICON ================= */
+/* ================= PREMIUM ICON ================= */
 
 .icon{
   width:60px;
@@ -217,6 +203,10 @@ nav a:hover{opacity:1;}
   color:#fff;
   box-shadow:0 10px 25px rgba(0,0,0,.4);
   animation:float 4s ease-in-out infinite;
+}
+
+.service:hover .icon{
+  transform:scale(1.15) rotate(6deg);
 }
 
 @keyframes float{
@@ -245,6 +235,8 @@ nav a:hover{opacity:1;}
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:40px;
 }
+
+/* IMAGE CARD */
 
 .service{
   position:relative;
@@ -296,29 +288,9 @@ footer{
 
 @media(max-width:950px){
 
-  header{
-    padding:14px 20px;
-  }
-
-  .logo{
-    height:75px;
-  }
-
-  .hero-wrap{
-    grid-template-columns:1fr;
-  }
-
-  .hero-image{
-    order:-1;
-  }
-
-  .hero h1{
-    font-size:38px;
-  }
-
-  .stats{
-    grid-template-columns:1fr 1fr;
-  }
+  .hero-wrap{grid-template-columns:1fr;}
+  .hero h1{font-size:38px;}
+  .stats{grid-template-columns:1fr 1fr;}
 
 }
 
@@ -329,12 +301,9 @@ footer{
 
 <div class="bg"></div>
 
-<!-- HEADER -->
 <header>
 
-<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png"
-     class="logo"
-     alt="Plumbing Gurus Logo">
+<img src="images/LOGO.png" class="logo">
 
 <nav>
 <a href="#">Home</a>
@@ -349,6 +318,7 @@ footer{
 </header>
 
 <!-- HERO -->
+
 <section class="hero">
 
 <div class="hero-wrap">
@@ -367,9 +337,34 @@ footer{
 
 </div>
 
-<!-- HERO IMAGE -->
-<div class="hero-image">
-<img src="images/hero-plumber.jpg" alt="Professional Plumbing Service">
+<!-- FORM -->
+
+<div class="card">
+
+<h3>Request Free Quote</h3>
+
+<form action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
+
+<input type="hidden" name="_captcha" value="false">
+
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="tel" name="phone" placeholder="Phone Number" required>
+
+<select name="service">
+<option>Select Service</option>
+<option>Minor Repairs</option>
+<option>Fixture Repair</option>
+<option>Toilet Repair</option>
+<option>Leak Repair</option>
+<option>Maintenance</option>
+</select>
+
+<textarea name="message" placeholder="Describe your project"></textarea>
+
+<button>Get Quote</button>
+
+</form>
+
 </div>
 
 </div>
@@ -414,56 +409,68 @@ footer{
 
 <div class="grid">
 
+<!-- Minor Repairs (DRILL IMAGE) -->
 <div class="service"
 style="background-image:url('https://images.unsplash.com/photo-1581141849291-1125c7b692b5?auto=format&fit=crop&w=800&q=80');">
 
 <div class="overlay"></div>
 
 <div class="service-content">
+
 <div class="icon"><i data-lucide="tool"></i></div>
+
 <h3>Minor Repairs</h3>
 <p>Doors, drywall, shelving.</p>
-</div>
 
 </div>
+</div>
 
+<!-- Fixture Repair -->
 <div class="service"
 style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80');">
 
 <div class="overlay"></div>
 
 <div class="service-content">
+
 <div class="icon"><i data-lucide="droplet"></i></div>
+
 <h3>Fixture Repair</h3>
 <p>Faucets and sinks.</p>
-</div>
 
 </div>
+</div>
 
+<!-- Toilet Service -->
 <div class="service"
 style="background-image:url('https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80');">
 
 <div class="overlay"></div>
 
 <div class="service-content">
+
 <div class="icon"><i data-lucide="wrench"></i></div>
+
 <h3>Toilet Service</h3>
 <p>Adjustments & installs.</p>
-</div>
 
 </div>
+</div>
 
+<!-- Maintenance -->
 <div class="service"
 style="background-image:url('https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=800&q=80');">
 
 <div class="overlay"></div>
 
 <div class="service-content">
+
 <div class="icon"><i data-lucide="home"></i></div>
+
 <h3>Maintenance</h3>
 <p>General upkeep.</p>
-</div>
 
+</div>
 </div>
 
 </div>
