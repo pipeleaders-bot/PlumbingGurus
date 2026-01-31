@@ -1,24 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Handyman & Minor Plumbing Repairs in San Antonio | Plumbing Gurus</title>
-
-<meta name="description" content="Reliable handyman and minor plumbing-related repairs in San Antonio. Faucet replacement, toilet repair, leak fixes, and home maintenance. Call (210) 906-8524.">
-
-<meta name="keywords" content="handyman san antonio, minor plumbing repair, faucet installation, toilet repair, property maintenance">
-
-<meta name="theme-color" content="#0d4b73">
-
-<link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
-<script src="https://unpkg.com/lucide@latest"></script>
-
-<style>
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Handyman & Minor Plumbing Repairs in San Antonio | Plumbing Gurus</title><meta name="description" content="Reliable handyman and minor plumbing-related repairs in San Antonio. Faucet replacement, toilet repair, leak fixes, and home maintenance. Call (210) 906-8524."><meta name="keywords" content="handyman san antonio, minor plumbing repair, faucet installation, toilet repair, property maintenance"><meta name="theme-color" content="#0d4b73"><link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"><script src="https://unpkg.com/lucide@latest"></script><style>
 
 :root{
   --blue1:#0d4b73;
@@ -46,8 +28,6 @@ body{
     radial-gradient(circle at 50% 80%, #0d4b73, transparent 45%);
 }
 
-/* ================= HEADER ================= */
-
 header{
   position:fixed;
   top:0;
@@ -56,30 +36,19 @@ header{
   background:rgba(5,11,20,.9);
   backdrop-filter:blur(14px);
   display:flex;
-  flex-direction:column;
+  flex-wrap:wrap;
   align-items:center;
-  justify-content:center;
+  justify-content:space-between;
   z-index:999;
-  transition:.3s ease;
-}
-
-header.shrink{
-  padding:8px 10px;
 }
 
 .logo{
   height:120px;
-  margin:0 auto 8px auto;
-  display:block;
-  transition:.3s ease;
-}
-
-header.shrink .logo{
-  height:70px;
+  margin-left:-55px;
 }
 
 nav{
-  width:100%;
+  flex:1 1 100%;
   text-align:center;
   margin-top:5px;
 }
@@ -94,13 +63,11 @@ nav a{
 
 nav a:hover{opacity:1;}
 
-/* ================= HERO ================= */
-
 .hero{
   min-height:100vh;
   display:flex;
   align-items:center;
-  padding-top:210px;
+  padding-top:190px;
 }
 
 .hero-wrap{
@@ -136,8 +103,6 @@ nav a:hover{opacity:1;}
   font-size:13px;
 }
 
-/* ================= CARD ================= */
-
 .card{
   background:rgba(255,255,255,.95);
   color:#111;
@@ -166,8 +131,6 @@ nav a:hover{opacity:1;}
   font-weight:600;
 }
 
-/* ================= SECTIONS ================= */
-
 .section{
   max-width:1200px;
   margin:100px auto;
@@ -185,8 +148,6 @@ nav a:hover{opacity:1;}
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:35px;
 }
-
-/* ================= SERVICES ================= */
 
 .service-img{
   position:relative;
@@ -248,8 +209,6 @@ nav a:hover{opacity:1;}
   line-height:1.5;
 }
 
-/* ================= FOOTER ================= */
-
 footer{
   background:#02060c;
   padding:40px;
@@ -257,38 +216,54 @@ footer{
   color:#aaa;
 }
 
-/* ================= STICKY ================= */
-
-.sticky-call{
+.sticky-call,
+.sticky-text{
   position:fixed;
   right:18px;
-  bottom:25px;
   padding:14px 20px;
   border-radius:50px;
   color:#fff;
   font-weight:600;
   text-decoration:none;
-  background:#ff8a00;
   box-shadow:0 8px 20px rgba(0,0,0,.4);
   z-index:9999;
 }
 
-/* ================= MOBILE ================= */
+.sticky-call{
+  bottom:90px;
+  background:#ff8a00;
+}
+
+.sticky-text{
+  bottom:25px;
+  background:#25D366;
+}
 
 @media(max-width:900px){
 
-  .logo{
-    height:75px;
-    margin:0 auto 6px auto;
-    display:block;
+  header{
+    padding:12px 10px;
+    flex-direction:column;
+    align-items:flex-start;
   }
 
-  header.shrink .logo{
-    height:55px;
+  .logo{
+    height:75px;
+    margin-left:-35px;
+  }
+
+  nav{
+    width:100%;
+    margin:5px 0;
+  }
+
+  nav a{
+    font-size:13px;
+    margin:4px 6px;
   }
 
   .hero{
-    padding-top:190px;
+    padding-top:170px;
   }
 
   .hero-wrap{
@@ -298,119 +273,67 @@ footer{
   .hero h1{
     font-size:32px;
   }
+
 }
 
-</style>
-</head>
-
-<body>
-
-<div class="bg"></div>
-
-<!-- ================= HEADER ================= -->
-
-<header id="header">
-
-<a href="index.html">
-<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png"
-     class="logo"
-     alt="Plumbing Gurus Logo">
-</a>
-
-<nav>
+</style></head><body><div class="bg"></div><header><img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo" alt="Plumbing Gurus Logo"><nav>
 <a href="index.html">Home</a>
 <a href="services.html">Services</a>
 <a href="delivery.html">Delivery</a>
 <a href="booking.html">Request Service</a>
 <a href="compliance.html">Compliance</a>
-</nav>
-
-</header>
-
-<!-- ================= HERO ================= -->
-
-<section class="hero">
-
-<div class="hero-wrap">
-
-<div>
-
-<h1>Reliable Handyman & Minor Plumbing Services in San Antonio</h1>
-
-<p>
-Fast, honest service for faucet replacements, toilet repairs,
-leak fixes, and home maintenance. Regulated plumbing work is
-referred to licensed professionals.
-</p>
-
-<div class="hero-tags">
-
-<span class="tag">✔ Non-Regulated Work</span>
+</nav></header><section class="hero"><div class="hero-wrap"><div><h1>Reliable Handyman & Minor Plumbing Services in San Antonio</h1><p>Fast, honest service for faucet replacements, toilet repairs, leak fixes, and home maintenance. Regulated plumbing work is referred to licensed professionals.</p><div class="hero-tags">
+<span class="tag">✔ Non‑Regulated Work</span>
 <span class="tag">⏱ Fast Response</span>
 <span class="tag">⭐ Trusted Local Service</span>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h3>Request Service</h3>
-
-<form action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
-
-<input type="hidden" name="_captcha" value="false">
-
-<input type="text" name="name" placeholder="Your Name" required>
-
-<input type="tel" name="phone" placeholder="Phone Number" required>
-
-<select name="service" required>
+</div></div><div class="card"><h3>Request Service</h3><form action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST"><input type="hidden" name="_captcha" value="false"><input type="text" name="name" placeholder="Your Name" required>
+<input type="tel" name="phone" placeholder="Phone Number" required><select name="service" required>
 <option value="">Select Service</option>
 <option>Minor Repairs</option>
 <option>Fixture Service</option>
 <option>Toilet Service</option>
 <option>Property Maintenance</option>
-</select>
+</select><textarea name="message" placeholder="Describe your project"></textarea><button>Submit Request</button>
 
-<textarea name="message" placeholder="Describe your project"></textarea>
-
-<button>Submit Request</button>
-
-</form>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= SERVICES & GALLERY (UNCHANGED) ================= -->
-
-<!-- Your original sections are preserved -->
-
-<footer>
-
-<p>© 2026 Plumbing Gurus LLC — Handyman & Minor Plumbing Services</p>
-<p>Non-regulated work only. Licensed services referred.</p>
-
-</footer>
-
-<a href="tel:+12109068524" class="sticky-call">📞 Call Now</a>
+</form></div></div></section><section class="section"><h2>Our Core Services in San Antonio</h2><div class="grid"><div class="service-img"
+style="background-image:url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80');"><div class="service-overlay"></div><div class="service-box"><div class="service-icon"><i data-lucide="hammer"></i></div><h3>Minor Repairs</h3><p>
+Residential and light commercial repairs including doors,
+drywall, shelving, hardware, and small fixes.
+</p></div></div><div class="service-img"
+style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80');"><div class="service-overlay"></div><div class="service-box"><div class="service-icon"><i data-lucide="droplet"></i></div><h3>Fixture Service</h3><p>
+Installation and repair of customer-supplied faucets,
+sinks, and bathroom fixtures.
+</p></div></div><div class="service-img"
+style="background-image:url('https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80');"><div class="service-overlay"></div><div class="service-box"><div class="service-icon"><i data-lucide="wrench"></i></div><h3>Toilet Service</h3><p>
+Toilet adjustments, seal replacement,
+flush repairs, and standard installations.
+</p></div></div><div class="service-img"
+style="background-image:url('https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1200&q=80');"><div class="service-overlay"></div><div class="service-box"><div class="service-icon"><i data-lucide="home"></i></div><h3>Property Maintenance</h3><p>
+Ongoing upkeep, preventive maintenance,
+and general property support.
+</p></div></div></div></section><!-- GALLERY --><section class="section"><h2>Finished Bathrooms & Fixture Installations</h2><div class="grid"><div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80');">
+<div class="service-overlay"></div>
+<div class="service-box"><h3>Modern Bathroom Upgrade</h3><p>Clean fixture installation and finishing.</p></div>
+</div><div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80');">
+<div class="service-overlay"></div>
+<div class="service-box"><h3>Sink & Faucet Replacement</h3><p>Customer-supplied fixtures installed professionally.</p></div>
+</div><div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80');">
+<div class="service-overlay"></div>
+<div class="service-box"><h3>Kitchen Fixture Service</h3><p>Leak-free installs with clean finish.</p></div>
+</div><div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80');">
+<div class="service-overlay"></div>
+<div class="service-box"><h3>Shower & Bathroom Refresh</h3><p>Polished, modern bathroom look.</p></div>
+</div><div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80');">
+<div class="service-overlay"></div>
+<div class="service-box"><h3>Toilet Installation</h3><p>Proper sealing and alignment.</p></div>
+</div><div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80');">
+<div class="service-overlay"></div>
+<div class="service-box"><h3>Vanity & Sink Setup</h3><p>Level, secure, and leak-free.</p></div>
+</div></div></section><footer><p>© 2026 Plumbing Gurus LLC — Handyman & Minor Plumbing Services</p>
+<p>Non-regulated work only. Licensed services referred.</p></footer><a href="tel:+12109068524" class="sticky-call">📞 Call Now</a>
 
 <script>
 lucide.createIcons();
-
-const header = document.getElementById("header");
-
-window.addEventListener("scroll", () => {
-  if(window.scrollY > 80){
-    header.classList.add("shrink");
-  }else{
-    header.classList.remove("shrink");
-  }
-});
-</script>
-
-</body>
+</script></body>
 </html>
+
