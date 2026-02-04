@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Delivery Booking | Plumbing Gurus – San Antonio</title>
+<title>Local Delivery & Small Haul Services in San Antonio | Plumbing Gurus</title>
 
-<meta name="description" content="Book professional delivery in San Antonio with instant estimates and transparent pricing.">
+<meta name="description" content="Fast, reliable local delivery and small hauling in San Antonio. Furniture, appliances, packages, and equipment. Same-day options available. Call (210) 906-8524.">
+
+<meta name="keywords" content="delivery san antonio, small hauling, furniture delivery, appliance transport, local courier service">
 
 <meta name="theme-color" content="#0d4b73">
 
-<link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
+<link rel="icon" href="images/Logo.png">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-/* ROOT */
-
 :root{
-  --blue:#0d4b73;
+  --blue1:#0d4b73;
   --blue2:#1D6FA3;
   --orange:#ff8a00;
-  --dark:#050b14;
 }
+
+*{box-sizing:border-box;}
 
 body{
   margin:0;
@@ -39,155 +39,227 @@ header{
   position:fixed;
   top:0;
   width:100%;
-  padding:18px 40px;
-  background:rgba(5,11,20,.9);
-  backdrop-filter:blur(14px);
+  padding:15px;
+  background:rgba(5,11,20,.95);
+  backdrop-filter:blur(12px);
   display:flex;
+  flex-wrap:wrap;
   justify-content:space-between;
   align-items:center;
   z-index:999;
 }
 
-.logo{height:55px;}
+.logo{
+  height:75px;
+}
+
+nav{
+  width:100%;
+  text-align:center;
+  margin-top:8px;
+}
 
 nav a{
-  margin:0 16px;
+  margin:6px 10px;
   color:#fff;
   text-decoration:none;
-  opacity:.85;
+  font-weight:500;
+  opacity:.9;
 }
 
 nav a:hover{opacity:1;}
 
-.book-btn{
-  background:linear-gradient(90deg,#ff8a00,#ffb347);
-  color:#000;
-  padding:10px 22px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:700;
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding-top:170px;
 }
 
-/* MAIN */
+.hero-wrap{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 25px;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:42px;
+}
+
+.hero p{
+  font-size:20px;
+  opacity:.9;
+  max-width:750px;
+  margin:20px auto;
+}
+
+.badges{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:25px 0;
+}
+
+.badge{
+  background:rgba(255,255,255,.12);
+  padding:8px 18px;
+  border-radius:50px;
+  font-size:14px;
+}
+
+/* SECTIONS */
 
 .section{
-  max-width:950px;
-  margin:140px auto;
+  max-width:1100px;
+  margin:80px auto;
   padding:0 25px;
 }
 
-h1{
+.section h2{
   text-align:center;
-  font-size:44px;
-}
-
-.sub{
-  text-align:center;
-  opacity:.9;
+  font-size:36px;
   margin-bottom:40px;
 }
 
-/* FORM */
+/* GRID */
 
-.form-box{
-  background:rgba(255,255,255,.05);
-  border-radius:25px;
-  padding:35px;
-  border:1px solid rgba(255,255,255,.15);
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
 }
 
-input, select{
-  width:100%;
-  padding:14px;
-  margin-bottom:15px;
-  border-radius:10px;
-  border:none;
-  font-size:15px;
+/* CARDS */
+
+.card{
+  background:rgba(255,255,255,.95);
+  color:#111;
+  padding:28px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,.4);
+  text-align:center;
 }
 
-label{
-  font-size:14px;
-  opacity:.9;
+.card h3{
+  margin-bottom:12px;
 }
 
-.checks label{
-  display:block;
-  margin-bottom:10px;
-}
+/* IMAGE BOX */
 
-button{
-  width:100%;
-  padding:15px;
-  background:linear-gradient(90deg,#ff8a00,#ffb347);
-  border:none;
-  border-radius:40px;
-  font-weight:700;
-  cursor:pointer;
-}
-
-.result{
-  margin-top:25px;
-  padding:20px;
-  background:rgba(0,0,0,.4);
-  border-radius:15px;
-  display:none;
-}
-
-.result span{
-  color:#ffb347;
-  font-weight:700;
-}
-
-/* AUTOCOMPLETE */
-
-.autobox{
+.service-img{
   position:relative;
+  min-height:280px;
+  background-size:cover;
+  background-position:center;
+  border-radius:22px;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-end;
+  box-shadow:0 15px 35px rgba(0,0,0,.5);
+  transition:.3s ease;
 }
 
-.suggestions{
+.service-img:hover{
+  transform:translateY(-6px);
+}
+
+.service-overlay{
   position:absolute;
-  background:#111;
+  inset:0;
+  background:linear-gradient(to top,
+  rgba(5,11,20,.9),
+  rgba(5,11,20,.4),
+  transparent);
+}
+
+.service-box{
+  position:relative;
+  padding:22px;
   width:100%;
-  border-radius:10px;
-  z-index:99;
-  max-height:180px;
-  overflow-y:auto;
-  display:none;
+  text-align:center;
 }
 
-.suggestions div{
-  padding:10px;
-  cursor:pointer;
-  border-bottom:1px solid #222;
+.service-box h3{
+  margin-bottom:6px;
 }
 
-.suggestions div:hover{
-  background:#222;
+/* PROCESS */
+
+.process{
+  max-width:800px;
+  margin:auto;
 }
 
-/* NOTICE */
+.process li{
+  margin:14px 0;
+  font-size:18px;
+}
 
-.notice{
-  background:rgba(255,138,0,.1);
-  border:1px solid rgba(255,138,0,.4);
-  padding:15px;
-  border-radius:12px;
-  margin-bottom:25px;
-  font-size:14px;
+/* CTA */
+
+.cta{
+  background:linear-gradient(145deg,#1D6FA3,#0d4b73);
+  padding:60px 25px;
+  text-align:center;
+  margin-top:80px;
+}
+
+.cta h2{
+  font-size:36px;
+}
+
+.cta a{
+  display:inline-block;
+  background:linear-gradient(90deg,#ff8a00,#ffb347);
+  color:#fff;
+  padding:14px 35px;
+  border-radius:40px;
+  font-weight:600;
+  text-decoration:none;
+  margin-top:15px;
 }
 
 /* FOOTER */
 
 footer{
   background:#02060c;
-  padding:40px;
+  padding:35px 20px;
   text-align:center;
   color:#aaa;
   margin-top:80px;
 }
 
-@media(max-width:700px){
-  h1{font-size:32px;}
+footer p{
+  margin:6px 0;
+}
+
+/* STICKY */
+
+.sticky-call{
+  position:fixed;
+  right:18px;
+  bottom:25px;
+  padding:14px 22px;
+  border-radius:50px;
+  background:#ff8a00;
+  color:#fff;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 8px 20px rgba(0,0,0,.4);
+  z-index:9999;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  .hero h1{font-size:30px;}
+  .hero p{font-size:18px;}
+
 }
 
 </style>
@@ -195,266 +267,208 @@ footer{
 
 <body>
 
+<!-- HEADER -->
+
 <header>
 
-<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo">
+<img src="images/Logo.png" class="logo" alt="Plumbing Gurus Logo">
 
 <nav>
 <a href="index.html">Home</a>
 <a href="services.html">Services</a>
 <a href="delivery.html">Delivery</a>
+<a href="booking.html">Book Now</a>
 <a href="compliance.html">Compliance</a>
 </nav>
 
-<a href="booking.html" class="book-btn">Book Now</a>
-
 </header>
 
-<section class="section">
+<!-- HERO -->
 
-<h1>Delivery Booking</h1>
+<section class="hero">
 
-<p class="sub">Instant estimate with transparent pricing.</p>
+<div class="hero-wrap">
 
-<div class="form-box">
+<h1>Fast Local Delivery & Small Hauling in San Antonio</h1>
 
-<!-- NOTICE -->
+<p>
+Furniture, appliances, packages, and equipment delivered safely.
+Same-day options with honest pricing.
+</p>
 
-<div class="notice">
-We do not transport loads requiring DOT permits, forklifts, cranes, or oversized vehicles. Heavy or fragile items may incur additional fees. See full terms on our Compliance page.
+<div class="badges">
+<span class="badge">✔ Same-Day Available</span>
+<span class="badge">✔ Insured</span>
+<span class="badge">✔ Careful Handling</span>
+<span class="badge">✔ Local Team</span>
 </div>
 
-<form id="deliveryForm"
-action="https://formsubmit.co/pipeleaders@gmail.com"
-method="POST">
-
-<input type="hidden" name="_captcha" value="false">
-
-<input type="hidden" name="distance">
-<input type="hidden" name="estimate">
-
-<!-- PICKUP -->
-
-<label>Pickup Address</label>
-
-<div class="autobox">
-<input type="text" id="pickup" name="pickup" autocomplete="off" required>
-<div class="suggestions" id="pickSug"></div>
-</div>
-
-<!-- DROPOFF -->
-
-<label>Drop-Off Address</label>
-
-<div class="autobox">
-<input type="text" id="dropoff" name="dropoff" autocomplete="off" required>
-<div class="suggestions" id="dropSug"></div>
-</div>
-
-<label>Pickup Time</label>
-<input type="time" id="time" required>
-
-<label>Load Size</label>
-<select id="size" name="size">
-<option value="small">Small (Boxes)</option>
-<option value="medium">Medium (Furniture)</option>
-<option value="large">Large (Appliances)</option>
-</select>
-
-<div class="checks">
-
-<label>
-<input type="checkbox" id="sameday">
- Same-Day Service (+$25)
-</label>
-
-<label>
-<input type="checkbox" id="heavy">
- Heavy Item 100+ lbs (+$35)
-</label>
-
-<label>
-<input type="checkbox" id="fragile">
- Fragile / Glass (+$25)
-</label>
-
-</div>
-
-<!-- TERMS -->
-
-<label style="margin-top:15px;display:block;">
-<input type="checkbox" name="terms_accept" required>
- I have read and accept the <a href="compliance.html#delivery-terms" target="_blank" style="color:#ffb347;">Delivery Terms & Liability Policy</a>.
-</label>
-
-<button type="button" onclick="calculate()">Calculate Estimate</button>
-
-<div class="result" id="resultBox"></div>
-
-<button type="submit" id="submitBtn" style="display:none;">
-Confirm & Book Delivery
-</button>
-
-</form>
+<p><strong>📞 Call Now: (210) 906-8524</strong></p>
 
 </div>
 
 </section>
 
-<footer>
+<!-- IMAGE SERVICES -->
 
-<p>© 2026 Plumbing Gurus LLC</p>
+<section class="section">
+
+<h2>Delivery Services in Action</h2>
+
+<div class="grid">
+
+<div class="service-img"
+style="background-image:url('https://images.unsplash.com/photo-1603481546579-65d935ba92c7?auto=format&fit=crop&w=1200&q=80');">
+
+<div class="service-overlay"></div>
+<div class="service-box">
+<h3>Package Delivery</h3>
+<p>Fast and secure transport</p>
+</div>
+
+</div>
+
+<div class="service-img"
+style="background-image:url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80');">
+
+<div class="service-overlay"></div>
+<div class="service-box">
+<h3>Furniture Moving</h3>
+<p>Careful lifting and placement</p>
+</div>
+
+</div>
+
+<div class="service-img"
+style="background-image:url('https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=1200&q=80');">
+
+<div class="service-overlay"></div>
+<div class="service-box">
+<h3>Appliance Transport</h3>
+<p>Secured and protected</p>
+</div>
+
+</div>
+
+<div class="service-img"
+style="background-image:url('https://images.unsplash.com/photo-1596075780750-81249df16d19?auto=format&fit=crop&w=1200&q=80');">
+
+<div class="service-overlay"></div>
+<div class="service-box">
+<h3>Heavy Lifting</h3>
+<p>Professional handling</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- WHY -->
+
+<section class="section">
+
+<h2>Why Choose Plumbing Gurus?</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Fast Response</h3>
+<p>Quick scheduling and reliable arrival times.</p>
+</div>
+
+<div class="card">
+<h3>Damage Protection</h3>
+<p>Items secured and handled properly.</p>
+</div>
+
+<div class="card">
+<h3>Upfront Pricing</h3>
+<p>No hidden fees. No surprises.</p>
+</div>
+
+<div class="card">
+<h3>Local Professionals</h3>
+<p>San Antonio-based service team.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- PROCESS -->
+
+<section class="section">
+
+<h2>Our Simple Process</h2>
+
+<ol class="process">
+
+<li>Submit pickup & drop-off info</li>
+<li>Receive estimate</li>
+<li>Schedule service</li>
+<li>On-time arrival</li>
+<li>Secure transport</li>
+<li>Safe delivery</li>
+
+</ol>
+
+</section>
+
+<!-- INFO -->
+
+<section class="section">
+
+<h2>Service Guidelines</h2>
+
+<div class="card">
 
 <p>
-<a href="index.html">Home</a> |
-<a href="services.html">Services</a> |
-<a href="delivery.html">Delivery</a> |
-<a href="compliance.html">Compliance</a>
+We do not transport oversized loads requiring DOT permits,
+cranes, or forklifts.
 </p>
+
+<p>
+Additional fees may apply for heavy or fragile items.
+</p>
+
+<p>
+All work follows our
+<a href="compliance.html">Terms & Liability Policy</a>.
+</p>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<h2>Need Delivery Today?</h2>
+
+<p>
+Call now and get fast, reliable local service.
+</p>
+
+<a href="tel:+12109068524">📞 Call Now</a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>Plumbing Gurus LLC</p>
+<p>Local Delivery & Handyman Services</p>
+<p>San Antonio, TX</p>
+<p>(210) 906-8524</p>
+<p>© 2026 Plumbing Gurus LLC</p>
 
 </footer>
 
-<script>
-
-/* PRICING */
-
-const BASE = 45;
-const PER_MILE = 2.75;
-const HANDLING = 15;
-const RUSH = 20;
-const SAMEDAY = 25;
-const HEAVY = 35;
-const FRAGILE = 25;
-
-const SIZE = {
-  small:0,
-  medium:25,
-  large:50
-};
-
-/* AUTOCOMPLETE */
-
-async function suggest(val, box){
-
-  if(val.length < 3){
-    box.style.display="none";
-    return;
-  }
-
-  const url =
-    `https://nominatim.openstreetmap.org/search?format=json&limit=5&q=${encodeURIComponent(val)}`;
-
-  const res = await fetch(url);
-  const data = await res.json();
-
-  box.innerHTML="";
-  box.style.display="block";
-
-  data.forEach(item=>{
-
-    const d = document.createElement("div");
-    d.textContent = item.display_name;
-
-    d.onclick = ()=>{
-      box.previousElementSibling.value = item.display_name;
-      box.style.display="none";
-    };
-
-    box.appendChild(d);
-  });
-}
-
-pickup.oninput = ()=> suggest(pickup.value, pickSug);
-dropoff.oninput = ()=> suggest(dropoff.value, dropSug);
-
-/* GEO */
-
-async function geo(addr){
-
-  const url =
-    `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(addr)}`;
-
-  const res = await fetch(url);
-  const data = await res.json();
-
-  return data[0];
-}
-
-/* DISTANCE */
-
-function miles(a,b,c,d){
-
-  const R = 3958.8;
-
-  const dLat = (c-a)*Math.PI/180;
-  const dLon = (d-b)*Math.PI/180;
-
-  const x =
-    Math.sin(dLat/2)**2 +
-    Math.cos(a*Math.PI/180)*
-    Math.cos(c*Math.PI/180)*
-    Math.sin(dLon/2)**2;
-
-  return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x));
-}
-
-/* CALCULATE */
-
-async function calculate(){
-
-  if(!pickup.value || !dropoff.value || !time.value){
-    alert("Please complete all required fields.");
-    return;
-  }
-
-  const pg = await geo(pickup.value);
-  const dg = await geo(dropoff.value);
-
-  if(!pg || !dg){
-    alert("Address not found.");
-    return;
-  }
-
-  const dist = miles(
-    pg.lat,pg.lon,
-    dg.lat,dg.lon
-  );
-
-  let total =
-    BASE +
-    (dist * PER_MILE) +
-    HANDLING +
-    SIZE[size.value];
-
-  const hour = parseInt(time.value.split(':')[0]);
-
-  if((hour>=7 && hour<=9) || (hour>=16 && hour<=19)){
-    total += RUSH;
-  }
-
-  if(sameday.checked) total += SAMEDAY;
-  if(heavy.checked) total += HEAVY;
-  if(fragile.checked) total += FRAGILE;
-
-  total = total.toFixed(2);
-
-  document.querySelector('[name=distance]').value =
-    dist.toFixed(2)+" miles";
-
-  document.querySelector('[name=estimate]').value =
-    "$"+total;
-
-  resultBox.style.display="block";
-
-  resultBox.innerHTML = `
-    Distance: <span>${dist.toFixed(2)} mi</span><br>
-    Estimated Total: <span>$${total}</span>
-  `;
-
-  submitBtn.style.display="block";
-}
-
-</script>
+<a href="tel:+12109068524" class="sticky-call">📞 Call Now</a>
 
 </body>
 </html>
