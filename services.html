@@ -1,196 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Professional Home Services | Plumbing Gurus – San Antonio</title>
+<title>Services | Plumbing Gurus San Antonio</title>
 
-<meta name="description" content="Assembly, installation, and home improvement services in San Antonio. Sheds, furniture, fixtures, and smart devices.">
+<meta name="description" content="Handyman, fixture assistance, and local delivery services in San Antonio. Call (210) 906-8524.">
 
-<meta name="theme-color" content="#0d4b73">
-
-<link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 
-/* ROOT */
-
 :root{
-  --blue1:#0d4b73;
-  --blue2:#1D6FA3;
-  --orange:#ff8a00;
-  --dark:#050b14;
+--dark:#050b14;
+--blue:#1D6FA3;
+--orange:#ff8a00;
+--glass:rgba(255,255,255,.08);
 }
 
+*{box-sizing:border-box;}
+
 body{
-  margin:0;
-  font-family:'Inter',sans-serif;
-  background:#050b14;
-  color:#fff;
+margin:0;
+font-family:Inter,sans-serif;
+background:var(--dark);
+color:#fff;
+}
+
+.bg{
+position:fixed;
+inset:0;
+z-index:-1;
+background:
+radial-gradient(circle at 20% 20%, #35a0d9, transparent 45%),
+radial-gradient(circle at 80% 30%, #1D6FA3, transparent 45%),
+radial-gradient(circle at 50% 80%, #0d4b73, transparent 45%);
 }
 
 /* HEADER */
 
 header{
-  position:fixed;
-  top:0;
-  width:100%;
-  padding:18px 40px;
-  background:rgba(5,11,20,.9);
-  backdrop-filter:blur(14px);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  z-index:999;
+position:fixed;
+top:0;
+width:100%;
+padding:14px;
+background:rgba(5,11,20,.9);
+backdrop-filter:blur(14px);
+display:flex;
+flex-wrap:wrap;
+justify-content:space-between;
+align-items:center;
+z-index:999;
 }
 
-.logo{height:55px;}
+.logo{
+height:45px;
+}
+
+nav{
+width:100%;
+text-align:center;
+margin-top:6px;
+}
 
 nav a{
-  margin:0 16px;
-  color:#fff;
-  text-decoration:none;
-  opacity:.85;
+margin:0 10px;
+color:#fff;
+text-decoration:none;
+font-size:14px;
+opacity:.85;
 }
 
-nav a:hover{opacity:1;}
-
-.book-btn{
-  background:linear-gradient(90deg,#ff8a00,#ffb347);
-  color:#000;
-  padding:10px 22px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:700;
-}
+nav a:hover{opacity:1}
 
 /* HERO */
 
 .hero{
-  min-height:70vh;
-  display:flex;
-  align-items:center;
-  padding-top:120px;
-  background:
-    linear-gradient(to bottom, rgba(5,11,20,.7), rgba(5,11,20,.9)),
-    url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=80');
-  background-size:cover;
-  background-position:center;
+min-height:50vh;
+display:flex;
+align-items:center;
+padding-top:120px;
 }
 
 .hero-wrap{
-  max-width:1200px;
-  margin:auto;
-  padding:40px;
-  text-align:center;
+max-width:900px;
+margin:auto;
+text-align:center;
+padding:15px;
 }
 
 .hero h1{
-  font-size:52px;
+font-size:32px;
+font-family:Poppins,sans-serif;
 }
 
 .hero p{
-  font-size:22px;
-  opacity:.9;
-  margin-top:20px;
+font-size:16px;
+opacity:.9;
+margin:12px auto;
+}
+
+.btn{
+display:inline-block;
+background:linear-gradient(90deg,#ff8a00,#ffb347);
+color:#fff;
+padding:12px 28px;
+border-radius:40px;
+font-weight:600;
+text-decoration:none;
+margin-top:14px;
+box-shadow:0 0 18px rgba(255,138,0,.4);
+font-size:14px;
 }
 
 /* SECTION */
 
 .section{
-  max-width:1250px;
-  margin:100px auto;
-  padding:0 40px;
+max-width:1100px;
+margin:60px auto;
+padding:0 18px;
 }
 
 .section h2{
-  text-align:center;
-  font-size:42px;
-  margin-bottom:60px;
+text-align:center;
+font-size:26px;
+margin-bottom:25px;
+font-family:Poppins,sans-serif;
 }
 
 /* GRID */
 
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:22px;
 }
 
-/* SERVICE CARDS */
+/* CARD */
 
 .service{
-  position:relative;
-  min-height:320px;
-  background-size:cover;
-  background-position:center;
-  border-radius:26px;
-  overflow:hidden;
-  display:flex;
-  align-items:flex-end;
-  box-shadow:0 15px 35px rgba(0,0,0,.4);
-  transition:.3s;
-  cursor:pointer;
+background:var(--glass);
+border:1px solid rgba(255,255,255,.15);
+border-radius:18px;
+overflow:hidden;
+backdrop-filter:blur(10px);
+box-shadow:0 10px 25px rgba(0,0,0,.5);
+transition:.25s;
 }
 
 .service:hover{
-  transform:translateY(-8px) scale(1.02);
+transform:translateY(-4px);
+border-color:#35a0d9;
 }
 
-.overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top,
-    rgba(5,11,20,.9),
-    rgba(5,11,20,.4),
-    transparent);
+.service img{
+width:100%;
+height:180px;
+object-fit:cover;
 }
 
 .service-content{
-  position:relative;
-  padding:25px;
+padding:18px;
+text-align:center;
+}
+
+.service-content h3{
+margin:0 0 6px;
+font-family:Poppins,sans-serif;
+font-size:17px;
+}
+
+.service-content p{
+margin:0;
+font-size:13px;
+opacity:.9;
 }
 
 /* CTA */
 
 .cta{
-  text-align:center;
-  padding:100px 40px;
-  background:linear-gradient(90deg,#0d4b73,#1D6FA3);
-}
-
-.cta a{
-  display:inline-block;
-  margin-top:20px;
-  padding:14px 36px;
-  background:#fff;
-  color:#000;
-  border-radius:40px;
-  text-decoration:none;
-  font-weight:700;
+text-align:center;
+padding:45px 18px;
+background:linear-gradient(145deg,#0d4b73,#02121f);
+margin-top:50px;
 }
 
 /* FOOTER */
 
 footer{
-  background:#02060c;
-  padding:40px;
-  text-align:center;
-  color:#aaa;
+text-align:center;
+padding:30px 18px;
+background:#02060c;
+color:#aaa;
+font-size:13px;
 }
 
-/* MOBILE */
+/* CALL BUTTON */
 
-@media(max-width:900px){
+.call-btn{
+position:fixed;
+right:16px;
+bottom:20px;
+background:#ff8a00;
+color:#fff;
+padding:12px 20px;
+border-radius:40px;
+font-weight:600;
+text-decoration:none;
+box-shadow:0 0 18px rgba(255,138,0,.5);
+z-index:9999;
+font-size:13px;
+}
 
-  header{padding:14px 20px;}
-
-  .hero h1{font-size:36px;}
-
+@media(max-width:800px){
+.hero h1{font-size:26px;}
+.service img{height:150px;}
 }
 
 </style>
@@ -198,21 +223,19 @@ footer{
 
 <body>
 
-<!-- HEADER -->
+<div class="bg"></div>
 
 <header>
 
-<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo">
+<img src="images/logo.png" class="logo" alt="Plumbing Gurus">
 
 <nav>
 <a href="index.html">Home</a>
 <a href="services.html">Services</a>
 <a href="delivery.html">Delivery</a>
-<a href="booking.html">Book</a>
+<a href="contact.html">Contact</a>
 <a href="compliance.html">Compliance</a>
 </nav>
-
-<a href="booking.html" class="book-btn">Book Now</a>
 
 </header>
 
@@ -222,91 +245,109 @@ footer{
 
 <div class="hero-wrap">
 
-<h1>Professional Assembly & Installation Services</h1>
+<h1>Our Services</h1>
 
-<p>Precision work for your home — clean, reliable, and compliant.</p>
+<p>Handyman, maintenance, and local delivery services in San Antonio.</p>
+
+<p style="font-size:13px;opacity:.7;">
+Handyman services only. Licensed plumbers are referred when required.
+</p>
+
+<a href="tel:+12109068524" class="btn">📞 Call (210) 906-8524</a>
 
 </div>
 
 </section>
 
-<!-- SERVICES -->
+<!-- HANDYMAN -->
 
 <section class="section">
 
-<h2>Our Core Services</h2>
+<h2>🔧 Home Maintenance & Fixture Assistance</h2>
 
 <div class="grid">
 
-<!-- Shed Assembly -->
-<div class="service"
-onclick="location.href='booking.html'"
-style="background-image:url('https://images.unsplash.com/photo-1598620617133-2c8b35f0fba3?auto=format&fit=crop&w=900&q=80');">
-
-<div class="overlay"></div>
+<div class="service">
+<img src="https://images.unsplash.com/featured/?bathroom,sink">
 <div class="service-content">
-<h3>Shed & Outdoor Assembly</h3>
-<p>Pre-built sheds, storage units, and outdoor structures.</p>
+<h3>Faucets & Fixtures</h3>
+<p>Customer-supplied fixture assistance (non-regulated)</p>
 </div>
 </div>
 
-<!-- Furniture -->
-<div class="service"
-onclick="location.href='booking.html'"
-style="background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=80');">
-
-<div class="overlay"></div>
+<div class="service">
+<img src="https://images.unsplash.com/featured/?toilet,bathroom">
 <div class="service-content">
-<h3>Furniture & Cabinet Assembly</h3>
-<p>Fast, clean setup for home and office.</p>
+<h3>Toilet Adjustments</h3>
+<p>Minor adjustments and non-plumbed fixture help</p>
 </div>
 </div>
 
-<!-- Fixtures -->
-<div class="service"
-onclick="location.href='booking.html'"
-style="background-image:url('https://images.unsplash.com/photo-1581141849291-1125c7b692b5?auto=format&fit=crop&w=900&q=80');">
-
-<div class="overlay"></div>
+<div class="service">
+<img src="https://images.unsplash.com/featured/?plumbing,pipe,valve">
 <div class="service-content">
-<h3>Fixture & Hardware Installation</h3>
-<p>Towel bars, shelving, mirrors, hardware.</p>
+<h3>Valves & Connections</h3>
+<p>Visual checks and referral if needed</p>
 </div>
 </div>
 
-<!-- Smart Devices -->
-<div class="service"
-onclick="location.href='booking.html'"
-style="background-image:url('https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=80');">
-
-<div class="overlay"></div>
+<div class="service">
+<img src="https://images.unsplash.com/featured/?sink,drain,home">
 <div class="service-content">
-<h3>Smart Device Installation</h3>
-<p>Locks, thermostats, cameras, controls.</p>
+<h3>Surface Drain Cleaning</h3>
+<p>Basic surface maintenance only</p>
 </div>
 </div>
 
-<!-- TV Mounting -->
-<div class="service"
-onclick="location.href='booking.html'"
-style="background-image:url('https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=900&q=80');">
-
-<div class="overlay"></div>
+<div class="service">
+<img src="https://images.unsplash.com/featured/?handyman,tools,home">
 <div class="service-content">
-<h3>TV Mounting & Wall Setup</h3>
-<p>Secure installation and cable management.</p>
+<h3>Handyman Repairs</h3>
+<p>Doors, drywall, shelving, hardware</p>
 </div>
 </div>
 
-<!-- Doors & Trim -->
-<div class="service"
-onclick="location.href='booking.html'"
-style="background-image:url('https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=900&q=80');">
-
-<div class="overlay"></div>
+<div class="service">
+<img src="https://images.unsplash.com/featured/?home,maintenance,repair">
 <div class="service-content">
-<h3>Doors, Trim & Adjustments</h3>
-<p>Alignment, hardware, and finishing.</p>
+<h3>General Maintenance</h3>
+<p>Preventative upkeep and inspections</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- DELIVERY -->
+
+<section class="section">
+
+<h2>📦 Local Delivery & Light Hauling</h2>
+
+<div class="grid">
+
+<div class="service">
+<img src="https://images.unsplash.com/featured/?furniture,delivery">
+<div class="service-content">
+<h3>Furniture Delivery</h3>
+<p>Local store and private pickups</p>
+</div>
+</div>
+
+<div class="service">
+<img src="https://images.unsplash.com/featured/?appliance,delivery,truck">
+<div class="service-content">
+<h3>Appliance Pickup</h3>
+<p>Retail and marketplace items</p>
+</div>
+</div>
+
+<div class="service">
+<img src="https://images.unsplash.com/featured/?moving,boxes,van">
+<div class="service-content">
+<h3>Small Moves</h3>
+<p>Single rooms and apartments</p>
 </div>
 </div>
 
@@ -318,11 +359,11 @@ style="background-image:url('https://images.unsplash.com/photo-1600489000022-c20
 
 <section class="cta">
 
-<h2>Ready to Upgrade Your Home?</h2>
+<h2>Need Help Today?</h2>
 
-<p>Schedule your service in minutes.</p>
+<p>Call now for fast, dependable assistance.</p>
 
-<a href="booking.html">Book Service</a>
+<a href="tel:+12109068524" class="btn">Call Now</a>
 
 </section>
 
@@ -330,291 +371,22 @@ style="background-image:url('https://images.unsplash.com/photo-1600489000022-c20
 
 <footer>
 
-<p>© 2026 Plumbing Gurus LLC</p>
+<p><strong>Plumbing Gurus LLC</strong></p>
+<p>Handyman • Maintenance • Delivery • Referrals</p>
+<p>San Antonio, TX • (210) 906-8524</p>
 
-<p>
-<a href="index.html">Home</a> |
-<a href="services.html">Services</a> |
-<a href="delivery.html">Delivery</a> |
-<a href="booking.html">Book</a> |
-<a href="compliance.html">Compliance</a>
+<p style="max-width:900px;margin:20px auto 0;font-size:12px;opacity:.7;">
+This website provides general handyman and maintenance services only.
+We do not perform or offer regulated plumbing work.
+All plumbing work requiring a license, permit, or inspection
+must be performed by a Texas-licensed plumber.
 </p>
+
+<p style="margin-top:15px;">© 2026 Plumbing Gurus LLC</p>
 
 </footer>
 
-</body>
-</html>  font-size:34px;
-  margin-bottom:50px;
-}
-
-/* Grid */
-
-.service-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
-
-.service-card{
-  background:#fff;
-  padding:30px;
-  border-radius:18px;
-  box-shadow:0 6px 18px rgba(0,0,0,.06);
-  text-align:center;
-  transition:.2s;
-  cursor:pointer;
-}
-
-.service-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 12px 25px rgba(11,60,93,.2);
-}
-
-.service-card i{
-  width:36px;
-  height:36px;
-  color:var(--primary);
-  margin-bottom:12px;
-}
-
-.service-card h3{color:var(--primary);}
-
-.note{
-  max-width:900px;
-  margin:40px auto 0;
-  background:#fff;
-  padding:25px;
-  border-radius:14px;
-  box-shadow:0 4px 12px rgba(0,0,0,.06);
-  font-size:14px;
-}
-
-/* CTA */
-
-.cta{
-  background:linear-gradient(to right,var(--primary),var(--accent));
-  color:#fff;
-  text-align:center;
-}
-
-.cta a{
-  display:inline-block;
-  margin-top:20px;
-  background:#fff;
-  color:var(--primary);
-  padding:14px 34px;
-  border-radius:40px;
-  font-weight:600;
-  text-decoration:none;
-}
-
-/* Footer */
-
-footer{
-  background:var(--dark);
-  color:#cbd5e1;
-  text-align:center;
-  padding:50px 25px;
-}
-
-footer a{color:#cbd5e1;text-decoration:none;}
-
-/* Sticky */
-
-.sticky-book{
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  background:var(--primary);
-  color:#fff;
-  padding:15px 26px;
-  border-radius:999px;
-  font-weight:600;
-  text-decoration:none;
-  box-shadow:0 6px 18px rgba(0,0,0,.25);
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- Header -->
-
-<header>
-
-<img src="images/LOGO.png" class="logo">
-
-<nav>
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="estimate.html">Estimate</a>
-<a href="booking.html">Booking</a>
-<a href="about.html">About</a>
-<a href="compliance.html">Compliance</a>
-</nav>
-
-<div class="header-phone">
-<i data-feather="phone"></i>
-<a href="tel:+12109068524">(210) 906-8524</a>
-</div>
-
-</header>
-
-<!-- Hero -->
-
-<section class="hero">
-
-<h1>Our Services</h1>
-
-<p>
-Reliable handyman, fixture replacement, delivery, and referral services
-for San Antonio homeowners and property managers.
-</p>
-
-<p style="font-size:14px;opacity:.9;">
-No licensed plumbing performed. Regulated work referred when required.
-</p>
-
-</section>
-
-<!-- Services -->
-
-<section class="section">
-
-<h2>Primary Home Services</h2>
-
-<div class="service-grid">
-
-<div class="service-card">
-<i data-feather="tool"></i>
-<h3>Handyman Repairs</h3>
-<p>
-Doors, drywall, shelving, hardware installation,
-minor home repairs, and maintenance.
-</p>
-</div>
-
-<div class="service-card">
-<i data-feather="droplet"></i>
-<h3>Fixture Replacement (Non-Plumbing)</h3>
-<p>
-Customer-supplied faucets, toilets, shower heads,
-and hardware replaced without pipe modification.
-</p>
-</div>
-
-<div class="service-card">
-<i data-feather="home"></i>
-<h3>Property Support</h3>
-<p>
-Make-ready services, turnovers, light cleanup,
-and basic maintenance for rentals.
-</p>
-</div>
-
-<div class="service-card">
-<i data-feather="truck"></i>
-<h3>Local Delivery</h3>
-<p>
-Furniture, appliance, and business deliveries
-within San Antonio and nearby areas.
-</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- Dispatch -->
-
-<section class="section" style="background:var(--gray);">
-
-<h2>Referral & Dispatch Support</h2>
-
-<div class="service-grid">
-
-<div class="service-card">
-<i data-feather="users"></i>
-<h3>Licensed Contractor Referrals</h3>
-<p>
-We connect customers with independently licensed
-plumbers when regulated work is required.
-</p>
-</div>
-
-<div class="service-card">
-<i data-feather="calendar"></i>
-<h3>Scheduling Assistance</h3>
-<p>
-Limited appointment coordination and
-dispatch support upon request.
-</p>
-</div>
-
-<div class="service-card">
-<i data-feather="shield"></i>
-<h3>Compliance Focused</h3>
-<p>
-Plumbing Gurus does not perform licensed
-plumbing, gas, or sewer services.
-</p>
-</div>
-
-</div>
-
-<div class="note">
-
-<strong>Important Notice:</strong><br><br>
-
-Plumbing Gurus operates primarily as a handyman and home services provider.
-All plumbing work requiring licensure is referred directly to independent,
-properly licensed professionals. We do not modify water lines, drain lines,
-gas systems, or sewer connections.
-
-</div>
-
-</section>
-
-<!-- CTA -->
-
-<section class="section cta">
-
-<h2>Ready to Get Started?</h2>
-
-<p>Same-week appointments available.</p>
-
-<a href="booking.html">
-<i data-feather="calendar"></i> Schedule Service
-</a>
-
-</section>
-
-<!-- Footer -->
-
-<footer>
-
-<p>© 2026 Plumbing Gurus — Reliable Home Services</p>
-
-<p>
-Handyman services only. Licensed plumbing referred when required.
-</p>
-
-<p>
-<a href="terms.html">Terms</a> | <a href="privacy.html">Privacy</a>
-</p>
-
-</footer>
-
-<!-- Sticky -->
-
-<a href="booking.html" class="sticky-book">
-<i data-feather="calendar"></i> Book Now
-</a>
-
-<script>
-feather.replace();
-</script>
+<a href="tel:+12109068524" class="call-btn">📞 Call</a>
 
 </body>
 </html>
