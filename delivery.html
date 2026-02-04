@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Local Delivery & Small Haul Services in San Antonio | Plumbing Gurus</title>
+<title>Local Delivery & Small Hauling in San Antonio | Plumbing Gurus</title>
 
-<meta name="description" content="Fast, reliable local delivery and small hauling in San Antonio. Furniture, appliances, packages, and equipment. Same-day options available. Call (210) 906-8524.">
+<meta name="description" content="Fast, reliable local delivery and small hauling in San Antonio. Furniture, appliances, packages, and equipment. Same-day service. Call (210) 906-8524.">
 
-<meta name="keywords" content="delivery san antonio, small hauling, furniture delivery, appliance transport, local courier service">
+<meta name="keywords" content="delivery san antonio, small hauling, furniture delivery, appliance transport, local courier">
 
 <meta name="theme-color" content="#0d4b73">
 
-<link rel="icon" href="images/Logo.png">
+<link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -33,38 +33,51 @@ body{
   color:#fff;
 }
 
+/* BACKGROUND */
+
+.bg{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(circle at 20% 20%, #35a0d9, transparent 40%),
+    radial-gradient(circle at 80% 30%, #1D6FA3, transparent 45%),
+    radial-gradient(circle at 50% 80%, #0d4b73, transparent 45%);
+}
+
 /* HEADER */
 
 header{
   position:fixed;
   top:0;
   width:100%;
-  padding:15px;
-  background:rgba(5,11,20,.95);
-  backdrop-filter:blur(12px);
+  padding:18px 15px;
+  background:rgba(5,11,20,.9);
+  backdrop-filter:blur(14px);
   display:flex;
   flex-wrap:wrap;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
   z-index:999;
 }
 
 .logo{
-  height:75px;
+  height:90px;
+  margin-left:-40px;
 }
 
 nav{
-  width:100%;
+  flex:1 1 100%;
   text-align:center;
-  margin-top:8px;
+  margin-top:5px;
 }
 
 nav a{
-  margin:6px 10px;
+  margin:5px 10px;
   color:#fff;
   text-decoration:none;
   font-weight:500;
-  opacity:.9;
+  opacity:.85;
 }
 
 nav a:hover{opacity:1;}
@@ -75,54 +88,58 @@ nav a:hover{opacity:1;}
   min-height:100vh;
   display:flex;
   align-items:center;
-  padding-top:170px;
+  padding-top:190px;
 }
 
 .hero-wrap{
-  max-width:1100px;
+  max-width:1200px;
   margin:auto;
-  padding:40px 25px;
+  padding:40px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:40px;
   text-align:center;
 }
 
 .hero h1{
-  font-size:42px;
+  font-size:44px;
+  line-height:1.1;
 }
 
 .hero p{
   font-size:20px;
   opacity:.9;
-  max-width:750px;
-  margin:20px auto;
 }
 
-.badges{
+/* TAGS */
+
+.hero-tags{
   display:flex;
-  justify-content:center;
   gap:12px;
-  flex-wrap:wrap;
   margin:25px 0;
+  flex-wrap:wrap;
+  justify-content:center;
 }
 
-.badge{
+.tag{
   background:rgba(255,255,255,.12);
-  padding:8px 18px;
+  padding:7px 15px;
   border-radius:50px;
-  font-size:14px;
+  font-size:13px;
 }
 
-/* SECTIONS */
+/* SECTION */
 
 .section{
-  max-width:1100px;
-  margin:80px auto;
-  padding:0 25px;
+  max-width:1200px;
+  margin:100px auto;
+  padding:0 30px;
 }
 
 .section h2{
   text-align:center;
-  font-size:36px;
-  margin-bottom:40px;
+  font-size:40px;
+  margin-bottom:55px;
 }
 
 /* GRID */
@@ -130,32 +147,17 @@ nav a:hover{opacity:1;}
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
-
-/* CARDS */
-
-.card{
-  background:rgba(255,255,255,.95);
-  color:#111;
-  padding:28px;
-  border-radius:20px;
-  box-shadow:0 15px 40px rgba(0,0,0,.4);
-  text-align:center;
-}
-
-.card h3{
-  margin-bottom:12px;
+  gap:35px;
 }
 
 /* IMAGE BOX */
 
 .service-img{
   position:relative;
-  min-height:280px;
+  min-height:320px;
   background-size:cover;
   background-position:center;
-  border-radius:22px;
+  border-radius:24px;
   overflow:hidden;
   display:flex;
   align-items:flex-end;
@@ -165,26 +167,33 @@ nav a:hover{opacity:1;}
 
 .service-img:hover{
   transform:translateY(-6px);
+  box-shadow:0 25px 50px rgba(13,75,115,.7);
 }
 
 .service-overlay{
   position:absolute;
   inset:0;
   background:linear-gradient(to top,
-  rgba(5,11,20,.9),
-  rgba(5,11,20,.4),
-  transparent);
+    rgba(5,11,20,.9),
+    rgba(5,11,20,.5),
+    transparent);
 }
 
 .service-box{
   position:relative;
-  padding:22px;
+  padding:25px;
   width:100%;
   text-align:center;
 }
 
 .service-box h3{
-  margin-bottom:6px;
+  margin:10px 0 8px;
+  font-size:20px;
+}
+
+.service-box p{
+  font-size:14px;
+  opacity:.9;
 }
 
 /* PROCESS */
@@ -192,49 +201,44 @@ nav a:hover{opacity:1;}
 .process{
   max-width:800px;
   margin:auto;
+  font-size:18px;
 }
 
 .process li{
-  margin:14px 0;
-  font-size:18px;
+  margin:15px 0;
 }
 
 /* CTA */
 
 .cta{
   background:linear-gradient(145deg,#1D6FA3,#0d4b73);
-  padding:60px 25px;
+  padding:70px 25px;
   text-align:center;
   margin-top:80px;
 }
 
 .cta h2{
-  font-size:36px;
+  font-size:38px;
 }
 
 .cta a{
   display:inline-block;
   background:linear-gradient(90deg,#ff8a00,#ffb347);
   color:#fff;
-  padding:14px 35px;
+  padding:15px 40px;
   border-radius:40px;
   font-weight:600;
   text-decoration:none;
-  margin-top:15px;
+  margin-top:18px;
 }
 
 /* FOOTER */
 
 footer{
   background:#02060c;
-  padding:35px 20px;
+  padding:40px;
   text-align:center;
   color:#aaa;
-  margin-top:80px;
-}
-
-footer p{
-  margin:6px 0;
 }
 
 /* STICKY */
@@ -243,7 +247,7 @@ footer p{
   position:fixed;
   right:18px;
   bottom:25px;
-  padding:14px 22px;
+  padding:14px 20px;
   border-radius:50px;
   background:#ff8a00;
   color:#fff;
@@ -255,10 +259,16 @@ footer p{
 
 /* MOBILE */
 
-@media(max-width:800px){
+@media(max-width:900px){
 
-  .hero h1{font-size:30px;}
-  .hero p{font-size:18px;}
+  .logo{
+    height:65px;
+    margin-left:-25px;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
 
 }
 
@@ -267,17 +277,21 @@ footer p{
 
 <body>
 
+<div class="bg"></div>
+
 <!-- HEADER -->
 
 <header>
 
-<img src="images/Logo.png" class="logo" alt="Plumbing Gurus Logo">
+<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png"
+class="logo"
+alt="Plumbing Gurus Logo">
 
 <nav>
 <a href="index.html">Home</a>
 <a href="services.html">Services</a>
 <a href="delivery.html">Delivery</a>
-<a href="booking.html">Book Now</a>
+<a href="booking.html">Request Service</a>
 <a href="compliance.html">Compliance</a>
 </nav>
 
@@ -289,27 +303,33 @@ footer p{
 
 <div class="hero-wrap">
 
+<div>
+
 <h1>Fast Local Delivery & Small Hauling in San Antonio</h1>
 
 <p>
-Furniture, appliances, packages, and equipment delivered safely.
-Same-day options with honest pricing.
+Professional pickup and delivery for furniture, appliances,
+packages, and equipment. Same-day service available.
 </p>
 
-<div class="badges">
-<span class="badge">✔ Same-Day Available</span>
-<span class="badge">✔ Insured</span>
-<span class="badge">✔ Careful Handling</span>
-<span class="badge">✔ Local Team</span>
+<div class="hero-tags">
+
+<span class="tag">✔ Same-Day Available</span>
+<span class="tag">✔ Careful Handling</span>
+<span class="tag">✔ Insured Transport</span>
+<span class="tag">✔ Local Team</span>
+
 </div>
 
 <p><strong>📞 Call Now: (210) 906-8524</strong></p>
 
 </div>
 
+</div>
+
 </section>
 
-<!-- IMAGE SERVICES -->
+<!-- GALLERY -->
 
 <section class="section">
 
@@ -318,12 +338,13 @@ Same-day options with honest pricing.
 <div class="grid">
 
 <div class="service-img"
-style="background-image:url('https://images.unsplash.com/photo-1603481546579-65d935ba92c7?auto=format&fit=crop&w=1200&q=80');">
+style="background-image:url('https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?auto=format&fit=crop&w=1200&q=80');">
 
 <div class="service-overlay"></div>
+
 <div class="service-box">
 <h3>Package Delivery</h3>
-<p>Fast and secure transport</p>
+<p>Fast and secure handling</p>
 </div>
 
 </div>
@@ -332,9 +353,10 @@ style="background-image:url('https://images.unsplash.com/photo-1603481546579-65d
 style="background-image:url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80');">
 
 <div class="service-overlay"></div>
+
 <div class="service-box">
-<h3>Furniture Moving</h3>
-<p>Careful lifting and placement</p>
+<h3>Furniture Transport</h3>
+<p>Protected and secured</p>
 </div>
 
 </div>
@@ -343,9 +365,10 @@ style="background-image:url('https://images.unsplash.com/photo-1600566753086-00f
 style="background-image:url('https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=1200&q=80');">
 
 <div class="service-overlay"></div>
+
 <div class="service-box">
-<h3>Appliance Transport</h3>
-<p>Secured and protected</p>
+<h3>Appliance Delivery</h3>
+<p>Professional placement</p>
 </div>
 
 </div>
@@ -354,9 +377,10 @@ style="background-image:url('https://images.unsplash.com/photo-1586864387967-d02
 style="background-image:url('https://images.unsplash.com/photo-1596075780750-81249df16d19?auto=format&fit=crop&w=1200&q=80');">
 
 <div class="service-overlay"></div>
+
 <div class="service-box">
 <h3>Heavy Lifting</h3>
-<p>Professional handling</p>
+<p>Safe moving practices</p>
 </div>
 
 </div>
@@ -375,7 +399,7 @@ style="background-image:url('https://images.unsplash.com/photo-1596075780750-812
 
 <div class="card">
 <h3>Fast Response</h3>
-<p>Quick scheduling and reliable arrival times.</p>
+<p>Quick scheduling and on-time arrivals.</p>
 </div>
 
 <div class="card">
@@ -384,13 +408,13 @@ style="background-image:url('https://images.unsplash.com/photo-1596075780750-812
 </div>
 
 <div class="card">
-<h3>Upfront Pricing</h3>
-<p>No hidden fees. No surprises.</p>
+<h3>Honest Pricing</h3>
+<p>No hidden fees. Clear estimates.</p>
 </div>
 
 <div class="card">
 <h3>Local Professionals</h3>
-<p>San Antonio-based service team.</p>
+<p>San Antonio-based team.</p>
 </div>
 
 </div>
@@ -401,44 +425,18 @@ style="background-image:url('https://images.unsplash.com/photo-1596075780750-812
 
 <section class="section">
 
-<h2>Our Simple Process</h2>
+<h2>Our Delivery Process</h2>
 
 <ol class="process">
 
-<li>Submit pickup & drop-off info</li>
+<li>Request service</li>
 <li>Receive estimate</li>
-<li>Schedule service</li>
+<li>Schedule delivery</li>
 <li>On-time arrival</li>
 <li>Secure transport</li>
-<li>Safe delivery</li>
+<li>Confirm delivery</li>
 
 </ol>
-
-</section>
-
-<!-- INFO -->
-
-<section class="section">
-
-<h2>Service Guidelines</h2>
-
-<div class="card">
-
-<p>
-We do not transport oversized loads requiring DOT permits,
-cranes, or forklifts.
-</p>
-
-<p>
-Additional fees may apply for heavy or fragile items.
-</p>
-
-<p>
-All work follows our
-<a href="compliance.html">Terms & Liability Policy</a>.
-</p>
-
-</div>
 
 </section>
 
@@ -448,9 +446,7 @@ All work follows our
 
 <h2>Need Delivery Today?</h2>
 
-<p>
-Call now and get fast, reliable local service.
-</p>
+<p>Call now and get fast local service.</p>
 
 <a href="tel:+12109068524">📞 Call Now</a>
 
@@ -461,7 +457,7 @@ Call now and get fast, reliable local service.
 <footer>
 
 <p>Plumbing Gurus LLC</p>
-<p>Local Delivery & Handyman Services</p>
+<p>Handyman & Local Delivery Services</p>
 <p>San Antonio, TX</p>
 <p>(210) 906-8524</p>
 <p>© 2026 Plumbing Gurus LLC</p>
