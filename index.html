@@ -6,21 +6,21 @@
 
 <title>Handyman, Minor Plumbing & Delivery in San Antonio | Plumbing Gurus</title>
 
-<meta name="description" content="Local handyman, minor plumbing, and delivery services in San Antonio. Faucets, toilets, fixtures, repairs, and small hauling. Call (210) 906-8524.">
-
-<meta name="keywords" content="handyman san antonio, minor plumbing repair, toilet repair, faucet install, local delivery, small hauling">
-
-<meta name="theme-color" content="#0d4b73">
+<meta name="description" content="Professional handyman, minor plumbing, and local delivery in San Antonio. Faucets, toilets, fixtures, repairs, and hauling. Call (210) 906-8524.">
 
 <link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 
+/* COLORS */
+
 :root{
---blue1:#0d4b73;
---blue2:#1D6FA3;
+--blue:#1D6FA3;
+--dark:#050b14;
+--glass:rgba(255,255,255,.08);
+--glow:#35a0d9;
 --orange:#ff8a00;
 }
 
@@ -28,10 +28,9 @@
 
 body{
 margin:0;
-font-family:'Inter',sans-serif;
-background:#050b14;
+font-family:Inter,sans-serif;
+background:var(--dark);
 color:#fff;
-overflow-x:hidden;
 }
 
 /* BACKGROUND */
@@ -41,7 +40,7 @@ position:fixed;
 inset:0;
 z-index:-1;
 background:
-radial-gradient(circle at 20% 20%, #35a0d9, transparent 40%),
+radial-gradient(circle at 20% 20%, #35a0d9, transparent 45%),
 radial-gradient(circle at 80% 30%, #1D6FA3, transparent 45%),
 radial-gradient(circle at 50% 80%, #0d4b73, transparent 45%);
 }
@@ -52,9 +51,9 @@ header{
 position:fixed;
 top:0;
 width:100%;
-padding:18px 15px;
+padding:18px;
 background:rgba(5,11,20,.9);
-backdrop-filter:blur(14px);
+backdrop-filter:blur(15px);
 display:flex;
 flex-wrap:wrap;
 justify-content:space-between;
@@ -63,25 +62,25 @@ z-index:999;
 }
 
 .logo{
-height:95px;
-margin-left:-45px;
+height:75px;
+margin-left:-25px;
 }
 
 nav{
 width:100%;
 text-align:center;
-margin-top:6px;
+margin-top:8px;
 }
 
 nav a{
-margin:5px 10px;
+margin:0 10px;
 color:#fff;
 text-decoration:none;
 font-weight:500;
 opacity:.85;
 }
 
-nav a:hover{opacity:1;}
+nav a:hover{opacity:1}
 
 /* HERO */
 
@@ -89,172 +88,188 @@ nav a:hover{opacity:1;}
 min-height:100vh;
 display:flex;
 align-items:center;
-padding-top:190px;
+padding-top:160px;
 }
 
 .hero-wrap{
-max-width:1200px;
+max-width:1100px;
 margin:auto;
-padding:40px 25px;
 text-align:center;
+padding:20px;
 }
 
 .hero h1{
-font-size:46px;
+font-size:44px;
 line-height:1.1;
+font-family:Poppins,sans-serif;
 }
 
 .hero p{
 font-size:20px;
 opacity:.9;
-max-width:750px;
-margin:18px auto;
+max-width:720px;
+margin:20px auto;
 }
 
-.hero-tags{
+/* TAGS */
+
+.tags{
 display:flex;
 justify-content:center;
-gap:12px;
 flex-wrap:wrap;
+gap:12px;
 margin:25px 0;
 }
 
 .tag{
-background:rgba(255,255,255,.12);
-padding:7px 15px;
+background:var(--glass);
+padding:8px 18px;
 border-radius:50px;
 font-size:13px;
+border:1px solid rgba(255,255,255,.15);
 }
 
-/* SECTIONS */
+/* BUTTON */
+
+.btn{
+display:inline-block;
+background:linear-gradient(90deg,var(--orange),#ffb347);
+color:#fff;
+padding:14px 38px;
+border-radius:40px;
+font-weight:600;
+text-decoration:none;
+margin-top:20px;
+box-shadow:0 0 25px rgba(255,138,0,.4);
+}
+
+/* SECTION */
 
 .section{
-max-width:1200px;
+max-width:1100px;
 margin:80px auto;
-padding:0 25px;
+padding:0 20px;
 }
 
 .section h2{
 text-align:center;
-font-size:38px;
+font-size:34px;
 margin-bottom:40px;
+font-family:Poppins,sans-serif;
 }
 
 /* GRID */
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
 }
 
-/* IMAGE BOX */
+/* IMAGE CARDS */
 
-.service-img{
+.service{
 position:relative;
-min-height:260px;
+height:260px;
+border-radius:20px;
+overflow:hidden;
 background-size:cover;
 background-position:center;
-border-radius:22px;
-overflow:hidden;
-display:flex;
-align-items:flex-end;
-box-shadow:0 15px 35px rgba(0,0,0,.5);
-transition:.3s ease;
+box-shadow:0 10px 30px rgba(0,0,0,.5);
+transition:.3s;
 }
 
-.service-img:hover{
+.service:hover{
 transform:translateY(-6px);
 }
 
-.service-overlay{
+.service::after{
+content:"";
 position:absolute;
 inset:0;
 background:linear-gradient(to top,
-rgba(5,11,20,.9),
-rgba(5,11,20,.4),
+rgba(0,0,0,.85),
+rgba(0,0,0,.3),
 transparent);
 }
 
-.service-box{
-position:relative;
-padding:22px;
+.service-content{
+position:absolute;
+bottom:0;
 width:100%;
+padding:22px;
+z-index:2;
 text-align:center;
+}
+
+.service h3{
+margin-bottom:6px;
+font-family:Poppins,sans-serif;
 }
 
 /* CARDS */
 
 .card{
-background:rgba(255,255,255,.95);
-color:#111;
+background:linear-gradient(145deg,
+rgba(255,255,255,.06),
+rgba(255,255,255,.02));
+border:1px solid rgba(255,255,255,.12);
 padding:26px;
 border-radius:20px;
 text-align:center;
-box-shadow:0 15px 40px rgba(0,0,0,.4);
+backdrop-filter:blur(12px);
+transition:.3s;
+}
+
+.card:hover{
+box-shadow:0 0 30px rgba(53,160,217,.4);
+border-color:var(--glow);
 }
 
 /* CTA */
 
 .cta{
-background:linear-gradient(145deg,#1D6FA3,#0d4b73);
-padding:65px 25px;
 text-align:center;
+padding:70px 20px;
+background:linear-gradient(145deg,#0d4b73,#02121f);
 margin-top:80px;
 }
 
 .cta h2{
-font-size:36px;
-}
-
-.cta a{
-display:inline-block;
-background:linear-gradient(90deg,#ff8a00,#ffb347);
-color:#fff;
-padding:14px 35px;
-border-radius:40px;
-font-weight:600;
-text-decoration:none;
-margin-top:15px;
+font-size:34px;
 }
 
 /* FOOTER */
 
 footer{
-background:#02060c;
-padding:40px;
 text-align:center;
+padding:35px;
+background:#02060c;
 color:#aaa;
 }
 
 /* STICKY */
 
-.sticky-call{
+.call-btn{
 position:fixed;
 right:18px;
-bottom:25px;
-padding:14px 22px;
-border-radius:50px;
-background:#ff8a00;
+bottom:22px;
+background:var(--orange);
 color:#fff;
+padding:14px 24px;
+border-radius:40px;
 font-weight:600;
 text-decoration:none;
-box-shadow:0 8px 20px rgba(0,0,0,.4);
+box-shadow:0 0 20px rgba(255,138,0,.5);
 z-index:9999;
 }
 
 /* MOBILE */
 
-@media(max-width:900px){
+@media(max-width:800px){
 
-.logo{
-height:65px;
-margin-left:-25px;
-}
-
-.hero h1{
-font-size:32px;
-}
+.hero h1{font-size:32px;}
+.logo{height:60px;}
 
 }
 
@@ -269,15 +284,13 @@ font-size:32px;
 
 <header>
 
-<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png"
-class="logo"
-alt="Plumbing Gurus Logo">
+<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo">
 
 <nav>
 <a href="index.html">Home</a>
 <a href="services.html">Services</a>
 <a href="delivery.html">Delivery</a>
-<a href="booking.html">Request Service</a>
+<a href="booking.html">Book</a>
 <a href="compliance.html">Compliance</a>
 </nav>
 
@@ -292,18 +305,19 @@ alt="Plumbing Gurus Logo">
 <h1>Handyman, Minor Plumbing & Local Delivery in San Antonio</h1>
 
 <p>
-Fast, honest service for faucets, toilets, fixtures,
-home repairs, and small deliveries.
+Professional home repairs, fixture service,
+toilet repairs, and reliable local delivery.
+Quality work. Fair pricing. No shortcuts.
 </p>
 
-<div class="hero-tags">
+<div class="tags">
 <span class="tag">✔ Non-Regulated Work</span>
 <span class="tag">✔ Same-Day Available</span>
 <span class="tag">✔ Local & Insured</span>
 <span class="tag">✔ Licensed Work Referred</span>
 </div>
 
-<p><strong>📞 Call Now: (210) 906-8524</strong></p>
+<a href="tel:+12109068524" class="btn">📞 Call (210) 906-8524</a>
 
 </div>
 
@@ -317,37 +331,33 @@ home repairs, and small deliveries.
 
 <div class="grid">
 
-<div class="service-img"
-style="background-image:url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80');">
-<div class="service-overlay"></div>
-<div class="service-box">
-<h3>Minor Repairs</h3>
-<p>Doors, drywall, hardware</p>
-</div>
-</div>
-
-<div class="service-img"
+<div class="service"
 style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80');">
-<div class="service-overlay"></div>
-<div class="service-box">
-<h3>Fixture Service</h3>
-<p>Faucets & sinks</p>
+<div class="service-content">
+<h3>Minor Plumbing</h3>
+<p>Faucets, toilets, fixtures, valves</p>
 </div>
 </div>
 
-<div class="service-img"
-style="background-image:url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80');">
-<div class="service-overlay"></div>
-<div class="service-box">
-<h3>Toilet Repair</h3>
-<p>Seals & adjustments</p>
+<div class="service"
+style="background-image:url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80');">
+<div class="service-content">
+<h3>Handyman Repairs</h3>
+<p>Drywall, doors, shelving</p>
 </div>
 </div>
 
-<div class="service-img"
+<div class="service"
+style="background-image:url('https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80');">
+<div class="service-content">
+<h3>Maintenance</h3>
+<p>Property upkeep</p>
+</div>
+</div>
+
+<div class="service"
 style="background-image:url('https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?auto=format&fit=crop&w=1200&q=80');">
-<div class="service-overlay"></div>
-<div class="service-box">
+<div class="service-content">
 <h3>Local Delivery</h3>
 <p>Furniture & packages</p>
 </div>
@@ -366,22 +376,22 @@ style="background-image:url('https://images.unsplash.com/photo-1600185365926-3a2
 <div class="grid">
 
 <div class="card">
-<h3>Local Business</h3>
+<h3>Local Professionals</h3>
 <p>San Antonio owned and operated.</p>
 </div>
 
 <div class="card">
-<h3>Honest Pricing</h3>
-<p>No hidden fees.</p>
+<h3>Transparent Pricing</h3>
+<p>No hidden fees. No surprises.</p>
 </div>
 
 <div class="card">
-<h3>Fast Response</h3>
+<h3>Fast Scheduling</h3>
 <p>Same-day options available.</p>
 </div>
 
 <div class="card">
-<h3>Compliance First</h3>
+<h3>Compliance Focused</h3>
 <p>Licensed services referred.</p>
 </div>
 
@@ -389,49 +399,38 @@ style="background-image:url('https://images.unsplash.com/photo-1600185365926-3a2
 
 </section>
 
-<!-- REVIEWS PLACEHOLDER -->
+<!-- REVIEWS -->
 
-<section class="section" id="reviews">
+<section class="section">
 
 <h2>Customer Reviews</h2>
 
 <p style="text-align:center;opacity:.85;margin-bottom:35px;">
-We are a new local business in San Antonio and are currently
-building our review history. Customer feedback coming soon!
+Currently building our review history.
+Customer feedback coming soon!
 </p>
 
 <div class="grid">
 
 <div class="card">
 ⭐⭐⭐⭐⭐
-<p>
-"Professional service and great communication.
-We are committed to quality work on every job."
-</p>
+<p>Professional service and great communication.</p>
 <strong>– Plumbing Gurus Team</strong>
 </div>
 
 <div class="card">
 ⭐⭐⭐⭐⭐
-<p>
-"Locally owned and focused on customer satisfaction."
-</p>
+<p>Locally owned and focused on customer satisfaction.</p>
 <strong>– Plumbing Gurus Promise</strong>
 </div>
 
 <div class="card">
 ⭐⭐⭐⭐⭐
-<p>
-"Your satisfaction is our top priority."
-</p>
-<strong>– San Antonio Service Provider</strong>
+<p>Your satisfaction is our top priority.</p>
+<strong>– San Antonio Provider</strong>
 </div>
 
 </div>
-
-<p style="text-align:center;margin-top:25px;">
-Be one of our first customers and help us grow!
-</p>
 
 </section>
 
@@ -441,9 +440,9 @@ Be one of our first customers and help us grow!
 
 <h2>Need Service Today?</h2>
 
-<p>Call now for fast, reliable help.</p>
+<p>Call now for fast, dependable help.</p>
 
-<a href="tel:+12109068524">📞 Call Now</a>
+<a href="tel:+12109068524" class="btn">Call Now</a>
 
 </section>
 
@@ -452,14 +451,13 @@ Be one of our first customers and help us grow!
 <footer>
 
 <p>Plumbing Gurus LLC</p>
-<p>Handyman, Minor Plumbing & Delivery</p>
-<p>San Antonio, TX</p>
-<p>(210) 906-8524</p>
+<p>Handyman • Minor Plumbing • Delivery</p>
+<p>San Antonio, TX • (210) 906-8524</p>
 <p>© 2026 Plumbing Gurus LLC</p>
 
 </footer>
 
-<a href="tel:+12109068524" class="sticky-call">📞 Call Now</a>
+<a href="tel:+12109068524" class="call-btn">📞 Call</a>
 
 </body>
 </html>
