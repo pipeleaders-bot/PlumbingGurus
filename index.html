@@ -1,339 +1,465 @@
-<!DOCTYPE html><html lang="en">
-<head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Handyman & Minor Plumbing Repairs in San Antonio | Plumbing Gurus</title><meta name="description" content="Reliable handyman and minor plumbing-related repairs in San Antonio. Faucet replacement, toilet repair, leak fixes, and home maintenance. Call (210) 906-8524."><meta name="keywords" content="handyman san antonio, minor plumbing repair, faucet installation, toilet repair, property maintenance"><meta name="theme-color" content="#0d4b73"><link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"><script src="https://unpkg.com/lucide@latest"></script><style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Handyman, Minor Plumbing & Delivery in San Antonio | Plumbing Gurus</title>
+
+<meta name="description" content="Local handyman, minor plumbing, and delivery services in San Antonio. Faucets, toilets, fixtures, repairs, and small hauling. Call (210) 906-8524.">
+
+<meta name="keywords" content="handyman san antonio, minor plumbing repair, toilet repair, faucet install, local delivery, small hauling">
+
+<meta name="theme-color" content="#0d4b73">
+
+<link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
 
 :root{
-  --blue1:#0d4b73;
-  --blue2:#1D6FA3;
-  --orange:#ff8a00;
+--blue1:#0d4b73;
+--blue2:#1D6FA3;
+--orange:#ff8a00;
 }
 
 *{box-sizing:border-box;}
 
 body{
-  margin:0;
-  font-family:'Inter',sans-serif;
-  background:#050b14;
-  color:#fff;
-  overflow-x:hidden;
+margin:0;
+font-family:'Inter',sans-serif;
+background:#050b14;
+color:#fff;
+overflow-x:hidden;
 }
+
+/* BACKGROUND */
 
 .bg{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  background:
-    radial-gradient(circle at 20% 20%, #35a0d9, transparent 40%),
-    radial-gradient(circle at 80% 30%, #1D6FA3, transparent 45%),
-    radial-gradient(circle at 50% 80%, #0d4b73, transparent 45%);
+position:fixed;
+inset:0;
+z-index:-1;
+background:
+radial-gradient(circle at 20% 20%, #35a0d9, transparent 40%),
+radial-gradient(circle at 80% 30%, #1D6FA3, transparent 45%),
+radial-gradient(circle at 50% 80%, #0d4b73, transparent 45%);
 }
 
+/* HEADER */
+
 header{
-  position:fixed;
-  top:0;
-  width:100%;
-  padding:18px 15px;
-  background:rgba(5,11,20,.9);
-  backdrop-filter:blur(14px);
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:space-between;
-  z-index:999;
+position:fixed;
+top:0;
+width:100%;
+padding:18px 15px;
+background:rgba(5,11,20,.9);
+backdrop-filter:blur(14px);
+display:flex;
+flex-wrap:wrap;
+justify-content:space-between;
+align-items:center;
+z-index:999;
 }
 
 .logo{
-  height:120px;
-  margin-left:-55px;
+height:95px;
+margin-left:-45px;
 }
 
 nav{
-  flex:1 1 100%;
-  text-align:center;
-  margin-top:5px;
+width:100%;
+text-align:center;
+margin-top:6px;
 }
 
 nav a{
-  margin:5px 10px;
-  color:#fff;
-  text-decoration:none;
-  font-weight:500;
-  opacity:.85;
+margin:5px 10px;
+color:#fff;
+text-decoration:none;
+font-weight:500;
+opacity:.85;
 }
 
 nav a:hover{opacity:1;}
 
+/* HERO */
+
 .hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  padding-top:190px;
+min-height:100vh;
+display:flex;
+align-items:center;
+padding-top:190px;
 }
 
 .hero-wrap{
-  max-width:1200px;
-  margin:auto;
-  padding:40px;
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:50px;
+max-width:1200px;
+margin:auto;
+padding:40px 25px;
+text-align:center;
 }
 
 .hero h1{
-  font-size:50px;
-  line-height:1.1;
+font-size:46px;
+line-height:1.1;
 }
 
 .hero p{
-  font-size:20px;
-  opacity:.9;
+font-size:20px;
+opacity:.9;
+max-width:750px;
+margin:18px auto;
 }
 
 .hero-tags{
-  display:flex;
-  gap:12px;
-  margin:25px 0;
-  flex-wrap:wrap;
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+margin:25px 0;
 }
 
 .tag{
-  background:rgba(255,255,255,.12);
-  padding:7px 15px;
-  border-radius:50px;
-  font-size:13px;
+background:rgba(255,255,255,.12);
+padding:7px 15px;
+border-radius:50px;
+font-size:13px;
 }
 
-.card{
-  background:rgba(255,255,255,.95);
-  color:#111;
-  border-radius:24px;
-  padding:35px;
-  box-shadow:0 30px 70px rgba(0,0,0,.5);
-}
-
-.card input,
-.card select,
-.card textarea{
-  width:100%;
-  padding:12px;
-  margin-bottom:12px;
-  border-radius:8px;
-  border:1px solid #ccc;
-}
-
-.card button{
-  width:100%;
-  padding:14px;
-  background:linear-gradient(90deg,#ff8a00,#ffb347);
-  border:none;
-  border-radius:40px;
-  color:#fff;
-  font-weight:600;
-}
+/* SECTIONS */
 
 .section{
-  max-width:1200px;
-  margin:100px auto;
-  padding:0 30px;
+max-width:1200px;
+margin:80px auto;
+padding:0 25px;
 }
 
 .section h2{
-  text-align:center;
-  font-size:40px;
-  margin-bottom:55px;
+text-align:center;
+font-size:38px;
+margin-bottom:40px;
 }
+
+/* GRID */
 
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:35px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
 }
 
+/* IMAGE BOX */
+
 .service-img{
-  position:relative;
-  min-height:320px;
-  background-size:cover;
-  background-position:center;
-  border-radius:24px;
-  overflow:hidden;
-  display:flex;
-  align-items:flex-end;
-  box-shadow:0 15px 35px rgba(0,0,0,.5);
-  transition:.3s ease;
+position:relative;
+min-height:260px;
+background-size:cover;
+background-position:center;
+border-radius:22px;
+overflow:hidden;
+display:flex;
+align-items:flex-end;
+box-shadow:0 15px 35px rgba(0,0,0,.5);
+transition:.3s ease;
 }
 
 .service-img:hover{
-  transform:translateY(-6px);
-  box-shadow:0 25px 50px rgba(13,75,115,.7);
+transform:translateY(-6px);
 }
 
 .service-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top,
-    rgba(5,11,20,.9),
-    rgba(5,11,20,.5),
-    transparent);
+position:absolute;
+inset:0;
+background:linear-gradient(to top,
+rgba(5,11,20,.9),
+rgba(5,11,20,.4),
+transparent);
 }
 
 .service-box{
-  position:relative;
-  padding:25px;
-  width:100%;
-  text-align:center;
+position:relative;
+padding:22px;
+width:100%;
+text-align:center;
 }
 
-.service-icon{
-  width:65px;
-  height:65px;
-  background:linear-gradient(145deg,#1D6FA3,#0d4b73);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:0 auto 14px;
+/* CARDS */
+
+.card{
+background:rgba(255,255,255,.95);
+color:#111;
+padding:26px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 15px 40px rgba(0,0,0,.4);
 }
 
-.service-img:hover .service-icon{
-  background:linear-gradient(145deg,#ff8a00,#ffb347);
+/* CTA */
+
+.cta{
+background:linear-gradient(145deg,#1D6FA3,#0d4b73);
+padding:65px 25px;
+text-align:center;
+margin-top:80px;
 }
 
-.service-box h3{
-  margin:10px 0 8px;
-  font-size:20px;
+.cta h2{
+font-size:36px;
 }
 
-.service-box p{
-  font-size:14px;
-  opacity:.9;
-  line-height:1.5;
+.cta a{
+display:inline-block;
+background:linear-gradient(90deg,#ff8a00,#ffb347);
+color:#fff;
+padding:14px 35px;
+border-radius:40px;
+font-weight:600;
+text-decoration:none;
+margin-top:15px;
 }
+
+/* FOOTER */
 
 footer{
-  background:#02060c;
-  padding:40px;
-  text-align:center;
-  color:#aaa;
+background:#02060c;
+padding:40px;
+text-align:center;
+color:#aaa;
 }
 
-.sticky-call,
-.sticky-text{
-  position:fixed;
-  right:18px;
-  padding:14px 20px;
-  border-radius:50px;
-  color:#fff;
-  font-weight:600;
-  text-decoration:none;
-  box-shadow:0 8px 20px rgba(0,0,0,.4);
-  z-index:9999;
-}
+/* STICKY */
 
 .sticky-call{
-  bottom:90px;
-  background:#ff8a00;
+position:fixed;
+right:18px;
+bottom:25px;
+padding:14px 22px;
+border-radius:50px;
+background:#ff8a00;
+color:#fff;
+font-weight:600;
+text-decoration:none;
+box-shadow:0 8px 20px rgba(0,0,0,.4);
+z-index:9999;
 }
 
-.sticky-text{
-  bottom:25px;
-  background:#25D366;
-}
+/* MOBILE */
 
 @media(max-width:900px){
 
-  header{
-    padding:12px 10px;
-    flex-direction:column;
-    align-items:flex-start;
-  }
+.logo{
+height:65px;
+margin-left:-25px;
+}
 
-  .logo{
-    height:75px;
-    margin-left:-35px;
-  }
-
-  nav{
-    width:100%;
-    margin:5px 0;
-  }
-
-  nav a{
-    font-size:13px;
-    margin:4px 6px;
-  }
-
-  .hero{
-    padding-top:170px;
-  }
-
-  .hero-wrap{
-    grid-template-columns:1fr;
-  }
-
-  .hero h1{
-    font-size:32px;
-  }
+.hero h1{
+font-size:32px;
+}
 
 }
 
-</style></head><body><div class="bg"></div><header><img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo" alt="Plumbing Gurus Logo"><nav>
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<!-- HEADER -->
+
+<header>
+
+<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png"
+class="logo"
+alt="Plumbing Gurus Logo">
+
+<nav>
 <a href="index.html">Home</a>
 <a href="services.html">Services</a>
 <a href="delivery.html">Delivery</a>
 <a href="booking.html">Request Service</a>
 <a href="compliance.html">Compliance</a>
-</nav></header><section class="hero"><div class="hero-wrap"><div><h1>Reliable Handyman & Minor Plumbing Services in San Antonio</h1><p>Fast, honest service for faucet replacements, toilet repairs, leak fixes, and home maintenance. Regulated plumbing work is referred to licensed professionals.</p><div class="hero-tags">
-<span class="tag">✔ Non‑Regulated Work</span>
-<span class="tag">⏱ Fast Response</span>
-<span class="tag">⭐ Trusted Local Service</span>
-</div></div><div class="card"><h3>Request Service</h3><form action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST"><input type="hidden" name="_captcha" value="false"><input type="text" name="name" placeholder="Your Name" required>
-<input type="tel" name="phone" placeholder="Phone Number" required><select name="service" required>
-<option value="">Select Service</option>
-<option>Minor Repairs</option>
-<option>Fixture Service</option>
-<option>Toilet Service</option>
-<option>Property Maintenance</option>
-</select><textarea name="message" placeholder="Describe your project"></textarea><button>Submit Request</button>
+</nav>
 
-</form></div></div></section><section class="section"><h2>Our Core Services in San Antonio</h2><div class="grid"><div class="service-img"
-style="background-image:url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80');"><div class="service-overlay"></div><div class="service-box"><div class="service-icon"><i data-lucide="hammer"></i></div><h3>Minor Repairs</h3><p>
-Residential and light commercial repairs including doors,
-drywall, shelving, hardware, and small fixes.
-</p></div></div><div class="service-img"
-style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80');"><div class="service-overlay"></div><div class="service-box"><div class="service-icon"><i data-lucide="droplet"></i></div><h3>Fixture Service</h3><p>
-Installation and repair of customer-supplied faucets,
-sinks, and bathroom fixtures.
-</p></div></div><div class="service-img"
-style="background-image:url('https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80');"><div class="service-overlay"></div><div class="service-box"><div class="service-icon"><i data-lucide="wrench"></i></div><h3>Toilet Service</h3><p>
-Toilet adjustments, seal replacement,
-flush repairs, and standard installations.
-</p></div></div><div class="service-img"
-style="background-image:url('https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1200&q=80');"><div class="service-overlay"></div><div class="service-box"><div class="service-icon"><i data-lucide="home"></i></div><h3>Property Maintenance</h3><p>
-Ongoing upkeep, preventive maintenance,
-and general property support.
-</p></div></div></div></section><!-- GALLERY --><section class="section"><h2>Finished Bathrooms & Fixture Installations</h2><div class="grid"><div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80');">
-<div class="service-overlay"></div>
-<div class="service-box"><h3>Modern Bathroom Upgrade</h3><p>Clean fixture installation and finishing.</p></div>
-</div><div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80');">
-<div class="service-overlay"></div>
-<div class="service-box"><h3>Sink & Faucet Replacement</h3><p>Customer-supplied fixtures installed professionally.</p></div>
-</div><div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80');">
-<div class="service-overlay"></div>
-<div class="service-box"><h3>Kitchen Fixture Service</h3><p>Leak-free installs with clean finish.</p></div>
-</div><div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80');">
-<div class="service-overlay"></div>
-<div class="service-box"><h3>Shower & Bathroom Refresh</h3><p>Polished, modern bathroom look.</p></div>
-</div><div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80');">
-<div class="service-overlay"></div>
-<div class="service-box"><h3>Toilet Installation</h3><p>Proper sealing and alignment.</p></div>
-</div><div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80');">
-<div class="service-overlay"></div>
-<div class="service-box"><h3>Vanity & Sink Setup</h3><p>Level, secure, and leak-free.</p></div>
-</div></div></section><footer><p>© 2026 Plumbing Gurus LLC — Handyman & Minor Plumbing Services</p>
-<p>Non-regulated work only. Licensed services referred.</p></footer><a href="tel:+12109068524" class="sticky-call">📞 Call Now</a>
+</header>
 
-<script>
-lucide.createIcons();
-</script></body>
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-wrap">
+
+<h1>Handyman, Minor Plumbing & Local Delivery in San Antonio</h1>
+
+<p>
+Fast, honest service for faucets, toilets, fixtures,
+home repairs, and small deliveries.
+</p>
+
+<div class="hero-tags">
+<span class="tag">✔ Non-Regulated Work</span>
+<span class="tag">✔ Same-Day Available</span>
+<span class="tag">✔ Local & Insured</span>
+<span class="tag">✔ Licensed Work Referred</span>
+</div>
+
+<p><strong>📞 Call Now: (210) 906-8524</strong></p>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="section">
+
+<h2>Our Core Services</h2>
+
+<div class="grid">
+
+<div class="service-img"
+style="background-image:url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80');">
+<div class="service-overlay"></div>
+<div class="service-box">
+<h3>Minor Repairs</h3>
+<p>Doors, drywall, hardware</p>
+</div>
+</div>
+
+<div class="service-img"
+style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80');">
+<div class="service-overlay"></div>
+<div class="service-box">
+<h3>Fixture Service</h3>
+<p>Faucets & sinks</p>
+</div>
+</div>
+
+<div class="service-img"
+style="background-image:url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80');">
+<div class="service-overlay"></div>
+<div class="service-box">
+<h3>Toilet Repair</h3>
+<p>Seals & adjustments</p>
+</div>
+</div>
+
+<div class="service-img"
+style="background-image:url('https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?auto=format&fit=crop&w=1200&q=80');">
+<div class="service-overlay"></div>
+<div class="service-box">
+<h3>Local Delivery</h3>
+<p>Furniture & packages</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- WHY -->
+
+<section class="section">
+
+<h2>Why Choose Plumbing Gurus?</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Local Business</h3>
+<p>San Antonio owned and operated.</p>
+</div>
+
+<div class="card">
+<h3>Honest Pricing</h3>
+<p>No hidden fees.</p>
+</div>
+
+<div class="card">
+<h3>Fast Response</h3>
+<p>Same-day options available.</p>
+</div>
+
+<div class="card">
+<h3>Compliance First</h3>
+<p>Licensed services referred.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- REVIEWS PLACEHOLDER -->
+
+<section class="section" id="reviews">
+
+<h2>Customer Reviews</h2>
+
+<p style="text-align:center;opacity:.85;margin-bottom:35px;">
+We are a new local business in San Antonio and are currently
+building our review history. Customer feedback coming soon!
+</p>
+
+<div class="grid">
+
+<div class="card">
+⭐⭐⭐⭐⭐
+<p>
+"Professional service and great communication.
+We are committed to quality work on every job."
+</p>
+<strong>– Plumbing Gurus Team</strong>
+</div>
+
+<div class="card">
+⭐⭐⭐⭐⭐
+<p>
+"Locally owned and focused on customer satisfaction."
+</p>
+<strong>– Plumbing Gurus Promise</strong>
+</div>
+
+<div class="card">
+⭐⭐⭐⭐⭐
+<p>
+"Your satisfaction is our top priority."
+</p>
+<strong>– San Antonio Service Provider</strong>
+</div>
+
+</div>
+
+<p style="text-align:center;margin-top:25px;">
+Be one of our first customers and help us grow!
+</p>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<h2>Need Service Today?</h2>
+
+<p>Call now for fast, reliable help.</p>
+
+<a href="tel:+12109068524">📞 Call Now</a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>Plumbing Gurus LLC</p>
+<p>Handyman, Minor Plumbing & Delivery</p>
+<p>San Antonio, TX</p>
+<p>(210) 906-8524</p>
+<p>© 2026 Plumbing Gurus LLC</p>
+
+</footer>
+
+<a href="tel:+12109068524" class="sticky-call">📞 Call Now</a>
+
+</body>
 </html>
-
