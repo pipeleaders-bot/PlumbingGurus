@@ -12,7 +12,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- LOCAL BUSINESS SCHEMA -->
+<!-- Local Business Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -36,7 +36,7 @@
 
 <style>
 
-/* GLOBAL */
+/* ===== ROOT COLORS ===== */
 
 :root{
 --dark:#050b14;
@@ -45,6 +45,8 @@
 --light:#ffffff;
 --muted:#b8c7d9;
 }
+
+/* ===== GLOBAL ===== */
 
 *{box-sizing:border-box;scroll-behavior:smooth;}
 
@@ -56,12 +58,7 @@ color:var(--light);
 overflow-x:hidden;
 }
 
-section{
-padding:110px 20px;
-max-width:1200px;
-margin:auto;
-}
-
+/* Background Glow */
 body::before{
 content:"";
 position:fixed;
@@ -73,7 +70,13 @@ radial-gradient(circle at 80% 30%, rgba(29,111,163,.4), transparent 40%),
 radial-gradient(circle at 50% 80%, rgba(13,75,115,.6), transparent 45%);
 }
 
-/* HEADER */
+section{
+padding:110px 20px;
+max-width:1200px;
+margin:auto;
+}
+
+/* ===== HEADER ===== */
 
 header{
 position:fixed;
@@ -110,7 +113,7 @@ opacity:1;
 color:var(--glow);
 }
 
-/* HERO */
+/* ===== HERO ===== */
 
 .hero{
 text-align:center;
@@ -118,7 +121,7 @@ padding-top:170px;
 }
 
 .hero h1{
-font-size:44px;
+font-size:42px;
 font-family:Poppins,sans-serif;
 margin-bottom:20px;
 }
@@ -143,9 +146,11 @@ box-shadow:0 0 25px rgba(53,160,217,.5);
 transition:.3s;
 }
 
-.btn:hover{transform:translateY(-3px);}
+.btn:hover{
+transform:translateY(-3px);
+}
 
-/* GRID */
+/* ===== GRID ===== */
 
 .grid{
 display:grid;
@@ -173,7 +178,7 @@ font-family:Poppins;
 margin-bottom:10px;
 }
 
-/* WORK */
+/* ===== WORK ===== */
 
 .work-img{
 width:100%;
@@ -182,9 +187,22 @@ margin-bottom:15px;
 transition:.4s;
 }
 
-.work-img:hover{transform:scale(1.04);}
+.work-img:hover{
+transform:scale(1.04);
+}
 
-/* NOTICE */
+/* ===== CTA ===== */
+
+.cta{
+text-align:center;
+padding:120px 20px;
+background:linear-gradient(145deg,#0c1f33,#081523);
+border-radius:30px;
+margin:120px auto;
+max-width:1000px;
+}
+
+/* ===== NOTICE ===== */
 
 .notice{
 max-width:900px;
@@ -201,18 +219,7 @@ color:var(--light);
 margin-bottom:15px;
 }
 
-/* CTA */
-
-.cta{
-text-align:center;
-padding:120px 20px;
-background:linear-gradient(145deg,#0c1f33,#081523);
-border-radius:30px;
-margin:120px auto;
-max-width:1000px;
-}
-
-/* FOOTER */
+/* ===== FOOTER ===== */
 
 footer{
 text-align:center;
@@ -234,12 +241,13 @@ font-weight:600;
 box-shadow:0 0 20px rgba(53,160,217,.6);
 }
 
-/* MOBILE */
+/* ===== MOBILE ===== */
 
 @media(max-width:800px){
-.logo{height:70px;}
-.hero h1{font-size:30px;}
+.logo{height:75px;}
+.hero h1{font-size:28px;}
 nav{gap:15px;font-size:14px;}
+header{padding:8px 15px;}
 }
 
 </style>
@@ -283,7 +291,7 @@ nav{gap:15px;font-size:14px;}
 
 <div class="card">
 <h3>Licensed Work Referrals</h3>
-<p>Services requiring regulated plumbing oversight are coordinated with properly licensed professionals.</p>
+<p>Services requiring regulated plumbing oversight are coordinated with properly licensed professionals when applicable.</p>
 </div>
 
 </div>
@@ -335,168 +343,4 @@ Services requiring state-licensed plumbing oversight or regulated installations 
 <a href="tel:+12109068524" class="call-btn">📞 Call</a>
 
 </body>
-</html>background:linear-gradient(90deg,var(--orange),#ffb347);
-color:#fff;
-padding:14px 38px;
-border-radius:40px;
-font-weight:600;
-text-decoration:none;
-margin-top:20px;
-box-shadow:0 0 25px rgba(255,138,0,.4);
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-}
-
-.card{
-background:linear-gradient(145deg,
-rgba(255,255,255,.06),
-rgba(255,255,255,.02));
-border:1px solid rgba(255,255,255,.12);
-padding:20px;
-border-radius:18px;
-text-align:center;
-}
-
-.work-img{
-width:100%;
-border-radius:16px;
-margin-bottom:12px;
-box-shadow:0 10px 25px rgba(0,0,0,.5);
-transition:.3s;
-}
-
-.work-img:hover{
-transform:translateY(-5px);
-}
-
-footer{
-text-align:center;
-padding:40px;
-background:#02060c;
-color:#aaa;
-}
-
-.call-btn{
-position:fixed;
-right:18px;
-bottom:22px;
-background:var(--orange);
-color:#fff;
-padding:14px 24px;
-border-radius:40px;
-font-weight:600;
-text-decoration:none;
-box-shadow:0 0 20px rgba(255,138,0,.5);
-z-index:9999;
-}
-
-@media(max-width:800px){
-.hero h1{font-size:30px;}
-.logo{height:75px;} /* Auto smaller on mobile */
-header{padding:8px 15px;}
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="bg"></div>
-
-<header>
-<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo">
-<nav>
-<a href="#services">Services</a>
-<a href="#work">Work</a>
-<a href="#contact">Contact</a>
-</nav>
-</header>
-
-<section class="section hero">
-<h1>Handyman & Fixture Services in San Antonio</h1>
-<p>
-Professional fixture replacement, minor maintenance,
-home repairs, and local delivery services.
-Quality work. Fair pricing.
-</p>
-<a href="tel:+12109068524" class="btn">📞 Call (210) 906-8524</a>
-</section>
-
-<section class="section" id="services">
-<h2>Core Services</h2>
-<div class="grid">
-<div class="card">
-<h3>Fixture Replacement</h3>
-<p>Faucets, toilets, and hardware upgrades.</p>
-</div>
-<div class="card">
-<h3>Handyman Repairs</h3>
-<p>Doors, drywall, shelving and installs.</p>
-</div>
-<div class="card">
-<h3>Property Maintenance</h3>
-<p>General upkeep and improvements.</p>
-</div>
-<div class="card">
-<h3>Local Delivery</h3>
-<p>Furniture and appliance transport.</p>
-</div>
-</div>
-</section>
-
-<section class="section" id="work">
-<h2>Recent Work</h2>
-<div class="grid">
-
-<div class="card">
-<img src="images/sink-fixture-upgrade.png" class="work-img" alt="Sink fixture upgrade">
-<h3>Sink Fixture Upgrade</h3>
-</div>
-
-<div class="card">
-<img src="images/shower-trim-update.png" class="work-img" alt="Shower trim update">
-<h3>Shower Trim Update</h3>
-</div>
-
-<div class="card">
-<img src="images/kitchen-fixture-install.png" class="work-img" alt="Kitchen fixture install">
-<h3>Kitchen Fixture Install</h3>
-</div>
-
-<div class="card">
-<img src="images/mailbox-replacement.jpg" class="work-img" alt="Mailbox replacement">
-<h3>Mailbox Replacement</h3>
-</div>
-
-<div class="card">
-<img src="images/fixture-service.png" class="work-img" alt="Fixture service">
-<h3>Fixture Service</h3>
-</div>
-
-</div>
-</section>
-
-<section class="section" id="contact">
-<h2>Need Service Today?</h2>
-<p style="text-align:center;">Call now for fast, dependable help.</p>
-<p style="text-align:center;">
-<a href="tel:+12109068524" class="btn">Call Now</a>
-</p>
-</section>
-
-<footer>
-<p>Plumbing Gurus LLC</p>
-<p>Handyman • Fixture Services • Delivery</p>
-<p>San Antonio, TX • (210) 906-8524</p>
-<p>© 2026 Plumbing Gurus LLC</p>
-</footer>
-
-<a href="tel:+12109068524" class="call-btn">📞 Call</a>
-
-</body>
 </html>
-
