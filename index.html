@@ -65,12 +65,13 @@ backdrop-filter:blur(14px);
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:10px 30px;
+padding:8px 20px; /* reduced side padding */
 z-index:999;
 }
 
 .logo{
-height:90px;
+height:95px;
+margin-left:-12px; /* moves logo closer to left */
 }
 
 nav{
@@ -209,9 +210,19 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 
 @media(max-width:800px){
 
-.logo{height:70px;}
-.hero h1{font-size:30px;}
-nav{gap:15px;font-size:14px;}
+.logo{
+height:70px;
+margin-left:-8px;
+}
+
+.hero h1{
+font-size:30px;
+}
+
+nav{
+gap:15px;
+font-size:14px;
+}
 
 }
 
@@ -242,7 +253,6 @@ Transparent pricing and dependable service.
 
 <section id="services">
 <h2 style="text-align:center;font-family:Poppins;">Core Services</h2>
-
 <div class="grid">
 
 <div class="card">
@@ -270,26 +280,25 @@ Transparent pricing and dependable service.
 
 <section id="work">
 <h2 style="text-align:center;font-family:Poppins;">Recent Work</h2>
-
 <div class="grid">
 
 <div class="card">
-<img src="images/sink-fixture-upgrade.png" class="work-img" alt="Sink Fixture Upgrade">
+<img src="images/sink-fixture-upgrade.png" class="work-img">
 <h3>Sink Fixture Upgrade</h3>
 </div>
 
 <div class="card">
-<img src="images/shower-trim-update.png" class="work-img" alt="Shower Trim Update">
+<img src="images/shower-trim-update.png" class="work-img">
 <h3>Shower Trim Update</h3>
 </div>
 
 <div class="card">
-<img src="images/kitchen-fixture-install.png" class="work-img" alt="Kitchen Fixture Install">
+<img src="images/kitchen-fixture-install.png" class="work-img">
 <h3>Kitchen Fixture Install</h3>
 </div>
 
 <div class="card">
-<img src="images/mailbox-replacement.jpg" class="work-img" alt="Mailbox Replacement">
+<img src="images/mailbox-replacement.jpg" class="work-img">
 <h3>Mailbox Replacement</h3>
 </div>
 
@@ -298,11 +307,9 @@ Transparent pricing and dependable service.
 
 <section id="reviews">
 <h2 style="text-align:center;font-family:Poppins;">Verified Customer Reviews</h2>
-
 <p style="text-align:center;color:var(--muted);margin-bottom:40px;">
 Client feedback collected through our Thumbtack profile.
 </p>
-
 <div class="grid">
 
 <div class="card">
@@ -332,7 +339,7 @@ Client feedback collected through our Thumbtack profile.
 </div>
 
 <div style="text-align:center;margin-top:40px;">
-<a href="https://www.thumbtack.com/tx/san-antonio/affordable-plumbing-services/plumbing-gurus/service/478170937467936775?utm_medium=android&referrer_pk=477271719085072401&surface=sp" target="_blank" class="btn">
+<a href="https://www.thumbtack.com/tx/san-antonio/affordable-plumbing-services/plumbing-gurus/service/478170937467936775" target="_blank" class="btn">
 View Full Reviews on Thumbtack
 </a>
 </div>
@@ -341,7 +348,6 @@ View Full Reviews on Thumbtack
 
 <section id="delivery">
 <h2 style="text-align:center;font-family:Poppins;">Local Delivery Services</h2>
-
 <div class="grid">
 
 <div class="card">
