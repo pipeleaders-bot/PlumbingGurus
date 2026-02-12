@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plumbing Gurus | Fixture & Property Services – San Antonio</title>
+<title>Plumbing Gurus | Reliable Fixture & Property Services</title>
 
-<meta name="description" content="Professional fixture replacement, handyman repairs, and local delivery coordination in San Antonio. Minor plumbing and compliance-focused referrals available. Call (210) 906-8524.">
+<meta name="description" content="Reliable fixture replacement, handyman repairs, property maintenance and local delivery coordination in San Antonio. Call (210) 906-8524.">
 
 <link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
 
@@ -14,16 +14,20 @@
 
 <style>
 
+/* ================= GLOBAL ================= */
+
 :root{
 --dark:#050b14;
---deep:#0c1f33;
 --blue:#1D6FA3;
 --glow:#35a0d9;
 --light:#ffffff;
 --muted:#b8c7d9;
 }
 
-*{box-sizing:border-box;scroll-behavior:smooth;}
+*{
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
 
 body{
 margin:0;
@@ -33,15 +37,25 @@ color:var(--light);
 overflow-x:hidden;
 }
 
+/* Background Glow */
+
 body::before{
 content:"";
 position:fixed;
 inset:0;
 z-index:-1;
 background:
-radial-gradient(circle at 20% 20%, rgba(53,160,217,.35), transparent 40%),
-radial-gradient(circle at 80% 30%, rgba(29,111,163,.35), transparent 40%),
+radial-gradient(circle at 20% 20%, rgba(53,160,217,.4), transparent 40%),
+radial-gradient(circle at 80% 30%, rgba(29,111,163,.4), transparent 40%),
 radial-gradient(circle at 50% 80%, rgba(13,75,115,.6), transparent 45%);
+}
+
+/* Layout Container */
+
+.container{
+max-width:1200px;
+margin:0 auto;
+padding:0 20px;
 }
 
 /* ================= HEADER ================= */
@@ -50,28 +64,32 @@ header{
 position:fixed;
 top:0;
 width:100%;
-background:rgba(5,11,20,.9);
+background:rgba(5,11,20,.95);
 backdrop-filter:blur(14px);
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:8px 15px;
 z-index:999;
 }
 
+.header-inner{
+max-width:1200px;
+margin:0 auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:10px 20px;
+}
+
 .logo{
-height:95px;
-margin-left:-30px; /* pushed further left */
-cursor:pointer;
+height:90px;
+display:block;
 }
 
 nav{
 display:flex;
-gap:30px;
+gap:28px;
 }
 
 nav a{
-color:var(--light);
+color:#fff;
 text-decoration:none;
 font-weight:500;
 opacity:.85;
@@ -86,31 +104,31 @@ color:var(--glow);
 /* ================= HERO ================= */
 
 .hero{
+padding-top:160px;
 text-align:center;
-padding:180px 20px 120px 20px;
-max-width:1000px;
-margin:auto;
+padding-bottom:120px;
 }
 
 .hero h1{
-font-size:46px;
+font-size:48px;
 font-family:Poppins,sans-serif;
 margin-bottom:20px;
 }
 
 .hero p{
+max-width:720px;
+margin:0 auto;
 font-size:20px;
 color:var(--muted);
-max-width:700px;
-margin:auto;
+line-height:1.6;
 }
 
 .btn{
 display:inline-block;
-margin-top:30px;
-padding:16px 48px;
+margin-top:35px;
+padding:16px 45px;
 background:linear-gradient(90deg,var(--blue),var(--glow));
-border-radius:50px;
+border-radius:40px;
 text-decoration:none;
 color:white;
 font-weight:600;
@@ -125,16 +143,14 @@ transform:translateY(-4px);
 /* ================= SECTION ================= */
 
 section{
-padding:110px 20px;
-max-width:1200px;
-margin:auto;
+padding:110px 0;
 }
 
-h2{
+.section-title{
 text-align:center;
 font-family:Poppins,sans-serif;
 font-size:38px;
-margin-bottom:50px;
+margin-bottom:60px;
 }
 
 /* ================= GRID ================= */
@@ -142,10 +158,8 @@ margin-bottom:50px;
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:35px;
+gap:30px;
 }
-
-/* ================= CARD ================= */
 
 .card{
 background:rgba(255,255,255,.05);
@@ -177,33 +191,17 @@ transition:.4s;
 }
 
 .work-img:hover{
-transform:scale(1.05);
-}
-
-/* ================= REVIEWS ================= */
-
-.review{
-margin-bottom:25px;
-padding:25px;
-background:rgba(255,255,255,.05);
-border-radius:15px;
-border:1px solid rgba(255,255,255,.1);
-}
-
-.review strong{
-display:block;
-margin-bottom:6px;
-color:var(--glow);
+transform:scale(1.04);
 }
 
 /* ================= FOOTER ================= */
 
 footer{
 text-align:center;
-padding:50px 20px;
+padding:60px 20px;
 color:#9fb3c8;
 background:#02060c;
-margin-top:100px;
+margin-top:120px;
 }
 
 .call-btn{
@@ -211,7 +209,7 @@ position:fixed;
 bottom:25px;
 right:25px;
 background:linear-gradient(90deg,var(--blue),var(--glow));
-padding:16px 30px;
+padding:16px 28px;
 border-radius:50px;
 text-decoration:none;
 color:white;
@@ -224,17 +222,18 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 @media(max-width:800px){
 
 .logo{
-height:75px;
-margin-left:-20px;
+height:70px;
 }
 
 nav{
-gap:15px;
+gap:16px;
 font-size:14px;
+flex-wrap:wrap;
+justify-content:flex-end;
 }
 
 .hero h1{
-font-size:30px;
+font-size:32px;
 }
 
 }
@@ -244,7 +243,10 @@ font-size:30px;
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header>
+<div class="header-inner">
 <a href="index.html">
 <img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo">
 </a>
@@ -252,25 +254,31 @@ font-size:30px;
 <nav>
 <a href="#services">Services</a>
 <a href="#work">Work</a>
-<a href="delivery.html">Delivery</a>
 <a href="#reviews">Reviews</a>
-<a href="request.html">Request Service</a>
+<a href="delivery.html">Delivery</a>
+<a href="request.html">Request</a>
 <a href="compliance.html">Compliance</a>
 </nav>
+</div>
 </header>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
-<section class="hero">
+<div class="container hero">
 <h1>Reliable Fixture & Property Services in San Antonio</h1>
-<p>Professional fixture replacement, handyman repairs, maintenance support and local delivery coordination. Quality service. Clear pricing. Compliance-focused referrals when required.</p>
+<p>
+Professional fixture replacement, handyman repairs, maintenance support,
+and local delivery coordination. Clear pricing. Compliance-focused referrals when required.
+</p>
 <a href="tel:+12109068524" class="btn">Call (210) 906-8524</a>
-</section>
+</div>
 
-<!-- SERVICES -->
+<!-- ================= SERVICES ================= -->
 
 <section id="services">
-<h2>Core Services</h2>
+<div class="container">
+<h2 class="section-title">Core Services</h2>
+
 <div class="grid">
 
 <div class="card">
@@ -294,12 +302,15 @@ font-size:30px;
 </div>
 
 </div>
+</div>
 </section>
 
-<!-- WORK -->
+<!-- ================= WORK ================= -->
 
 <section id="work">
-<h2>Recent Work</h2>
+<div class="container">
+<h2 class="section-title">Recent Work</h2>
+
 <div class="grid">
 
 <div class="card">
@@ -322,40 +333,11 @@ font-size:30px;
 <h3>Mailbox Replacement</h3>
 </div>
 
-<div class="card">
-<img src="images/fixture-service.png" class="work-img">
-<h3>Fixture Service</h3>
 </div>
-
 </div>
 </section>
 
-<!-- REVIEWS -->
-
-<section id="reviews">
-<h2>Verified Customer Reviews</h2>
-
-<div class="review">
-<strong>★★★★★ – Larry S.</strong>
-Christian responded promptly, arrived on time, was very polite and professional, and provided great service at a very affordable price. Highly recommended.
-</div>
-
-<div class="review">
-<strong>★★★★★ – Thacarli B.</strong>
-Very nice job.
-</div>
-
-<div class="review">
-<strong>★★★★★ – Javier W.</strong>
-Great work by Christian.
-</div>
-
-<div class="review">
-<strong>★★★★★ – Michelle S.</strong>
-Did just fine. Close to the estimate pricing.
-</div>
-
-</section>
+<!-- ================= FOOTER ================= -->
 
 <footer>
 <p>Plumbing Gurus LLC</p>
