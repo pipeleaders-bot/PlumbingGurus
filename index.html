@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plumbing Gurus | Reliable Fixture & Property Services – San Antonio</title>
+<title>Plumbing Gurus | Fixture & Property Services – San Antonio</title>
 
-<meta name="description" content="Professional fixture replacement, handyman repairs and local delivery services in San Antonio, TX. Reliable service. Transparent pricing. Call (210) 906-8524.">
+<meta name="description" content="Professional fixture replacement, handyman repairs, minor maintenance and local delivery services in San Antonio. Call (210) 906-8524.">
 
 <link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
 
@@ -18,14 +18,11 @@
 --dark:#050b14;
 --blue:#1D6FA3;
 --glow:#35a0d9;
---muted:#b8c7d9;
 --light:#ffffff;
+--muted:#b8c7d9;
 }
 
-*{
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
+*{box-sizing:border-box;scroll-behavior:smooth;}
 
 body{
 margin:0;
@@ -47,31 +44,28 @@ radial-gradient(circle at 80% 30%, rgba(29,111,163,.4), transparent 40%),
 radial-gradient(circle at 50% 80%, rgba(13,75,115,.6), transparent 45%);
 }
 
-/* Sections */
-section{
-padding:110px 20px;
-max-width:1200px;
-margin:auto;
-}
-
 /* ================= HEADER ================= */
 
 header{
 position:fixed;
 top:0;
 width:100%;
-background:rgba(5,11,20,.9);
+background:rgba(5,11,20,.88);
 backdrop-filter:blur(14px);
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:8px 20px; /* reduced side padding */
+padding:6px 22px;
 z-index:999;
+}
+
+.logo-wrap{
+margin-left:-14px;
 }
 
 .logo{
 height:95px;
-margin-left:-12px; /* moves logo closer to left */
+display:block;
 }
 
 nav{
@@ -80,7 +74,7 @@ gap:25px;
 }
 
 nav a{
-color:var(--light);
+color:white;
 text-decoration:none;
 font-weight:500;
 opacity:.85;
@@ -92,11 +86,17 @@ opacity:1;
 color:var(--glow);
 }
 
-/* ================= HERO ================= */
+/* ================= SECTIONS ================= */
+
+section{
+padding:120px 20px;
+max-width:1200px;
+margin:auto;
+}
 
 .hero{
 text-align:center;
-padding-top:170px;
+padding-top:180px;
 }
 
 .hero h1{
@@ -106,7 +106,7 @@ margin-bottom:20px;
 }
 
 .hero p{
-max-width:700px;
+max-width:720px;
 margin:auto;
 font-size:20px;
 color:var(--muted);
@@ -129,7 +129,7 @@ transition:.3s;
 transform:translateY(-3px);
 }
 
-/* ================= GRID ================= */
+/* GRID */
 
 .grid{
 display:grid;
@@ -138,12 +138,12 @@ gap:30px;
 margin-top:50px;
 }
 
-/* ================= CARD ================= */
+/* CARDS */
 
 .card{
 background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.1);
-padding:30px;
+padding:25px;
 border-radius:18px;
 backdrop-filter:blur(12px);
 transition:.4s;
@@ -157,15 +157,14 @@ box-shadow:0 0 30px rgba(53,160,217,.3);
 
 .card h3{
 font-family:Poppins,sans-serif;
-margin-bottom:10px;
+margin-top:15px;
 }
 
-/* ================= WORK IMAGES ================= */
+/* WORK IMAGES */
 
 .work-img{
 width:100%;
 border-radius:16px;
-margin-bottom:15px;
 transition:.4s;
 }
 
@@ -173,22 +172,19 @@ transition:.4s;
 transform:scale(1.04);
 }
 
-/* ================= CTA ================= */
+/* REVIEWS */
 
-.cta{
-text-align:center;
-padding:120px 20px;
-background:linear-gradient(145deg,#0c1f33,#081523);
-border-radius:30px;
-margin:120px auto;
-max-width:1000px;
+.review-stars{
+color:#ffc107;
+font-size:18px;
+margin-bottom:10px;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
 text-align:center;
-padding:50px 20px;
+padding:60px 20px;
 color:#9fb3c8;
 background:#02060c;
 }
@@ -206,23 +202,18 @@ font-weight:600;
 box-shadow:0 0 20px rgba(53,160,217,.6);
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 
 @media(max-width:800px){
 
-.logo{
-height:70px;
-margin-left:-8px;
-}
-
-.hero h1{
-font-size:30px;
-}
+.logo{height:75px;}
 
 nav{
 gap:15px;
 font-size:14px;
 }
+
+.hero h1{font-size:30px;}
 
 }
 
@@ -232,29 +223,31 @@ font-size:14px;
 <body>
 
 <header>
-<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo">
-<nav>
-<a href="#services">Services</a>
-<a href="#work">Work</a>
-<a href="#reviews">Reviews</a>
-<a href="#delivery">Delivery</a>
-<a href="#contact">Contact</a>
-</nav>
+    <div class="logo-wrap">
+        <a href="index.html">
+            <img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo">
+        </a>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#services">Services</a>
+        <a href="delivery.html">Delivery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="compliance.html">Compliance</a>
+    </nav>
 </header>
 
 <section class="hero">
 <h1>Reliable Fixture & Property Services in San Antonio</h1>
-<p>
-Professional faucet replacement, toilet upgrades, handyman repairs and local delivery solutions.
-Transparent pricing and dependable service.
-</p>
+<p>Professional fixture replacement, handyman repairs, maintenance upgrades and local delivery solutions. Quality results. Dependable service.</p>
 <a href="tel:+12109068524" class="btn">Call (210) 906-8524</a>
 </section>
 
 <section id="services">
 <h2 style="text-align:center;font-family:Poppins;">Core Services</h2>
-<div class="grid">
 
+<div class="grid">
 <div class="card">
 <h3>Fixture Replacement</h3>
 <p>Faucets, toilets, trim upgrades and hardware servicing.</p>
@@ -262,24 +255,24 @@ Transparent pricing and dependable service.
 
 <div class="card">
 <h3>Handyman Repairs</h3>
-<p>Drywall, doors, shelving, installations and interior fixes.</p>
+<p>Installations, drywall, doors and interior repairs.</p>
 </div>
 
 <div class="card">
 <h3>Property Maintenance</h3>
-<p>Ongoing residential upkeep and small facility service.</p>
+<p>Residential upkeep and small facility improvements.</p>
 </div>
 
 <div class="card">
-<h3>Licensed Work Referred</h3>
-<p>Regulated plumbing services coordinated with licensed professionals when required.</p>
+<h3>Licensed Work Referrals</h3>
+<p>Regulated plumbing services coordinated through licensed professionals when required.</p>
 </div>
-
 </div>
 </section>
 
-<section id="work">
+<section>
 <h2 style="text-align:center;font-family:Poppins;">Recent Work</h2>
+
 <div class="grid">
 
 <div class="card">
@@ -298,6 +291,11 @@ Transparent pricing and dependable service.
 </div>
 
 <div class="card">
+<img src="images/fixture-service.png" class="work-img">
+<h3>Fixture Service</h3>
+</div>
+
+<div class="card">
 <img src="images/mailbox-replacement.jpg" class="work-img">
 <h3>Mailbox Replacement</h3>
 </div>
@@ -306,72 +304,34 @@ Transparent pricing and dependable service.
 </section>
 
 <section id="reviews">
-<h2 style="text-align:center;font-family:Poppins;">Verified Customer Reviews</h2>
-<p style="text-align:center;color:var(--muted);margin-bottom:40px;">
-Client feedback collected through our Thumbtack profile.
+<h2 style="text-align:center;font-family:Poppins;">Customer Reviews</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="review-stars">★★★★★</div>
+<p>Christian responded promptly, arrived on time and provided excellent service at a fair price. Highly recommended.</p>
+<strong>– Larry S.</strong>
+</div>
+
+<div class="card">
+<div class="review-stars">★★★★★</div>
+<p>Professional and efficient from start to finish. Great communication.</p>
+<strong>– Michelle S.</strong>
+</div>
+
+<div class="card">
+<div class="review-stars">★★★★★</div>
+<p>Great work and close to estimate pricing. Will definitely use again.</p>
+<strong>– Javier W.</strong>
+</div>
+
+</div>
+
+<p style="text-align:center;margin-top:30px;color:var(--muted);">
+Reviews sourced from verified customer feedback on Thumbtack.
 </p>
-<div class="grid">
 
-<div class="card">
-<h3>★★★★★</h3>
-<p>Christian responded promptly, arrived on time, was professional, and provided excellent service at a fair price. Highly recommended.</p>
-<strong style="color:var(--glow);">– Larry S. (Thumbtack)</strong>
-</div>
-
-<div class="card">
-<h3>★★★★★</h3>
-<p>Very nice job. Professional and efficient from start to finish.</p>
-<strong style="color:var(--glow);">– Thacarli B. (Thumbtack)</strong>
-</div>
-
-<div class="card">
-<h3>★★★★★</h3>
-<p>Great work and close to the original estimate pricing. Will definitely use again.</p>
-<strong style="color:var(--glow);">– Michelle S. (Thumbtack)</strong>
-</div>
-
-<div class="card">
-<h3>★★★★★</h3>
-<p>Excellent communication and quality workmanship. Reliable and honest service.</p>
-<strong style="color:var(--glow);">– Javier W. (Thumbtack)</strong>
-</div>
-
-</div>
-
-<div style="text-align:center;margin-top:40px;">
-<a href="https://www.thumbtack.com/tx/san-antonio/affordable-plumbing-services/plumbing-gurus/service/478170937467936775" target="_blank" class="btn">
-View Full Reviews on Thumbtack
-</a>
-</div>
-
-</section>
-
-<section id="delivery">
-<h2 style="text-align:center;font-family:Poppins;">Local Delivery Services</h2>
-<div class="grid">
-
-<div class="card">
-<h3>Furniture & Appliance Delivery</h3>
-<p>Reliable local transport for residential customers.</p>
-</div>
-
-<div class="card">
-<h3>Retail & Warehouse Pickups</h3>
-<p>Store pickup coordination and scheduled drop-offs.</p>
-</div>
-
-<div class="card">
-<h3>Small Hauling Services</h3>
-<p>Efficient transport solutions for local moves.</p>
-</div>
-
-</div>
-</section>
-
-<section class="cta" id="contact">
-<h2>Need Service Today?</h2>
-<p style="color:var(--muted);">Call now for fast scheduling and dependable results.</p>
-<a href="tel:+12109068524" class="btn">Call Now</a>
 </section>
 
 <footer>
