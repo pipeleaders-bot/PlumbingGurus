@@ -4,41 +4,73 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Handyman & Fixture Services in San Antonio | Plumbing Gurus</title>
+<title>Faucet & Toilet Replacement in San Antonio, TX | Plumbing Gurus</title>
 
-<meta name="description" content="Handyman services, fixture replacement, minor maintenance, and local delivery in San Antonio. Faucets, toilets, hardware upgrades and property upkeep. Call (210) 906-8524.">
+<meta name="description" content="Reliable faucet replacement, toilet replacement, fixture servicing and property maintenance in San Antonio, Texas. Professional and dependable local service. Call (210) 906-8524.">
 
 <link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
+<!-- LOCAL BUSINESS SCHEMA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Plumbing Gurus LLC",
+  "url": "https://plumbinggurus.us",
+  "telephone": "+1-210-906-8524",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Antonio",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "San Antonio"
+  },
+  "description": "Reliable faucet replacement, toilet upgrades, fixture servicing and property maintenance in San Antonio, Texas."
+}
+</script>
+
 <style>
 
+/* GLOBAL */
+
 :root{
---blue:#1D6FA3;
 --dark:#050b14;
---glass:rgba(255,255,255,.08);
+--blue:#1D6FA3;
 --glow:#35a0d9;
---orange:#ff8a00;
+--light:#ffffff;
+--muted:#b8c7d9;
 }
 
-*{box-sizing:border-box;}
+*{box-sizing:border-box;scroll-behavior:smooth;}
 
 body{
 margin:0;
 font-family:Inter,sans-serif;
 background:var(--dark);
-color:#fff;
+color:var(--light);
+overflow-x:hidden;
 }
 
-.bg{
+section{
+padding:110px 20px;
+max-width:1200px;
+margin:auto;
+}
+
+body::before{
+content:"";
 position:fixed;
 inset:0;
 z-index:-1;
 background:
-radial-gradient(circle at 20% 20%, #35a0d9, transparent 45%),
-radial-gradient(circle at 80% 30%, #1D6FA3, transparent 45%),
-radial-gradient(circle at 50% 80%, #0d4b73, transparent 45%);
+radial-gradient(circle at 20% 20%, rgba(53,160,217,.4), transparent 40%),
+radial-gradient(circle at 80% 30%, rgba(29,111,163,.4), transparent 40%),
+radial-gradient(circle at 50% 80%, rgba(13,75,115,.6), transparent 45%);
 }
 
 /* HEADER */
@@ -47,62 +79,263 @@ header{
 position:fixed;
 top:0;
 width:100%;
-padding:10px 20px; /* Reduced automatically */
 background:rgba(5,11,20,.9);
-backdrop-filter:blur(15px);
+backdrop-filter:blur(14px);
 display:flex;
 justify-content:space-between;
 align-items:center;
+padding:8px 30px;
 z-index:999;
 }
 
 .logo{
-height:95px; /* Largest recommended clean size */
+height:95px;
+}
+
+nav{
+display:flex;
+gap:25px;
 }
 
 nav a{
-margin:0 14px;
-color:#fff;
+color:var(--light);
 text-decoration:none;
 font-weight:500;
 opacity:.85;
-font-size:16px;
+transition:.3s;
 }
 
-nav a:hover{opacity:1}
-
-/* SECTIONS */
-
-.section{
-max-width:1100px;
-margin:110px auto 70px auto;
-padding:0 20px;
+nav a:hover{
+opacity:1;
+color:var(--glow);
 }
 
-h1,h2{
-font-family:Poppins,sans-serif;
-text-align:center;
-}
+/* HERO */
 
 .hero{
 text-align:center;
-padding-top:100px;
+padding-top:170px;
 }
 
 .hero h1{
-font-size:40px;
+font-size:44px;
+font-family:Poppins,sans-serif;
+margin-bottom:20px;
 }
 
 .hero p{
-font-size:20px;
-opacity:.9;
 max-width:750px;
-margin:20px auto;
+margin:auto;
+font-size:20px;
+color:var(--muted);
 }
 
 .btn{
 display:inline-block;
-background:linear-gradient(90deg,var(--orange),#ffb347);
+margin-top:30px;
+padding:15px 45px;
+background:linear-gradient(90deg,var(--blue),var(--glow));
+border-radius:40px;
+text-decoration:none;
+color:white;
+font-weight:600;
+box-shadow:0 0 25px rgba(53,160,217,.5);
+transition:.3s;
+}
+
+.btn:hover{transform:translateY(-3px);}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+margin-top:50px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+padding:30px;
+border-radius:18px;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+border-color:var(--glow);
+box-shadow:0 0 30px rgba(53,160,217,.3);
+}
+
+.card h3{
+font-family:Poppins;
+margin-bottom:10px;
+}
+
+/* WORK */
+
+.work-img{
+width:100%;
+border-radius:16px;
+margin-bottom:15px;
+transition:.4s;
+}
+
+.work-img:hover{transform:scale(1.04);}
+
+/* NOTICE */
+
+.notice{
+max-width:900px;
+margin:100px auto 60px auto;
+text-align:center;
+color:var(--muted);
+font-size:14px;
+line-height:1.6;
+}
+
+.notice h3{
+font-family:Poppins;
+color:var(--light);
+margin-bottom:15px;
+}
+
+/* CTA */
+
+.cta{
+text-align:center;
+padding:120px 20px;
+background:linear-gradient(145deg,#0c1f33,#081523);
+border-radius:30px;
+margin:120px auto;
+max-width:1000px;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:50px 20px;
+color:#9fb3c8;
+background:#02060c;
+}
+
+.call-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+background:linear-gradient(90deg,var(--blue),var(--glow));
+padding:16px 28px;
+border-radius:50px;
+text-decoration:none;
+color:white;
+font-weight:600;
+box-shadow:0 0 20px rgba(53,160,217,.6);
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+.logo{height:70px;}
+.hero h1{font-size:30px;}
+nav{gap:15px;font-size:14px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo">
+<nav>
+<a href="#services">Services</a>
+<a href="#work">Work</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Reliable Faucet & Toilet Replacement in San Antonio, Texas</h1>
+<p>Professional fixture replacement, toilet upgrades, hardware servicing and residential property maintenance. Dependable work with transparent pricing.</p>
+<a href="tel:+12109068524" class="btn">Call (210) 906-8524</a>
+</section>
+
+<section id="services">
+<h2 style="text-align:center;font-family:Poppins;">Core Services</h2>
+<div class="grid">
+
+<div class="card">
+<h3>Faucet Replacement</h3>
+<p>Kitchen and bathroom faucet upgrades and fixture servicing.</p>
+</div>
+
+<div class="card">
+<h3>Toilet Replacement & Repairs</h3>
+<p>Toilet removal, replacement and common repair solutions.</p>
+</div>
+
+<div class="card">
+<h3>Property Maintenance</h3>
+<p>Residential upkeep, hardware updates and minor servicing.</p>
+</div>
+
+<div class="card">
+<h3>Licensed Work Referrals</h3>
+<p>Services requiring regulated plumbing oversight are coordinated with properly licensed professionals.</p>
+</div>
+
+</div>
+</section>
+
+<section id="work">
+<h2 style="text-align:center;font-family:Poppins;">Recent Work</h2>
+<div class="grid">
+
+<div class="card">
+<img src="images/sink-fixture-upgrade.png" class="work-img" alt="Faucet replacement San Antonio">
+<h3>Sink Fixture Upgrade</h3>
+</div>
+
+<div class="card">
+<img src="images/shower-trim-update.png" class="work-img" alt="Bathroom fixture upgrade San Antonio">
+<h3>Shower Trim Update</h3>
+</div>
+
+<div class="card">
+<img src="images/kitchen-fixture-install.png" class="work-img" alt="Kitchen faucet installation San Antonio">
+<h3>Kitchen Fixture Install</h3>
+</div>
+
+</div>
+</section>
+
+<section class="cta" id="contact">
+<h2 style="font-family:Poppins;">Need Service Today?</h2>
+<p style="color:var(--muted);">Call now for reliable fixture and maintenance services in San Antonio.</p>
+<a href="tel:+12109068524" class="btn">Call Now</a>
+</section>
+
+<section class="notice">
+<h3>Service Scope & Licensing Notice</h3>
+<p>
+Plumbing Gurus LLC specializes in faucet replacement, toilet upgrades, fixture servicing and residential property maintenance.
+Services requiring state-licensed plumbing oversight or regulated installations are coordinated through properly licensed contractors when applicable.
+</p>
+</section>
+
+<footer>
+<p>Plumbing Gurus LLC</p>
+<p>Fixture Replacement • Property Maintenance • Handyman Services</p>
+<p>San Antonio, TX • (210) 906-8524</p>
+<p>© 2026 Plumbing Gurus LLC</p>
+</footer>
+
+<a href="tel:+12109068524" class="call-btn">📞 Call</a>
+
+</body>
+</html>background:linear-gradient(90deg,var(--orange),#ffb347);
 color:#fff;
 padding:14px 38px;
 border-radius:40px;
@@ -266,3 +499,4 @@ Quality work. Fair pricing.
 
 </body>
 </html>
+
