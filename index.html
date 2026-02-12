@@ -6,7 +6,7 @@
 
 <title>Plumbing Gurus | Fixture & Property Services – San Antonio</title>
 
-<meta name="description" content="Professional fixture replacement, handyman repairs, minor maintenance and local delivery services in San Antonio. Call (210) 906-8524.">
+<meta name="description" content="Professional fixture replacement, handyman repairs, and local delivery coordination in San Antonio. Minor plumbing and compliance-focused referrals available. Call (210) 906-8524.">
 
 <link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
 
@@ -16,29 +16,21 @@
 
 :root{
 --dark:#050b14;
+--deep:#0c1f33;
 --blue:#1D6FA3;
 --glow:#35a0d9;
 --light:#ffffff;
 --muted:#b8c7d9;
 }
 
-*{box-sizing:border-box;}
+*{box-sizing:border-box;scroll-behavior:smooth;}
 
 body{
 margin:0;
 font-family:Inter,sans-serif;
 background:var(--dark);
 color:var(--light);
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-section{
-padding:110px 20px;
-max-width:1200px;
-margin:auto;
+overflow-x:hidden;
 }
 
 body::before{
@@ -47,12 +39,12 @@ position:fixed;
 inset:0;
 z-index:-1;
 background:
-radial-gradient(circle at 20% 20%, rgba(53,160,217,.4), transparent 40%),
-radial-gradient(circle at 80% 30%, rgba(29,111,163,.4), transparent 40%),
+radial-gradient(circle at 20% 20%, rgba(53,160,217,.35), transparent 40%),
+radial-gradient(circle at 80% 30%, rgba(29,111,163,.35), transparent 40%),
 radial-gradient(circle at 50% 80%, rgba(13,75,115,.6), transparent 45%);
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 
 header{
 position:fixed;
@@ -63,13 +55,14 @@ backdrop-filter:blur(14px);
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:6px 25px;
+padding:8px 15px;
 z-index:999;
 }
 
 .logo{
-height:90px;
-margin-left:-6px;
+height:95px;
+margin-left:-30px; /* pushed further left */
+cursor:pointer;
 }
 
 nav{
@@ -90,11 +83,13 @@ opacity:1;
 color:var(--glow);
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
 text-align:center;
-padding-top:170px;
+padding:180px 20px 120px 20px;
+max-width:1000px;
+margin:auto;
 }
 
 .hero h1{
@@ -104,18 +99,18 @@ margin-bottom:20px;
 }
 
 .hero p{
-max-width:700px;
-margin:auto;
 font-size:20px;
 color:var(--muted);
+max-width:700px;
+margin:auto;
 }
 
 .btn{
 display:inline-block;
 margin-top:30px;
-padding:15px 45px;
+padding:16px 48px;
 background:linear-gradient(90deg,var(--blue),var(--glow));
-border-radius:40px;
+border-radius:50px;
 text-decoration:none;
 color:white;
 font-weight:600;
@@ -124,17 +119,33 @@ transition:.3s;
 }
 
 .btn:hover{
-transform:translateY(-3px);
+transform:translateY(-4px);
 }
 
-/* GRID */
+/* ================= SECTION ================= */
+
+section{
+padding:110px 20px;
+max-width:1200px;
+margin:auto;
+}
+
+h2{
+text-align:center;
+font-family:Poppins,sans-serif;
+font-size:38px;
+margin-bottom:50px;
+}
+
+/* ================= GRID ================= */
 
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-margin-top:50px;
+gap:35px;
 }
+
+/* ================= CARD ================= */
 
 .card{
 background:rgba(255,255,255,.05);
@@ -153,10 +164,10 @@ box-shadow:0 0 30px rgba(53,160,217,.3);
 
 .card h3{
 font-family:Poppins,sans-serif;
-margin-bottom:10px;
+margin-bottom:12px;
 }
 
-/* WORK IMAGES */
+/* ================= WORK ================= */
 
 .work-img{
 width:100%;
@@ -166,39 +177,33 @@ transition:.4s;
 }
 
 .work-img:hover{
-transform:scale(1.04);
+transform:scale(1.05);
 }
 
-/* REVIEWS */
+/* ================= REVIEWS ================= */
 
-.review-stars{
-color:#35d07f;
-margin-bottom:10px;
+.review{
+margin-bottom:25px;
+padding:25px;
+background:rgba(255,255,255,.05);
+border-radius:15px;
+border:1px solid rgba(255,255,255,.1);
 }
 
-.review-name{
-font-weight:600;
-margin-bottom:5px;
+.review strong{
+display:block;
+margin-bottom:6px;
+color:var(--glow);
 }
 
-/* CTA */
-
-.cta{
-text-align:center;
-padding:120px 20px;
-background:linear-gradient(145deg,#0c1f33,#081523);
-border-radius:30px;
-margin:120px auto;
-max-width:1000px;
-}
-
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
 text-align:center;
 padding:50px 20px;
 color:#9fb3c8;
 background:#02060c;
+margin-top:100px;
 }
 
 .call-btn{
@@ -206,7 +211,7 @@ position:fixed;
 bottom:25px;
 right:25px;
 background:linear-gradient(90deg,var(--blue),var(--glow));
-padding:16px 28px;
+padding:16px 30px;
 border-radius:50px;
 text-decoration:none;
 color:white;
@@ -214,12 +219,24 @@ font-weight:600;
 box-shadow:0 0 20px rgba(53,160,217,.6);
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:800px){
-.logo{height:70px;}
-nav{gap:15px;font-size:14px;}
-.hero h1{font-size:30px;}
+
+.logo{
+height:75px;
+margin-left:-20px;
+}
+
+nav{
+gap:15px;
+font-size:14px;
+}
+
+.hero h1{
+font-size:30px;
+}
+
 }
 
 </style>
@@ -231,50 +248,58 @@ nav{gap:15px;font-size:14px;}
 <a href="index.html">
 <img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo">
 </a>
+
 <nav>
 <a href="#services">Services</a>
 <a href="#work">Work</a>
-<a href="#reviews">Reviews</a>
 <a href="delivery.html">Delivery</a>
+<a href="#reviews">Reviews</a>
+<a href="request.html">Request Service</a>
 <a href="compliance.html">Compliance</a>
 </nav>
 </header>
 
+<!-- HERO -->
+
 <section class="hero">
 <h1>Reliable Fixture & Property Services in San Antonio</h1>
-<p>Professional fixture replacement, minor maintenance, handyman repairs and coordinated delivery solutions. Quality work. Fair pricing.</p>
+<p>Professional fixture replacement, handyman repairs, maintenance support and local delivery coordination. Quality service. Clear pricing. Compliance-focused referrals when required.</p>
 <a href="tel:+12109068524" class="btn">Call (210) 906-8524</a>
 </section>
 
+<!-- SERVICES -->
+
 <section id="services">
-<h2 style="text-align:center;font-family:Poppins;">Core Services</h2>
+<h2>Core Services</h2>
 <div class="grid">
 
 <div class="card">
-<h3>Fixture Service</h3>
-<p>Faucets, toilets, trim upgrades and hardware servicing.</p>
+<h3>Fixture Replacement</h3>
+<p>Faucets, trim upgrades, toilets and hardware servicing.</p>
 </div>
 
 <div class="card">
 <h3>Handyman Repairs</h3>
-<p>Installations, drywall, shelving and interior fixes.</p>
+<p>Interior fixes, installs, doors, shelving and small projects.</p>
 </div>
 
 <div class="card">
 <h3>Property Maintenance</h3>
-<p>Residential upkeep and minor repair solutions.</p>
+<p>Ongoing residential upkeep and repair support.</p>
 </div>
 
 <div class="card">
-<h3>Licensed Work Referred</h3>
-<p>Regulated plumbing coordinated through licensed professionals.</p>
+<h3>Licensed Work Referrals</h3>
+<p>Projects requiring licensure coordinated with qualified professionals.</p>
 </div>
 
 </div>
 </section>
 
+<!-- WORK -->
+
 <section id="work">
-<h2 style="text-align:center;font-family:Poppins;">Recent Work</h2>
+<h2>Recent Work</h2>
 <div class="grid">
 
 <div class="card">
@@ -297,50 +322,44 @@ nav{gap:15px;font-size:14px;}
 <h3>Mailbox Replacement</h3>
 </div>
 
+<div class="card">
+<img src="images/fixture-service.png" class="work-img">
+<h3>Fixture Service</h3>
+</div>
+
 </div>
 </section>
+
+<!-- REVIEWS -->
 
 <section id="reviews">
-<h2 style="text-align:center;font-family:Poppins;">Verified Customer Reviews</h2>
+<h2>Verified Customer Reviews</h2>
 
-<div class="grid">
-
-<div class="card">
-<div class="review-name">Thacarli B.</div>
-<div class="review-stars">★★★★★</div>
-<p>Very nice job.</p>
+<div class="review">
+<strong>★★★★★ – Larry S.</strong>
+Christian responded promptly, arrived on time, was very polite and professional, and provided great service at a very affordable price. Highly recommended.
 </div>
 
-<div class="card">
-<div class="review-name">Larry S.</div>
-<div class="review-stars">★★★★★</div>
-<p>Christian responded promptly to our request, arrived on time, was very polite and professional, and provided great service at a very affordable price.</p>
+<div class="review">
+<strong>★★★★★ – Thacarli B.</strong>
+Very nice job.
 </div>
 
-<div class="card">
-<div class="review-name">Javier W.</div>
-<div class="review-stars">★★★★★</div>
-<p>Great work by Christian.</p>
+<div class="review">
+<strong>★★★★★ – Javier W.</strong>
+Great work by Christian.
 </div>
 
-<div class="card">
-<div class="review-name">Michelle S.</div>
-<div class="review-stars">★★★★★</div>
-<p>Did just fine. Close to the estimate pricing.</p>
+<div class="review">
+<strong>★★★★★ – Michelle S.</strong>
+Did just fine. Close to the estimate pricing.
 </div>
 
-</div>
-</section>
-
-<section class="cta">
-<h2>Need Service Today?</h2>
-<p style="color:var(--muted);">Call now for fast scheduling and dependable results.</p>
-<a href="tel:+12109068524" class="btn">Call Now</a>
 </section>
 
 <footer>
 <p>Plumbing Gurus LLC</p>
-<p>Handyman • Fixture Services • Delivery</p>
+<p>Fixture Services • Handyman • Delivery Coordination</p>
 <p>San Antonio, TX • (210) 906-8524</p>
 <p>© 2026 Plumbing Gurus LLC</p>
 </footer>
