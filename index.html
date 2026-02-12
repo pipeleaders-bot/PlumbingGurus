@@ -6,7 +6,7 @@
 
 <title>Handyman & Fixture Services in San Antonio | Plumbing Gurus</title>
 
-<meta name="description" content="Handyman services, fixture replacement, minor plumbing maintenance, and local delivery in San Antonio. Faucets, toilets, hardware upgrades and property maintenance. Call (210) 906-8524.">
+<meta name="description" content="Handyman services, fixture replacement, minor maintenance, and local delivery in San Antonio. Faucets, toilets, hardware upgrades and property upkeep. Call (210) 906-8524.">
 
 <link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
 
@@ -41,11 +41,13 @@ radial-gradient(circle at 80% 30%, #1D6FA3, transparent 45%),
 radial-gradient(circle at 50% 80%, #0d4b73, transparent 45%);
 }
 
+/* HEADER */
+
 header{
 position:fixed;
 top:0;
 width:100%;
-padding:18px;
+padding:10px 20px; /* Reduced automatically */
 background:rgba(5,11,20,.9);
 backdrop-filter:blur(15px);
 display:flex;
@@ -55,22 +57,25 @@ z-index:999;
 }
 
 .logo{
-height:65px;
+height:95px; /* Largest recommended clean size */
 }
 
 nav a{
-margin:0 12px;
+margin:0 14px;
 color:#fff;
 text-decoration:none;
 font-weight:500;
 opacity:.85;
+font-size:16px;
 }
 
 nav a:hover{opacity:1}
 
+/* SECTIONS */
+
 .section{
 max-width:1100px;
-margin:120px auto 80px auto;
+margin:110px auto 70px auto;
 padding:0 20px;
 }
 
@@ -158,7 +163,8 @@ z-index:9999;
 
 @media(max-width:800px){
 .hero h1{font-size:30px;}
-.logo{height:55px;}
+.logo{height:75px;} /* Auto smaller on mobile */
+header{padding:8px 15px;}
 }
 
 </style>
