@@ -22,6 +22,7 @@
 --glow:#35a0d9;
 --light:#ffffff;
 --muted:#b8c7d9;
+--cardbg:rgba(255,255,255,.05);
 }
 
 *{
@@ -37,8 +38,6 @@ color:var(--light);
 overflow-x:hidden;
 }
 
-/* Background Glow */
-
 body::before{
 content:"";
 position:fixed;
@@ -49,8 +48,6 @@ radial-gradient(circle at 20% 20%, rgba(53,160,217,.4), transparent 40%),
 radial-gradient(circle at 80% 30%, rgba(29,111,163,.4), transparent 40%),
 radial-gradient(circle at 50% 80%, rgba(13,75,115,.6), transparent 45%);
 }
-
-/* Layout Container */
 
 .container{
 max-width:1200px;
@@ -140,7 +137,7 @@ transition:.3s;
 transform:translateY(-4px);
 }
 
-/* ================= SECTION ================= */
+/* ================= SECTIONS ================= */
 
 section{
 padding:110px 0;
@@ -162,7 +159,7 @@ gap:30px;
 }
 
 .card{
-background:rgba(255,255,255,.05);
+background:var(--cardbg);
 border:1px solid rgba(255,255,255,.1);
 padding:30px;
 border-radius:18px;
@@ -192,6 +189,32 @@ transition:.4s;
 
 .work-img:hover{
 transform:scale(1.04);
+}
+
+/* ================= REVIEWS ================= */
+
+.review-card{
+background:var(--cardbg);
+border:1px solid rgba(255,255,255,.08);
+padding:25px;
+border-radius:18px;
+}
+
+.review-name{
+font-weight:600;
+margin-bottom:6px;
+}
+
+.review-date{
+font-size:14px;
+color:var(--muted);
+margin-bottom:10px;
+}
+
+.stars{
+color:#35d07f;
+font-size:18px;
+margin-bottom:10px;
 }
 
 /* ================= FOOTER ================= */
@@ -254,7 +277,6 @@ font-size:32px;
 <nav>
 <a href="#services">Services</a>
 <a href="#work">Work</a>
-<a href="#reviews">Reviews</a>
 <a href="delivery.html">Delivery</a>
 <a href="request.html">Request</a>
 <a href="compliance.html">Compliance</a>
@@ -334,6 +356,40 @@ and local delivery coordination. Clear pricing. Compliance-focused referrals whe
 </div>
 
 </div>
+</div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+
+<section>
+<div class="container">
+<h2 class="section-title">Customer Reviews</h2>
+
+<div class="grid">
+
+<div class="review-card">
+<div class="review-name">Larry S.</div>
+<div class="review-date">March 29, 2024 • Verified</div>
+<div class="stars">★★★★★</div>
+<p>Christian responded promptly, arrived on time, was professional and provided great service at an affordable price. Highly recommended.</p>
+</div>
+
+<div class="review-card">
+<div class="review-name">Javier W.</div>
+<div class="review-date">March 29, 2024 • Verified</div>
+<div class="stars">★★★★★</div>
+<p>Great work by Christian.</p>
+</div>
+
+<div class="review-card">
+<div class="review-name">Michelle S.</div>
+<div class="review-date">February 24, 2024 • Verified</div>
+<div class="stars">★★★★★</div>
+<p>Did just fine. Close to the estimate pricing.</p>
+</div>
+
+</div>
+
 </div>
 </section>
 
