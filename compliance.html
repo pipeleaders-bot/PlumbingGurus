@@ -37,8 +37,6 @@ color:var(--light);
 overflow-x:hidden;
 }
 
-/* Background Glow */
-
 body::before{
 content:"";
 position:fixed;
@@ -50,15 +48,13 @@ radial-gradient(circle at 80% 30%, rgba(29,111,163,.4), transparent 40%),
 radial-gradient(circle at 50% 80%, rgba(13,75,115,.6), transparent 45%);
 }
 
-/* Layout Container */
-
 .container{
 max-width:1000px;
 margin:0 auto;
 padding:0 20px;
 }
 
-/* ================= HEADER (MATCHES INDEX) ================= */
+/* ================= HEADER ================= */
 
 header{
 position:fixed;
@@ -141,6 +137,11 @@ background:#02060c;
 margin-top:120px;
 }
 
+footer a{
+color:#9fb3c8;
+text-decoration:none;
+}
+
 .call-btn{
 position:fixed;
 bottom:25px;
@@ -158,9 +159,7 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 
 @media(max-width:800px){
 
-.logo{
-height:70px;
-}
+.logo{height:70px;}
 
 nav{
 gap:16px;
@@ -169,13 +168,8 @@ flex-wrap:wrap;
 justify-content:flex-end;
 }
 
-.main h1{
-font-size:30px;
-}
-
-.section p{
-font-size:16px;
-}
+.main h1{font-size:30px;}
+.section p{font-size:16px;}
 
 }
 
@@ -183,8 +177,6 @@ font-size:16px;
 </head>
 
 <body>
-
-<!-- ================= HEADER ================= -->
 
 <header>
 <div class="header-inner">
@@ -198,14 +190,12 @@ font-size:16px;
 <a href="index.html#work">Work</a>
 <a href="index.html#reviews">Reviews</a>
 <a href="delivery.html">Delivery</a>
-<a href="request.html">Request</a>
+<a href="terms.html">Terms</a>
 <a href="compliance.html">Compliance</a>
 </nav>
 
 </div>
 </header>
-
-<!-- ================= CONTENT ================= -->
 
 <div class="container main">
 
@@ -214,58 +204,83 @@ font-size:16px;
 <div class="section">
 <h2>Service Classification</h2>
 <p>
-Plumbing Gurus operates primarily as a handyman and home services provider. 
+Plumbing Gurus operates as a handyman and home services provider.
 We do not perform regulated plumbing, gas, sewer, or utility work.
+</p>
+</div>
+
+<div class="section">
+<h2>Handyman Work Scope</h2>
+<p>
+Our services are limited to non-regulated tasks such as fixture swaps that do not require
+modification of piping systems, cosmetic replacements, hardware installation, mounting,
+assembly, and general home services. Any task involving plumbing system alteration is
+referred to a licensed plumber.
 </p>
 </div>
 
 <div class="section">
 <h2>Licensing Policy</h2>
 <p>
-Any plumbing work requiring licensure under Texas law is referred directly to independently licensed professionals. 
-Plumbing Gurus does not modify water lines, drain lines, gas systems, or sewer connections.
+Any work requiring a license under Texas law is referred directly to independently
+licensed professionals. Plumbing Gurus does not advertise, contract for, or perform
+regulated plumbing services.
 </p>
 </div>
 
 <div class="section">
-<h2>Referral & Dispatch Services</h2>
+<h2>Referral & Dispatch</h2>
 <p>
-When specialized or regulated services are required, we may assist with scheduling and referral coordination for licensed contractors. 
-This service is limited and separate from our handyman operations.
+When specialized or regulated services are required, customers contract directly with
+the licensed professional. Licensed contractors carry their own insurance and
+responsibility for regulated work.
 </p>
 </div>
 
 <div class="section">
 <h2>Insurance Coverage</h2>
 <p>
-Job-specific insurance coverage may be arranged when required based on project scope and client needs.
+We maintain general liability coverage for handyman services. Additional coverage may
+be arranged when required based on project scope.
+</p>
+</div>
+
+<div class="section">
+<h2>Regulatory Compliance</h2>
+<p>
+Plumbing Gurus monitors Texas regulations to ensure all services remain within the
+legal scope of handyman work and consumer protection standards.
 </p>
 </div>
 
 <div class="section">
 <h2>Customer Responsibilities</h2>
 <p>
-Customers are responsible for disclosing existing conditions, permits, HOA restrictions, and property limitations prior to service.
-Failure to disclose relevant information may affect service availability.
+Customers are responsible for disclosing existing conditions, permits, HOA restrictions,
+and property limitations prior to service. Undisclosed conditions may affect service
+availability.
 </p>
 </div>
 
 <div class="section">
 <h2>Legal Disclaimer</h2>
 <p>
-Information on this website is provided for general guidance only and does not constitute legal advice.
-Service offerings, pricing, and availability may change based on regulatory requirements.
+This website provides general information only and does not constitute legal advice.
+Service offerings, pricing, and availability are subject to change based on regulatory
+requirements.
 </p>
 </div>
 
 </div>
 
-<!-- ================= FOOTER ================= -->
-
 <footer>
 <p>Plumbing Gurus LLC</p>
-<p>Handyman Services Only • Licensed Plumbing Referred When Required</p>
+<p>Handyman Services Only — Not a Licensed Plumbing Contractor</p>
 <p>San Antonio, TX • (210) 906-8524</p>
+<p>
+<a href="terms.html">Terms & Conditions</a> •
+<a href="compliance.html">Compliance</a>
+</p>
 <p>© 2026 Plumbing Gurus LLC</p>
 </footer>
 
