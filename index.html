@@ -10,7 +10,6 @@
 <meta name="description" content="Same-day toilet replacement, faucet installation, sink and garbage disposal installation in San Antonio. Clean work. Upfront pricing. Call now.">
 
 <link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -66,35 +65,49 @@ padding:12px 20px;
 
 .logo{height:75px;}
 
-.hamburger{
-width:30px;
-cursor:pointer;
+.hamburger{width:30px;cursor:pointer;display:flex;flex-direction:column;gap:6px;}
+.hamburger span{height:3px;background:white;border-radius:3px;transition:.3s;}
+
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(6px,6px);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px);}
+
+/* OVERLAY */
+
+.overlay{
+position:fixed;inset:0;
+background:rgba(0,0,0,.55);
+backdrop-filter:blur(4px);
+opacity:0;pointer-events:none;
+transition:.3s;
+z-index:998;
+}
+.overlay.active{opacity:1;pointer-events:all;}
+
+/* MOBILE MENU */
+
+.mobile-menu{
+position:fixed;
+top:0;
+right:-100%;
+width:260px;
+height:100%;
+background:#050b14;
+padding:100px 25px;
+transition:.4s;
+z-index:999;
 display:flex;
 flex-direction:column;
-gap:6px;
+gap:20px;
 }
+.mobile-menu.active{right:0;}
 
-.hamburger span{
-height:3px;
-background:white;
-border-radius:3px;
-transition:.3s;
-}
+.mobile-menu a{color:white;text-decoration:none;font-size:18px;}
 
 /* HERO */
 
-.hero{
-padding-top:160px;
-text-align:center;
-padding-bottom:80px;
-}
-
-.hero h1{
-font-size:42px;
-font-family:Poppins;
-margin-bottom:15px;
-}
-
+.hero{padding-top:160px;text-align:center;padding-bottom:80px;}
+.hero h1{font-size:42px;font-family:Poppins;margin-bottom:15px;}
 .hero p{color:var(--muted);font-size:18px;}
 
 .btn{
@@ -111,14 +124,7 @@ box-shadow:0 0 25px rgba(53,160,217,.5);
 
 /* TAP SERVICES */
 
-.tap-services{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:15px;
-margin-top:40px;
-}
-
+.tap-services{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;margin-top:40px;}
 .tap-services a{
 background:var(--cardbg);
 padding:14px 22px;
@@ -131,41 +137,24 @@ border:1px solid rgba(255,255,255,.1);
 /* SECTIONS */
 
 section{padding:90px 0;}
+.section-title{text-align:center;font-family:Poppins;font-size:34px;margin-bottom:50px;}
 
-.section-title{
-text-align:center;
-font-family:Poppins;
-font-size:34px;
-margin-bottom:50px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;}
 
 .card{
 background:var(--cardbg);
 padding:25px;
 border-radius:18px;
 border:1px solid rgba(255,255,255,.1);
+opacity:0;
+transform:translateY(40px);
+transition:.6s;
 }
-
-/* REVIEWS */
+.card.show{opacity:1;transform:none;}
 
 .stars{color:#FFD700;margin-bottom:10px;}
 
-/* FOOTER */
-
-footer{
-text-align:center;
-padding:50px 20px;
-color:#9fb3c8;
-background:#02060c;
-}
-
-/* CALL BUTTON */
+footer{text-align:center;padding:50px 20px;color:#9fb3c8;background:#02060c;}
 
 .call-btn{
 position:fixed;
@@ -188,23 +177,32 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 <header>
 <div class="header-inner">
 <img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo">
-<div class="hamburger">
-<span></span>
-<span></span>
-<span></span>
+
+<div class="hamburger" id="hamburger">
+<span></span><span></span><span></span>
 </div>
 </div>
 </header>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="index.html">Home</a>
+<a href="toilet-replacement-san-antonio.html">🚽 Toilet</a>
+<a href="#">🚰 Faucet</a>
+<a href="#">⚙️ Disposal</a>
+<a href="#">🛠 Sink</a>
+<a href="request.html">Request Service</a>
+</div>
 
 <!-- HERO -->
 
 <div class="container hero">
 
 <h1>Toilet, Faucet & Fixture Installation in San Antonio</h1>
-
 <p>Same-day service. Clean work. Upfront pricing.</p>
 
-<a href="tel:+12109068524" class="btn">Call Now</a>
+<a href="tel:+12109068524" class="btn" id="callBtn">Checking availability…</a>
 <a href="request.html" class="btn">Request Service</a>
 
 <div class="tap-services">
@@ -216,47 +214,31 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 
 </div>
 
-<!-- RANKING CONTENT -->
+<!-- PHOTOS -->
 
 <section>
 <div class="container">
-
-<h2 class="section-title">Your Local Fixture Installation Specialists</h2>
-
-<p style="text-align:center;color:var(--muted);max-width:800px;margin:auto;">
-Professional installation of customer-supplied toilets, faucets, sinks and garbage disposals across San Antonio.
-Fast response, clean results and honest pricing.
-</p>
-
-</div>
-</section>
-
-<!-- WORK -->
-
-<section>
-<div class="container">
-
 <h2 class="section-title">Recent Installations</h2>
 
 <div class="grid">
 
 <div class="card">
-<img src="images/sink-fixture-upgrade.png" width="100%">
+<img src="images/sink-fixture-upgrade.png" loading="lazy" width="100%">
 <h3>Sink Upgrade</h3>
 </div>
 
 <div class="card">
-<img src="images/shower-trim-update.png" width="100%">
+<img src="images/shower-trim-update.png" loading="lazy" width="100%">
 <h3>Shower Trim</h3>
 </div>
 
 <div class="card">
-<img src="images/kitchen-fixture-install.png" width="100%">
+<img src="images/kitchen-fixture-install.png" loading="lazy" width="100%">
 <h3>Kitchen Faucet</h3>
 </div>
 
 <div class="card">
-<img src="images/mailbox-replacement.jpg" width="100%">
+<img src="images/mailbox-replacement.jpg" loading="lazy" width="100%">
 <h3>Exterior Hardware</h3>
 </div>
 
@@ -268,7 +250,6 @@ Fast response, clean results and honest pricing.
 
 <section>
 <div class="container">
-
 <h2 class="section-title">Customer Reviews</h2>
 
 <div class="grid">
@@ -298,40 +279,54 @@ Fast response, clean results and honest pricing.
 </div>
 
 </div>
-
 </div>
 </section>
 
-<!-- FOOTER -->
-
 <footer>
-
 <p><strong>Plumbing Gurus LLC</strong></p>
-
 <p>Toilet • Faucet • Sink • Garbage Disposal Installation</p>
-
 <p>San Antonio, TX • (210) 906-8524</p>
-
 <p style="max-width:700px;margin:auto;font-size:13px;color:var(--muted);">
-Customer-supplied fixture installation and handyman services.  
+Customer-supplied fixture installation and handyman services.
 Regulated plumbing work is referred to Texas licensed plumbers.
 </p>
-
 </footer>
 
 <a href="tel:+12109068524" class="call-btn">📞 Call</a>
 
-<!-- SCHEMA -->
+<script>
 
-<script type="application/ld+json">
-{
-"@context":"https://schema.org",
-"@type":"LocalBusiness",
-"name":"Plumbing Gurus",
-"telephone":"+1-210-906-8524",
-"areaServed":"San Antonio TX",
-"description":"Toilet replacement, faucet installation, sink and garbage disposal installation in San Antonio."
+const hamburger=document.getElementById("hamburger");
+const mobileMenu=document.getElementById("mobileMenu");
+const overlay=document.getElementById("overlay");
+
+hamburger.onclick=()=>{
+hamburger.classList.toggle("active");
+mobileMenu.classList.toggle("active");
+overlay.classList.toggle("active");
+};
+
+overlay.onclick=()=>{
+hamburger.classList.remove("active");
+mobileMenu.classList.remove("active");
+overlay.classList.remove("active");
+};
+
+const hour=new Date().getHours();
+document.getElementById("callBtn").innerHTML =
+hour<18 ? "📞 Call — Same-Day Available" : "📞 Schedule for Tomorrow";
+
+/* SCROLL REVEAL */
+
+const cards=document.querySelectorAll(".card");
+window.addEventListener("scroll",()=>{
+cards.forEach(card=>{
+if(card.getBoundingClientRect().top < window.innerHeight-100){
+card.classList.add("show");
 }
+});
+});
+
 </script>
 
 </body>
