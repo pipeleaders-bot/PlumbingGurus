@@ -93,8 +93,6 @@ font-size:20px;
 color:var(--muted);
 }
 
-/* BUTTON */
-
 .btn{
 display:inline-block;
 margin-top:35px;
@@ -159,6 +157,21 @@ border-radius:18px;
 .review-date{font-size:14px;color:var(--muted);}
 .stars{color:#FFD700;margin:8px 0;}
 
+/* FLOAT CALL */
+
+.call-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+background:linear-gradient(90deg,var(--blue),var(--glow));
+padding:16px 28px;
+border-radius:50px;
+color:white;
+text-decoration:none;
+font-weight:600;
+box-shadow:0 0 20px rgba(53,160,217,.6);
+}
+
 /* POPUP */
 
 .popup{
@@ -191,19 +204,36 @@ opacity:.7;
 }
 .popup-close:hover{opacity:1;color:var(--glow);}
 
-/* FLOAT CALL */
+.service-buttons{
+display:grid;
+gap:10px;
+margin-top:10px;
+}
 
-.call-btn{
-position:fixed;
-bottom:25px;
-right:25px;
-background:linear-gradient(90deg,var(--blue),var(--glow));
-padding:16px 28px;
-border-radius:50px;
+.service-buttons button{
+background:var(--cardbg);
+border:1px solid rgba(255,255,255,.15);
+padding:14px;
+border-radius:12px;
 color:white;
-text-decoration:none;
-font-weight:600;
-box-shadow:0 0 20px rgba(53,160,217,.6);
+cursor:pointer;
+transition:.3s;
+}
+
+.service-buttons button:hover{
+border-color:var(--glow);
+box-shadow:0 0 12px rgba(53,160,217,.5);
+}
+
+.success{
+display:none;
+text-align:center;
+animation:pop .5s ease;
+}
+
+@keyframes pop{
+0%{transform:scale(.7);opacity:0;}
+100%{transform:scale(1);opacity:1;}
 }
 
 </style>
@@ -226,13 +256,9 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 </header>
 
 <div class="container hero">
-
 <h1>Toilet, Faucet & Fixture Installation in San Antonio</h1>
-
 <p>Same-day toilet replacement, faucet installation, sink upgrades and garbage disposal replacement with clean, professional results.</p>
-
 <a href="tel:+12109068524" class="btn">Call (210) 906-8524</a>
-
 </div>
 
 <!-- SERVICES -->
@@ -242,15 +268,14 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 <h2 class="section-title">Core Fixture Services</h2>
 
 <div class="grid">
-
 <div class="card"><h3>Toilet Replacement</h3></div>
 <div class="card"><h3>Faucet Installation</h3></div>
 <div class="card"><h3>Garbage Disposal Replacement</h3></div>
 <div class="card"><h3>Sink Installation</h3></div>
 <div class="card"><h3>Shower Trim Upgrades</h3></div>
 <div class="card"><h3>Licensed Plumbing Coordination</h3></div>
-
 </div>
+
 </div>
 </section>
 
@@ -334,25 +359,71 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 
 <a href="tel:+12109068524" class="call-btn">📞 Call</a>
 
-<!-- POPUP FORM -->
+<!-- POPUP -->
 
 <div class="popup" id="popup">
 <div class="popup-content">
 
 <span class="popup-close" onclick="closeForm()">✕</span>
 
-<form action="https://formsubmit.co/chrisperez.n@gmail.com" method="POST">
+<form action="https://formsubmit.co/chrisperez.n@gmail.com" method="POST" id="serviceForm">
+
 <input type="text" name="Name" placeholder="Your Name" required>
 <input type="tel" name="Phone" placeholder="Phone Number" required>
-<button class="btn">Send Request</button>
+<input type="hidden" name="Service" id="serviceField">
+
+<p style="text-align:center;color:var(--muted);">Tap your service:</p>
+
+<div class="service-buttons">
+<button type="button" onclick="instantBook('Toilet Replacement')">🚽 Toilet</button>
+<button type="button" onclick="instantBook('Faucet Installation')">🚰 Faucet</button>
+<button type="button" onclick="instantBook('Garbage Disposal Replacement')">⚙️ Disposal</button>
+<button type="button" onclick="instantBook('Sink Installation')">🛠 Sink</button>
+</div>
+
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="🚀 New Plumbing Gurus Lead">
+
 </form>
+
+<div class="success" id="successMessage">
+<h2>✅ Request Sent!</h2>
+<p>We’ll contact you shortly.</p>
+</div>
 
 </div>
 </div>
 
 <script>
-function closeForm(){document.getElementById("popup").style.display="none";}
-setTimeout(()=>{document.getElementById("popup").style.display="flex";},8000);
+
+function closeForm(){
+document.getElementById("popup").style.display="none";
+}
+
+setTimeout(()=>{
+document.getElementById("popup").style.display="flex";
+},8000);
+
+function instantBook(service){
+
+const name=document.querySelector("input[name='Name']").value;
+const phone=document.querySelector("input[name='Phone']").value;
+
+if(name===""||phone===""){
+alert("Enter your name and phone first");
+return;
+}
+
+document.getElementById("serviceField").value=service;
+document.getElementById("serviceForm").submit();
+
+setTimeout(()=>{
+document.getElementById("serviceForm").style.display="none";
+document.getElementById("successMessage").style.display="block";
+},500);
+
+}
+
 </script>
 
 <script type="application/ld+json">
