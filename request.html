@@ -1,1 +1,189 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Request Service | Plumbing Gurus</title>
+
+<link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* SAME DESIGN SYSTEM */
+
+:root{
+--dark:#050b14;
+--blue:#1D6FA3;
+--glow:#35a0d9;
+--light:#ffffff;
+--muted:#b8c7d9;
+--cardbg:rgba(255,255,255,.05);
+}
+
+body{
+margin:0;
+font-family:Inter;
+background:var(--dark);
+color:white;
+}
+
+.container{max-width:700px;margin:auto;padding:140px 20px 80px;}
+
+h1{
+font-family:Poppins;
+text-align:center;
+margin-bottom:10px;
+}
+
+.sub{
+text-align:center;
+color:var(--muted);
+margin-bottom:40px;
+}
+
+/* FORM */
+
+.form-box{
+background:var(--cardbg);
+padding:30px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,.1);
+backdrop-filter:blur(10px);
+}
+
+input,select,textarea{
+width:100%;
+padding:16px;
+margin-top:15px;
+border-radius:12px;
+border:none;
+font-size:16px;
+}
+
+button{
+width:100%;
+margin-top:20px;
+padding:18px;
+border-radius:40px;
+border:none;
+font-weight:600;
+font-size:16px;
+color:white;
+background:linear-gradient(90deg,var(--blue),var(--glow));
+box-shadow:0 0 25px rgba(53,160,217,.5);
+cursor:pointer;
+}
+
+/* SUCCESS ANIMATION */
+
+.success{
+display:none;
+text-align:center;
+padding:40px;
+}
+
+.check{
+font-size:60px;
+color:#35a0d9;
+animation:pop .5s ease;
+}
+
+@keyframes pop{
+0%{transform:scale(0)}
+100%{transform:scale(1)}
+}
+
+footer{
+text-align:center;
+padding:40px 20px;
+color:var(--muted);
+font-size:13px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Request Service</h1>
+<p class="sub">Same-day appointments available in San Antonio</p>
+
+<div class="form-box" id="formBox">
+
+<input type="text" id="name" placeholder="Your Name">
+
+<input type="tel" id="phone" placeholder="Your Phone Number">
+
+<select id="service">
+<option>🚽 Toilet Installation</option>
+<option>🚰 Faucet Installation</option>
+<option>⚙️ Garbage Disposal</option>
+<option>🛠 Sink Installation</option>
+</select>
+
+<textarea id="details" rows="4" placeholder="Project details (optional)"></textarea>
+
+<button onclick="sendRequest()">Request Service</button>
+
+</div>
+
+<div class="success" id="successMsg">
+<div class="check">✔</div>
+<h2>Request Sent</h2>
+<p>We’ll contact you shortly to confirm your appointment.</p>
+</div>
+
+</div>
+
+<footer>
+Customer-supplied fixture installation and handyman services.  
+Regulated plumbing work is referred to Texas licensed plumbers.
+</footer>
+
+<script>
+
+/* SAME DAY LOGIC TITLE */
+
+const hour=new Date().getHours();
+if(hour>=18){
+document.querySelector(".sub").innerHTML="Book now for first priority tomorrow";
+}
+
+/* PREFILL SERVICE FROM BUTTON CLICK */
+
+const urlParams = new URLSearchParams(window.location.search);
+const service = urlParams.get('service');
+
+if(service){
+document.getElementById("service").value = service;
+}
+
+/* SEND TO SMS */
+
+function sendRequest(){
+
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let service=document.getElementById("service").value;
+let details=document.getElementById("details").value;
+
+let sms=`sms:+12109068524?body=New Service Request:%0AName:${name}%0APhone:${phone}%0AService:${service}%0ADetails:${details}`;
+
+window.location.href=sms;
+
+document.getElementById("formBox").style.display="none";
+document.getElementById("successMsg").style.display="block";
+
+}
+
+</script>
+
+</body>
+</html>
