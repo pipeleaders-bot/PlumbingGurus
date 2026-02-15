@@ -104,9 +104,11 @@ transform:scale(1.05);
 <input type="hidden" name="_next" value="https://www.plumbinggurus.us/thank-you.html">
 <input type="hidden" name="_autoresponse" value="We received your request. Plumbing Gurus will contact you shortly.">
 
-<input type="text" name="Name" placeholder="Your name" required>
-<input type="tel" name="Phone" placeholder="Phone number" required>
-<input type="text" name="City" placeholder="City / Area" required>
+<input type="text" name="Name" placeholder="Your name" autocomplete="name" required>
+
+<input type="tel" name="Phone" id="phoneField" placeholder="Phone number" inputmode="tel" autocomplete="tel" required>
+
+<input type="text" name="City" placeholder="City / Area" autocomplete="address-level2" required>
 
 <select name="Service" id="serviceSelect" required>
 <option value="">Select Service</option>
@@ -129,7 +131,7 @@ transform:scale(1.05);
 
 <textarea name="Project Details" rows="4" placeholder="Project details"></textarea>
 
-<button type="submit">Send Request</button>
+<button type="submit">Get My Fast Quote</button>
 
 </form>
 
@@ -145,6 +147,25 @@ const service = params.get("service");
 if(service){
 document.getElementById("serviceSelect").value = service;
 }
+
+/* 1-TAP INSTANT BOOKING MODE */
+
+window.addEventListener("load", () => {
+
+const phoneField = document.getElementById("phoneField");
+
+setTimeout(() => {
+
+phoneField.focus();
+
+phoneField.scrollIntoView({
+behavior: "smooth",
+block: "center"
+});
+
+}, 300);
+
+});
 
 </script>
 
