@@ -126,7 +126,7 @@ border-radius:40px;
 .hero{
 padding-top:140px;
 text-align:center;
-padding-bottom:100px;
+padding-bottom:90px;
 }
 
 .hero h1{
@@ -149,13 +149,20 @@ color:white;
 text-decoration:none;
 font-weight:600;
 box-shadow:0 0 25px rgba(53,160,217,.5);
+cursor:pointer;
 }
 
-/* TRUST */
+.trust{text-align:center;margin-top:25px;font-size:15px;}
 
-.trust{text-align:center;margin:30px 0;}
+.hero-disclaimer{
+margin-top:12px;
+font-size:13px;
+color:var(--muted);
+}
 
 /* GRID */
+
+section{padding:100px 0;}
 
 .grid{
 display:grid;
@@ -220,6 +227,7 @@ display:grid;gap:10px;margin-top:10px;
 background:var(--cardbg);
 border:1px solid rgba(255,255,255,.15);
 padding:14px;border-radius:12px;color:white;
+cursor:pointer;
 }
 
 .success{display:none;text-align:center;}
@@ -239,11 +247,22 @@ font-weight:600;
 box-shadow:0 0 20px rgba(53,160,217,.6);
 }
 
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:60px 20px 130px;
+color:#9fb3c8;
+background:#02060c;
+margin-top:120px;
+}
+
 /* MOBILE */
 
 @media(max-width:900px){
 .desktop-nav{display:none;}
 .hamburger{display:flex;}
+.hero h1{font-size:34px;}
 }
 
 </style>
@@ -257,7 +276,6 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 <img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo">
 
 <nav class="desktop-nav">
-<a href="#services">Services</a>
 <a href="#work">Work</a>
 <a href="delivery.html">Delivery</a>
 <a href="request.html">Request</a>
@@ -272,7 +290,6 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-<a href="#services" onclick="closeMenu()">Services</a>
 <a href="#work" onclick="closeMenu()">Work</a>
 <a href="delivery.html">Delivery</a>
 <a href="request.html">Request</a>
@@ -283,6 +300,7 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 <div class="container hero">
 
 <h1>Toilet, Faucet & Fixture Installation in San Antonio</h1>
+
 <p>Same-day service. Clean work. Upfront pricing.</p>
 
 <a href="tel:+12109068524" class="btn">Call Now</a>
@@ -292,6 +310,10 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 ✔ Same-Day Service ✔ 5-Star Rated ✔ Upfront Pricing
 </div>
 
+<div class="hero-disclaimer">
+Customer-supplied fixtures installed. Licensed plumbing referred when required.
+</div>
+
 </div>
 
 <!-- WORK -->
@@ -299,7 +321,9 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 <section id="work">
 <div class="container">
 
-<h2 class="section-title">Recent Fixture Installations</h2>
+<h2 style="text-align:center;font-family:Poppins;font-size:34px;margin-bottom:50px;">
+Recent Fixture Installations
+</h2>
 
 <div class="grid">
 
@@ -332,15 +356,11 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 <section>
 <div class="container">
 
-<h2 class="section-title">Customer Reviews</h2>
+<h2 style="text-align:center;font-family:Poppins;font-size:34px;margin-bottom:50px;">
+Customer Reviews
+</h2>
 
 <div class="grid">
-
-<div class="review-card">
-<div class="stars">★★★★★</div>
-<p>Christian was very nice, worked clean, and got everything taken care of quickly.</p>
-<strong>– LAR CAN</strong>
-</div>
 
 <div class="review-card">
 <div class="stars">★★★★★</div>
@@ -365,7 +385,21 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 </section>
 
 <footer>
-<p>Plumbing Gurus LLC • San Antonio, TX • (210) 906-8524</p>
+
+<p><strong>Plumbing Gurus LLC</strong></p>
+
+<p>Serving San Antonio & Surrounding Areas • (210) 906-8524</p>
+
+<p style="max-width:700px;margin:20px auto 0;color:var(--muted);font-size:14px;line-height:1.6;">
+Plumbing Gurus provides fixture installation, handyman services, and property maintenance.
+We do not perform regulated plumbing, sewer, or gas work.
+Projects requiring a Texas-licensed plumber are referred to independent licensed professionals.
+</p>
+
+<p style="margin-top:20px;font-size:13px;">
+© 2026 Plumbing Gurus LLC • All rights reserved
+</p>
+
 </footer>
 
 <a href="tel:+12109068524" class="call-btn">📞 Call</a>
@@ -453,7 +487,8 @@ successMessage.style.display="block";
 "@type":"LocalBusiness",
 "name":"Plumbing Gurus",
 "telephone":"+1-210-906-8524",
-"areaServed":"San Antonio TX"
+"areaServed":"San Antonio TX",
+"description":"Toilet replacement, faucet installation, sink and garbage disposal replacement in San Antonio."
 }
 </script>
 
