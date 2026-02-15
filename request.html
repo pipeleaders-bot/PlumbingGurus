@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +8,9 @@
 <title>Request Service | Plumbing Gurus</title>
 
 <link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-
-/* SAME DESIGN SYSTEM */
 
 :root{
 --dark:#050b14;
@@ -25,14 +21,19 @@
 --cardbg:rgba(255,255,255,.05);
 }
 
+*{box-sizing:border-box;margin:0;padding:0;}
+
 body{
-margin:0;
 font-family:Inter;
 background:var(--dark);
 color:white;
 }
 
-.container{max-width:700px;margin:auto;padding:140px 20px 80px;}
+.container{
+max-width:750px;
+margin:auto;
+padding:140px 20px 80px;
+}
 
 h1{
 font-family:Poppins;
@@ -40,69 +41,49 @@ text-align:center;
 margin-bottom:10px;
 }
 
-.sub{
+p{
 text-align:center;
 color:var(--muted);
-margin-bottom:40px;
+margin-bottom:35px;
 }
 
-/* FORM */
-
-.form-box{
+form{
 background:var(--cardbg);
 padding:30px;
 border-radius:18px;
 border:1px solid rgba(255,255,255,.1);
-backdrop-filter:blur(10px);
+display:flex;
+flex-direction:column;
+gap:18px;
+backdrop-filter:blur(12px);
 }
 
-input,select,textarea{
-width:100%;
-padding:16px;
-margin-top:15px;
-border-radius:12px;
+input, select, textarea{
+padding:14px;
+border-radius:10px;
 border:none;
 font-size:16px;
+}
+
+input[type="file"]{
+background:white;
 }
 
 button{
-width:100%;
-margin-top:20px;
-padding:18px;
+padding:16px;
 border-radius:40px;
 border:none;
-font-weight:600;
-font-size:16px;
-color:white;
 background:linear-gradient(90deg,var(--blue),var(--glow));
-box-shadow:0 0 25px rgba(53,160,217,.5);
+color:white;
+font-size:16px;
+font-weight:600;
 cursor:pointer;
+box-shadow:0 0 20px rgba(53,160,217,.6);
+transition:.3s;
 }
 
-/* SUCCESS ANIMATION */
-
-.success{
-display:none;
-text-align:center;
-padding:40px;
-}
-
-.check{
-font-size:60px;
-color:#35a0d9;
-animation:pop .5s ease;
-}
-
-@keyframes pop{
-0%{transform:scale(0)}
-100%{transform:scale(1)}
-}
-
-footer{
-text-align:center;
-padding:40px 20px;
-color:var(--muted);
-font-size:13px;
+button:hover{
+transform:scale(1.05);
 }
 
 </style>
@@ -113,74 +94,56 @@ font-size:13px;
 <div class="container">
 
 <h1>Request Service</h1>
-<p class="sub">Same-day appointments available in San Antonio</p>
+<p>Send details & photos for fast scheduling.</p>
 
-<div class="form-box" id="formBox">
+<form action="https://formsubmit.co/chrisperez.ngmail.com" method="POST" enctype="multipart/form-data">
 
-<input type="text" id="name" placeholder="Your Name">
+<input type="hidden" name="_subject" value="New Service Request - Plumbing Gurus">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://www.plumbinggurus.us/thank-you.html">
+<input type="hidden" name="_autoresponse" value="We received your request. Plumbing Gurus will contact you shortly.">
 
-<input type="tel" id="phone" placeholder="Your Phone Number">
+<input type="text" name="Name" placeholder="Your name" required>
+<input type="tel" name="Phone" placeholder="Phone number" required>
+<input type="text" name="City" placeholder="City / Area" required>
 
-<select id="service">
+<select name="Service" id="serviceSelect" required>
+<option value="">Select Service</option>
 <option>🚽 Toilet Installation</option>
 <option>🚰 Faucet Installation</option>
-<option>⚙️ Garbage Disposal</option>
 <option>🛠 Sink Installation</option>
+<option>💡 Light Fixture Installation</option>
+<option>🌀 Ceiling Fan Installation</option>
+<option>🔧 Home Upgrades</option>
 </select>
 
-<textarea id="details" rows="4" placeholder="Project details (optional)"></textarea>
+<label>Preferred Date</label>
+<input type="date" name="Preferred Date">
 
-<button onclick="sendRequest()">Request Service</button>
+<label>Preferred Time</label>
+<input type="time" name="Preferred Time">
+
+<label>Upload Photos</label>
+<input type="file" name="Photos" multiple accept="image/*">
+
+<textarea name="Project Details" rows="4" placeholder="Project details"></textarea>
+
+<button type="submit">Send Request</button>
+
+</form>
 
 </div>
-
-<div class="success" id="successMsg">
-<div class="check">✔</div>
-<h2>Request Sent</h2>
-<p>We’ll contact you shortly to confirm your appointment.</p>
-</div>
-
-</div>
-
-<footer>
-Customer-supplied fixture installation and handyman services.  
-Regulated plumbing work is referred to Texas licensed plumbers.
-</footer>
 
 <script>
 
-/* SAME DAY LOGIC TITLE */
+/* AUTO-SELECT SERVICE FROM URL */
 
-const hour=new Date().getHours();
-if(hour>=18){
-document.querySelector(".sub").innerHTML="Book now for first priority tomorrow";
-}
-
-/* PREFILL SERVICE FROM BUTTON CLICK */
-
-const urlParams = new URLSearchParams(window.location.search);
-const service = urlParams.get('service');
+const params = new URLSearchParams(window.location.search);
+const service = params.get("service");
 
 if(service){
-document.getElementById("service").value = service;
-}
-
-/* SEND TO SMS */
-
-function sendRequest(){
-
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let service=document.getElementById("service").value;
-let details=document.getElementById("details").value;
-
-let sms=`sms:+12109068524?body=New Service Request:%0AName:${name}%0APhone:${phone}%0AService:${service}%0ADetails:${details}`;
-
-window.location.href=sms;
-
-document.getElementById("formBox").style.display="none";
-document.getElementById("successMsg").style.display="block";
-
+document.getElementById("serviceSelect").value = service;
 }
 
 </script>
