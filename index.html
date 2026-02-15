@@ -5,11 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plumbing Gurus | Toilet & Faucet Installation San Antonio</title>
+<title>Plumbing Gurus | Fixture & Handyman Installation San Antonio</title>
 
-<meta name="description" content="Same-day toilet replacement, faucet installation, sink and garbage disposal installation in San Antonio. Clean work. Upfront pricing. Call now.">
+<meta name="description" content="Fixture and handyman installation in San Antonio including toilets, faucets, sinks, light fixtures and ceiling fans. Clean work, upfront pricing and fast response.">
 
 <link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -27,7 +28,7 @@
 *{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth;}
 
 body{
-font-family:Inter,sans-serif;
+font-family:Inter;
 background:var(--dark);
 color:var(--light);
 }
@@ -48,18 +49,14 @@ radial-gradient(circle at 50% 80%, rgba(13,75,115,.6), transparent 45%);
 /* HEADER */
 
 header{
-position:fixed;
-width:100%;
-top:0;
+position:fixed;width:100%;top:0;
 background:rgba(5,11,20,.95);
 backdrop-filter:blur(14px);
 z-index:999;
 }
 
 .header-inner{
-display:flex;
-justify-content:space-between;
-align-items:center;
+display:flex;justify-content:space-between;align-items:center;
 padding:12px 20px;
 }
 
@@ -72,8 +69,6 @@ padding:12px 20px;
 .hamburger.active span:nth-child(2){opacity:0;}
 .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px);}
 
-/* OVERLAY */
-
 .overlay{
 position:fixed;inset:0;
 background:rgba(0,0,0,.55);
@@ -84,24 +79,16 @@ z-index:998;
 }
 .overlay.active{opacity:1;pointer-events:all;}
 
-/* MOBILE MENU */
-
 .mobile-menu{
-position:fixed;
-top:0;
-right:-100%;
-width:260px;
-height:100%;
+position:fixed;top:0;right:-100%;
+width:260px;height:100%;
 background:#050b14;
 padding:100px 25px;
 transition:.4s;
 z-index:999;
-display:flex;
-flex-direction:column;
-gap:20px;
+display:flex;flex-direction:column;gap:20px;
 }
 .mobile-menu.active{right:0;}
-
 .mobile-menu a{color:white;text-decoration:none;font-size:18px;}
 
 /* HERO */
@@ -122,19 +109,7 @@ font-weight:600;
 box-shadow:0 0 25px rgba(53,160,217,.5);
 }
 
-/* TAP SERVICES */
-
-.tap-services{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;margin-top:40px;}
-.tap-services a{
-background:var(--cardbg);
-padding:14px 22px;
-border-radius:14px;
-text-decoration:none;
-color:white;
-border:1px solid rgba(255,255,255,.1);
-}
-
-/* SECTIONS */
+/* SERVICES */
 
 section{padding:90px 0;}
 .section-title{text-align:center;font-family:Poppins;font-size:34px;margin-bottom:50px;}
@@ -146,11 +121,52 @@ background:var(--cardbg);
 padding:25px;
 border-radius:18px;
 border:1px solid rgba(255,255,255,.1);
-opacity:0;
-transform:translateY(40px);
-transition:.6s;
+transition:.4s;
+position:relative;
 }
-.card.show{opacity:1;transform:none;}
+
+.card:hover{
+transform:translateY(-10px) scale(1.02);
+border:1px solid var(--glow);
+box-shadow:0 0 30px rgba(53,160,217,.35);
+}
+
+.icon{
+font-size:34px;
+margin-bottom:15px;
+}
+
+.card a{
+display:inline-block;
+margin-top:18px;
+padding:12px 24px;
+border-radius:30px;
+background:linear-gradient(90deg,var(--blue),var(--glow));
+color:white;
+text-decoration:none;
+font-size:14px;
+font-weight:600;
+}
+
+/* MOST BOOKED BADGE */
+
+.badge{
+position:absolute;
+top:15px;
+right:15px;
+background:linear-gradient(90deg,#FFD700,#ffae00);
+color:black;
+padding:5px 10px;
+border-radius:20px;
+font-size:12px;
+font-weight:700;
+}
+
+/* PHOTOS */
+
+.card img{width:100%;border-radius:12px;margin-bottom:15px;}
+
+/* REVIEWS */
 
 .stars{color:#FFD700;margin-bottom:10px;}
 
@@ -189,9 +205,6 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 <div class="mobile-menu" id="mobileMenu">
 <a href="index.html">Home</a>
 <a href="toilet-replacement-san-antonio.html">🚽 Toilet</a>
-<a href="#">🚰 Faucet</a>
-<a href="#">⚙️ Disposal</a>
-<a href="#">🛠 Sink</a>
 <a href="request.html">Request Service</a>
 </div>
 
@@ -199,48 +212,67 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 
 <div class="container hero">
 
-<h1>Toilet, Faucet & Fixture Installation in San Antonio</h1>
-<p>Same-day service. Clean work. Upfront pricing.</p>
+<h1>Fixture & Handyman Installation in San Antonio</h1>
+<p>Toilets, faucets, sinks, light fixtures, ceiling fans and home upgrades — installed fast with clean, professional results.</p>
 
 <a href="tel:+12109068524" class="btn" id="callBtn">Checking availability…</a>
 <a href="request.html" class="btn">Request Service</a>
 
-<div class="tap-services">
-<a href="toilet-replacement-san-antonio.html">🚽 Toilet</a>
-<a href="#">🚰 Faucet</a>
-<a href="#">⚙️ Disposal</a>
-<a href="#">🛠 Sink</a>
+</div>
+
+<!-- SERVICES -->
+
+<section>
+<div class="container">
+<h2 class="section-title">Installation Services</h2>
+
+<div class="grid">
+
+<div class="card most-booked" data-service="toilet">
+<div class="badge">MOST BOOKED</div>
+<div class="icon">🚽</div>
+<h3>Toilet Installation</h3>
+<p>Fast removal and installation of customer-supplied toilets.</p>
+<a href="request.html?service=🚽 Toilet Installation">Book Service</a>
+</div>
+
+<div class="card" data-service="faucet">
+<div class="icon">🚰</div>
+<h3>Faucet Installation</h3>
+<p>Kitchen and bathroom faucet upgrades.</p>
+<a href="request.html?service=🚰 Faucet Installation">Book Service</a>
+</div>
+
+<div class="card" data-service="light">
+<div class="icon">💡</div>
+<h3>Light Fixture Installation</h3>
+<p>Secure mounting and replacement of interior fixtures.</p>
+<a href="request.html?service=💡 Light Fixture Installation">Book Service</a>
+</div>
+
+<div class="card" data-service="fan">
+<div class="icon">🌀</div>
+<h3>Ceiling Fan Installation</h3>
+<p>Balanced and secure ceiling fan installs.</p>
+<a href="request.html?service=🌀 Ceiling Fan Installation">Book Service</a>
 </div>
 
 </div>
+</div>
+</section>
 
 <!-- PHOTOS -->
 
 <section>
 <div class="container">
-<h2 class="section-title">Recent Installations</h2>
+<h2 class="section-title">Recent Work</h2>
 
 <div class="grid">
 
-<div class="card">
-<img src="images/sink-fixture-upgrade.png" loading="lazy" width="100%">
-<h3>Sink Upgrade</h3>
-</div>
-
-<div class="card">
-<img src="images/shower-trim-update.png" loading="lazy" width="100%">
-<h3>Shower Trim</h3>
-</div>
-
-<div class="card">
-<img src="images/kitchen-fixture-install.png" loading="lazy" width="100%">
-<h3>Kitchen Faucet</h3>
-</div>
-
-<div class="card">
-<img src="images/mailbox-replacement.jpg" loading="lazy" width="100%">
-<h3>Exterior Hardware</h3>
-</div>
+<div class="card"><img src="images/sink-fixture-upgrade.png"><h3>Sink Upgrade</h3></div>
+<div class="card"><img src="images/shower-trim-update.png"><h3>Shower Trim</h3></div>
+<div class="card"><img src="images/kitchen-fixture-install.png"><h3>Kitchen Faucet</h3></div>
+<div class="card"><img src="images/mailbox-replacement.jpg"><h3>Exterior Hardware</h3></div>
 
 </div>
 </div>
@@ -254,29 +286,10 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 
 <div class="grid">
 
-<div class="card">
-<div class="stars">★★★★★</div>
-<p>Christian was very nice, worked clean, and got everything taken care of quickly.</p>
-<strong>– LAR CAN</strong>
-</div>
-
-<div class="card">
-<div class="stars">★★★★★</div>
-<p>Arrived on time, professional and affordable. Highly recommended.</p>
-<strong>– Larry S.</strong>
-</div>
-
-<div class="card">
-<div class="stars">★★★★★</div>
-<p>Great work by Christian.</p>
-<strong>– Javier W.</strong>
-</div>
-
-<div class="card">
-<div class="stars">★★★★★</div>
-<p>Did just fine. Close to the estimate pricing.</p>
-<strong>– Michelle S.</strong>
-</div>
+<div class="card"><div class="stars">★★★★★</div><p>Christian was very nice, worked clean, and got everything taken care of quickly.</p><strong>– LAR CAN</strong></div>
+<div class="card"><div class="stars">★★★★★</div><p>Arrived on time, professional and affordable. Highly recommended.</p><strong>– Larry S.</strong></div>
+<div class="card"><div class="stars">★★★★★</div><p>Great work by Christian.</p><strong>– Javier W.</strong></div>
+<div class="card"><div class="stars">★★★★★</div><p>Did just fine. Close to the estimate pricing.</p><strong>– Michelle S.</strong></div>
 
 </div>
 </div>
@@ -284,17 +297,17 @@ box-shadow:0 0 20px rgba(53,160,217,.6);
 
 <footer>
 <p><strong>Plumbing Gurus LLC</strong></p>
-<p>Toilet • Faucet • Sink • Garbage Disposal Installation</p>
+<p>Fixture Installation • Handyman Services • Home Upgrades</p>
 <p>San Antonio, TX • (210) 906-8524</p>
-<p style="max-width:700px;margin:auto;font-size:13px;color:var(--muted);">
-Customer-supplied fixture installation and handyman services.
-Regulated plumbing work is referred to Texas licensed plumbers.
-</p>
 </footer>
 
 <a href="tel:+12109068524" class="call-btn">📞 Call</a>
 
 <script>
+
+const hour=new Date().getHours();
+document.getElementById("callBtn").innerHTML =
+hour<18 ? "📞 Call — Same-Day Available" : "📞 Schedule for Tomorrow";
 
 const hamburger=document.getElementById("hamburger");
 const mobileMenu=document.getElementById("mobileMenu");
@@ -312,18 +325,12 @@ mobileMenu.classList.remove("active");
 overlay.classList.remove("active");
 };
 
-const hour=new Date().getHours();
-document.getElementById("callBtn").innerHTML =
-hour<18 ? "📞 Call — Same-Day Available" : "📞 Schedule for Tomorrow";
+/* CLICK TRACKING */
 
-/* SCROLL REVEAL */
-
-const cards=document.querySelectorAll(".card");
-window.addEventListener("scroll",()=>{
-cards.forEach(card=>{
-if(card.getBoundingClientRect().top < window.innerHeight-100){
-card.classList.add("show");
-}
+document.querySelectorAll(".card").forEach(card=>{
+card.addEventListener("click",()=>{
+let service=card.dataset.service;
+localStorage.setItem("topService",service);
 });
 });
 
