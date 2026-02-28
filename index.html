@@ -5,252 +5,232 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plumbing Gurus | Fixture & Handyman Installation San Antonio</title>
+<title>Same-Day Fixture Installation Technician | San Antonio</title>
 
-<meta name="description" content="Customer-supplied fixture replacement and handyman installation in San Antonio. Toilets, faucets, sinks, lights and ceiling fans set fast with clean, professional results. Plumbing connections handled by a Texas-licensed plumber when required.">
-
-<link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
+<meta name="description" content="San Antonio’s same-day fixture installation technician. Customer-supplied toilets, faucets & lighting installed leak-free. Emergency water shut-off & non-invasive drain camera inspections.">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"LocalBusiness",
+"name":"Plumbing Gurus LLC",
+"telephone":"+1-210-906-8524",
+"areaServed":"San Antonio TX",
+"description":"Same-day fixture installation technician and leak response service."
+}
+</script>
+
 <style>
-/* (YOUR CSS — UNCHANGED) */
+
 :root{
 --dark:#050b14;
 --blue:#1D6FA3;
 --glow:#35a0d9;
---light:#ffffff;
 --muted:#b8c7d9;
 --cardbg:rgba(255,255,255,.05);
 }
-*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth;}
-body{font-family:Inter;background:var(--dark);color:white;}
-.container{max-width:1200px;margin:auto;padding:0 20px;}
+
+body{
+margin:0;
+font-family:Inter;
+background:var(--dark);
+color:white;
+overflow-x:hidden;
+}
+
+/* 3D BACKGROUND */
 body::before{
-content:"";position:fixed;inset:0;z-index:-1;
+content:"";
+position:fixed;
+inset:0;
+z-index:-1;
 background:
 radial-gradient(circle at 20% 20%, rgba(53,160,217,.4), transparent 40%),
 radial-gradient(circle at 80% 30%, rgba(29,111,163,.4), transparent 40%),
 radial-gradient(circle at 50% 80%, rgba(13,75,115,.6), transparent 45%);
+animation:moveBg 18s infinite alternate ease-in-out;
 }
-header{position:fixed;width:100%;top:0;background:rgba(5,11,20,.95);backdrop-filter:blur(14px);z-index:999;}
-.header-inner{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;}
-.logo{height:75px;}
-.hamburger{width:30px;cursor:pointer;display:flex;flex-direction:column;gap:6px;}
-.hamburger span{height:3px;background:white;border-radius:3px;transition:.3s;}
-.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(6px,6px);}
-.hamburger.active span:nth-child(2){opacity:0;}
-.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px);}
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:.3s;z-index:998;}
-.overlay.active{opacity:1;pointer-events:all;}
-.mobile-menu{
-position:fixed;top:0;right:-100%;width:260px;height:100%;
-background:#050b14;padding:100px 25px;transition:.4s;z-index:999;
-display:flex;flex-direction:column;gap:20px;
+
+@keyframes moveBg{
+0%{transform:scale(1);}
+100%{transform:scale(1.2);}
 }
-.mobile-menu.active{right:0;}
-.mobile-menu a{color:white;text-decoration:none;font-size:18px;}
-.hero{padding-top:160px;text-align:center;padding-bottom:80px;}
-.hero h1{font-size:42px;font-family:Poppins;margin-bottom:15px;}
-.hero p{color:var(--muted);font-size:18px;}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:120px 20px 80px;
+text-align:center;
+}
+
+h1{
+font-family:Poppins;
+font-size:42px;
+}
+
+p{color:var(--muted);font-size:18px;}
+
 .btn{
-display:inline-block;margin-top:25px;padding:16px 40px;border-radius:40px;
+display:inline-block;
+margin-top:20px;
+padding:16px 38px;
+border-radius:40px;
 background:linear-gradient(90deg,var(--blue),var(--glow));
-color:white;text-decoration:none;font-weight:600;
-box-shadow:0 0 25px rgba(53,160,217,.5);
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
-.tap-services{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;margin-top:40px;}
-.tap-services a{
-background:var(--cardbg);padding:14px 22px;border-radius:14px;
-text-decoration:none;color:white;border:1px solid rgba(255,255,255,.1);
+
+.btn:hover{
+transform:translateY(-6px) scale(1.05);
+box-shadow:0 20px 40px rgba(53,160,217,.6);
 }
-section{padding:90px 0;}
-.section-title{text-align:center;font-family:Poppins;font-size:34px;margin-bottom:50px;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+margin-top:60px;
+}
+
 .card{
-background:var(--cardbg);padding:25px;border-radius:18px;
-border:1px solid rgba(255,255,255,.1);
-transition:.4s;position:relative;opacity:0;transform:translateY(40px);
+background:var(--cardbg);
+padding:30px;
+border-radius:20px;
+backdrop-filter:blur(14px);
+transition:.4s;
+box-shadow:0 20px 40px rgba(0,0,0,.4);
 }
-.card.show{opacity:1;transform:none;}
+
 .card:hover{
-transform:translateY(-10px) scale(1.02);
-border:1px solid var(--glow);
-box-shadow:0 0 30px rgba(53,160,217,.35);
+transform:scale(1.05);
+box-shadow:0 30px 60px rgba(53,160,217,.35);
 }
-.icon{font-size:34px;margin-bottom:15px;}
-.card a{
-display:inline-block;margin-top:18px;padding:12px 24px;border-radius:30px;
+
+.card img{
+width:100%;
+border-radius:14px;
+margin-top:15px;
+}
+
+.callbar{
+position:fixed;
+bottom:0;
+width:100%;
+display:flex;
+}
+
+.callbar a{
+flex:1;
+text-align:center;
+padding:16px;
+text-decoration:none;
+font-weight:600;
+color:white;
 background:linear-gradient(90deg,var(--blue),var(--glow));
-color:white;text-decoration:none;font-size:14px;font-weight:600;
 }
-.badge{
-position:absolute;top:15px;right:15px;
-background:linear-gradient(90deg,#FFD700,#ffae00);
-color:black;padding:5px 10px;border-radius:20px;font-size:12px;font-weight:700;
-}
-.card img{width:100%;border-radius:12px;margin-bottom:15px;}
-.stars{color:#FFD700;margin-bottom:10px;}
-footer{text-align:center;padding:50px 20px;color:#9fb3c8;background:#02060c;}
-.call-btn{
-position:fixed;bottom:20px;right:20px;
-background:linear-gradient(90deg,var(--blue),var(--glow));
-padding:14px 26px;border-radius:40px;color:white;text-decoration:none;
-font-weight:600;box-shadow:0 0 20px rgba(53,160,217,.6);
-}
+
+.stars{color:#FFD700;}
+
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="header-inner">
-<img src="images/file_00000000dc5c71fda7bf16dec7db34b7.png" class="logo">
-<div class="hamburger" id="hamburger">
-<span></span><span></span><span></span>
-</div>
-</div>
-</header>
+<div class="container">
 
-<div class="overlay" id="overlay"></div>
+<h1>San Antonio’s Same-Day Fixture Installation Technician</h1>
 
-<div class="mobile-menu" id="mobileMenu">
-<a href="index.html">Home</a>
-<a href="toilet-replacement-san-antonio.html">🚽 Toilet</a>
-<a href="request.html">Request Service</a>
-</div>
+<p>Precision installation of customer-supplied toilets, faucets, sinks, lighting and ceiling fans. Rapid emergency water shut-off and non-invasive drain & sewer camera diagnostics for active leak situations.</p>
 
-<div class="container hero">
+<a href="tel:+12109068524" class="btn">📞 Check Same-Day Availability</a>
+<a href="sms:+12109068524" class="btn">📲 Send Photos for Exact Quote</a>
 
-<h1>Customer-Supplied Fixture Replacement & Handyman Services in San Antonio</h1>
-<p>Toilets, faucets, sinks, light fixtures and ceiling fans replaced and set fast with clean, professional results. Licensed plumbing connections referred when required.</p>
-
-<a href="tel:+12109068524" class="btn" id="callBtn">Checking availability…</a>
-<a href="request.html" class="btn">Request Service</a>
-
-<p style="margin-top:15px;color:#b8c7d9;font-size:14px;">
-Customer-supplied fixtures welcome • Fast turnaround • Clean, professional results
+<p style="margin-top:15px;">
+Transparent pricing: Toilet Installation from $165 • Faucet Installation from $145 • Camera Inspection from $245
 </p>
 
-<div class="tap-services">
-<a href="request.html?service=🚽 Toilet Replacement">🚽 Toilet</a>
-<a href="request.html?service=🚰 Faucet Upgrade">🚰 Faucet</a>
-<a href="request.html?service=💡 Light Fixture Installation">💡 Light</a>
-<a href="request.html?service=🌀 Ceiling Fan Installation">🌀 Fan</a>
-</div>
-
-</div>
-
-<section>
-<div class="container">
-<h2 class="section-title">Fixture Replacement & Home Upgrades</h2>
-
-<div class="grid">
-
-<div class="card" data-service="toilet">
-<div class="badge">MOST BOOKED</div>
-<div class="icon">🚽</div>
-<h3>Toilet Replacement (Customer-Supplied)</h3>
-<p>Removal of existing unit and professional setting of your new customer-supplied toilet. Plumbing connections completed by a Texas-licensed plumber when required.</p>
-<a href="request.html?service=🚽 Toilet Replacement">Book Service</a>
-</div>
-
-<div class="card" data-service="faucet">
-<div class="icon">🚰</div>
-<h3>Faucet Upgrade (Customer-Supplied)</h3>
-<p>Clean removal and secure placement of modern customer-supplied faucets and fixture upgrades.</p>
-<a href="request.html?service=🚰 Faucet Upgrade">Book Service</a>
-</div>
-
-<div class="card" data-service="light">
-<div class="icon">💡</div>
-<h3>Light Fixture Installation</h3>
-<a href="request.html?service=💡 Light Fixture Installation">Book Service</a>
-</div>
-
-<div class="card" data-service="fan">
-<div class="icon">🌀</div>
-<h3>Ceiling Fan Installation</h3>
-<a href="request.html?service=🌀 Ceiling Fan Installation">Book Service</a>
-</div>
-
-</div>
-</div>
-</section>
-
-<section>
-<div class="container">
-<h2 class="section-title">Recent Work</h2>
-
-<div class="grid">
-<div class="card"><img src="images/sink-fixture-upgrade.png"><h3>Sink Upgrade</h3></div>
-<div class="card"><img src="images/shower-trim-update.png"><h3>Shower Trim</h3></div>
-<div class="card"><img src="images/kitchen-fixture-install.png"><h3>Kitchen Faucet</h3></div>
-<div class="card"><img src="images/mailbox-replacement.jpg"><h3>Exterior Hardware</h3></div>
-</div>
-
-</div>
-</section>
-
-<section>
-<div class="container">
-<h2 class="section-title">Customer Reviews</h2>
-
-<div class="grid">
-
-<div class="card"><div class="stars">★★★★★</div><p>Christian was very nice, worked clean, and got everything taken care of quickly.</p><strong>– LAR CAN</strong></div>
-<div class="card"><div class="stars">★★★★★</div><p>Arrived on time, professional and affordable. Highly recommended.</p><strong>– Larry S.</strong></div>
-<div class="card"><div class="stars">★★★★★</div><p>Great work by Christian.</p><strong>– Javier W.</strong></div>
-<div class="card"><div class="stars">★★★★★</div><p>Did just fine. Close to the estimate pricing.</p><strong>– Michelle S.</strong></div>
-
-</div>
-</div>
-</section>
-
-<footer>
-<p><strong>Plumbing Gurus LLC</strong></p>
-<p>Fixture Installation • Handyman Services • Home Upgrades</p>
-<p>San Antonio, TX • (210) 906-8524</p>
-<p style="max-width:700px;margin:auto;font-size:13px;color:var(--muted);">
-Customer-supplied fixture replacement, mounting and handyman services.
-Any work requiring a plumbing license is performed by or referred to a Texas-licensed plumber.
+<p style="font-size:14px;">
+✔ Technical installation ✔ Clean, damage-free workmanship ✔ Upfront pricing
 </p>
-</footer>
 
-<a href="tel:+12109068524" class="call-btn">📞 Call</a>
+<p style="margin-top:10px;font-size:14px;">
+Serving: San Antonio • Alamo Ranch • Helotes • Leon Valley • Stone Oak • Converse • Universal City
+</p>
 
-<script>
-/* YOUR JS — UNCHANGED */
-const hamburger=document.getElementById("hamburger");
-const mobileMenu=document.getElementById("mobileMenu");
-const overlay=document.getElementById("overlay");
-hamburger.onclick=()=>{
-hamburger.classList.toggle("active");
-mobileMenu.classList.toggle("active");
-overlay.classList.toggle("active");
-};
-overlay.onclick=()=>{
-hamburger.classList.remove("active");
-mobileMenu.classList.remove("active");
-overlay.classList.remove("active");
-};
-const hour=new Date().getHours();
-document.getElementById("callBtn").innerHTML =
-hour<18 ? "📞 Call — Same-Day Available" : "📞 Schedule for Tomorrow";
-const cards=document.querySelectorAll(".card");
-window.addEventListener("scroll",()=>{
-cards.forEach(card=>{
-if(card.getBoundingClientRect().top < window.innerHeight-100){
-card.classList.add("show");
-}
-});
-});
-document.querySelectorAll(".card").forEach(card=>{
-card.addEventListener("click",()=>{
-localStorage.setItem("topService",card.dataset.service);
-});
-});
-</script>
+<!-- SERVICES -->
+
+<div class="grid">
+
+<div class="card">
+<h3>🚽 Toilet Installation</h3>
+<p>Correct fit, secure setting and leak-free performance.</p>
+</div>
+
+<div class="card">
+<h3>🚰 Faucet & Sink Installation</h3>
+<p>Modern fixture upgrades installed clean and aligned.</p>
+</div>
+
+<div class="card">
+<h3>📹 Drain & Sewer Camera Diagnostics</h3>
+<p>Non-invasive inspection for accessible drain lines.</p>
+</div>
+
+<div class="card">
+<h3>🚨 Emergency Leak Shut-Off</h3>
+<p>Fast response to stop active water and prevent damage.</p>
+</div>
+
+</div>
+
+<!-- PROJECTS -->
+
+<div class="grid">
+
+<div class="card">
+<img src="images/toilet-installation-san-antonio.jpg">
+<h3>Toilet Upgrade</h3>
+</div>
+
+<div class="card">
+<img src="images/kitchen-fixture-install.jpg">
+<h3>Faucet Installation</h3>
+</div>
+
+<div class="card">
+<img src="images/shower-trim-update.png">
+<h3>Shower Trim Upgrade</h3>
+</div>
+
+</div>
+
+<!-- REVIEWS -->
+
+<div class="grid">
+
+<div class="card"><div class="stars">★★★★★</div><p>Arrived on time, worked clean and finished fast.</p></div>
+<div class="card"><div class="stars">★★★★★</div><p>Professional, precise and very reliable.</p></div>
+<div class="card"><div class="stars">★★★★★</div><p>Excellent communication and quality workmanship.</p></div>
+
+</div>
+
+<p style="margin-top:60px;font-size:13px;max-width:700px;margin:auto;color:#b8c7d9;">
+Customer-supplied fixture installation. Any work requiring a plumbing license is performed by or referred to a Texas-licensed Responsible Master Plumber.
+</p>
+
+</div>
+
+<!-- STICKY MOBILE BAR -->
+
+<div class="callbar">
+<a href="tel:+12109068524">📞 Call</a>
+<a href="sms:+12109068524">📲 Text</a>
+</div>
 
 </body>
 </html>
