@@ -57,6 +57,8 @@ background:linear-gradient(90deg,var(--blue),var(--glow));
 color:white;
 text-decoration:none;
 font-weight:600;
+border:none;
+cursor:pointer;
 }
 
 .grid{
@@ -88,6 +90,42 @@ color:#FFD700;
 margin-bottom:10px;
 }
 
+/* POPUP FORM */
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.7);
+align-items:center;
+justify-content:center;
+z-index:20;
+}
+
+.modal-content{
+background:var(--dark);
+padding:30px;
+border-radius:20px;
+max-width:420px;
+width:90%;
+box-shadow:0 20px 45px rgba(0,0,0,.6);
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:none;
+margin-bottom:12px;
+font-family:Inter;
+}
+
+.close{
+float:right;
+cursor:pointer;
+font-size:20px;
+}
+
 .callbar{
 position:fixed;
 bottom:0;
@@ -116,8 +154,8 @@ background:linear-gradient(90deg,var(--blue),var(--glow));
 
 <p>Toilets, faucets and trim upgrades installed clean, aligned and leak-free.</p>
 
-<a href="tel:+12109068524" class="btn">📞 Check Same-Day Availability</a>
-<a href="sms:+12109068524?&body=Hi%20I%20need%20a%20quote" class="btn">📲 Send Photos for 5-Minute Quote</a>
+<button class="btn" onclick="openForm()">Request Service</button>
+<a href="tel:+12109068524" class="btn">📞 Call</a>
 
 <!-- IN STOCK FIXTURES -->
 
@@ -126,27 +164,21 @@ background:linear-gradient(90deg,var(--blue),var(--glow));
 <div class="grid">
 
 <div class="card">
-<img src="images/project-source-bathroom-faucet.jpg" alt="Project Source bathroom faucet installation San Antonio" loading="lazy">
+<img src="images/project-source-bathroom-faucet.jpg">
 <h3>Project Source Bathroom Faucet</h3>
-<p>Modern brushed nickel • In stock</p>
-<p><strong>Installed Today: $224</strong></p>
-<a href="sms:+12109068524" class="btn">📲 Book This Installed Today</a>
+<p>Installed Today: <strong>$224</strong></p>
 </div>
 
 <div class="card">
-<img src="images/kohler-matte-black-kitchen-faucet-san-antonio.jpg" alt="Kohler kitchen faucet installation San Antonio" loading="lazy">
+<img src="images/kohler-matte-black-kitchen-faucet-san-antonio.jpg">
 <h3>KOHLER Pull-Down Kitchen Faucet</h3>
-<p>Matte black • Premium upgrade</p>
-<p><strong>Installed Today: $364</strong></p>
-<a href="sms:+12109068524" class="btn">📲 Book This Installed Today</a>
+<p>Installed Today: <strong>$364</strong></p>
 </div>
 
 <div class="card">
-<img src="images/allen-roth-shower-trim-kit-install-san-antonio.jpg" alt="Allen Roth shower trim kit installation San Antonio" loading="lazy">
+<img src="images/allen-roth-shower-trim-kit-install-san-antonio.jpg">
 <h3>Allen + Roth Shower Trim Kit</h3>
-<p>Full shower upgrade • Same-day service</p>
-<p><strong>Installed Today: $374</strong></p>
-<a href="sms:+12109068524" class="btn">📲 Book This Installed Today</a>
+<p>Installed Today: <strong>$374</strong></p>
 </div>
 
 </div>
@@ -158,87 +190,90 @@ background:linear-gradient(90deg,var(--blue),var(--glow));
 <div class="grid">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=900&q=60"
-alt="Toilet installation service San Antonio" loading="lazy">
+<img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=900&q=60">
 <h3>Toilet Upgrade</h3>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=900&q=60"
-alt="Bathroom faucet installation San Antonio" loading="lazy">
+<img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=900&q=60">
 <h3>Faucet Installation</h3>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=60"
-alt="Shower trim replacement bathroom upgrade" loading="lazy">
+<img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=60">
 <h3>Shower Trim Upgrade</h3>
 </div>
 
 <div class="card">
-<img src="images/mailbox-replacement.jpg" loading="lazy">
+<img src="images/mailbox-replacement.jpg">
 <h3>Mailbox Replacement</h3>
 </div>
 
 </div>
 
-<!-- INSTALLATION PRICING -->
+<!-- PRICING -->
 
 <h2 style="margin-top:100px;font-family:Poppins;">Typical Installation Pricing</h2>
 
 <div class="grid">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=900&q=60"
-alt="Kitchen faucet installation San Antonio">
 <h3>Faucet Installation</h3>
-<p>Bathroom or kitchen faucet replacement using customer supplied fixture.</p>
-<p><strong>$120 – $180 Installed</strong></p>
-<a href="sms:+12109068524?&body=Hi%20I%20need%20a%20faucet%20installation%20quote" class="btn">📲 Request Installation</a>
+<p>$120 – $180</p>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=900&q=60"
-alt="Toilet installation San Antonio">
 <h3>Toilet Installation</h3>
-<p>Customer supplied toilet installed, sealed and tested.</p>
-<p><strong>$180 – $240 Installed</strong></p>
-<a href="sms:+12109068524?&body=Hi%20I%20need%20a%20toilet%20installation%20quote" class="btn">📲 Request Installation</a>
+<p>$180 – $240</p>
 </div>
 
 <div class="card">
 <h3>Garbage Disposal Replacement</h3>
-<p>Remove old disposal and install new unit.</p>
-<p><strong>$140 – $200</strong></p>
+<p>$140 – $200</p>
 </div>
 
 <div class="card">
-<h3>Outdoor Hose Bib Replacement</h3>
-<p>Replace leaking exterior faucet.</p>
-<p><strong>$140 – $220</strong></p>
+<h3>Sewer Camera Inspection</h3>
+<p>$120 – $250</p>
 </div>
 
 </div>
 
-<!-- REVIEWS -->
+<!-- POPUP FORM -->
 
-<h2 style="margin-top:100px;font-family:Poppins;">Customer Reviews</h2>
+<div class="modal" id="serviceForm">
 
-<div class="grid">
+<div class="modal-content">
 
-<div class="card">
-<div class="stars">★★★★★</div>
-<p>Arrived on time, worked clean and finished fast.</p>
-</div>
+<span class="close" onclick="closeForm()">✕</span>
 
-<div class="card">
-<div class="stars">★★★★★</div>
-<p>Professional, precise and very reliable.</p>
-</div>
+<h3 style="font-family:Poppins;">Request Service</h3>
 
-<div class="card">
-<div class="stars">★★★★★</div>
-<p>Excellent communication and quality workmanship.</p>
+<form action="https://formspree.io/f/YOURFORMID" method="POST">
+
+<select name="service" required>
+<option value="">Select Service</option>
+<option>Faucet Installation</option>
+<option>Toilet Installation</option>
+<option>Garbage Disposal Replacement</option>
+<option>Sewer Camera Inspection</option>
+</select>
+
+<select name="timeline">
+<option value="">When do you need service?</option>
+<option>Today</option>
+<option>This Week</option>
+<option>Flexible</option>
+</select>
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="tel" name="phone" placeholder="Phone Number" required>
+
+<button type="submit" class="btn">Submit</button>
+
+</form>
+
 </div>
 
 </div>
@@ -253,6 +288,18 @@ Customer-supplied fixture installation. Any work requiring a plumbing license is
 <a href="tel:+12109068524">📞 Call</a>
 <a href="sms:+12109068524">📲 Text</a>
 </div>
+
+<script>
+
+function openForm(){
+document.getElementById("serviceForm").style.display="flex";
+}
+
+function closeForm(){
+document.getElementById("serviceForm").style.display="none";
+}
+
+</script>
 
 </body>
 </html>
