@@ -1,12 +1,12 @@
 <!DOCTYPE html><html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Fixture Installation Specialist | San Antonio Same-Day Service</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"><style>
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Faucet Installation San Antonio | Fixture Installation Specialist</title><meta name="description" content="Professional faucet installation, toilet installation, shower trim upgrades and fixture installation in San Antonio TX. Same-day service available. Call or text Plumbing Gurus today."><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"><style>
 
 :root{
 --dark:#050b14;
 --blue:#1D6FA3;
 --glow:#35a0d9;
+--accent:#4fd3ff;
 --muted:#b8c7d9;
 --cardbg:rgba(255,255,255,.05);
 }
@@ -18,6 +18,9 @@ background:var(--dark);
 color:white;
 overflow-x:hidden;
 }
+
+/* DESIGN IMPROVEMENT #1 */
+/* Premium background glow */
 
 body::before{
 content:"";
@@ -33,15 +36,27 @@ radial-gradient(circle at 50% 80%, rgba(13,75,115,.55), transparent 45%);
 .container{
 max-width:1200px;
 margin:auto;
-padding:140px 20px 100px;
+padding:120px 20px 100px;
 text-align:center;
 }
 
-h1{font-family:Poppins;font-size:44px;}
+h1{
+font-family:Poppins;
+font-size:44px;
+}
 
-h2{font-family:Poppins;}
+h2{
+font-family:Poppins;
+margin-top:100px;
+}
 
-p{color:var(--muted);font-size:18px;}
+p{
+color:var(--muted);
+font-size:18px;
+}
+
+/* DESIGN IMPROVEMENT #2 */
+/* Animated buttons */
 
 .btn{
 display:inline-block;
@@ -52,8 +67,13 @@ background:linear-gradient(90deg,var(--blue),var(--glow));
 color:white;
 text-decoration:none;
 font-weight:600;
-border:none;
-cursor:pointer;
+box-shadow:0 8px 25px rgba(53,160,217,.35);
+transition:.2s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 12px 35px rgba(53,160,217,.55);
 }
 
 .grid{
@@ -63,21 +83,30 @@ gap:35px;
 margin-top:60px;
 }
 
+/* DESIGN IMPROVEMENT #3 */
+/* Glassmorphism cards */
+
 .card{
 background:var(--cardbg);
 padding:30px;
 border-radius:22px;
 backdrop-filter:blur(16px);
 box-shadow:0 20px 45px rgba(0,0,0,.45);
+transition:.2s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 30px 60px rgba(0,0,0,.6);
 }
 
 .card img{
 width:100%;
 height:200px;
 object-fit:cover;
-background:#0d1826;
 border-radius:14px;
 margin-bottom:15px;
+background:#0d1826;
 }
 
 .stars{
@@ -92,47 +121,14 @@ line-height:1.9;
 color:var(--muted);
 }
 
-/* Modal */
-
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.7);
-align-items:center;
-justify-content:center;
-z-index:20;
-}
-
-.modal-content{
-background:var(--dark);
-padding:30px;
-border-radius:20px;
-max-width:420px;
-width:90%;
-}
-
-input,select{
-width:100%;
-padding:12px;
-border-radius:10px;
-border:none;
-margin-bottom:12px;
-}
-
-.close{
-float:right;
-cursor:pointer;
-font-size:20px;
-}
-
-/* Call bar */
+/* sticky call bar */
 
 .callbar{
 position:fixed;
 bottom:0;
 width:100%;
 display:flex;
+z-index:10;
 }
 
 .callbar a{
@@ -145,105 +141,96 @@ color:white;
 background:linear-gradient(90deg,var(--blue),var(--glow));
 }
 
-</style></head><body><div class="container"><h1>San Antonio Fixture Installation Specialist</h1><p>Faucets, toilets, shower trim and household fixture installations done clean and aligned.</p><p style="font-size:16px;">⭐ Rated 5-Stars by Local Homeowners</p><p style="font-size:15px;color:#9fb7cc;">
-✔ Same-Day Appointments  
+</style><!-- LOCAL BUSINESS SCHEMA --><script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "LocalBusiness",
+ "name": "Plumbing Gurus",
+ "url": "https://plumbinggurus.us",
+ "telephone": "+1-210-906-8524",
+ "address": {
+   "@type": "PostalAddress",
+   "addressLocality": "San Antonio",
+   "addressRegion": "TX",
+   "addressCountry": "US"
+ },
+ "areaServed": [
+   "San Antonio TX",
+   "Alamo Heights TX",
+   "Leon Valley TX",
+   "Converse TX",
+   "Universal City TX"
+ ],
+ "serviceType": [
+   "Faucet Installation",
+   "Toilet Installation",
+   "Shower Trim Installation",
+   "Garbage Disposal Replacement",
+   "Fixture Installation"
+ ]
+}
+</script></head><body><div class="container"><h1>San Antonio Fixture Installation Specialist</h1><p>Professional faucet installation, toilet installation and fixture upgrades for homeowners across San Antonio.</p><p style="font-size:16px;">⭐ Rated 5-Stars by Local Homeowners</p><p>
+✔ Same-Day Service Available  
 ✔ Clean Professional Installation  
 ✔ Customer-Supplied Fixtures Welcome
-</p><button class="btn" onclick="openForm()">Request Service</button>
-<a href="tel:+12109068524" class="btn">📞 Call Now</a>
+</p><a href="tel:+12109068524" class="btn">📞 Call Now</a>
+<a href="sms:+12109068524" class="btn">📲 Text a Photo</a>
 
-<!-- PHOTO QUOTE --><h2 style="margin-top:100px;">Send a Photo for a Fast Quote</h2><p>Text a photo of your fixture or installation project for a quick estimate.</p><a href="sms:+12109068524" class="btn">📲 Text a Photo</a>
+<!-- PHOTO QUOTE --><h2>Send a Photo for a Fast Quote</h2><p>Text a photo of your faucet, toilet or fixture project and receive a quick estimate.</p><a href="sms:+12109068524" class="btn">Send Photo</a>
 
-<!-- REVIEWS --><h2 style="margin-top:100px;">Customer Reviews</h2><p style="font-size:15px;color:#9fb7cc;">
-Verified customer feedback from local homeowners
-</p><div class="grid"><div class="card">
-<div class="stars">★★★★★</div>
-<p>"Great work by Christian."</p>
-<p style="font-size:14px;color:#9fb7cc;">— Javier W.</p>
-</div><div class="card">
-<div class="stars">★★★★★</div>
-<p>"Did just fine. Close to the estimate pricing."</p>
-<p style="font-size:14px;color:#9fb7cc;">— Michelle S.</p>
-</div><div class="card">
-<div class="stars">★★★★★</div>
-<p>"Very professional and reliable. Diagnosed the issue clearly and completed the fixture repair efficiently."</p>
-<p style="font-size:14px;color:#9fb7cc;">— Jenn C.</p>
-</div><div class="card">
-<div class="stars">★★★★★</div>
-<p>"Great job, good quality work, fair pricing and quick completion."</p>
-<p style="font-size:14px;color:#9fb7cc;">— John L.</p>
-</div><div class="card">
-<div class="stars">★★★★★</div>
-<p>"Christian fixed my leaking pipe, he was very nice and works clean."</p>
-<p style="font-size:14px;color:#9fb7cc;">— LAR C.</p>
-</div><div class="card">
-<div class="stars">★★★★★</div>
-<p>"Christian responded promptly, arrived on time and provided great service."</p>
-<p style="font-size:14px;color:#9fb7cc;">— Larry S.</p>
-</div></div><!-- IN STOCK FIXTURES --><h2 style="margin-top:100px;">In-Stock Fixtures – Installation Available Today</h2><div class="grid"><div class="card">
-<img src="images/project-source-bathroom-faucet.jpg">
-<h3>Project Source Bathroom Faucet</h3>
-<p><strong>$199 Installed</strong></p>
-</div><div class="card">
-<img src="images/kohler-matte-black-kitchen-faucet-san-antonio.jpg">
-<h3>Kohler Pull-Down Kitchen Faucet</h3>
-<p><strong>$329 Installed</strong></p>
-</div><div class="card">
-<img src="images/allen-roth-shower-trim-kit-install-san-antonio.jpg">
-<h3>Allen + Roth Shower Trim</h3>
-<p><strong>$339 Installed</strong></p>
-</div></div><!-- RECENT WORK --><h2 style="margin-top:100px;">Recent Work</h2><div class="grid"><div class="card">
-<img src="images/mailbox-replacement.jpg">
-<h3>Mailbox Replacement</h3>
-</div><div class="card">
-<h3>Other Recent Jobs</h3>
-<ul>
-<li>✔ Faucet Installation</li>
-<li>✔ Toilet Replacement</li>
-<li>✔ Shower Trim Upgrade</li>
-<li>✔ Garbage Disposal Swap</li>
-<li>✔ Hose Bib Adjustment</li>
-</ul>
-</div></div><!-- SERVICES --><h2 style="margin-top:100px;">Typical Installation Pricing</h2><div class="grid"><div class="card">
+<!-- SERVICES --><h2>Fixture Installation Services</h2><div class="grid"><div class="card">
 <h3>Faucet Installation</h3>
-<p>$120 – $180</p>
+<p>Kitchen and bathroom faucet installation in San Antonio.</p>
 </div><div class="card">
 <h3>Toilet Installation</h3>
-<p>$180 – $240</p>
+<p>Professional toilet replacement and installation.</p>
 </div><div class="card">
-<h3>Garbage Disposal Swap</h3>
-<p>$140 – $200</p>
+<h3>Shower Trim Installation</h3>
+<p>Upgrade bathroom shower trim kits and fixtures.</p>
 </div><div class="card">
-<h3>Shower Head Replacement</h3>
-<p>$80 – $140</p>
-</div></div><!-- SERVICE AREA --><h2 style="margin-top:100px;">Service Areas</h2><p style="max-width:700px;margin:auto;">
+<h3>Garbage Disposal Replacement</h3>
+<p>Replacement of existing garbage disposal units.</p>
+</div></div><!-- FIXTURES --><h2>In-Stock Fixtures Installed Today</h2><div class="grid"><div class="card">
+<img src="images/faucet-installation-san-antonio.jpg">
+<h3>Bathroom Faucet</h3>
+<p><strong>$199 Installed</strong></p>
+</div><div class="card">
+<img src="images/kitchen-faucet-install-san-antonio.jpg">
+<h3>Kohler Kitchen Faucet</h3>
+<p><strong>$329 Installed</strong></p>
+</div><div class="card">
+<img src="images/shower-trim-install-san-antonio.jpg">
+<h3>Shower Trim Upgrade</h3>
+<p><strong>$339 Installed</strong></p>
+</div></div><!-- RECENT WORK --><h2>Recent Installation Work</h2><div class="grid"><div class="card">
+<img src="images/mailbox-replacement.jpg">
+<h3>Mailbox Replacement</h3>
+</div><div class="card"><h3>Other Recent Jobs</h3><ul>
+<li>✔ Faucet Installation</li>
+<li>✔ Toilet Replacement</li>
+<li>✔ Shower Head Upgrade</li>
+<li>✔ Bidet Seat Installation</li>
+<li>✔ Garbage Disposal Replacement</li>
+</ul></div></div><!-- REVIEWS --><h2>Customer Reviews</h2><div class="grid"><div class="card">
+<div class="stars">★★★★★</div>
+<p>"Great work by Christian."</p>
+<p>— Javier W.</p>
+</div><div class="card">
+<div class="stars">★★★★★</div>
+<p>"Very professional and quick service."</p>
+<p>— Jenn C.</p>
+</div><div class="card">
+<div class="stars">★★★★★</div>
+<p>"Fair pricing and clean installation."</p>
+<p>— John L.</p>
+</div></div><!-- SERVICE AREAS --><h2>Service Areas</h2><p>
 Serving San Antonio, Alamo Heights, Leon Valley, Converse, Live Oak,
 Universal City, Stone Oak and surrounding Bexar County neighborhoods.
-</p><!-- REQUEST FORM --><div class="modal" id="serviceForm"><div class="modal-content"><span class="close" onclick="closeForm()">✕</span>
-
-<h3>Request Service</h3><form action="https://formspree.io/f/YOURFORMID" method="POST"><select name="service">
-<option>Select Service</option>
-<option>Faucet Installation</option>
-<option>Toilet Installation</option>
-<option>Garbage Disposal Swap</option>
-<option>Shower Head Replacement</option>
-</select><input type="text" name="name" placeholder="Name"><input type="tel" name="phone" placeholder="Phone"><button type="submit" class="btn">Submit</button>
-
-</form></div></div><p style="margin-top:80px;font-size:13px;max-width:700px;margin:auto;color:#b8c7d9;">
+</p><p style="margin-top:80px;font-size:13px;color:#b8c7d9;">
 Fixture installation and accessory upgrades. Any work requiring a Texas plumbing license
 is performed by or referred to a Texas Licensed Responsible Master Plumber.
 </p></div><div class="callbar">
 <a href="tel:+12109068524">📞 Call</a>
 <a href="sms:+12109068524">📲 Text</a>
-</div><script>
-
-function openForm(){
-document.getElementById("serviceForm").style.display="flex";
-}
-
-function closeForm(){
-document.getElementById("serviceForm").style.display="none";
-}
-
-</script></body>
+</div></body>
 </html>
