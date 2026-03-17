@@ -5,57 +5,85 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Kitchen & Bathroom Fixture Installation San Antonio</title>
+<title>Fixture Installation San Antonio | Same-Day Service</title>
 
-<meta name="description" content="Kitchen and bathroom fixture installation in San Antonio including faucets, toilets, shower heads, trim kits and garbage disposals. Same-day service available.">
+<meta name="description" content="Same-day faucet, toilet, and fixture installation in San Antonio. Fast, clean installs without inflated plumbing pricing. Send a photo for a quick quote.">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 
 :root{
---dark:#050b14;
+--dark:#03080f;
 --blue:#1D6FA3;
 --glow:#35a0d9;
 --accent:#4fd3ff;
---muted:#b8c7d9;
---cardbg:rgba(255,255,255,.05);
+--gold:#ffc107;
+--muted:#a9bdd3;
+--glass:rgba(255,255,255,.06);
 }
 
 body{
 margin:0;
 font-family:Inter;
-background:var(--dark);
+background:radial-gradient(circle at 30% 20%, #0d2a44, #03080f 70%);
 color:white;
 overflow-x:hidden;
 }
 
+/* WATER BACKGROUND */
 body::before{
 content:"";
 position:fixed;
 inset:0;
-z-index:-1;
+z-index:-2;
 background:
-radial-gradient(circle at 20% 20%, rgba(53,160,217,.35), transparent 40%),
-radial-gradient(circle at 80% 30%, rgba(29,111,163,.35), transparent 40%),
-radial-gradient(circle at 50% 80%, rgba(13,75,115,.55), transparent 45%);
+radial-gradient(circle at 20% 20%, rgba(53,160,217,.25), transparent 40%),
+radial-gradient(circle at 80% 30%, rgba(29,111,163,.25), transparent 40%);
+filter:blur(40px);
 }
 
+/* WATER DROPS */
+.water-drops{
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:-1;
+}
+
+.water-drops span{
+position:absolute;
+width:6px;
+height:6px;
+background:rgba(79,211,255,0.4);
+border-radius:50%;
+box-shadow:0 0 10px rgba(79,211,255,.6);
+animation:float 12s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);opacity:0;}
+20%{opacity:1;}
+100%{transform:translateY(-100vh);opacity:0;}
+}
+
+/* LAYOUT */
 .container{
-max-width:1200px;
+max-width:1100px;
 margin:auto;
-padding:100px 20px 100px;
+padding:90px 20px 120px;
 text-align:center;
 }
 
 h1{
 font-family:Poppins;
 font-size:44px;
+line-height:1.2;
 }
 
 h2{
 font-family:Poppins;
-margin-top:90px;
+margin-top:80px;
 }
 
 p{
@@ -63,76 +91,94 @@ color:var(--muted);
 font-size:18px;
 }
 
+/* CTA */
 .btn{
 display:inline-block;
-margin-top:18px;
-padding:14px 36px;
+margin:10px;
+padding:16px 34px;
 border-radius:40px;
+background:linear-gradient(90deg,#ffc107,#ffda44);
+color:black;
+text-decoration:none;
+font-weight:700;
+box-shadow:0 10px 25px rgba(255,193,7,.35);
+}
+
+.btn.secondary{
 background:linear-gradient(90deg,var(--blue),var(--glow));
 color:white;
-text-decoration:none;
-font-weight:600;
-box-shadow:0 8px 25px rgba(53,160,217,.35);
-transition:.2s;
 }
 
-.btn:hover{
-transform:translateY(-2px);
-box-shadow:0 12px 35px rgba(53,160,217,.55);
-}
-
+/* GRID */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:35px;
-margin-top:60px;
+gap:28px;
+margin-top:40px;
 }
 
+/* CARD */
 .card{
-background:var(--cardbg);
-padding:30px;
-border-radius:22px;
+background:var(--glass);
+padding:25px;
+border-radius:18px;
 backdrop-filter:blur(16px);
-box-shadow:0 20px 45px rgba(0,0,0,.45);
-transition:.2s;
+box-shadow:0 15px 40px rgba(0,0,0,.6);
+transition:.25s;
 }
 
 .card:hover{
 transform:translateY(-6px);
-box-shadow:0 30px 60px rgba(0,0,0,.6);
 }
 
+/* IMAGE */
 .card img{
 width:100%;
-height:220px;
+height:200px;
 object-fit:contain;
-border-radius:14px;
-margin-bottom:15px;
-background:#0d1826;
+border-radius:12px;
+background:#071a2d;
 padding:10px;
 }
 
+/* REVIEWS */
 .stars{
 color:#FFD700;
 margin-bottom:10px;
 }
 
+/* STRIP */
+.cta-strip{
+margin-top:70px;
+padding:30px;
+border-radius:18px;
+background:linear-gradient(90deg,#1D6FA3,#35a0d9);
+}
+
+/* BAR */
 .callbar{
 position:fixed;
 bottom:0;
 width:100%;
 display:flex;
-z-index:10;
 }
 
 .callbar a{
 flex:1;
-text-align:center;
 padding:18px;
+text-align:center;
+font-weight:700;
 text-decoration:none;
-font-weight:600;
+}
+
+.callbar a:first-child{
+background:linear-gradient(90deg,#ffc107,#ffda44);
+color:black;
+}
+
+.callbar a:last-child{
+background:linear-gradient(90deg,#1D6FA3,#35a0d9);
 color:white;
-background:linear-gradient(90deg,var(--blue),var(--glow));
 }
 
 </style>
@@ -141,111 +187,69 @@ background:linear-gradient(90deg,var(--blue),var(--glow));
 
 <body>
 
+<div class="water-drops"></div>
+
 <div class="container">
 
-<h1>Kitchen & Bathroom Fixture Installation in San Antonio</h1>
+<h1>Leaking Faucet? Broken Toilet? Get It Fixed Today.</h1>
 
-<p style="font-size:20px;color:#4fd3ff;">
-Professional installation of faucets, toilets, shower fixtures and garbage disposals for homeowners across San Antonio.
+<p style="color:#4fd3ff;font-size:20px;">
+Fast fixture installation in San Antonio — no delays, no inflated pricing.
 </p>
 
-<p>
-Same-day installation may be available for many fixture upgrades. Clean professional work and straightforward pricing.
-</p>
+<p>Send a photo. Get a price. Get it done.</p>
 
 <a href="tel:+12109068524" class="btn">📞 Call Now</a>
-<a href="sms:+12109068524" class="btn">📲 Text a Photo</a>
+<a href="sms:+12109068524" class="btn secondary">📸 Text Photo</a>
 
 
-<h2>Send a Photo for a Fast Quote</h2>
-
-<p>Text a photo of your faucet, toilet or fixture project and receive a quick estimate.</p>
-
-<a href="sms:+12109068524" class="btn">Send Photo</a>
+<h2>Who This Is For</h2>
+<p>Homeowners, landlords, and property managers who need fast, reliable installs without dealing with expensive plumbing companies.</p>
 
 
-<h2>Fixture Installation Services</h2>
+<h2>How It Works</h2>
 
 <div class="grid">
-
-<div class="card">
-<h3>Faucet Installation</h3>
-<p>Kitchen and bathroom faucet installation.</p>
-</div>
-
-<div class="card">
-<h3>Toilet Installation</h3>
-<p>Professional toilet replacement and installation.</p>
-</div>
-
-<div class="card">
-<h3>Shower Trim Installation</h3>
-<p>Upgrade bathroom shower trim kits and fixtures.</p>
-</div>
-
-<div class="card">
-<h3>Garbage Disposal Replacement</h3>
-<p>Replacement of existing garbage disposal units.</p>
-</div>
-
+<div class="card"><h3>Send Photo</h3><p>Text your fixture</p></div>
+<div class="card"><h3>Get Price</h3><p>Clear quote fast</p></div>
+<div class="card"><h3>Install</h3><p>Same-day available</p></div>
 </div>
 
 
-<h2>Fixtures for Service (Installed Pricing)</h2>
+<h2>Services</h2>
+
+<div class="grid">
+<div class="card"><h3>Faucet Installation</h3></div>
+<div class="card"><h3>Toilet Replacement</h3></div>
+<div class="card"><h3>Shower Trim Install</h3></div>
+<div class="card"><h3>Garbage Disposal</h3></div>
+<div class="card"><h3>Drain Camera Inspection</h3></div>
+</div>
+
+
+<h2>Installed Fixtures</h2>
 
 <div class="grid">
 
 <div class="card">
 <img src="images/project-source-bathroom-faucet.jpg">
-<h3>Modern Bathroom Faucet</h3>
+<h3>Bathroom Faucet</h3>
 <p><strong>$150 Installed</strong></p>
 </div>
 
 <div class="card">
 <img src="images/kohler-matte-black-kitchen-faucet-san-antonio.jpg">
-<h3>Kohler Matte Black Kitchen Faucet</h3>
+<h3>Kohler Kitchen Faucet</h3>
 <p><strong>$319 Installed</strong></p>
 </div>
 
 <div class="card">
 <img src="images/allen-roth-shower-trim-kit-install-san-antonio.jpg">
-<h3>Allen + Roth Shower Trim</h3>
+<h3>Shower Trim Kit</h3>
 <p><strong>$239 Installed</strong></p>
 </div>
 
 </div>
-
-
-<h2>Fixtures Pricing (Item Only)</h2>
-
-<p>If you only need the fixture, some items are available for purchase.</p>
-
-<div class="grid">
-
-<div class="card">
-<h3>Bathroom Faucet</h3>
-<p><strong>$60</strong></p>
-</div>
-
-<div class="card">
-<h3>Kitchen Faucet</h3>
-<p><strong>$120</strong></p>
-</div>
-
-<div class="card">
-<h3>Shower Head</h3>
-<p><strong>$45</strong></p>
-</div>
-
-<div class="card">
-<h3>Bidet Seat</h3>
-<p><strong>$80</strong></p>
-</div>
-
-</div>
-
-
-<a href="/fixtures-available-san-antonio" class="btn">View All Fixtures Available</a>
 
 
 <h2>Customer Reviews</h2>
@@ -254,41 +258,57 @@ Same-day installation may be available for many fixture upgrades. Clean professi
 
 <div class="card">
 <div class="stars">★★★★★</div>
-<p>"Chris was very responsive and professional."</p>
+<p>"Chris was very responsive, professional, and easy to work with. Everything came out clean and solid."</p>
 <p>— Cris Ramirez</p>
 </div>
 
 <div class="card">
 <div class="stars">★★★★★</div>
-<p>"Christian responded promptly and provided great service."</p>
+<p>"Christian responded quickly and delivered great service. Everything works perfectly."</p>
 <p>— Larry S.</p>
 </div>
 
 <div class="card">
 <div class="stars">★★★★★</div>
-<p>"Very professional and reliable."</p>
+<p>"Very professional and reliable. Showed up on time and got it done right."</p>
 <p>— Jenn C.</p>
 </div>
 
 <div class="card">
 <div class="stars">★★★★★</div>
-<p>"Great job, good quality work and fair pricing."</p>
+<p>"Great job, fair pricing, and quality work. Highly recommend."</p>
 <p>— John L.</p>
 </div>
 
 </div>
 
-<p style="margin-top:80px;font-size:13px;color:#b8c7d9;">
-Customer-supplied fixture installation. Any work requiring a Texas plumbing license is performed by or referred to a Texas Licensed Responsible Master Plumber.
+
+<div class="cta-strip">
+<h2>Need It Done Today?</h2>
+<a href="tel:+12109068524" class="btn">📞 Call Now</a>
+<a href="sms:+12109068524" class="btn secondary">📸 Text for Quote</a>
+</div>
+
+<p style="margin-top:70px;font-size:13px;color:#a9bdd3;">
+Customer-supplied fixture installation and visual inspection services only. No permitted plumbing work performed.
 </p>
 
 </div>
-
 
 <div class="callbar">
 <a href="tel:+12109068524">📞 Call</a>
 <a href="sms:+12109068524">📲 Text</a>
 </div>
+
+<script>
+const container=document.querySelector('.water-drops');
+for(let i=0;i<25;i++){
+let drop=document.createElement('span');
+drop.style.left=Math.random()*100+'%';
+drop.style.animationDuration=(8+Math.random()*6)+'s';
+container.appendChild(drop);
+}
+</script>
 
 </body>
 </html>
