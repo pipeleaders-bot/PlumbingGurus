@@ -7,12 +7,11 @@
 
 <title>Fixture Installation San Antonio | Same-Day Service</title>
 
-<meta name="description" content="Send a photo. Get a price. Same-day fixture installation in San Antonio. Faucets, toilets, and upgrades without plumbing company delays.">
+<meta name="description" content="Same-day fixture installation in San Antonio. Send a photo, get a price instantly. Faucets, toilets, and upgrades installed fast.">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
 --dark:#03080f;
 --blue:#1D6FA3;
@@ -28,7 +27,6 @@ margin:0;
 font-family:Inter;
 background:radial-gradient(circle at 30% 20%, #0d2a44, #03080f 70%);
 color:white;
-overflow-x:hidden;
 }
 
 .container{
@@ -38,28 +36,11 @@ padding:60px 20px 120px;
 text-align:center;
 }
 
-h1{
-font-family:Poppins;
-font-size:42px;
-line-height:1.2;
-margin-bottom:10px;
-}
+h1{font-family:Poppins;font-size:40px;line-height:1.2;}
+h2{font-family:Poppins;margin-top:70px;}
+p{color:var(--muted);}
 
-h2{
-font-family:Poppins;
-margin-top:70px;
-}
-
-p{
-color:var(--muted);
-font-size:18px;
-}
-
-.logo{
-width:260px;
-margin-bottom:10px;
-filter:drop-shadow(0 0 20px rgba(79,211,255,.9));
-}
+.logo{width:260px;margin-bottom:10px;}
 
 .btn{
 display:inline-block;
@@ -70,7 +51,6 @@ background:linear-gradient(90deg,#ffc107,#ffda44);
 color:black;
 text-decoration:none;
 font-weight:700;
-box-shadow:0 10px 25px rgba(255,193,7,.35);
 }
 
 .btn.secondary{
@@ -89,22 +69,12 @@ margin-top:40px;
 background:var(--glass);
 padding:25px;
 border-radius:18px;
-backdrop-filter:blur(16px);
-box-shadow:0 15px 40px rgba(0,0,0,.6);
 }
 
-.card img{
-width:100%;
-height:220px;
-object-fit:cover;
-border-radius:12px;
-}
-
-.cta-strip{
-margin-top:70px;
-padding:30px;
-border-radius:18px;
-background:linear-gradient(90deg,#1D6FA3,#35a0d9);
+select, button{
+padding:10px;
+border-radius:8px;
+margin-top:10px;
 }
 
 .callbar{
@@ -123,15 +93,11 @@ text-decoration:none;
 }
 
 .callbar a:first-child{
-background:linear-gradient(90deg,#ffc107,#ffda44);
-color:black;
+background:#ffc107;color:black;
 }
-
 .callbar a:last-child{
-background:linear-gradient(90deg,#1D6FA3,#35a0d9);
-color:white;
+background:#1D6FA3;color:white;
 }
-
 </style>
 
 </head>
@@ -140,154 +106,119 @@ color:white;
 
 <div class="container">
 
-<img src="images/PlumbingGuruslogo.png" alt="Plumbing Gurus Logo" class="logo">
+<img src="images/PlumbingGuruslogo.png" class="logo">
 
-<p style="font-size:14px;color:#a9bdd3;margin-top:-5px;">
-Fixture Installation Service • San Antonio
-</p>
+<p>Fixture Installation Service • San Antonio</p>
 
 <h1>
-Send a Photo.<br>
-Get a Price.<br>
-Installed Today.
+Same-Day Fixture Installation in San Antonio<br>
+Send a Photo. Get a Price. Installed Today.
 </h1>
 
-<p style="color:#4fd3ff;font-size:20px;font-weight:600;">
-Fast fixture installation — no delays, no inflated pricing.
-</p>
-
-<p>Faucets, toilets, and upgrades installed clean and fast.</p>
+<p>No plumbing delays. No inflated pricing. Just fast, clean installs.</p>
 
 <a href="tel:+12109068524" class="btn">📞 Call Now</a>
-<a href="sms:+12109068524" class="btn secondary">📸 Text Photo</a>
+<a href="sms:+12109068524" class="btn secondary">📸 Text Photo for Instant Price</a>
 
-<p style="font-size:14px;color:#a9bdd3;margin-top:10px;">
-Same-day availability • Limited spots daily
-</p>
+<p>⚠️ Only 5 Same-Day Spots Available</p>
 
+<!-- CALCULATOR -->
+<h2>Quick Price Estimate</h2>
 
-<h2>How It Works</h2>
+<div class="card" style="max-width:500px;margin:auto;">
 
-<div class="grid">
-<div class="card"><h3>Send Photo</h3><p>Text your fixture</p></div>
-<div class="card"><h3>Get Price</h3><p>Clear quote fast</p></div>
-<div class="card"><h3>Install</h3><p>Same-day available</p></div>
+<select id="fixture">
+<option value="150">Bathroom Faucet</option>
+<option value="319">Kitchen Faucet</option>
+<option value="239">Shower Trim</option>
+</select>
+
+<select id="difficulty">
+<option value="0">Easy</option>
+<option value="60">Moderate</option>
+<option value="120">Difficult</option>
+</select>
+
+<select id="rush">
+<option value="0">No Rush</option>
+<option value="75">Same-Day Priority</option>
+</select>
+
+<button onclick="calc()">Estimate Price</button>
+
+<p id="result"></p>
+
 </div>
 
+<script>
+function calc(){
+let base = +document.getElementById("fixture").value;
+let diff = +document.getElementById("difficulty").value;
+let rush = +document.getElementById("rush").value;
+let total = base + diff + rush;
 
+document.getElementById("result").innerHTML =
+"Estimated: $" + total + "<br><small>Final price confirmed after photo</small>";
+}
+</script>
+
+<!-- SERVICES -->
 <h2>Services</h2>
-
 <div class="grid">
-<div class="card"><h3>Faucet Installation</h3></div>
-<div class="card"><h3>Toilet Replacement</h3></div>
-<div class="card"><h3>Shower Trim Install</h3></div>
-<div class="card"><h3>Fixture Upgrades</h3></div>
+<div class="card">Faucet Installation</div>
+<div class="card">Toilet Replacement</div>
+<div class="card">Shower Trim Install</div>
 </div>
 
+<!-- PRICING -->
+<h2>Pricing</h2>
+<p style="color:#4fd3ff;">Most installs: $150–$300</p>
 
-<h2>Installed Fixtures</h2>
-
-<div class="grid">
-
-<div class="card">
-<img src="images/project-source-bathroom-faucet.jpg">
-<h3>Bathroom Faucet Install</h3>
-<p><strong>Starting at $150</strong></p>
-<p style="font-size:13px;color:#a9bdd3;">Customer-supplied • Same-location replacement</p>
-</div>
-
-<div class="card">
-<img src="images/kohler-matte-black-kitchen-faucet-san-antonio.jpg">
-<h3>Kitchen Faucet Install</h3>
-<p><strong>Starting at $319</strong></p>
-<p style="font-size:13px;color:#a9bdd3;">Customer-supplied install</p>
-</div>
-
-<div class="card">
-<img src="images/allen-roth-shower-trim-kit-install-san-antonio.jpg">
-<h3>Shower Trim Install</h3>
-<p><strong>Starting at $239</strong></p>
-<p style="font-size:13px;color:#a9bdd3;">Trim only • No valve modification</p>
-</div>
-
-</div>
-
-
-<h2>Why Choose Us</h2>
-
-<div class="grid">
-<div class="card"><h3>Same-Day Availability</h3></div>
-<div class="card"><h3>Clear Upfront Pricing</h3></div>
-<div class="card"><h3>Clean, Professional Work</h3></div>
-<div class="card"><h3>No Hassle Process</h3></div>
-</div>
-
-
-<h2>Who You’re Hiring</h2>
-
-<div class="card" style="max-width:600px;margin:auto;">
-<p><strong>Hi, I’m Chris.</strong></p>
-<p>I run Plumbing Gurus and focus on fast, clean fixture installations. No delays, no inflated pricing — just straightforward work done right.</p>
-</div>
-
-
-<h2>Customer Reviews</h2>
-
-<div class="grid">
-
-<div class="card">
-<p>“Very responsive, professional, and explained everything clearly. Clean work and easy process.”</p>
-<p style="font-size:14px;color:#a9bdd3;">— Cris R.</p>
-</div>
-
-<div class="card">
-<p>“Great job, good quality work, fair pricing, and quick completion.”</p>
-<p style="font-size:14px;color:#a9bdd3;">— John L.</p>
-</div>
-
-<div class="card">
-<p>“Very professional and reliable. Completed the work efficiently and clearly explained everything.”</p>
-<p style="font-size:14px;color:#a9bdd3;">— Jenn C.</p>
-</div>
-
-<div class="card">
-<p>“We had faucets installed and everything came out great at a reasonable price.”</p>
-<p style="font-size:14px;color:#a9bdd3;">— Dagan S.</p>
-</div>
-
-<div class="card">
-<p>“Responded quickly, arrived on time, and provided great service at an affordable price.”</p>
-<p style="font-size:14px;color:#a9bdd3;">— Larry S.</p>
-</div>
-
-<div class="card">
-<p>“Responsible, honest, and hardworking. Always puts in the effort to do the job right.”</p>
-<p style="font-size:14px;color:#a9bdd3;">— Moises R.</p>
-</div>
-
-</div>
-
-<div style="margin-top:25px;">
-<a href="https://www.google.com/search?q=plumbing+gurus+llc#ebo=0&mpd=~7039162613759748309/customers/reviews" 
-   target="_blank" 
-   class="btn secondary">
-View More Reviews on Google
-</a>
-</div>
-
-<p style="font-size:13px;color:#a9bdd3;margin-top:10px;">
-Reviews reflect customer experiences with fixture installation services.
+<p style="font-size:13px;">
+Prices vary based on access, location, home layout, and job conditions.
+Final quote confirmed before work begins.
 </p>
 
-
-<div class="cta-strip">
-<h2>Need It Done Today?</h2>
-<a href="tel:+12109068524" class="btn">📞 Call Now</a>
-<a href="sms:+12109068524" class="btn secondary">📸 Text for Quote</a>
+<!-- WHY -->
+<h2>Why Choose Us</h2>
+<div class="grid">
+<div class="card">No Leaks — Done Right First Time</div>
+<div class="card">Fast Response — Text for Quote</div>
+<div class="card">No Surprise Charges</div>
+<div class="card">Same-Day Available</div>
 </div>
 
-<p style="margin-top:70px;font-size:13px;color:#a9bdd3;">
-We are a fixture installation service and not licensed plumbers. We install customer-supplied fixtures that do not require plumbing system modifications. Any regulated plumbing work is referred to a licensed Responsible Master Plumber.
+<!-- REVIEWS -->
+<h2>Customer Reviews</h2>
+<div class="grid">
+<div class="card">★★★★★<br>Fast, clean, professional.</div>
+<div class="card">★★★★★<br>Fair pricing and quick job.</div>
+<div class="card">★★★★★<br>Reliable and easy process.</div>
+</div>
+
+<!-- ADD ONS -->
+<h2>Optional Add-Ons</h2>
+<div class="grid">
+<div class="card">Haul Away Old Fixture (+$20–$50)</div>
+<div class="card">Priority Same-Day (+$75)</div>
+<div class="card">Multiple Fixture Discount</div>
+</div>
+
+<!-- ABOUT -->
+<h2>Who You’re Hiring</h2>
+<div class="card">
+Hi, I’m Chris.<br>
+100+ installs completed. Fast, clean, straightforward work.
+</div>
+
+<!-- FINAL CTA -->
+<h2>Need It Done Today?</h2>
+<a href="sms:+12109068524" class="btn secondary">
+📸 Text Now to Secure Your Spot
+</a>
+
+<p style="font-size:13px;margin-top:40px;">
+We are a fixture installation service and not licensed plumbers.
 </p>
 
 </div>
