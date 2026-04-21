@@ -5,57 +5,49 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Request Service | Plumbing Gurus</title>
+<title>Quick Service Request | Plumbing Gurus</title>
 
-<link rel="icon" href="images/file_00000000dc5c71fda7bf16dec7db34b7.png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 
-:root{
---dark:#050b14;
---blue:#1D6FA3;
---glow:#35a0d9;
---light:#ffffff;
---muted:#b8c7d9;
---cardbg:rgba(255,255,255,.05);
-}
-
-*{box-sizing:border-box;margin:0;padding:0;}
-
 body{
+margin:0;
 font-family:Inter;
-background:var(--dark);
+background:#050b14;
 color:white;
 }
 
 .container{
-max-width:750px;
+max-width:500px;
 margin:auto;
-padding:140px 20px 80px;
+padding:80px 15px;
+text-align:center;
 }
 
 h1{
 font-family:Poppins;
-text-align:center;
 margin-bottom:10px;
 }
 
-p{
-text-align:center;
-color:var(--muted);
-margin-bottom:35px;
+.price{
+color:#4fd3ff;
+margin-bottom:10px;
+}
+
+.small{
+font-size:13px;
+color:#a9bdd3;
+margin-bottom:20px;
 }
 
 form{
-background:var(--cardbg);
-padding:30px;
-border-radius:18px;
-border:1px solid rgba(255,255,255,.1);
+background:rgba(255,255,255,.05);
+padding:20px;
+border-radius:16px;
 display:flex;
 flex-direction:column;
-gap:18px;
-backdrop-filter:blur(12px);
+gap:12px;
 }
 
 input, select, textarea{
@@ -73,17 +65,14 @@ button{
 padding:16px;
 border-radius:40px;
 border:none;
-background:linear-gradient(90deg,var(--blue),var(--glow));
+background:linear-gradient(90deg,#1D6FA3,#35a0d9);
 color:white;
 font-size:16px;
 font-weight:600;
-cursor:pointer;
-box-shadow:0 0 20px rgba(53,160,217,.6);
-transition:.3s;
 }
 
-button:hover{
-transform:scale(1.05);
+button:active{
+transform:scale(.98);
 }
 
 </style>
@@ -93,81 +82,42 @@ transform:scale(1.05);
 
 <div class="container">
 
-<h1>Request Service</h1>
-<p>Send details & photos for fast scheduling.</p>
+<h1>Get a Fast Quote</h1>
 
-<form action="https://formsubmit.co/chrisperez.ngmail.com" method="POST" enctype="multipart/form-data">
+<p class="price">Most installs: $180–$450</p>
 
-<input type="hidden" name="_subject" value="New Service Request - Plumbing Gurus">
+<p class="small">
+Send a photo + phone number. That’s it.
+</p>
+
+<form action="https://formsubmit.co/YOUR-EMAIL" method="POST" enctype="multipart/form-data">
+
+<input type="hidden" name="_subject" value="New Quick Request">
 <input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_template" value="table">
 <input type="hidden" name="_next" value="https://www.plumbinggurus.us/thank-you.html">
-<input type="hidden" name="_autoresponse" value="We received your request. Plumbing Gurus will contact you shortly.">
 
-<input type="text" name="Name" placeholder="Your name" autocomplete="name" required>
+<!-- PHOTO FIRST (KEY) -->
+<input type="file" name="Photos" accept="image/*" required>
 
-<input type="tel" name="Phone" id="phoneField" placeholder="Phone number" inputmode="tel" autocomplete="tel" required>
+<!-- ONLY REQUIRED FIELD -->
+<input type="tel" name="Phone" placeholder="Phone number" required>
 
-<input type="text" name="City" placeholder="City / Area" autocomplete="address-level2" required>
-
-<select name="Service" id="serviceSelect" required>
-<option value="">Select Service</option>
-<option>🚽 Toilet Installation</option>
-<option>🚰 Faucet Installation</option>
-<option>🛠 Sink Installation</option>
-<option>💡 Light Fixture Installation</option>
-<option>🌀 Ceiling Fan Installation</option>
-<option>🔧 Home Upgrades</option>
+<!-- OPTIONAL FIELDS -->
+<select name="Service">
+<option value="">Service (optional)</option>
+<option>Toilet Replacement</option>
+<option>Faucet Replacement</option>
+<option>Shower Trim</option>
+<option>Other</option>
 </select>
 
-<label>Preferred Date</label>
-<input type="date" name="Preferred Date">
+<textarea name="Details" rows="3" placeholder="Optional details"></textarea>
 
-<label>Preferred Time</label>
-<input type="time" name="Preferred Time">
-
-<label>Upload Photos</label>
-<input type="file" name="Photos" multiple accept="image/*">
-
-<textarea name="Project Details" rows="4" placeholder="Project details"></textarea>
-
-<button type="submit">Get My Fast Quote</button>
+<button type="submit">Send Photo & Get Price</button>
 
 </form>
 
 </div>
-
-<script>
-
-/* AUTO-SELECT SERVICE FROM URL */
-
-const params = new URLSearchParams(window.location.search);
-const service = params.get("service");
-
-if(service){
-document.getElementById("serviceSelect").value = service;
-}
-
-/* 1-TAP INSTANT BOOKING MODE */
-
-window.addEventListener("load", () => {
-
-const phoneField = document.getElementById("phoneField");
-
-setTimeout(() => {
-
-phoneField.focus();
-
-phoneField.scrollIntoView({
-behavior: "smooth",
-block: "center"
-});
-
-}, 300);
-
-});
-
-</script>
 
 </body>
 </html>
