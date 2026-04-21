@@ -7,7 +7,7 @@
 
 <title>Fixture Installation San Antonio | Same-Day Service</title>
 
-<meta name="description" content="Same-day fixture installation in San Antonio. Send a photo, get a price instantly. Faucets, toilets, and upgrades installed fast.">
+<meta name="description" content="Same-day fixture installation in San Antonio. Faucets, toilets, and upgrades installed fast. Send a photo for a quick quote.">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
@@ -58,6 +58,11 @@ background:linear-gradient(90deg,var(--blue),var(--glow));
 color:white;
 }
 
+.btn.form{
+background:linear-gradient(90deg,#4fd3ff,#35a0d9);
+color:white;
+}
+
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -69,12 +74,6 @@ margin-top:40px;
 background:var(--glass);
 padding:25px;
 border-radius:18px;
-}
-
-select, button{
-padding:10px;
-border-radius:8px;
-margin-top:10px;
 }
 
 .callbar{
@@ -92,12 +91,8 @@ font-weight:700;
 text-decoration:none;
 }
 
-.callbar a:first-child{
-background:#ffc107;color:black;
-}
-.callbar a:last-child{
-background:#1D6FA3;color:white;
-}
+.callbar a:first-child{background:#ffc107;color:black;}
+.callbar a:last-child{background:#1D6FA3;color:white;}
 </style>
 
 </head>
@@ -117,8 +112,15 @@ Send a Photo. Get a Price. Installed Today.
 
 <p>No delays. No guesswork. Just fast, clean installs.</p>
 
+<!-- CTA -->
 <a href="tel:+12109068524" class="btn">📞 Call Now</a>
 <a href="sms:+12109068524" class="btn secondary">📸 Text Photo for Instant Price</a>
+
+<p style="margin-top:10px;color:#4fd3ff;">
+Prefer not to call or text? Submit details below 👇
+</p>
+
+<a href="/request.html" class="btn form">📝 Request Service</a>
 
 <p>⚠️ Only 5 Same-Day Spots Available</p>
 
@@ -166,44 +168,33 @@ document.getElementById("result").innerHTML =
 <!-- SERVICES -->
 <h2>Services</h2>
 <div class="grid">
-<div class="card">Faucet Installation</div>
+<div class="card">Faucet Replacement</div>
 <div class="card">Toilet Replacement</div>
-<div class="card">Shower Trim Install</div>
+<div class="card">Shower Trim Installation</div>
+<div class="card">Showerhead Replacement</div>
+<div class="card">Garbage Disposal Swap (Existing Setup)</div>
+<div class="card">Dishwasher Hookup (Existing Connections)</div>
+<div class="card">Refrigerator Water Line Hookup</div>
+<div class="card">Bidet Seat Installation</div>
 </div>
 
 <!-- PRICING -->
 <h2>Pricing</h2>
 <p style="color:#4fd3ff;font-weight:600;">
-Most installs range from $180–$450 depending on access and setup
+Most installs range from $180–$450 depending on setup
 </p>
 
 <p style="font-size:13px;">
-Prices vary based on access, location, home layout, and job conditions. Final quote confirmed before work begins.
+Final price confirmed after reviewing photos. No surprise charges.
 </p>
 
 <!-- WHY -->
 <h2>Why Choose Us</h2>
 <div class="grid">
-<div class="card">No Leaks — Installed Right the First Time</div>
-<div class="card">Fast Response — Text for Quick Quote</div>
+<div class="card">Installed Right the First Time</div>
+<div class="card">Fast Response — Text for Quote</div>
 <div class="card">Upfront Pricing — No Surprises</div>
 <div class="card">Same-Day Service Available</div>
-</div>
-
-<!-- REVIEWS -->
-<h2>Customer Reviews</h2>
-<div class="grid">
-<div class="card">★★★★★<br>Very responsive, clean work, and easy process.</div>
-<div class="card">★★★★★<br>Fair pricing and quick completion. Highly recommend.</div>
-<div class="card">★★★★★<br>Reliable, on time, and everything installed perfectly.</div>
-</div>
-
-<!-- ADD ONS -->
-<h2>Optional Add-Ons</h2>
-<div class="grid">
-<div class="card">Haul Away Old Fixture (+$30–$50)</div>
-<div class="card">Priority Same-Day (+$75)</div>
-<div class="card">Multiple Fixture Discount</div>
 </div>
 
 <!-- ABOUT -->
@@ -214,393 +205,30 @@ Prices vary based on access, location, home layout, and job conditions. Final qu
 <p><strong>Hi, I’m Chris.</strong></p>
 
 <p>
-I specialize in fast, same-day fixture installations without the delays and inflated pricing of larger companies.
+I specialize in fast, same-day fixture installations without delays or unnecessary upselling.
 </p>
 
 <p style="color:#4fd3ff;font-weight:600;">
 100+ installs completed across San Antonio
 </p>
 
-<p>
-Background in piping systems helps me work efficiently and avoid mistakes. If something requires a licensed plumber, I’ll tell you upfront.
-</p>
-
 <p style="font-size:14px;color:#a9bdd3;margin-top:15px;">
 ✔ Customer-supplied fixtures only<br>
-✔ Same-location replacements<br>
-✔ No plumbing system modifications
+✔ Same-location replacements only<br>
+✔ No plumbing system modifications<br>
+✔ No repairs or pipe alterations
 </p>
 
 </div>
 
 <!-- FINAL CTA -->
 <h2>Need It Done Today?</h2>
-<a href="sms:+12109068524" class="btn secondary">
-📸 Text Now to Secure Your Spot
-</a>
+
+<a href="sms:+12109068524" class="btn secondary">📸 Text Now</a>
+<a href="/request.html" class="btn form">📝 Submit Request</a>
 
 <p style="font-size:13px;margin-top:40px;">
-We are a fixture installation service and not licensed plumbers.
-</p>
-
-</div>
-
-<div class="callbar">
-<a href="tel:+12109068524">📞 Call</a>
-<a href="sms:+12109068524">📲 Text</a>
-</div>
-
-</body>
-</html>grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:28px;
-margin-top:40px;
-}
-
-.card{
-background:var(--glass);
-padding:25px;
-border-radius:18px;
-}
-
-select, button{
-padding:10px;
-border-radius:8px;
-margin-top:10px;
-}
-
-.callbar{
-position:fixed;
-bottom:0;
-width:100%;
-display:flex;
-}
-
-.callbar a{
-flex:1;
-padding:18px;
-text-align:center;
-font-weight:700;
-text-decoration:none;
-}
-
-.callbar a:first-child{
-background:#ffc107;color:black;
-}
-.callbar a:last-child{
-background:#1D6FA3;color:white;
-}
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<img src="images/PlumbingGuruslogo.png" class="logo">
-
-<p>Fixture Installation Service • San Antonio</p>
-
-<h1>
-Same-Day Fixture Installation in San Antonio<br>
-Send a Photo. Get a Price. Installed Today.
-</h1>
-
-<p>No plumbing delays. No inflated pricing. Just fast, clean installs.</p>
-
-<a href="tel:+12109068524" class="btn">📞 Call Now</a>
-<a href="sms:+12109068524" class="btn secondary">📸 Text Photo for Instant Price</a>
-
-<p>⚠️ Only 5 Same-Day Spots Available</p>
-
-<!-- CALCULATOR -->
-<h2>Quick Price Estimate</h2>
-
-<div class="card" style="max-width:500px;margin:auto;">
-
-<select id="fixture">
-<option value="150">Bathroom Faucet</option>
-<option value="319">Kitchen Faucet</option>
-<option value="239">Shower Trim</option>
-</select>
-
-<select id="difficulty">
-<option value="0">Easy</option>
-<option value="60">Moderate</option>
-<option value="120">Difficult</option>
-</select>
-
-<select id="rush">
-<option value="0">No Rush</option>
-<option value="75">Same-Day Priority</option>
-</select>
-
-<button onclick="calc()">Estimate Price</button>
-
-<p id="result"></p>
-
-</div>
-
-<script>
-function calc(){
-let base = +document.getElementById("fixture").value;
-let diff = +document.getElementById("difficulty").value;
-let rush = +document.getElementById("rush").value;
-let total = base + diff + rush;
-
-document.getElementById("result").innerHTML =
-"Estimated: $" + total + "<br><small>Final price confirmed after photo</small>";
-}
-</script>
-
-<!-- SERVICES -->
-<h2>Services</h2>
-<div class="grid">
-<div class="card">Faucet Installation</div>
-<div class="card">Toilet Replacement</div>
-<div class="card">Shower Trim Install</div>
-</div>
-
-<!-- PRICING -->
-<h2>Pricing</h2>
-<p style="color:#4fd3ff;">Most installs: $150–$300</p>
-
-<p style="font-size:13px;">
-Prices vary based on access, location, home layout, and job conditions.
-Final quote confirmed before work begins.
-</p>
-
-<!-- WHY -->
-<h2>Why Choose Us</h2>
-<div class="grid">
-<div class="card">No Leaks — Installed Right the First Time</div>
-<div class="card">Fast Response — Text for Quick Quote</div>
-<div class="card">No Surprise Charges — Upfront Pricing</div>
-<div class="card">Same-Day Service Available</div>
-</div>
-
-<!-- REVIEWS -->
-<h2>Customer Reviews</h2>
-<div class="grid">
-<div class="card">★★★★★<br>Very responsive, clean work, and easy process.</div>
-<div class="card">★★★★★<br>Fair pricing and quick completion. Highly recommend.</div>
-<div class="card">★★★★★<br>Reliable, on time, and everything installed perfectly.</div>
-</div>
-
-<!-- ADD ONS -->
-<h2>Optional Add-Ons</h2>
-<div class="grid">
-<div class="card">Haul Away Old Fixture (+$20–$50)</div>
-<div class="card">Priority Same-Day (+$75)</div>
-<div class="card">Multiple Fixture Discount</div>
-</div>
-
-<!-- ABOUT -->
-<h2>Who You’re Hiring</h2>
-
-<div class="card" style="max-width:800px;margin:auto;">
-
-<p><strong>Hi, I’m Chris.</strong></p>
-
-<p>
-I run Plumbing Gurus and specialize in <strong>fast, same-day fixture installations</strong>
-without delays or inflated pricing.
-</p>
-
-<p>
-100+ installs completed across San Antonio.
-</p>
-
-<p>
-Background in piping systems helps me work efficiently and avoid mistakes.
-If something requires a licensed plumber, I’ll tell you upfront.
-</p>
-
-<p style="font-size:14px;color:#a9bdd3;margin-top:15px;">
-✔ Customer-supplied fixtures only<br>
-✔ Same-location replacements<br>
-✔ No plumbing system modifications
-</p>
-
-</div>
-
-<!-- FINAL CTA -->
-<h2>Need It Done Today?</h2>
-<a href="sms:+12109068524" class="btn secondary">
-📸 Text Now to Secure Your Spot
-</a>
-
-<p style="font-size:13px;margin-top:40px;">
-We are a fixture installation service and not licensed plumbers.
-</p>
-
-</div>
-
-<div class="callbar">
-<a href="tel:+12109068524">📞 Call</a>
-<a href="sms:+12109068524">📲 Text</a>
-</div>
-
-</body>
-</html>grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:28px;
-margin-top:40px;
-}
-
-.card{
-background:var(--glass);
-padding:25px;
-border-radius:18px;
-}
-
-select, button{
-padding:10px;
-border-radius:8px;
-margin-top:10px;
-}
-
-.callbar{
-position:fixed;
-bottom:0;
-width:100%;
-display:flex;
-}
-
-.callbar a{
-flex:1;
-padding:18px;
-text-align:center;
-font-weight:700;
-text-decoration:none;
-}
-
-.callbar a:first-child{
-background:#ffc107;color:black;
-}
-.callbar a:last-child{
-background:#1D6FA3;color:white;
-}
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<img src="images/PlumbingGuruslogo.png" class="logo">
-
-<p>Fixture Installation Service • San Antonio</p>
-
-<h1>
-Same-Day Fixture Installation in San Antonio<br>
-Send a Photo. Get a Price. Installed Today.
-</h1>
-
-<p>No plumbing delays. No inflated pricing. Just fast, clean installs.</p>
-
-<a href="tel:+12109068524" class="btn">📞 Call Now</a>
-<a href="sms:+12109068524" class="btn secondary">📸 Text Photo for Instant Price</a>
-
-<p>⚠️ Only 5 Same-Day Spots Available</p>
-
-<!-- CALCULATOR -->
-<h2>Quick Price Estimate</h2>
-
-<div class="card" style="max-width:500px;margin:auto;">
-
-<select id="fixture">
-<option value="150">Bathroom Faucet</option>
-<option value="319">Kitchen Faucet</option>
-<option value="239">Shower Trim</option>
-</select>
-
-<select id="difficulty">
-<option value="0">Easy</option>
-<option value="60">Moderate</option>
-<option value="120">Difficult</option>
-</select>
-
-<select id="rush">
-<option value="0">No Rush</option>
-<option value="75">Same-Day Priority</option>
-</select>
-
-<button onclick="calc()">Estimate Price</button>
-
-<p id="result"></p>
-
-</div>
-
-<script>
-function calc(){
-let base = +document.getElementById("fixture").value;
-let diff = +document.getElementById("difficulty").value;
-let rush = +document.getElementById("rush").value;
-let total = base + diff + rush;
-
-document.getElementById("result").innerHTML =
-"Estimated: $" + total + "<br><small>Final price confirmed after photo</small>";
-}
-</script>
-
-<!-- SERVICES -->
-<h2>Services</h2>
-<div class="grid">
-<div class="card">Faucet Installation</div>
-<div class="card">Toilet Replacement</div>
-<div class="card">Shower Trim Install</div>
-</div>
-
-<!-- PRICING -->
-<h2>Pricing</h2>
-<p style="color:#4fd3ff;">Most installs: $150–$300</p>
-
-<p style="font-size:13px;">
-Prices vary based on access, location, home layout, and job conditions.
-Final quote confirmed before work begins.
-</p>
-
-<!-- WHY -->
-<h2>Why Choose Us</h2>
-<div class="grid">
-<div class="card">No Leaks — Done Right First Time</div>
-<div class="card">Fast Response — Text for Quote</div>
-<div class="card">No Surprise Charges</div>
-<div class="card">Same-Day Available</div>
-</div>
-
-<!-- REVIEWS -->
-<h2>Customer Reviews</h2>
-<div class="grid">
-<div class="card">★★★★★<br>Fast, clean, professional.</div>
-<div class="card">★★★★★<br>Fair pricing and quick job.</div>
-<div class="card">★★★★★<br>Reliable and easy process.</div>
-</div>
-
-<!-- ADD ONS -->
-<h2>Optional Add-Ons</h2>
-<div class="grid">
-<div class="card">Haul Away Old Fixture (+$20–$50)</div>
-<div class="card">Priority Same-Day (+$75)</div>
-<div class="card">Multiple Fixture Discount</div>
-</div>
-
-<!-- ABOUT -->
-<h2>Who You’re Hiring</h2>
-<div class="card">
-Hi, I’m Chris.<br>
-100+ installs completed. Fast, clean, straightforward work.
-</div>
-
-<!-- FINAL CTA -->
-<h2>Need It Done Today?</h2>
-<a href="sms:+12109068524" class="btn secondary">
-📸 Text Now to Secure Your Spot
-</a>
-
-<p style="font-size:13px;margin-top:40px;">
-We are a fixture installation service and not licensed plumbers.
+We provide fixture installation services only and do not offer plumbing system modifications or repairs.
 </p>
 
 </div>
