@@ -182,6 +182,197 @@ Final quote confirmed before work begins.
 <!-- WHY -->
 <h2>Why Choose Us</h2>
 <div class="grid">
+<div class="card">No Leaks — Installed Right the First Time</div>
+<div class="card">Fast Response — Text for Quick Quote</div>
+<div class="card">No Surprise Charges — Upfront Pricing</div>
+<div class="card">Same-Day Service Available</div>
+</div>
+
+<!-- REVIEWS -->
+<h2>Customer Reviews</h2>
+<div class="grid">
+<div class="card">★★★★★<br>Very responsive, clean work, and easy process.</div>
+<div class="card">★★★★★<br>Fair pricing and quick completion. Highly recommend.</div>
+<div class="card">★★★★★<br>Reliable, on time, and everything installed perfectly.</div>
+</div>
+
+<!-- ADD ONS -->
+<h2>Optional Add-Ons</h2>
+<div class="grid">
+<div class="card">Haul Away Old Fixture (+$20–$50)</div>
+<div class="card">Priority Same-Day (+$75)</div>
+<div class="card">Multiple Fixture Discount</div>
+</div>
+
+<!-- ABOUT -->
+<h2>Who You’re Hiring</h2>
+
+<div class="card" style="max-width:800px;margin:auto;">
+
+<p><strong>Hi, I’m Chris.</strong></p>
+
+<p>
+I run Plumbing Gurus and specialize in <strong>fast, same-day fixture installations</strong>
+without delays or inflated pricing.
+</p>
+
+<p>
+100+ installs completed across San Antonio.
+</p>
+
+<p>
+Background in piping systems helps me work efficiently and avoid mistakes.
+If something requires a licensed plumber, I’ll tell you upfront.
+</p>
+
+<p style="font-size:14px;color:#a9bdd3;margin-top:15px;">
+✔ Customer-supplied fixtures only<br>
+✔ Same-location replacements<br>
+✔ No plumbing system modifications
+</p>
+
+</div>
+
+<!-- FINAL CTA -->
+<h2>Need It Done Today?</h2>
+<a href="sms:+12109068524" class="btn secondary">
+📸 Text Now to Secure Your Spot
+</a>
+
+<p style="font-size:13px;margin-top:40px;">
+We are a fixture installation service and not licensed plumbers.
+</p>
+
+</div>
+
+<div class="callbar">
+<a href="tel:+12109068524">📞 Call</a>
+<a href="sms:+12109068524">📲 Text</a>
+</div>
+
+</body>
+</html>grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:28px;
+margin-top:40px;
+}
+
+.card{
+background:var(--glass);
+padding:25px;
+border-radius:18px;
+}
+
+select, button{
+padding:10px;
+border-radius:8px;
+margin-top:10px;
+}
+
+.callbar{
+position:fixed;
+bottom:0;
+width:100%;
+display:flex;
+}
+
+.callbar a{
+flex:1;
+padding:18px;
+text-align:center;
+font-weight:700;
+text-decoration:none;
+}
+
+.callbar a:first-child{
+background:#ffc107;color:black;
+}
+.callbar a:last-child{
+background:#1D6FA3;color:white;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<img src="images/PlumbingGuruslogo.png" class="logo">
+
+<p>Fixture Installation Service • San Antonio</p>
+
+<h1>
+Same-Day Fixture Installation in San Antonio<br>
+Send a Photo. Get a Price. Installed Today.
+</h1>
+
+<p>No plumbing delays. No inflated pricing. Just fast, clean installs.</p>
+
+<a href="tel:+12109068524" class="btn">📞 Call Now</a>
+<a href="sms:+12109068524" class="btn secondary">📸 Text Photo for Instant Price</a>
+
+<p>⚠️ Only 5 Same-Day Spots Available</p>
+
+<!-- CALCULATOR -->
+<h2>Quick Price Estimate</h2>
+
+<div class="card" style="max-width:500px;margin:auto;">
+
+<select id="fixture">
+<option value="150">Bathroom Faucet</option>
+<option value="319">Kitchen Faucet</option>
+<option value="239">Shower Trim</option>
+</select>
+
+<select id="difficulty">
+<option value="0">Easy</option>
+<option value="60">Moderate</option>
+<option value="120">Difficult</option>
+</select>
+
+<select id="rush">
+<option value="0">No Rush</option>
+<option value="75">Same-Day Priority</option>
+</select>
+
+<button onclick="calc()">Estimate Price</button>
+
+<p id="result"></p>
+
+</div>
+
+<script>
+function calc(){
+let base = +document.getElementById("fixture").value;
+let diff = +document.getElementById("difficulty").value;
+let rush = +document.getElementById("rush").value;
+let total = base + diff + rush;
+
+document.getElementById("result").innerHTML =
+"Estimated: $" + total + "<br><small>Final price confirmed after photo</small>";
+}
+</script>
+
+<!-- SERVICES -->
+<h2>Services</h2>
+<div class="grid">
+<div class="card">Faucet Installation</div>
+<div class="card">Toilet Replacement</div>
+<div class="card">Shower Trim Install</div>
+</div>
+
+<!-- PRICING -->
+<h2>Pricing</h2>
+<p style="color:#4fd3ff;">Most installs: $150–$300</p>
+
+<p style="font-size:13px;">
+Prices vary based on access, location, home layout, and job conditions.
+Final quote confirmed before work begins.
+</p>
+
+<!-- WHY -->
+<h2>Why Choose Us</h2>
+<div class="grid">
 <div class="card">No Leaks — Done Right First Time</div>
 <div class="card">Fast Response — Text for Quote</div>
 <div class="card">No Surprise Charges</div>
