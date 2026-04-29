@@ -7,11 +7,9 @@
 
 <title>Fixture Installation San Antonio | Same-Day Service</title>
 
-<meta name="description" content="Fast faucet, toilet, and fixture installation in San Antonio. Clean installs, same-day service. Call or text for a quick quote.">
+<meta name="description" content="Send a photo. Get a price. Same-day fixture installation in San Antonio. Faucets, toilets, and upgrades without plumbing company delays.">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-
-<!-- ICONS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -19,6 +17,7 @@
 --dark:#03080f;
 --blue:#1D6FA3;
 --glow:#35a0d9;
+--accent:#4fd3ff;
 --gold:#ffc107;
 --muted:#a9bdd3;
 --glass:rgba(255,255,255,.06);
@@ -32,85 +31,77 @@ color:white;
 }
 
 .container{
-max-width:1000px;
+max-width:1100px;
 margin:auto;
-padding:60px 20px 120px;
+padding:80px 20px 120px;
 text-align:center;
 }
 
-h1{font-family:Poppins;font-size:38px;}
-h2{font-family:Poppins;margin-top:60px;}
-p{color:var(--muted);}
+h1{font-family:Poppins;font-size:42px;}
+h2{font-family:Poppins;margin-top:70px;}
+p{color:var(--muted);font-size:18px;}
 
-.logo{width:220px;margin-bottom:10px;}
+.logo{
+width:160px;
+filter:drop-shadow(0 0 12px rgba(79,211,255,.6));
+}
+
+.tagline{
+font-size:13px;
+letter-spacing:1px;
+color:#4fd3ff;
+margin-top:5px;
+}
 
 /* BUTTONS */
 .btn{
 display:inline-block;
 margin:10px;
-padding:16px 30px;
+padding:16px 34px;
 border-radius:40px;
 background:linear-gradient(90deg,#ffc107,#ffda44);
 color:black;
 text-decoration:none;
 font-weight:700;
-transition:.3s;
-box-shadow:0 0 15px rgba(255,193,7,.4);
-}
-
-.btn:hover{
-transform:scale(1.05);
-box-shadow:0 0 25px rgba(255,193,7,.8);
+box-shadow:0 10px 25px rgba(255,193,7,.35);
 }
 
 .btn.secondary{
 background:linear-gradient(90deg,var(--blue),var(--glow));
 color:white;
-box-shadow:0 0 15px rgba(53,160,217,.4);
 }
 
 /* GRID */
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-margin-top:30px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:28px;
+margin-top:40px;
 }
 
-/* CARDS */
+/* CARD */
 .card{
 background:var(--glass);
 padding:25px;
-border-radius:16px;
-transition:.3s;
-position:relative;
-overflow:hidden;
+border-radius:18px;
+backdrop-filter:blur(16px);
+box-shadow:0 15px 40px rgba(0,0,0,.6);
 }
 
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 0 20px rgba(53,160,217,.4);
-}
-
-/* ICON STYLE */
-.icon{
-font-size:28px;
-margin-bottom:12px;
-color:#4fd3ff;
+/* IMAGE */
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:12px;
 }
 
 /* REVIEWS */
 .review{
 text-align:left;
-background:var(--glass);
-padding:18px;
+padding:20px;
 border-radius:14px;
-margin-top:15px;
-transition:.3s;
-}
-
-.review:hover{
-box-shadow:0 0 15px rgba(255,255,255,.2);
+background:var(--glass);
 }
 
 /* CALL BAR */
@@ -119,7 +110,6 @@ position:fixed;
 bottom:0;
 width:100%;
 display:flex;
-z-index:999;
 }
 
 .callbar a{
@@ -130,16 +120,14 @@ font-weight:700;
 text-decoration:none;
 }
 
-.callbar a:first-child{background:#ffc107;color:black;}
-.callbar a:last-child{background:#1D6FA3;color:white;}
+.callbar a:first-child{
+background:linear-gradient(90deg,#ffc107,#ffda44);
+color:black;
+}
 
-/* FORM */
-input, textarea{
-width:100%;
-padding:12px;
-margin:8px 0;
-border-radius:8px;
-border:none;
+.callbar a:last-child{
+background:linear-gradient(90deg,#1D6FA3,#35a0d9);
+color:white;
 }
 
 </style>
@@ -150,128 +138,136 @@ border:none;
 
 <div class="container">
 
-<img src="images/PlumbingGuruslogo.png" class="logo">
+<img src="Logo.png" class="logo">
+<p class="tagline">FAST • CLEAN • SAME-DAY INSTALLS</p>
 
-<h1>Same-Day Fixture Installation</h1>
+<h1>Send a Photo. Get a Price. Installed Today.</h1>
 
-<p>Fast, clean installs in San Antonio. No delays. No surprises.</p>
+<p style="color:#4fd3ff;">Fast fixture installation — no delays, no inflated pricing.</p>
 
-<p style="color:#ffc107;">⚠️ Limited Same-Day Availability</p>
+<p>Faucets, toilets, and upgrades installed clean and fast.</p>
+
+<p style="color:#ffc107;">⚠️ Same-day spots fill quickly</p>
 
 <p>
 💲 Typical installs: <strong>$180 – $450</strong><br>
-📸 Send a photo for exact price in minutes
+📸 Final price confirmed after photo
 </p>
 
-<a href="tel:12109068524" class="btn">
+<a href="tel:+12109068524" class="btn">
 <i class="fa-solid fa-phone"></i> Call Now
 </a>
 
-<a href="sms:12109068524?body=Hi, I need a quote for a fixture install." class="btn secondary">
-<i class="fa-solid fa-comment"></i> Text Photo for Quote
+<a href="sms:+12109068524" class="btn secondary">
+<i class="fa-solid fa-comment"></i> Text Photo
 </a>
 
----
+<!-- HOW IT WORKS -->
+<h2>How It Works</h2>
 
+<div class="grid">
+<div class="card"><i class="fa-solid fa-camera"></i><h3>Send Photo</h3><p>Text your fixture</p></div>
+<div class="card"><i class="fa-solid fa-bolt"></i><h3>Get Price</h3><p>Clear quote fast</p></div>
+<div class="card"><i class="fa-solid fa-check"></i><h3>Install</h3><p>Same-day available</p></div>
+</div>
+
+<!-- SERVICES -->
 <h2>Services</h2>
 
 <div class="grid">
-
-<div class="card">
-<div class="icon"><i class="fa-solid fa-faucet"></i></div>
-Faucet Installation
+<div class="card"><i class="fa-solid fa-faucet"></i><h3>Faucet Installation</h3></div>
+<div class="card"><i class="fa-solid fa-toilet"></i><h3>Toilet Replacement</h3></div>
+<div class="card"><i class="fa-solid fa-shower"></i><h3>Shower Trim Install</h3></div>
+<div class="card"><i class="fa-solid fa-wrench"></i><h3>Fixture Upgrades</h3></div>
 </div>
 
-<div class="card">
-<div class="icon"><i class="fa-solid fa-toilet"></i></div>
-Toilet Installation
-</div>
-
-<div class="card">
-<div class="icon"><i class="fa-solid fa-sink"></i></div>
-Garbage Disposal Replacement
-</div>
-
-<div class="card">
-<div class="icon"><i class="fa-solid fa-shower"></i></div>
-Shower Trim Installation
-</div>
-
-</div>
-
----
-
-<h2>Why Choose Us</h2>
+<!-- PROJECTS -->
+<h2>Installed Fixtures</h2>
 
 <div class="grid">
 
 <div class="card">
-<div class="icon"><i class="fa-solid fa-bolt"></i></div>
-Fast Same-Day Service
+<img src="images/project-source-bathroom-faucet.jpg">
+<h3>Bathroom Faucet Install</h3>
+<p><strong>$180 – $300 typical</strong></p>
 </div>
 
 <div class="card">
-<div class="icon"><i class="fa-solid fa-dollar-sign"></i></div>
-Upfront Pricing
+<img src="images/kohler-matte-black-kitchen-faucet-san-antonio.jpg">
+<h3>Kitchen Faucet Install</h3>
+<p><strong>$250 – $450 typical</strong></p>
 </div>
 
 <div class="card">
-<div class="icon"><i class="fa-solid fa-check"></i></div>
-Clean Professional Work
+<img src="images/allen-roth-shower-trim-kit-install-san-antonio.jpg">
+<h3>Shower Trim Install</h3>
+<p><strong>$200 – $400 typical</strong></p>
 </div>
 
 </div>
 
----
+<!-- TRUST -->
+<h2>Why Choose Us</h2>
 
+<div class="grid">
+<div class="card">Same-Day Availability</div>
+<div class="card">Upfront Pricing</div>
+<div class="card">Clean Professional Work</div>
+<div class="card">No Hassle Process</div>
+</div>
+
+<!-- ABOUT -->
+<h2>Who You’re Hiring</h2>
+
+<div class="card" style="max-width:600px;margin:auto;">
+<p><strong>Hi, I’m Chris.</strong></p>
+<p>I focus on fast, clean fixture installs using existing plumbing — no delays, no upsells, just straightforward work done right.</p>
+</div>
+
+<!-- REVIEWS -->
 <h2>Customer Reviews</h2>
 
+<div class="grid">
+
 <div class="review">
-⭐️⭐️⭐️⭐️⭐️ Very professional and clean work. Highly recommended.
+<p>"Installed my faucet same day. Clean work and no surprises."</p>
+<p style="font-size:13px;color:#4fd3ff;">– San Antonio Homeowner</p>
 </div>
 
 <div class="review">
-⭐️⭐️⭐️⭐️⭐️ Quick service and no upselling. Honest work.
+<p>"Very responsive and professional. Everything works perfectly."</p>
+<p style="font-size:13px;color:#4fd3ff;">– Local Customer</p>
 </div>
 
 <div class="review">
-⭐️⭐️⭐️⭐️⭐️ Responded fast and got everything handled same day.
+<p>"Showed up on time and finished fast. Would hire again."</p>
+<p style="font-size:13px;color:#4fd3ff;">– Verified Client</p>
 </div>
 
----
+</div>
 
-<h2>Request Service</h2>
+<!-- CTA -->
+<div style="margin-top:60px;">
+<h2>Need It Done Today?</h2>
 
-<p>Call or text for fastest response, or submit below:</p>
+<a href="tel:+12109068524" class="btn">
+<i class="fa-solid fa-phone"></i> Call Now
+</a>
 
-<form action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST" enctype="multipart/form-data">
+<a href="sms:+12109068524" class="btn secondary">
+<i class="fa-solid fa-comment"></i> Text for Quote
+</a>
+</div>
 
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="tel" name="phone" placeholder="Phone Number" required>
-<input type="text" name="service" placeholder="What do you need installed?">
-<textarea name="message" placeholder="Details (optional)"></textarea>
-
-<input type="file" name="photo">
-
-<input type="hidden" name="_subject" value="New Service Request">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_next" value="https://www.plumbinggurus.us">
-
-<button class="btn" type="submit">
-<i class="fa-solid fa-paper-plane"></i> Submit Request
-</button>
-
-</form>
-
-<p style="font-size:13px;margin-top:20px;">
-Service limited to fixture replacement using existing connections only. No in-wall plumbing work performed.
+<p style="margin-top:70px;font-size:13px;color:#a9bdd3;">
+We install customer-supplied fixtures using existing connections only. No in-wall plumbing work is performed.
 </p>
 
 </div>
 
 <div class="callbar">
-<a href="tel:12109068524"><i class="fa-solid fa-phone"></i> Call</a>
-<a href="sms:12109068524"><i class="fa-solid fa-comment"></i> Text</a>
+<a href="tel:+12109068524"><i class="fa-solid fa-phone"></i> Call</a>
+<a href="sms:+12109068524"><i class="fa-solid fa-comment"></i> Text</a>
 </div>
 
 </body>
