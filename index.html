@@ -5,9 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fixture Installation San Antonio | Same-Day Service</title>
+<title>Faucet & Fixture Installation San Antonio | Same-Day Service</title>
 
-<meta name="description" content="Same-day fixture installation in San Antonio. Faucets, toilets, and upgrades installed fast. Send a photo for a quick quote.">
+<meta name="description" content="Same-day faucet, toilet, and fixture installation in San Antonio. Fast, clean installs. Text a photo for a quick quote.">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
@@ -30,22 +30,23 @@ color:white;
 }
 
 .container{
-max-width:1100px;
+max-width:1000px;
 margin:auto;
 padding:60px 20px 120px;
 text-align:center;
 }
 
-h1{font-family:Poppins;font-size:40px;line-height:1.2;}
-h2{font-family:Poppins;margin-top:70px;}
+h1{font-family:Poppins;font-size:36px;}
+h2{font-family:Poppins;margin-top:60px;}
+h3{font-family:Poppins;}
 p{color:var(--muted);}
 
-.logo{width:260px;margin-bottom:10px;}
+.logo{width:230px;margin-bottom:10px;}
 
 .btn{
 display:inline-block;
 margin:10px;
-padding:16px 34px;
+padding:16px 30px;
 border-radius:40px;
 background:linear-gradient(90deg,#ffc107,#ffda44);
 color:black;
@@ -61,12 +62,14 @@ color:white;
 .btn.form{
 background:linear-gradient(90deg,#4fd3ff,#35a0d9);
 color:white;
+border:none;
+cursor:pointer;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:28px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 margin-top:40px;
 }
 
@@ -76,11 +79,19 @@ padding:25px;
 border-radius:18px;
 }
 
+select{
+padding:10px;
+margin:5px;
+border-radius:8px;
+border:none;
+}
+
 .callbar{
 position:fixed;
 bottom:0;
 width:100%;
 display:flex;
+z-index:999;
 }
 
 .callbar a{
@@ -103,139 +114,126 @@ text-decoration:none;
 
 <img src="images/PlumbingGuruslogo.png" class="logo">
 
-<p>Fixture Installation Service • San Antonio</p>
+<h1>Same-Day Faucet & Fixture Installation</h1>
 
-<h1>
-Same-Day Fixture Installation in San Antonio<br>
-Send a Photo. Get a Price. Installed Today.
-</h1>
-
-<p>No delays. No guesswork. Just fast, clean installs.</p>
-
-<!-- CTA -->
-<a href="tel:+12109068524" class="btn">📞 Call Now</a>
-<a href="sms:+12109068524" class="btn secondary">📸 Text Photo for Instant Price</a>
-
-<p style="margin-top:10px;color:#4fd3ff;">
-Prefer not to call or text? Submit details below 👇
+<p style="font-size:18px;">
+Fast, clean installs in San Antonio. No delays. No surprises.
 </p>
 
-<a href="/request.html" class="btn form">📝 Request Service</a>
-
-<p>⚠️ Only 5 Same-Day Spots Available</p>
-
-<!-- CALCULATOR -->
-<h2>Quick Price Estimate</h2>
-
-<div class="card" style="max-width:500px;margin:auto;">
-
-<select id="fixture">
-<option value="180">Bathroom Faucet</option>
-<option value="280">Kitchen Faucet</option>
-<option value="300">Shower Trim</option>
-<option value="320">Toilet Installation</option>
-</select>
-
-<select id="difficulty">
-<option value="0">Easy</option>
-<option value="80">Moderate</option>
-<option value="140">Difficult</option>
-</select>
-
-<select id="rush">
-<option value="0">Standard</option>
-<option value="75">Same-Day Priority</option>
-</select>
-
-<button onclick="calc()">Estimate Price</button>
-
-<p id="result"></p>
-
+<div>
+<a href="tel:YOURNUMBER" class="btn">📞 Call Now</a>
+<a href="sms:YOURNUMBER" class="btn secondary">💬 Text Photo for Quote</a>
 </div>
 
-<script>
-function calc(){
-let base = +document.getElementById("fixture").value;
-let diff = +document.getElementById("difficulty").value;
-let rush = +document.getElementById("rush").value;
-let total = base + diff + rush;
+<p style="color:#ffc107;margin-top:10px;">
+⚠️ Limited Same-Day Availability
+</p>
 
-document.getElementById("result").innerHTML =
-"Estimated: $" + total + "<br><small>Final price confirmed after photo</small>";
-}
-</script>
+<p style="margin-top:10px;">
+💲 Typical installs: <strong>$180 – $450</strong><br>
+📸 Final price confirmed after quick photo
+</p>
+
+<!-- ESTIMATOR -->
+<div class="card" style="margin-top:40px;">
+<h2>Quick Price Estimate</h2>
+
+<p style="font-size:16px;">
+Select your job below for a rough range. Exact pricing confirmed after photo.
+</p>
+
+<select>
+<option>Faucet Installation</option>
+<option>Toilet Installation</option>
+<option>Garbage Disposal Replacement</option>
+<option>Shower Trim Installation</option>
+</select>
+
+<select>
+<option>Easy Access</option>
+<option>Tight Space / Older Setup</option>
+</select>
+
+<select>
+<option>Standard Scheduling</option>
+<option>Same-Day Priority</option>
+</select>
+
+<br><br>
+
+<button class="btn form">View Price Range</button>
+
+<p style="margin-top:15px;">
+💲 Most jobs fall between <strong>$180 – $450</strong><br>
+📸 Send a photo for exact price in minutes<br>
+✅ No surprises before work begins
+</p>
+
+<div>
+<a href="tel:YOURNUMBER" class="btn">Call Now</a>
+<a href="sms:YOURNUMBER" class="btn secondary">Text Photo</a>
+</div>
+</div>
 
 <!-- SERVICES -->
 <h2>Services</h2>
+
 <div class="grid">
-<div class="card">Faucet Replacement</div>
-<div class="card">Toilet Replacement</div>
-<div class="card">Shower Trim Installation</div>
-<div class="card">Showerhead Replacement</div>
-<div class="card">Garbage Disposal Swap (Existing Setup)</div>
-<div class="card">Dishwasher Hookup (Existing Connections)</div>
-<div class="card">Refrigerator Water Line Hookup</div>
-<div class="card">Bidet Seat Installation</div>
+
+<div class="card">
+<h3>🚿 Faucet Installation</h3>
+<p>Replace kitchen or bathroom faucets with clean, fast installation.</p>
 </div>
 
-<!-- PRICING -->
-<h2>Pricing</h2>
-<p style="color:#4fd3ff;font-weight:600;">
-Most installs range from $180–$450 depending on setup
-</p>
+<div class="card">
+<h3>🚽 Toilet Installation</h3>
+<p>Remove and install new toilets with proper sealing and setup.</p>
+</div>
 
-<p style="font-size:13px;">
-Final price confirmed after reviewing photos. No surprise charges.
-</p>
+<div class="card">
+<h3>🔧 Garbage Disposal Replacement</h3>
+<p>Swap out your disposal using existing connections.</p>
+</div>
 
-<!-- WHY -->
+<div class="card">
+<h3>🚿 Shower Trim Installation</h3>
+<p>Install trim kits for a clean, updated look.</p>
+</div>
+
+</div>
+
+<!-- TRUST -->
 <h2>Why Choose Us</h2>
+
 <div class="grid">
-<div class="card">Installed Right the First Time</div>
-<div class="card">Fast Response — Text for Quote</div>
-<div class="card">Upfront Pricing — No Surprises</div>
-<div class="card">Same-Day Service Available</div>
+
+<div class="card">
+<h3>⚡ Same-Day Service</h3>
+<p>Fast response and quick scheduling.</p>
 </div>
 
-<!-- ABOUT -->
-<h2>Who You’re Hiring</h2>
+<div class="card">
+<h3>💲 Upfront Pricing</h3>
+<p>No surprises. Price confirmed before work begins.</p>
+</div>
 
-<div class="card" style="max-width:800px;margin:auto;">
+<div class="card">
+<h3>🧼 Clean Work</h3>
+<p>Respectful, clean installs done right.</p>
+</div>
 
-<p><strong>Hi, I’m Chris.</strong></p>
+</div>
 
-<p>
-I specialize in fast, same-day fixture installations without delays or unnecessary upselling.
-</p>
-
-<p style="color:#4fd3ff;font-weight:600;">
-100+ installs completed across San Antonio
-</p>
-
-<p style="font-size:14px;color:#a9bdd3;margin-top:15px;">
-✔ Customer-supplied fixtures only<br>
-✔ Same-location replacements only<br>
-✔ No plumbing system modifications<br>
-✔ No repairs or pipe alterations
+<p style="margin-top:40px;font-size:14px;">
+Service limited to fixture replacement using existing connections only. No in-wall or system plumbing work performed.
 </p>
 
 </div>
 
-<!-- FINAL CTA -->
-<h2>Need It Done Today?</h2>
-
-<a href="sms:+12109068524" class="btn secondary">📸 Text Now</a>
-<a href="/request.html" class="btn form">📝 Submit Request</a>
-
-<p style="font-size:13px;margin-top:40px;">
-We provide fixture installation services only and do not offer plumbing system modifications or repairs.
-</p>
-
-</div>
-
+<!-- CALL BAR -->
 <div class="callbar">
-<a href="tel:+12109068524">📞 Call</a>
-<a href="sms:+12109068524">📲 Text</a>
+<a href="tel:YOURNUMBER">📞 Call Now</a>
+<a href="sms:YOURNUMBER">💬 Text Photo</a>
 </div>
 
 </body>
