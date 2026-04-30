@@ -24,16 +24,13 @@
 --glass:rgba(255,255,255,.06);
 }
 
-/* BACKGROUND */
 body{
 margin:0;
 font-family:Inter;
-background:
-radial-gradient(circle at 30% 20%, #0d2a44, #03080f 70%);
+background:radial-gradient(circle at 30% 20%, #0d2a44, #03080f 70%);
 color:white;
 }
 
-/* CONTAINER */
 .container{
 max-width:1100px;
 margin:auto;
@@ -44,15 +41,15 @@ text-align:center;
 /* 🔥 LOGO HERO */
 .logo-wrap{
 background:radial-gradient(circle, rgba(53,160,217,.25), transparent 70%);
-padding:30px 10px 10px;
+padding:20px 10px 5px;
 border-radius:20px;
-margin-bottom:10px;
+margin-bottom:5px;
 }
 
 .logo{
-width:420px;
-max-width:95%;
-filter:drop-shadow(0 0 30px rgba(79,211,255,.8));
+width:320px; /* balanced */
+max-width:90%;
+filter:drop-shadow(0 0 25px rgba(79,211,255,.7));
 margin-bottom:5px;
 }
 
@@ -152,7 +149,7 @@ text-decoration:none;
 
 /* MOBILE */
 @media(max-width:600px){
-.logo{width:280px;}
+.logo{width:240px;}
 h1{font-size:30px;}
 }
 
@@ -164,12 +161,12 @@ h1{font-size:30px;}
 
 <div class="container">
 
-<!-- 🔥 HERO LOGO -->
+<!-- LOGO -->
 <div class="logo-wrap">
 <img src="images/PlumbingGuruslogo.png" alt="Plumbing Gurus Logo" class="logo">
 </div>
 
-<p style="font-size:14px;color:#a9bdd3;">
+<p style="font-size:14px;color:#a9bdd3;margin-top:0;">
 Fixture Installation • San Antonio
 </p>
 
