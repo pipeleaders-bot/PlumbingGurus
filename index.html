@@ -24,28 +24,53 @@
 --glass:rgba(255,255,255,.06);
 }
 
+/* BACKGROUND */
 body{
 margin:0;
 font-family:Inter;
-background:radial-gradient(circle at 30% 20%, #0d2a44, #03080f 70%);
+background:
+radial-gradient(circle at 30% 20%, #0d2a44, #03080f 70%);
 color:white;
 }
 
+/* CONTAINER */
 .container{
 max-width:1100px;
 margin:auto;
-padding:80px 20px 120px;
+padding:30px 20px 120px;
 text-align:center;
 }
 
-h1{font-family:Poppins;font-size:42px;line-height:1.2;}
-h2{font-family:Poppins;margin-top:70px;}
-p{color:var(--muted);font-size:18px;}
+/* 🔥 LOGO HERO */
+.logo-wrap{
+background:radial-gradient(circle, rgba(53,160,217,.25), transparent 70%);
+padding:30px 10px 10px;
+border-radius:20px;
+margin-bottom:10px;
+}
 
 .logo{
-width:170px;
-margin-bottom:10px;
-filter:drop-shadow(0 0 14px rgba(79,211,255,.5));
+width:420px;
+max-width:95%;
+filter:drop-shadow(0 0 30px rgba(79,211,255,.8));
+margin-bottom:5px;
+}
+
+/* TEXT */
+h1{
+font-family:Poppins;
+font-size:42px;
+margin-top:10px;
+}
+
+h2{
+font-family:Poppins;
+margin-top:70px;
+}
+
+p{
+color:var(--muted);
+font-size:18px;
 }
 
 /* BUTTONS */
@@ -58,6 +83,7 @@ background:linear-gradient(90deg,#ffc107,#ffda44);
 color:black;
 text-decoration:none;
 font-weight:700;
+box-shadow:0 10px 30px rgba(255,193,7,.4);
 }
 
 .btn.secondary{
@@ -88,6 +114,15 @@ padding:20px;
 border-radius:15px;
 }
 
+/* FORM */
+input, textarea, select{
+width:90%;
+padding:12px;
+margin:8px;
+border-radius:8px;
+border:none;
+}
+
 /* CTA STRIP */
 .cta-strip{
 margin-top:70px;
@@ -115,6 +150,12 @@ text-decoration:none;
 .callbar a:first-child{background:#ffc107;color:black;}
 .callbar a:last-child{background:#1D6FA3;color:white;}
 
+/* MOBILE */
+@media(max-width:600px){
+.logo{width:280px;}
+h1{font-size:30px;}
+}
+
 </style>
 
 </head>
@@ -123,8 +164,10 @@ text-decoration:none;
 
 <div class="container">
 
-<!-- ✅ YOUR REAL LOGO PATH -->
+<!-- 🔥 HERO LOGO -->
+<div class="logo-wrap">
 <img src="images/PlumbingGuruslogo.png" alt="Plumbing Gurus Logo" class="logo">
+</div>
 
 <p style="font-size:14px;color:#a9bdd3;">
 Fixture Installation • San Antonio
@@ -138,32 +181,51 @@ Fast fixture installs — no delays.
 
 <p>Faucets, toilets, and upgrades installed using existing connections.</p>
 
+<!-- CTA -->
 <a href="tel:+12109068524" class="btn">
-<i class="fa-solid fa-phone"></i> Call Now
+<i class="fa-solid fa-phone"></i> Call (210) 906-8524
 </a>
 
 <a href="sms:+12109068524" class="btn secondary">
-<i class="fa-solid fa-camera"></i> Text Photo
+<i class="fa-solid fa-camera"></i> Text Photo for Price
 </a>
+
+<p style="color:#ffc107;font-size:14px;">
+⚠️ Limited same-day availability
+</p>
+
+<!-- FORM -->
+<div class="card" style="max-width:600px;margin:30px auto;">
+
+<h2>Get a Fast Quote</h2>
+
+<form action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
+
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="tel" name="phone" placeholder="Phone Number" required>
+
+<select name="service">
+<option>Faucet Installation</option>
+<option>Toilet Installation</option>
+<option>Shower Trim Install</option>
+<option>Other</option>
+</select>
+
+<textarea name="details" placeholder="Describe the job or text a photo"></textarea>
+
+<button type="submit" class="btn">Request Quote</button>
+
+</form>
+
+</div>
 
 <!-- HOW IT WORKS -->
 <h2>How It Works</h2>
 
 <div class="grid">
-<div class="card">
-<h3><i class="fa-solid fa-camera"></i> Send Photo</h3>
-<p>Text your fixture</p>
-</div>
-
-<div class="card">
-<h3><i class="fa-solid fa-tag"></i> Get Price</h3>
-<p>Clear quote fast</p>
-</div>
-
-<div class="card">
-<h3><i class="fa-solid fa-wrench"></i> Install</h3>
-<p>Same-day available</p>
-</div>
+<div class="card"><h3><i class="fa-solid fa-camera"></i> Send Photo</h3></div>
+<div class="card"><h3><i class="fa-solid fa-tag"></i> Get Price</h3></div>
+<div class="card"><h3><i class="fa-solid fa-wrench"></i> Install</h3></div>
 </div>
 
 <!-- SERVICES -->
@@ -180,27 +242,9 @@ Fast fixture installs — no delays.
 <h2>Customer Reviews</h2>
 
 <div class="grid">
-
-<div class="review">
-<p>"Texted a photo and got a price for my faucet install in minutes. Super easy."</p>
-<p style="font-size:13px;color:#4fd3ff;">– San Antonio Homeowner</p>
-</div>
-
-<div class="review">
-<p>"Toilet installation was fast and clean. Everything lined up perfectly."</p>
-<p style="font-size:13px;color:#4fd3ff;">– Northside Customer</p>
-</div>
-
-<div class="review">
-<p>"Very responsive and professional. Faucet upgrade came out great."</p>
-<p style="font-size:13px;color:#4fd3ff;">– Verified Client</p>
-</div>
-
-<div class="review">
-<p>"Showed up on time and finished fast. Everything works perfectly."</p>
-<p style="font-size:13px;color:#4fd3ff;">– Local Customer</p>
-</div>
-
+<div class="review"><p>"Fast faucet install. Clean work."</p></div>
+<div class="review"><p>"Sent photo and got price instantly."</p></div>
+<div class="review"><p>"Showed up and got it done same day."</p></div>
 </div>
 
 <!-- CTA -->
@@ -214,108 +258,12 @@ Fast fixture installs — no delays.
 <a href="sms:+12109068524" class="btn secondary">
 <i class="fa-solid fa-comment"></i> Text Photo
 </a>
-</div>
 
-<!-- ✅ COMPLIANCE SAFE -->
-<p style="margin-top:60px;font-size:13px;color:#a9bdd3;">
-Specializing in fixture installation using existing connections only. Any plumbing work involving system modifications, repairs, or permitting is referred to a licensed Responsible Master Plumber.
-</p>
-
-</div>
-
-<!-- FIXED CALL BAR -->
-<div class="callbar">
-<a href="tel:+12109068524"><i class="fa-solid fa-phone"></i> Call</a>
-<a href="sms:+12109068524"><i class="fa-solid fa-comment"></i> Text</a>
-</div>
-
-</body>
-</html>text-decoration:none;
-}
-
-.callbar a:first-child{background:#ffc107;color:black;}
-.callbar a:last-child{background:#1D6FA3;color:white;}
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<img src="Logo.png" alt="Plumbing Gurus Logo" class="logo">
-
-<p style="font-size:14px;color:#a9bdd3;">
-Fixture Installation • San Antonio
-</p>
-
-<h1>Send a Photo. Get a Price. Installed Today.</h1>
-
-<p style="color:#4fd3ff;font-size:20px;">
-Fast fixture installs without delays.
-</p>
-
-<p>Faucets, toilets, and upgrades installed using existing connections.</p>
-
-<a href="tel:+12109068524" class="btn">📞 Call Now</a>
-<a href="sms:+12109068524" class="btn secondary">📸 Text Photo</a>
-
-<!-- HOW IT WORKS -->
-<h2>How It Works</h2>
-
-<div class="grid">
-<div class="card"><h3>Send Photo</h3><p>Text your fixture</p></div>
-<div class="card"><h3>Get Price</h3><p>Clear quote fast</p></div>
-<div class="card"><h3>Install</h3><p>Same-day available</p></div>
-</div>
-
-<!-- SERVICES -->
-<h2>Services</h2>
-
-<div class="grid">
-<div class="card"><h3>Faucet Installation</h3></div>
-<div class="card"><h3>Toilet Replacement</h3></div>
-<div class="card"><h3>Shower Trim Install</h3></div>
-<div class="card"><h3>Fixture Upgrades</h3></div>
-</div>
-
-<!-- REVIEWS -->
-<h2>Customer Reviews</h2>
-
-<div class="grid">
-
-<div class="review">
-<p>"Texted a photo and got a price for my faucet install in minutes. Super easy process."</p>
-<p style="font-size:13px;color:#4fd3ff;">– San Antonio Homeowner</p>
-</div>
-
-<div class="review">
-<p>"Toilet installation was fast and clean. Everything lined up perfectly."</p>
-<p style="font-size:13px;color:#4fd3ff;">– Northside Customer</p>
-</div>
-
-<div class="review">
-<p>"Very responsive and professional. Faucet upgrade came out great."</p>
-<p style="font-size:13px;color:#4fd3ff;">– Verified Client</p>
-</div>
-
-<div class="review">
-<p>"Showed up on time and finished fast. Disposal replacement works perfectly."</p>
-<p style="font-size:13px;color:#4fd3ff;">– Local Customer</p>
-</div>
-
-</div>
-
-<!-- CTA -->
-<div class="cta-strip">
-<h2>Need It Done Today?</h2>
-<a href="tel:+12109068524" class="btn">📞 Call Now</a>
-<a href="sms:+12109068524" class="btn secondary">📸 Text Photo</a>
 </div>
 
 <!-- COMPLIANCE -->
 <p style="margin-top:60px;font-size:13px;color:#a9bdd3;">
-Fixture installation services using existing connections only. Any work involving plumbing system modifications or repairs is referred to a licensed Responsible Master Plumber.
+Specializing in fixture installation using existing connections only. Any plumbing work involving system modifications or repairs is referred to a licensed Responsible Master Plumber.
 </p>
 
 </div>
