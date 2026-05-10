@@ -23,6 +23,7 @@ gtag('config', 'AW-18030727118');
 </script>
 
 <style>
+
 :root{
 --dark:#03080f;
 --blue:#1D6FA3;
@@ -35,7 +36,7 @@ gtag('config', 'AW-18030727118');
 
 body{
 margin:0;
-font-family:Inter;
+font-family:Inter,Arial,sans-serif;
 background:radial-gradient(circle at 30% 20%, #0d2a44, #03080f 70%);
 color:white;
 }
@@ -62,19 +63,20 @@ margin-bottom:5px;
 }
 
 h1{
-font-family:Poppins;
+font-family:Poppins,sans-serif;
 font-size:42px;
 margin-top:10px;
 }
 
 h2{
-font-family:Poppins;
+font-family:Poppins,sans-serif;
 margin-top:70px;
 }
 
 p{
 color:var(--muted);
 font-size:18px;
+line-height:1.7;
 }
 
 .btn{
@@ -87,6 +89,11 @@ color:black;
 text-decoration:none;
 font-weight:700;
 box-shadow:0 10px 30px rgba(255,193,7,.4);
+transition:.2s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
 }
 
 .btn.secondary{
@@ -113,6 +120,7 @@ box-shadow:0 15px 40px rgba(0,0,0,.6);
 background:var(--glass);
 padding:20px;
 border-radius:15px;
+backdrop-filter:blur(16px);
 }
 
 input, textarea, select{
@@ -121,6 +129,12 @@ padding:12px;
 margin:8px;
 border-radius:8px;
 border:none;
+font-size:16px;
+}
+
+button{
+border:none;
+cursor:pointer;
 }
 
 .cta-strip{
@@ -135,6 +149,7 @@ position:fixed;
 bottom:0;
 width:100%;
 display:flex;
+z-index:999;
 }
 
 .callbar a{
@@ -156,9 +171,17 @@ color:white;
 }
 
 @media(max-width:600px){
-.logo{width:240px;}
-h1{font-size:30px;}
+
+.logo{
+width:240px;
 }
+
+h1{
+font-size:30px;
+}
+
+}
+
 </style>
 
 </head>
@@ -266,4 +289,44 @@ Faucets, toilets, and upgrades installed using existing connections.
 
 <div class="grid">
 
-<div
+<div class="review">
+<p>"Fast faucet install. Clean work."</p>
+</div>
+
+<div class="review">
+<p>"Sent photo and got price instantly."</p>
+</div>
+
+<div class="review">
+<p>"Showed up and got it done same day."</p>
+</div>
+
+</div>
+
+<div class="cta-strip">
+
+<h2>Need It Done Today?</h2>
+
+<a href="tel:+12109068524" class="btn">
+<i class="fa-solid fa-phone"></i> Call Now
+</a>
+
+<a href="sms:+12109068524" class="btn secondary">
+<i class="fa-solid fa-comment"></i> Text Photo
+</a>
+
+</div>
+
+<p style="margin-top:60px;font-size:13px;color:#a9bdd3;">
+Specializing in fixture installation using existing connections only. Any plumbing work involving system modifications or repairs is referred to a licensed Responsible Master Plumber.
+</p>
+
+</div>
+
+<div class="callbar">
+<a href="tel:+12109068524">📞 Call</a>
+<a href="sms:+12109068524">📲 Text</a>
+</div>
+
+</body>
+</html>
