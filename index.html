@@ -15,11 +15,11 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18030727118"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-  gtag('config', 'AW-18030727118');
+gtag('config', 'AW-18030727118');
 </script>
 
 <style>
@@ -47,7 +47,6 @@ padding:30px 20px 120px;
 text-align:center;
 }
 
-/* 🔥 LOGO HERO */
 .logo-wrap{
 background:radial-gradient(circle, rgba(53,160,217,.25), transparent 70%);
 padding:20px 10px 5px;
@@ -62,7 +61,6 @@ filter:drop-shadow(0 0 25px rgba(79,211,255,.7));
 margin-bottom:5px;
 }
 
-/* TEXT */
 h1{
 font-family:Poppins;
 font-size:42px;
@@ -79,7 +77,6 @@ color:var(--muted);
 font-size:18px;
 }
 
-/* BUTTONS */
 .btn{
 display:inline-block;
 margin:10px;
@@ -97,7 +94,6 @@ background:linear-gradient(90deg,var(--blue),var(--glow));
 color:white;
 }
 
-/* GRID */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -105,7 +101,6 @@ gap:28px;
 margin-top:40px;
 }
 
-/* CARD */
 .card{
 background:var(--glass);
 padding:25px;
@@ -120,7 +115,6 @@ padding:20px;
 border-radius:15px;
 }
 
-/* FORM */
 input, textarea, select{
 width:90%;
 padding:12px;
@@ -129,7 +123,6 @@ border-radius:8px;
 border:none;
 }
 
-/* CTA STRIP */
 .cta-strip{
 margin-top:70px;
 padding:30px;
@@ -137,7 +130,6 @@ border-radius:18px;
 background:linear-gradient(90deg,#1D6FA3,#35a0d9);
 }
 
-/* CALL BAR */
 .callbar{
 position:fixed;
 bottom:0;
@@ -153,15 +145,125 @@ font-weight:700;
 text-decoration:none;
 }
 
-.callbar a:first-child{background:#ffc107;color:black;}
-.callbar a:last-child{background:#1D6FA3;color:white;}
+.callbar a:first-child{
+background:#ffc107;
+color:black;
+}
 
-/* MOBILE */
+.callbar a:last-child{
+background:#1D6FA3;
+color:white;
+}
+
 @media(max-width:600px){
 .logo{width:240px;}
 h1{font-size:30px;}
 }
-
 </style>
 
 </head>
+
+<body>
+
+<div class="container">
+
+<div class="logo-wrap">
+<img src="images/PlumbingGuruslogo.png" alt="Plumbing Gurus Logo" class="logo">
+</div>
+
+<p style="font-size:14px;color:#a9bdd3;margin-top:0;">
+Fixture Installation • San Antonio
+</p>
+
+<h1>Send a Photo. Get a Price. Installed Today.</h1>
+
+<p style="color:#4fd3ff;font-size:20px;">
+Fast fixture installs — no delays.
+</p>
+
+<p>
+Faucets, toilets, and upgrades installed using existing connections.
+</p>
+
+<a href="tel:+12109068524" class="btn">
+<i class="fa-solid fa-phone"></i> Call (210) 906-8524
+</a>
+
+<a href="sms:+12109068524" class="btn secondary">
+<i class="fa-solid fa-camera"></i> Text Photo for Price
+</a>
+
+<p style="color:#ffc107;font-size:14px;">
+⚠️ Limited same-day availability
+</p>
+
+<div class="card" style="max-width:600px;margin:30px auto;">
+
+<h2>Get a Fast Quote</h2>
+
+<form action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="tel" name="phone" placeholder="Phone Number" required>
+
+<select name="service">
+<option>Faucet Installation</option>
+<option>Toilet Installation</option>
+<option>Shower Trim Install</option>
+<option>Other</option>
+</select>
+
+<textarea name="details" placeholder="Describe the job or text a photo"></textarea>
+
+<button type="submit" class="btn">Request Quote</button>
+
+</form>
+
+</div>
+
+<h2>How It Works</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3><i class="fa-solid fa-camera"></i> Send Photo</h3>
+</div>
+
+<div class="card">
+<h3><i class="fa-solid fa-tag"></i> Get Price</h3>
+</div>
+
+<div class="card">
+<h3><i class="fa-solid fa-wrench"></i> Install</h3>
+</div>
+
+</div>
+
+<h2>Services</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3><i class="fa-solid fa-faucet"></i> Faucet Installation</h3>
+</div>
+
+<div class="card">
+<h3><i class="fa-solid fa-toilet"></i> Toilet Replacement</h3>
+</div>
+
+<div class="card">
+<h3><i class="fa-solid fa-shower"></i> Shower Trim Install</h3>
+</div>
+
+<div class="card">
+<h3><i class="fa-solid fa-screwdriver-wrench"></i> Fixture Upgrades</h3>
+</div>
+
+</div>
+
+<h2>Customer Reviews</h2>
+
+<div class="grid">
+
+<div
