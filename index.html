@@ -1,232 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>San Antonio Fixture Installation | Same-Day Service</title>
-
-<meta name="description" content="Send a photo. Get a price. Same-day fixture installation, drain unclogging, and camera inspections in San Antonio.">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18030727118"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-
-gtag('config', 'AW-18030727118');
-</script>
+<title>Plumbing Gurus LLC | Premium Bathroom Remodeling & Design</title>
 
 <style>
-
 :root{
---dark:#03080f;
---blue:#1D6FA3;
---glow:#35a0d9;
---accent:#4fd3ff;
---gold:#ffc107;
---muted:#a9bdd3;
---glass:rgba(255,255,255,.06);
+    --primary:#1a365d;
+    --primary-light:#2b6cb0;
+    --dark:#2d3748;
+    --light:#f7fafc;
+    --accent:#d4af37;
+    --text-muted:#4a5568;
+    --white:#ffffff;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 body{
-margin:0;
-font-family:Inter,Arial,sans-serif;
-background:radial-gradient(circle at 30% 20%, #0d2a44, #03080f 70%);
-color:white;
+    font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+    background:var(--white);
+    color:var(--dark);
+    line-height:1.6;
 }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:30px 20px 120px;
-text-align:center;
+header{
+    background:var(--white);
+    border-bottom:2px solid var(--primary);
+    padding:15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 4px 6px rgba(0,0,0,.05);
 }
 
-.logo-wrap{
-background:radial-gradient(circle, rgba(53,160,217,.25), transparent 70%);
-padding:20px 10px 5px;
-border-radius:20px;
-margin-bottom:5px;
+.brand-container{
+    display:flex;
+    align-items:center;
+    gap:15px;
 }
 
-.logo{
-width:320px;
-max-width:90%;
-filter:drop-shadow(0 0 25px rgba(79,211,255,.7));
-margin-bottom:5px;
+.brand-logo{
+    width:65px;
+    height:auto;
 }
 
-h1{
-font-family:Poppins,sans-serif;
-font-size:42px;
-margin-top:10px;
+.brand-text h1{
+    font-size:20pt;
+    font-weight:bold;
+    color:var(--primary);
+    text-transform:uppercase;
+    letter-spacing:1px;
+    line-height:1.2;
 }
 
-h2{
-font-family:Poppins,sans-serif;
-margin-top:70px;
+.brand-text p{
+    font-size:10pt;
+    color:var(--text-muted);
+    font-weight:500;
 }
 
-p{
-color:var(--muted);
-font-size:18px;
-line-height:1.7;
+.cta-nav-btn{
+    background:var(--primary);
+    color:var(--white);
+    padding:12px 22px;
+    text-decoration:none;
+    border-radius:4px;
+    font-weight:bold;
+    transition:.2s ease;
 }
 
-.btn{
-display:inline-block;
-margin:10px;
-padding:16px 34px;
-border-radius:40px;
-background:linear-gradient(90deg,#ffc107,#ffda44);
-color:black;
-text-decoration:none;
-font-weight:700;
-box-shadow:0 10px 30px rgba(255,193,7,.4);
-transition:.2s;
+.cta-nav-btn:hover{
+    background:var(--primary-light);
 }
 
-.btn:hover{
-transform:translateY(-2px);
+.hero{
+    background:linear-gradient(135deg,#1a365d 0%,#0a192f 100%);
+    color:var(--white);
+    text-align:center;
+    padding:90px 5%;
 }
 
-.btn.secondary{
-background:linear-gradient(90deg,var(--blue),var(--glow));
-color:white;
+.hero h2{
+    font-size:36pt;
+    line-height:1.2;
+    margin-bottom:20px;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:28px;
-margin-top:40px;
+.hero p{
+    max-width:800px;
+    margin:0 auto 35px;
+    color:#e2e8f0;
+    font-size:13pt;
 }
 
-.card{
-background:var(--glass);
-padding:25px;
-border-radius:18px;
-backdrop-filter:blur(16px);
-box-shadow:0 15px 40px rgba(0,0,0,.6);
+.hero-btn{
+    background:var(--white);
+    color:var(--primary);
+    padding:15px 30px;
+    text-decoration:none;
+    border-radius:4px;
+    font-weight:bold;
+    display:inline-block;
+    box-shadow:0 4px 15px rgba(0,0,0,.2);
 }
 
-.review{
-background:var(--glass);
-padding:20px;
-border-radius:15px;
-backdrop-filter:blur(16px);
+.hero-btn:hover{
+    transform:translateY(-2px);
 }
 
-input, textarea, select{
-width:90%;
-padding:12px;
-margin:8px;
-border-radius:8px;
-border:none;
-font-size:16px;
+.pillars{
+    padding:70px 5%;
+    background:var(--light);
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
 }
 
-button{
-border:none;
-cursor:pointer;
+.pillar-card{
+    background:var(--white);
+    padding:30px;
+    border-radius:6px;
+    border-top:4px solid var(--primary-light);
+    box-shadow:0 4px 6px rgba(0,0,0,.03);
 }
 
-.cta-strip{
-margin-top:70px;
-padding:30px;
-border-radius:18px;
-background:linear-gradient(90deg,#1D6FA3,#35a0d9);
+.pillar-card h3{
+    color:var(--primary);
+    margin-bottom:15px;
 }
 
-.callbar{
-position:fixed;
-bottom:0;
-width:100%;
-display:flex;
-z-index:999;
+.pillar-card p{
+    color:var(--text-muted);
 }
 
-.callbar a{
-flex:1;
-padding:18px;
-text-align:center;
-font-weight:700;
-text-decoration:none;
+.services-preview{
+    padding:70px 5%;
 }
 
-.callbar a:first-child{
-background:#ffc107;
-color:black;
+.section-header{
+    text-align:center;
+    margin-bottom:50px;
 }
 
-.callbar a:last-child{
-background:#1D6FA3;
-color:white;
+.section-header h2{
+    color:var(--primary);
+    font-size:24pt;
+    margin-bottom:10px;
 }
 
-@media(max-width:600px){
-
-.logo{
-width:240px;
+.section-header p{
+    color:var(--text-muted);
 }
 
-h1{
-font-size:30px;
+.preview-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
 }
 
+.preview-zone{
+    border:1px solid #e2e8f0;
+    border-radius:6px;
+    padding:25px;
+    background:var(--white);
 }
 
+.preview-zone h3{
+    color:var(--dark);
+    margin-bottom:20px;
+    padding-bottom:10px;
+    border-bottom:1px solid #e2e8f0;
+}
+
+.preview-item{
+    margin-bottom:20px;
+}
+
+.preview-item-title{
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.preview-item-desc{
+    color:var(--text-muted);
+}
+
+.about-section{
+    background:var(--light);
+    padding:70px 5%;
+    text-align:center;
+}
+
+.about-section h2{
+    color:var(--primary);
+    margin-bottom:20px;
+}
+
+.about-section p{
+    max-width:900px;
+    margin:auto;
+    color:var(--text-muted);
+}
+
+.cta-section{
+    padding:80px 5%;
+    text-align:center;
+    background:var(--primary);
+    color:var(--white);
+}
+
+.cta-section h2{
+    margin-bottom:20px;
+}
+
+.cta-section p{
+    max-width:700px;
+    margin:0 auto 30px;
+}
+
+.cta-section a{
+    background:var(--white);
+    color:var(--primary);
+    text-decoration:none;
+    padding:15px 30px;
+    border-radius:4px;
+    font-weight:bold;
+}
+
+footer{
+    background:var(--dark);
+    color:#a0aec0;
+    text-align:center;
+    padding:40px 5%;
+    border-top:4px solid var(--primary);
+}
+
+footer p{
+    margin-bottom:10px;
+}
+
+.highlight{
+    color:var(--white);
+    font-weight:500;
+}
+
+.disclaimer{
+    margin-top:20px;
+    font-size:9pt;
+    max-width:900px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+        text-align:center;
+        gap:15px;
+    }
+
+    .brand-container{
+        flex-direction:column;
+    }
+
+    .preview-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h2{
+        font-size:26pt;
+    }
+}
 </style>
-
 </head>
 
 <body>
 
-<div class="container">
+<header>
 
-<div class="logo-wrap">
-<img src="images/PlumbingGuruslogo.png" alt="Plumbing Gurus Logo" class="logo">
-</div>
+    <div class="brand-container">
 
-<p style="font-size:14px;color:#a9bdd3;margin-top:0;">
-Fixture Installation • San Antonio
-</p>
+        <img src="PlumbingGuruslogo.png" alt="Plumbing Gurus LLC Logo" class="brand-logo">
 
-<h1>San Antonio Fixture Installation — Send a Photo. Get a Price.</h1>
+        <div class="brand-text">
+            <h1>Plumbing Gurus LLC</h1>
+            <p>Bathroom Remodeling • Tile Installation • Project Coordination</p>
+        </div>
 
-<p style="color:#4fd3ff;font-size:20px;">
-Fast fixture installs — no delays.
-</p>
+    </div>
 
-<p>
-Faucets, toilets, shower trim, drain unclogging, and fixture upgrades using existing connections.
-</p>
+    <a href="tel:2100000000" class="cta-nav-btn">
+        Start Your Remodel Quote
+    </a>
 
-<a href="tel:+12109068524" class="btn">
-<i class="fa-solid fa-phone"></i> Call (210) 906-8524
-</a>
+</header>
 
-<a href="sms:+12109068524" class="btn secondary">
-<i class="fa-solid fa-camera"></i> Text Photo for Price
-</a>
+<section class="hero">
 
-<p style="color:#ffc107;font-size:14px;">
-⚠️ Limited same-day availability
-</p>
+    <h2>Premium Bathroom Remodeling Built To Last</h2>
 
-<p style="color:#4fd3ff;font-size:14px;">
-Serving homeowners across San Antonio and surrounding areas.
-</p>
+    <p>
+        Specializing in bathroom remodeling, large-format porcelain tile
+        installations, accessibility upgrades, waterproofing systems,
+        and coordinated project delivery throughout the San Antonio area.
+    </p>
 
+    <a href="#contact" class="hero-btn">
+        Request Consultation
+    </a>
+
+</section>
+
+<section class="pillars">
+
+    <div class="pillar-card">
+        <h3>Artisan Finish Execution</h3>
+        <p>
+            Specialized layout engineering, precision edge finishing,
+            and installation of premium large-format porcelain tile,
+            mosaics, and custom bathroom finishes.
+        </p>
+    </div>
+
+    <div class="pillar-card">
+        <h3>Project Coordination</h3>
+        <p>
+            We help homeowners coordinate remodeling projects and work
+            alongside qualified trade professionals when required,
+            ensuring a smooth renovation experience from start to finish.
+        </p>
+    </div>
+
+    <div class="pillar-card">
+        <h3>Structural Protection</h3>
+        <p>
+            Built for long-term durability using proven waterproofing
+            systems, moisture management practices, and premium
+            installation materials.
+        </p>
+    </div>
+
+</section>
+
+<section class="services-preview">
+
+    <div class="section-header">
+        <h2>Our Core Remodeling Solutions</h2>
+        <p>
+            Quality craftsmanship paired with premium design standards.
+        </p>
+    </div>
+
+    <div class="preview-grid">
+
+        <div class="preview-zone">
+
+            <h3>1. Bathroom Preparation & Structural Modification</h3>
+
+            <div class="preview-item">
+                <div class="preview-item-title">
+                    Subfloor & Concrete Modifications
+                </div>
+
+                <div class="preview-item-desc">
+                    Precision concrete and substrate modifications
+                    to accommodate approved remodeling layouts
+                    and accessibility improvements.
+                </div>
+            </div>
+
+            <div class="preview-item">
+                <div class="preview-item-title">
+                    Fixture Planning & Coordination
+                </div>
+
+                <div class="preview-item-desc">
+                    Fixture planning, wall preparation, and coordination
+                    of specialty component installations by qualified
+                    trade professionals when required.
+                </div>
+            </div>
+
+        </div>
+
+        <div class="preview-zone">
+
+            <h3>2. Custom Architectural Remodeling</h3>
+
+            <div class="preview-item">
+                <div class="preview-item-title">
+                    Large-Format Tile Installation
+                </div>
+
+                <div class="preview-item-desc">
+                    Precision layout planning and installation of
+                    premium porcelain tile with balanced lines,
+                    clean cuts, and professional finish quality.
+                </div>
+            </div>
+
+            <div class="preview-item">
+                <div class="preview-item-title">
+                    Accessibility Integration
+                </div>
+
+                <div class="preview-item-desc">
+                    Walk-in shower conversions, bench seating,
+                    grab bar preparation, and accessibility-focused
+                    bathroom improvements.
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="about-section">
+
+    <h2>Why Homeowners Choose Plumbing Gurus</h2>
+
+    <p>
+        We focus on delivering premium bathroom remodeling solutions
+        through careful planning, quality workmanship, and attention
+        to detail. From tile layouts to waterproofing systems,
+        every project is approached with durability, functionality,
+        and aesthetics in mind.
+    </p>
+
+</section>
+
+<section class="cta-section" id="contact">
+
+    <h2>Ready To Upgrade Your Bathroom?</h2>
+
+    <p>
+        Contact Plumbing Gurus LLC today to discuss your remodeling
+        goals and receive a personalized consultation.
+    </p>
+
+    <a href="tel:2100000000">
+        Call For A Consultation
+    </a>
+
+</section>
+
+<footer>
+
+    <p class="highlight">
+        © 2026 Plumbing Gurus LLC. All Rights Reserved.
+    </p>
+
+    <p>
+        Providing Bathroom Remodeling, Tile Installation,
+        Project Coordination, and Independent Professional
+        Referral Services • San Antonio, Texas
+    </p>
+
+    <p class="disclaimer">
+        Plumbing Gurus LLC provides remodeling, tile installation,
+        project coordination, and referral services. Any plumbing,
+        electrical, HVAC, or other regulated trade work is performed
+        by appropriately licensed professionals when required by law.
+    </p>
 <div class="card" style="max-width:600px;margin:30px auto;">
 
-<h2>Get a Fast Quote</h2>
+<h2>Get Your Free Estimate</h2>
+
+<p style="font-size:16px;color:#a9bdd3;">
+Tell us about your project or text us a few photos. We'll review the details and get back to you as soon as possible.
+</p>
 
 <form action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
 
@@ -235,17 +489,22 @@ Serving homeowners across San Antonio and surrounding areas.
 <input type="tel" name="phone" placeholder="Phone Number" required>
 
 <select name="service">
-<option>Faucet Installation</option>
-<option>Toilet Installation</option>
-<option>Shower Trim Install</option>
-<option>Drain Unclogging</option>
-<option>Drain Camera Inspection</option>
+<option>Bathroom Update</option>
+<option>Kitchen Backsplash</option>
+<option>Fixture Replacement</option>
+<option>Flooring</option>
+<option>Drywall Repair</option>
+<option>Trim Installation</option>
+<option>Interior Painting</option>
+<option>General Home Improvement</option>
 <option>Other</option>
 </select>
 
-<textarea name="details" placeholder="Describe the job or text a photo"></textarea>
+<textarea name="details" placeholder="Describe your project or let us know if you'll be texting photos."></textarea>
 
-<button type="submit" class="btn">Request Quote</button>
+<button type="submit" class="btn">
+Request Free Estimate
+</button>
 
 </form>
 
@@ -256,86 +515,170 @@ Serving homeowners across San Antonio and surrounding areas.
 <div class="grid">
 
 <div class="card">
-<h3><i class="fa-solid fa-camera"></i> Send Photo</h3>
+<h3><i class="fa-solid fa-camera"></i> Send Photos</h3>
+<p>Text us a few pictures and a brief description of your project.</p>
 </div>
 
 <div class="card">
-<h3><i class="fa-solid fa-tag"></i> Get Price</h3>
+<h3><i class="fa-solid fa-comments"></i> Receive Your Estimate</h3>
+<p>We'll review your project and provide a straightforward estimate.</p>
 </div>
 
 <div class="card">
-<h3><i class="fa-solid fa-wrench"></i> Install</h3>
+<h3><i class="fa-solid fa-house"></i> Schedule Your Project</h3>
+<p>Choose a convenient day and we'll get your project underway.</p>
 </div>
 
 </div>
 
-<h2>Services</h2>
+<h2>Our Services</h2>
 
 <div class="grid">
 
 <div class="card">
-<h3><i class="fa-solid fa-faucet"></i> Faucet Installation</h3>
+<h3><i class="fa-solid fa-hammer"></i> Home Improvements</h3>
+<p>Small interior projects to help improve your home.</p>
 </div>
 
 <div class="card">
-<h3><i class="fa-solid fa-toilet"></i> Toilet Replacement</h3>
+<h3><i class="fa-solid fa-shower"></i> Bathroom Updates</h3>
+<p>Fixture replacements and bathroom refresh projects.</p>
 </div>
 
 <div class="card">
-<h3><i class="fa-solid fa-shower"></i> Shower Trim Install</h3>
+<h3><i class="fa-solid fa-border-all"></i> Backsplashes</h3>
+<p>Kitchen backsplash installation and replacement.</p>
 </div>
 
 <div class="card">
-<h3><i class="fa-solid fa-screwdriver-wrench"></i> Fixture Upgrades</h3>
+<h3><i class="fa-solid fa-layer-group"></i> Flooring</h3>
+<p>Installation of select flooring materials for interior spaces.</p>
 </div>
 
 <div class="card">
-<h3><i class="fa-solid fa-water"></i> Drain Unclogging</h3>
+<h3><i class="fa-solid fa-screwdriver-wrench"></i> Fixture Replacement</h3>
+<p>Updating fixtures and finishing touches throughout your home.</p>
 </div>
 
 <div class="card">
-<h3><i class="fa-solid fa-camera"></i> Drain Camera Inspection</h3>
+<h3><i class="fa-solid fa-paint-roller"></i> Interior Repairs</h3>
+<p>Drywall repairs, trim work, painting, and other interior improvements.</p>
 </div>
-
-</div>
-
-<h2>Customer Reviews</h2>
+<h2>Why Homeowners Choose Plumbing Gurus</h2>
 
 <div class="grid">
 
-<div class="review">
-<p>"Fast response and clean faucet installation."</p>
+<div class="card">
+<h3><i class="fa-solid fa-comments"></i> Clear Communication</h3>
+<p>
+We keep you informed throughout your project and work hard to make the process simple and stress-free.
+</p>
 </div>
 
-<div class="review">
-<p>"Texted photos and got scheduled quickly."</p>
+<div class="card">
+<h3><i class="fa-solid fa-clock"></i> Fast Response</h3>
+<p>
+Need an estimate? Send us a few photos and we'll review your project as quickly as possible.
+</p>
 </div>
 
-<div class="review">
-<p>"Professional service and good communication."</p>
+<div class="card">
+<h3><i class="fa-solid fa-house"></i> Respect for Your Home</h3>
+<p>
+We take pride in treating every home with care while completing interior improvement projects.
+</p>
+</div>
+
+</div>
+
+<h2>Recent Projects</h2>
+
+<div class="card">
+
+<p style="font-size:18px;color:#4fd3ff;">
+More project photos are coming soon.
+</p>
+
+<p>
+We're continually adding completed home improvement projects to our gallery. Check back soon to see our latest work and transformations.
+</p>
+
+</div>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Do you provide free estimates?</h3>
+<p>Yes. Send us photos or a description of your project, and we'll provide a free estimate.</p>
+</div>
+
+<div class="card">
+<h3>What areas do you serve?</h3>
+<p>We proudly serve San Antonio and many surrounding communities.</p>
+</div>
+
+<div class="card">
+<h3>How do I get started?</h3>
+<p>Call or text us with a few photos and a short description of your project. We'll discuss the next steps with you.</p>
 </div>
 
 </div>
 
 <div class="cta-strip">
 
-<h2>Need It Done Today?</h2>
+<h2>Ready to Start Your Project?</h2>
+
+<p style="color:white;">
+Call or text today for a fast, friendly estimate.
+</p>
 
 <a href="tel:+12109068524" class="btn">
 <i class="fa-solid fa-phone"></i> Call Now
 </a>
 
 <a href="sms:+12109068524" class="btn secondary">
-<i class="fa-solid fa-comment"></i> Text Photo
+<i class="fa-solid fa-comment"></i> Text Photos
 </a>
+<footer style="margin-top:80px;padding:40px 20px;text-align:center;color:#a9bdd3;">
 
-</div>
-
-<p style="margin-top:60px;font-size:13px;color:#a9bdd3;">
-Specializing in residential fixture installation, drain maintenance, and basic drain camera inspections using existing connections where applicable. Projects involving major plumbing system modifications or permit-required work are referred to the appropriate licensed professional when necessary.
+<p style="font-size:24px;font-weight:700;color:white;margin-bottom:10px;">
+Plumbing Gurus LLC
 </p>
 
-</div>
+<p style="color:#4fd3ff;font-size:18px;">
+Home Improvements • Interior Repairs • San Antonio
+</p>
+
+<p>
+Serving homeowners throughout San Antonio and surrounding communities with dependable home improvement services.
+</p>
+
+<p style="margin-top:25px;">
+📞 <a href="tel:+12109068524" style="color:#ffc107;text-decoration:none;">(210) 906-8524</a><br><br>
+
+💬 <a href="sms:+12109068524" style="color:#4fd3ff;text-decoration:none;">Text Photos for a Free Estimate</a>
+</p>
+
+<hr style="border:0;border-top:1px solid rgba(255,255,255,.15);margin:35px auto;max-width:700px;">
+
+<p style="font-size:14px;">
+Hours:<br>
+Monday – Friday: 8:00 AM – 6:00 PM<br>
+Saturday: By Appointment<br>
+Sunday: Closed
+</p>
+
+<p style="font-size:13px;line-height:1.7;max-width:850px;margin:30px auto;color:#a9bdd3;">
+We provide residential home improvement and interior repair services. If a project requires permits or work that must legally be performed by a licensed trade, we recommend that portion of the work be completed by the appropriately licensed professional.
+</p>
+
+<p style="font-size:13px;">
+&copy; 2026 Plumbing Gurus LLC. All Rights Reserved.
+</p>
+
+</footer>
 
 <div class="callbar">
 <a href="tel:+12109068524">📞 Call</a>
@@ -344,3 +687,9 @@ Specializing in residential fixture installation, drain maintenance, and basic d
 
 </body>
 </html>
+</div>
+</div>
+</footer>
+
+</body>
+</html>, lo
