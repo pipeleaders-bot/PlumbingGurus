@@ -24,7 +24,8 @@ body{margin:0;font-family:Inter,sans-serif;background:linear-gradient(180deg,#0a
 .card{background:var(--card);padding:24px;border-radius:18px}
 .card i{font-size:36px;color:var(--gold)}
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-.photo{height:220px;border:2px dashed #48627b;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#9fb5c8}
+/* Updated photo styling to ensure images look great */
+.photo{height:220px;width:100%;border:2px dashed #48627b;border-radius:14px;object-fit:cover;}
 input,textarea,select{padding:14px;border:none;border-radius:10px;width:100%}
 form{display:grid;gap:12px}
 button{padding:15px;border:none;border-radius:40px;background:#ffc107;font-weight:700;cursor:pointer}
@@ -42,10 +43,8 @@ footer{margin:50px 0 90px;color:#b4c5d6;text-align:center}
 
 <section class="hero">
 <div class="badge">★★★★★ Trusted by Homeowners Across San Antonio</div>
-
 <h1>Bathroom Remodeling in San Antonio</h1>
-
-<p>Transform your bathroom with Plumbing Gurus LLC. We specialize in bathroom remodeling, walk-in shower upgrades, vanity installation, tile, flooring, drywall repair, trim work, and interior home improvements. Call or text photos today for a fast free estimate.</p>
+<p>Transform your bathroom with Plumbing Gurus LLC. We coordinate specialized bathroom remodeling, walk-in shower upgrades, and fixture installations. Call or text photos today for a fast free estimate.</p>
 
 <div class="buttons">
 <a class="call" href="tel:+12109068524">📞 Call (210) 906-8524</a>
@@ -55,7 +54,6 @@ footer{margin:50px 0 90px;color:#b4c5d6;text-align:center}
 <div style="margin-top:25px;font-size:18px;font-weight:600;line-height:2;">
 ⭐ Fast Response &nbsp; 🏠 Local San Antonio Company &nbsp; 📷 Free Photo Estimates &nbsp; ✔ Quality Craftsmanship
 </div>
-
 </section>
 
 <section class="grid">
@@ -87,12 +85,11 @@ footer{margin:50px 0 90px;color:#b4c5d6;text-align:center}
 
 <section>
 <h2>Recent Projects</h2>
-<p>Replace these placeholders with your own project photos.</p>
 <div class="gallery">
-<div class="photo">Bathroom Remodel</div>
-<div class="photo">Walk-In Shower</div>
-<div class="photo">Vanity Installation</div>
-<div class="photo">Before & After</div>
+<img src="images/kitchen-fixture-install.png" alt="Kitchen Fixture Installation" class="photo">
+<img src="images/Before_After_Website_Style.jpg" alt="Walk-In Shower Remodel" class="photo">
+<img src="images/file_000000003e4871fbbbd3702a91c272a9.png" alt="Vanity Installation" class="photo">
+<img src="images/file_00000000a1347230b62653f1f10df696.png" alt="Toilet Installation" class="photo">
 </div>
 </section>
 
@@ -102,6 +99,24 @@ footer{margin:50px 0 90px;color:#b4c5d6;text-align:center}
 ✔ Free Photo Estimates<br>
 ✔ Fast Response Times<br>
 ✔ Honest Upfront Pricing<br>
+✔ Quality Craftsmanship<br>
+✔ Respect for Your Home<br>
+✔ Serving San Antonio & Surrounding Areas</p>
+</section>
+
+<footer>
+Plumbing Gurus LLC provides residential remodeling coordination. Projects involving licensed trades or permits are handled in accordance with applicable Texas laws and local requirements.
+</footer>
+
+</div>
+
+<div class="callbar">
+<a href="tel:+12109068524">📞 Call</a>
+<a href="sms:+12109068524">📲 Text</a>
+</div>
+
+</body>
+</html>
 ✔ Quality Craftsmanship<br>
 ✔ Respect for Your Home<br>
 ✔ Serving San Antonio & Surrounding Areas</p>
