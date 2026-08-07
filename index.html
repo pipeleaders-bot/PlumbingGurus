@@ -9,19 +9,22 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
   :root{
-    --ink:#122542;
-    --steel:#1c3358;
-    --steel-line:#2f4d7a;
-    --concrete:#efe9dc;
-    --paper:#faf7f0;
-    --line:#ddd4bf;
-    --orange:#f2b705;
+    /* Blue family pulled from the logo (helmet + pipes), orange kept as the single accent */
+    --ink:#0d1f38;         /* darkest navy — matches logo background */
+    --steel:#15335c;       /* panel navy */
+    --steel-line:#2c4d80;  /* border/divider blue */
+    --blue:#2f6fed;        /* bright brand blue, from the logo's helmet/pipes */
+    --blue-dark:#1f52c2;
+    --concrete:#eef1f4;    /* cool light gray-blue instead of warm tan */
+    --paper:#ffffff;
+    --line:#dbe2eb;
+    --orange:#f2b705;      /* single warm accent, used sparingly */
     --orange-dark:#c99500;
-    --rust:#1c3a63;
-    --text-dark:#1d2124;
-    --text-mute:#5c6570;
+    --rust:#153a63;        /* swapped from red-rust to deep blue for equipment CTA */
+    --text-dark:#111b2c;
+    --text-mute:#5b6b82;
     --text-on-ink:#f4f7fb;
-    --text-on-ink-mute:#aab8cc;
+    --text-on-ink-mute:#a9b8cf;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -70,6 +73,8 @@
   .nav-links{display:flex;gap:22px;font-size:0.88rem;font-weight:600;}
   .nav-links a{color:var(--text-on-ink-mute);text-decoration:none;transition:color .15s;}
   .nav-links a:hover{color:var(--text-on-ink);}
+  .nav-links a.equip-link{color:var(--blue);}
+  .nav-links a.equip-link:hover{color:#7ba3ff;}
   .nav-cta{display:flex;align-items:center;gap:10px;}
   .nav-phone{color:var(--text-on-ink);font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:0.9rem;text-decoration:none;white-space:nowrap;}
   .btn-est{
@@ -128,7 +133,7 @@
     background:var(--paper); border:1px solid var(--line); border-radius:6px; padding:22px;
     position:relative;
   }
-  .svc-card i{color:var(--orange);font-size:1.3rem;margin-bottom:12px;display:block;}
+  .svc-card i{color:var(--blue);font-size:1.3rem;margin-bottom:12px;display:block;}
   .svc-card h3{font-size:1.15rem;color:var(--text-dark);text-transform:none;letter-spacing:0;font-weight:700;font-family:'Inter';}
   .svc-card p{font-size:0.88rem;color:var(--text-mute);margin-top:8px;line-height:1.45;}
 
@@ -157,11 +162,12 @@
     padding:13px 14px;border-radius:4px;border:1px solid var(--line);background:#fff;color:var(--text-dark);
     font-family:'Inter';font-size:0.92rem;
   }
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:1px;}
   textarea{resize:vertical;min-height:80px;}
   label{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-mute);margin-bottom:-6px;}
   button.submit{
-    padding:15px;border-radius:4px;background:var(--orange);border:none;border-bottom:3px solid var(--orange-dark);color:var(--ink);
-    color:#fff;font-weight:700;cursor:pointer;font-size:0.98rem;font-family:'Inter';
+    padding:15px;border-radius:4px;background:var(--orange);border:none;border-bottom:3px solid var(--orange-dark);
+    color:var(--ink);font-weight:700;cursor:pointer;font-size:0.98rem;font-family:'Inter';
   }
   button.submit:hover{background:var(--orange-dark);}
   .form-note{font-size:0.78rem;color:var(--text-mute);text-align:center;}
@@ -189,9 +195,10 @@
 
   .equip-cta{background:var(--rust);color:#fff;}
   .equip-cta .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-top:44px;padding-bottom:44px;}
-  .equip-cta h2{color:#fff;font-size:1.9rem;}
-  .equip-cta p{color:#f2d9d2;margin-top:8px;font-size:0.92rem;max-width:44ch;}
-  .btn-white{background:#fff;color:var(--rust);font-weight:700;padding:14px 24px;border-radius:3px;text-decoration:none;white-space:nowrap;}
+  .equip-cta .eyebrow{color:var(--orange);}
+  .equip-cta h2{color:#fff;font-size:1.9rem;margin-top:6px;}
+  .equip-cta p{color:var(--text-on-ink-mute);margin-top:8px;font-size:0.92rem;max-width:44ch;}
+  .btn-white{background:#fff;color:var(--rust);font-weight:700;padding:14px 24px;border-radius:3px;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;}
 
   .disclaimer{
     background:var(--paper); border-top:3px solid var(--orange);
@@ -212,7 +219,7 @@
     display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Inter';
   }
   .sf-call{background:var(--orange);color:var(--ink);}
-  .sf-text{background:var(--ink);color:#fff;border-top:1px solid var(--steel-line);}
+  .sf-text{background:var(--blue);color:#fff;}
 
   @media (max-width:820px){ .hero-grid{grid-template-columns:1fr;} .hero h1{font-size:2.3rem;} }
 </style>
@@ -228,7 +235,7 @@
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#gallery">Gallery</a>
-      <a href="equipment.html">Equipment Rental</a>
+      <a href="equipment.html" class="equip-link"><i class="fa-solid fa-truck-ramp-box"></i> Equipment Rental</a>
       <a href="#reviews">Reviews</a>
       <a href="#estimate">Contact</a>
     </div>
@@ -303,25 +310,18 @@
     </div>
 
     <div class="gallery">
-
-      <!-- Before & After Bathroom Remodel -->
       <div class="g-item">
         <img src="images/Before_After_Website_Style.jpg" alt="Before and After Bathroom Remodel in San Antonio">
         <div class="g-cap">Before &amp; After Bathroom Remodel</div>
       </div>
-
-      <!-- Kitchen Backsplash -->
       <div class="g-item">
         <img src="images/kitchen-fixture-install.png" alt="Kitchen Backsplash and Pot Filler Installation">
         <div class="g-cap">Kitchen Backsplash &amp; Pot Filler Installation</div>
       </div>
-
-      <!-- Shower Tile -->
       <div class="g-item">
         <img src="images/fixture-service.png" alt="Subway Tile Shower Remodel">
         <div class="g-cap">Subway Tile Shower Remodel</div>
       </div>
-
     </div>
   </div>
 </section>
@@ -395,38 +395,90 @@
       </div>
     </div>
     <div class="rev-grid">
-      <div class="rev-card"><div class="stars">★★★★★</div><p>"Christian responded promptly to our request, arrived on time, was very polite and professional, and provided great service at a very affordable price. I will be certain to use Christian in the future and would highly recommend others to use him as well."</p><div class="rev-name">— Larry S., Google review</div></div>
-      <div class="rev-card"><div class="stars">★★★★★</div><p>"Christian was extremely nice and very helpful and knowledgeable... I will be having them come back to install my wine/beverage fridge when it ships in. Was extremely happy with my service!!"</p><div class="rev-name">— Shawne            </div>
-            <div class="card" style="background:#0e2137;">
-                <p>★★★★★</p>
-                <p><em>"Great work by Christian."</em></p>
-                <p style="color:var(--muted); font-size:0.9rem;">— Javier W., Google review</p>
-            </div>
-            <div class="card" style="background:#0e2137;">
-                <p>★★★★★</p>
-                <p><em>"Very nice job"</em></p>
-                <p style="color:var(--muted); font-size:0.9rem;">— Thacarli B., Google review</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="card">
-        <h2>Frequently Asked Questions</h2>
-        <p><strong>Do you provide free estimates?</strong><br>Yes. Text us photos for a fast preliminary estimate.</p>
-        <p><strong>What areas do you serve?</strong><br>San Antonio and surrounding communities.</p>
-        <p><strong>Do you do plumbing work like installing toilets or faucets?</strong><br>No — that work requires a Texas plumbing license. We handle the tile, surround, and carpentry, and coordinate with a licensed plumber for any water or gas line connections.</p>
-        <p><strong>Do you install customer-supplied vanities or cabinets?</strong><br>Yes, for the carpentry and fitting portion.</p>
-    </section>
-
-    <div class="note">
-        Plumbing Gurus LLC provides tile, flooring, drywall, and carpentry services. We are not a licensed plumbing company. Any work requiring a Texas plumbing license — including fixture, water line, or gas line connections — is performed by a licensed plumbing partner, not by Plumbing Gurus LLC directly.
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p>"Christian responded promptly to our request, arrived on time, was very polite and professional, and provided great service at a very affordable price. I will be certain to use Christian in the future and would highly recommend others to use him as well."</p>
+        <div class="rev-name">— Larry S., Google review</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p>"Christian was extremely nice and very helpful and knowledgeable. I will be having them come back to install my wine/beverage fridge when it ships in. Was extremely happy with my service!!"</p>
+        <div class="rev-name">— Shawne, Google review</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p>"Great work by Christian."</p>
+        <div class="rev-name">— Javier W., Google review</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p>"Very nice job."</p>
+        <div class="rev-name">— Thacarli B., Google review</div>
+      </div>
     </div>
-</div>
+  </div>
+</section>
 
-<footer class="sticky-footer">
-    <a href="tel:+12109068524" style="background:var(--gold); color:#000;">📞 Call</a>
-    <a href="sms:+12109068524" style="background:var(--blue); color:#fff;">📲 Text</a>
+<section class="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Questions</span>
+        <h2>Frequently asked questions</h2>
+      </div>
+    </div>
+    <details open>
+      <summary>Do you provide free estimates?</summary>
+      <p>Yes. Text us photos for a fast preliminary estimate, or fill out the form on this page.</p>
+    </details>
+    <details>
+      <summary>What areas do you serve?</summary>
+      <p>San Antonio and surrounding communities, including Stone Oak, Helotes, Alamo Ranch, Schertz, Cibolo, Universal City, Live Oak, Converse, and Leon Valley.</p>
+    </details>
+    <details>
+      <summary>Do you do plumbing work like installing toilets or faucets?</summary>
+      <p>No — that work requires a Texas plumbing license. We handle the tile, surround, and carpentry, and coordinate with a licensed plumber for any water or gas line connections.</p>
+    </details>
+    <details>
+      <summary>Do you install customer-supplied vanities or cabinets?</summary>
+      <p>Yes, for the carpentry and fitting portion.</p>
+    </details>
+    <details>
+      <summary>Do you rent out heavy equipment?</summary>
+      <p>Yes. Visit our equipment rental page for available machines, rates, and availability.</p>
+    </details>
+  </div>
+</section>
+
+<section class="equip-cta">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Also available</span>
+      <h2>Need heavy equipment for your own project?</h2>
+      <p>We rent out heavy equipment for excavation, demo, and site work across San Antonio — daily and weekly rates available.</p>
+    </div>
+    <a class="btn-white" href="equipment.html"><i class="fa-solid fa-truck-ramp-box"></i> View Equipment Rental</a>
+  </div>
+</section>
+
+<section class="disclaimer">
+  <div class="wrap">
+    <i class="fa-solid fa-circle-info"></i>
+    <span>Plumbing Gurus LLC provides tile, flooring, drywall, and carpentry services. We are not a licensed plumbing company. Any work requiring a Texas plumbing license — including fixture, water line, or gas line connections — is performed by a licensed plumbing partner, not by Plumbing Gurus LLC directly.</span>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Plumbing Gurus LLC. All rights reserved.</span>
+    <span>San Antonio, TX &middot; (210) 906-8524</span>
+  </div>
 </footer>
+
+<div class="sticky-footer">
+  <a class="sf-call" href="tel:+12109068524"><i class="fa-solid fa-phone"></i> Call</a>
+  <a class="sf-text" href="sms:+12109068524"><i class="fa-solid fa-comment-sms"></i> Text</a>
+</div>
 
 </body>
 </html>
