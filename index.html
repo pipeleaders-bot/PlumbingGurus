@@ -3,10 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bathroom Remodel, Kitchen Backsplash & Tile Installation in San Antonio | Plumbing Gurus LLC</title>
-<meta name="description" content="Interior and exterior tile installation for bathroom remodels, kitchen backsplashes, and showers in San Antonio. Free photo estimates, fast response. We partner with a licensed plumber for any plumbing connections.">
+<title>Bathroom Remodel, Fixture Repair & Tile Installation in San Antonio | Plumbing Gurus LLC</title>
+<meta name="description" content="Bathroom remodels, kitchen backsplash, fixture replacement (faucets, toilets, sinks), and heavy equipment rental in San Antonio. Free photo estimates, same-day response, starting at $100.">
+<link rel="canonical" href="https://plumbinggurus.us/">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bathroom Remodel, Fixture Repair & Tile Installation | Plumbing Gurus, San Antonio">
+<meta property="og:description" content="Bathroom remodels, kitchen backsplash, fixture replacement, and equipment rental in San Antonio. Free photo estimates, starting at $100.">
+<meta property="og:image" content="https://plumbinggurus.us/images/Before_After_Website_Style.jpg">
+<meta property="og:url" content="https://plumbinggurus.us/">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/png" href="images/PlumbingGuruslogo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Plumbing Gurus LLC",
+  "image": "https://plumbinggurus.us/images/PlumbingGuruslogo.png",
+  "telephone": "+1-210-906-8524",
+  "priceRange": "$$",
+  "areaServed": ["San Antonio, TX","Stone Oak","Helotes","Alamo Ranch","Schertz","Cibolo","Universal City","Live Oak","Converse","Leon Valley"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Antonio",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "4"
+  },
+  "description": "Tile installation, bathroom remodels, kitchen backsplash, fixture replacement, and heavy equipment rental in San Antonio, TX."
+}
+</script>
 <style>
   :root{
     /* Blue family pulled from the logo (helmet + pipes), orange kept as the single accent */
@@ -82,7 +121,25 @@
     padding:9px 16px; border-radius:3px; text-decoration:none; white-space:nowrap;
     border:1px solid var(--orange-dark);
   }
-  @media (max-width:820px){ .nav-links{display:none;} }
+  .nav-toggle{
+    display:none; background:none; border:1px solid var(--steel-line); border-radius:4px;
+    color:#fff; font-size:1.1rem; padding:8px 11px; cursor:pointer;
+  }
+  .mobile-menu{
+    display:none; flex-direction:column; background:var(--steel);
+    border-top:1px solid var(--steel-line); padding:8px 22px 16px;
+  }
+  .mobile-menu a{
+    color:var(--text-on-ink-mute); text-decoration:none; font-size:0.95rem; font-weight:600;
+    padding:12px 0; border-bottom:1px solid var(--steel-line);
+  }
+  .mobile-menu a:last-child{border-bottom:none;}
+  .mobile-menu.open{display:flex;}
+  @media (max-width:820px){
+    .nav-links{display:none;}
+    .nav-toggle{display:inline-flex;align-items:center;}
+    .nav-phone{display:none;}
+  }
 
   /* HERO */
   .hero{
@@ -131,11 +188,30 @@
   .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
   .svc-card{
     background:var(--paper); border:1px solid var(--line); border-radius:6px; padding:22px;
-    position:relative;
+    position:relative; transition:transform .18s, box-shadow .18s;
   }
+  .svc-card:hover{transform:translateY(-3px); box-shadow:0 10px 24px rgba(13,31,56,.08);}
   .svc-card i{color:var(--blue);font-size:1.3rem;margin-bottom:12px;display:block;}
   .svc-card h3{font-size:1.15rem;color:var(--text-dark);text-transform:none;letter-spacing:0;font-weight:700;font-family:'Inter';}
   .svc-card p{font-size:0.88rem;color:var(--text-mute);margin-top:8px;line-height:1.45;}
+
+  .fixtures{background:var(--paper);}
+  .fix-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+  .fix-card{background:var(--concrete);border:1px solid var(--line);border-radius:6px;padding:22px;transition:transform .18s, box-shadow .18s;}
+  .fix-card:hover{transform:translateY(-3px); box-shadow:0 10px 24px rgba(13,31,56,.08);}
+  .fix-card h3{font-size:1.1rem;color:var(--text-dark);text-transform:none;letter-spacing:0;font-weight:700;font-family:'Inter';display:flex;align-items:center;gap:8px;}
+  .fix-card h3 i{color:var(--blue);font-size:1.1rem;}
+  .fix-card ul{list-style:none;padding:0;margin:14px 0 0;}
+  .fix-card li{display:flex;gap:8px;align-items:flex-start;font-size:0.87rem;color:var(--text-dark);margin-bottom:8px;line-height:1.4;}
+  .fix-card li i{color:var(--blue);font-size:0.75rem;margin-top:4px;}
+  .price-strip{
+    margin-top:24px;background:var(--ink);border-radius:6px;padding:20px 24px;
+    display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;
+  }
+  .price-strip .price-item{display:flex;align-items:center;gap:10px;color:#fff;font-size:0.9rem;font-weight:600;}
+  .price-strip .price-item i{color:var(--orange);font-size:1rem;}
+  .price-strip .price-item span.amt{color:var(--orange);font-family:'IBM Plex Mono';}
+  .fix-note{font-size:0.78rem;color:var(--text-mute);margin-top:16px;line-height:1.5;}
 
   .gallery-sec{background:var(--ink);color:var(--text-on-ink);}
   .gallery-sec .section-head h2{color:#fff;}
@@ -193,11 +269,19 @@
   .faq details[open] summary::after{content:'–';}
   .faq p{color:var(--text-on-ink-mute);font-size:0.9rem;margin-top:10px;line-height:1.5;}
 
+  .trust-strip{background:var(--paper);border-bottom:1px solid var(--line);}
+  .trust-strip .wrap{
+    display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;
+    padding-top:20px;padding-bottom:20px;
+  }
+  .trust-item{display:flex;align-items:center;gap:10px;font-size:0.85rem;font-weight:600;color:var(--text-dark);}
+  .trust-item i{color:var(--blue);font-size:1.05rem;}
+
   .equip-cta{background:var(--rust);color:#fff;}
-  .equip-cta .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-top:44px;padding-bottom:44px;}
+  .equip-cta .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-top:26px;padding-bottom:26px;}
   .equip-cta .eyebrow{color:var(--orange);}
-  .equip-cta h2{color:#fff;font-size:1.9rem;margin-top:6px;}
-  .equip-cta p{color:var(--text-on-ink-mute);margin-top:8px;font-size:0.92rem;max-width:44ch;}
+  .equip-cta h2{color:#fff;font-size:1.4rem;margin-top:4px;}
+  .equip-cta p{color:var(--text-on-ink-mute);margin-top:6px;font-size:0.88rem;max-width:44ch;}
   .btn-white{background:#fff;color:var(--rust);font-weight:700;padding:14px 24px;border-radius:3px;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;}
 
   .disclaimer{
@@ -222,6 +306,10 @@
   .sf-text{background:var(--blue);color:#fff;}
 
   @media (max-width:820px){ .hero-grid{grid-template-columns:1fr;} .hero h1{font-size:2.3rem;} }
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease;}
+  .reveal.visible{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1; transform:none; transition:none;} }
 </style>
 </head>
 <body>
@@ -234,6 +322,7 @@
     </div>
     <div class="nav-links">
       <a href="#services">Services</a>
+      <a href="#fixtures">Fixture Services</a>
       <a href="#gallery">Gallery</a>
       <a href="equipment.html" class="equip-link"><i class="fa-solid fa-truck-ramp-box"></i> Equipment Rental</a>
       <a href="#reviews">Reviews</a>
@@ -242,7 +331,17 @@
     <div class="nav-cta">
       <a class="nav-phone" href="tel:+12109068524">(210) 906-8524</a>
       <a class="btn-est" href="#estimate">Free Estimate</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
     </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#fixtures">Fixture Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="equipment.html">Equipment Rental</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#estimate">Contact</a>
+    <a href="tel:+12109068524">Call (210) 906-8524</a>
   </div>
 </nav>
 <div class="hazard"></div>
@@ -279,8 +378,28 @@
   </div>
 </header>
 
-<section class="services" id="services">
+<section class="trust-strip">
   <div class="wrap">
+    <div class="trust-item"><i class="fa-solid fa-star"></i> 5.0 Rating on Google</div>
+    <div class="trust-item"><i class="fa-solid fa-location-dot"></i> Locally Owned &amp; Operated — San Antonio</div>
+    <div class="trust-item"><i class="fa-solid fa-camera"></i> Same-Day Photo Estimates</div>
+    <div class="trust-item"><i class="fa-solid fa-thumbs-up"></i> No Job Too Small</div>
+  </div>
+</section>
+
+<section class="equip-cta">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Also available</span>
+      <h2>Heavy equipment rental for your own project</h2>
+      <p>Excavation, demo, and site-work equipment — daily and weekly rates available.</p>
+    </div>
+    <a class="btn-white" href="equipment.html"><i class="fa-solid fa-truck-ramp-box"></i> View Equipment Rental</a>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap reveal">
     <div class="section-head">
       <div>
         <span class="eyebrow">What we handle</span>
@@ -299,8 +418,64 @@
   </div>
 </section>
 
+<section class="fixtures" id="fixtures">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Small jobs welcome</span>
+        <h2>Kitchen &amp; bathroom fixture projects</h2>
+      </div>
+      <p>Need a faucet, toilet, or sink replaced? We handle the removal, prep, carpentry, and finish work, and coordinate with our licensed Texas plumbing partner for the actual connection to water, drain, or gas lines — one call, one quote. Message us with a picture of the project to get started.</p>
+    </div>
+    <div class="fix-grid">
+      <div class="fix-card">
+        <h3><i class="fa-solid fa-hammer"></i> Prep, Carpentry &amp; Finish Work</h3>
+        <p style="font-size:0.8rem;color:var(--text-mute);margin-top:8px;">Performed directly by Plumbing Gurus</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Fixture removal &amp; disposal</li>
+          <li><i class="fa-solid fa-check"></i> Vanity &amp; cabinet fitting</li>
+          <li><i class="fa-solid fa-check"></i> Caulking &amp; grout touch-ups</li>
+          <li><i class="fa-solid fa-check"></i> Small tile repairs</li>
+          <li><i class="fa-solid fa-check"></i> Backsplash touch-ups</li>
+          <li><i class="fa-solid fa-check"></i> Cabinet &amp; door adjustments</li>
+        </ul>
+      </div>
+      <div class="fix-card">
+        <h3><i class="fa-solid fa-faucet-drip"></i> Fixture Connections</h3>
+        <p style="font-size:0.8rem;color:var(--text-mute);margin-top:8px;">Coordinated with our licensed Texas plumbing partner</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Faucet installation (kitchen &amp; bath)</li>
+          <li><i class="fa-solid fa-check"></i> Toilet installation</li>
+          <li><i class="fa-solid fa-check"></i> Sink installation</li>
+          <li><i class="fa-solid fa-check"></i> Showerhead &amp; handheld fixtures</li>
+          <li><i class="fa-solid fa-check"></i> Garbage disposal installation</li>
+          <li><i class="fa-solid fa-check"></i> Sink strainer replacement</li>
+        </ul>
+      </div>
+      <div class="fix-card">
+        <h3><i class="fa-solid fa-house"></i> Home Maintenance</h3>
+        <p style="font-size:0.8rem;color:var(--text-mute);margin-top:8px;">Performed directly by Plumbing Gurus</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Hardware installation (towel bars, mirrors)</li>
+          <li><i class="fa-solid fa-check"></i> Shelving</li>
+          <li><i class="fa-solid fa-check"></i> Minor repairs</li>
+          <li><i class="fa-solid fa-check"></i> General maintenance</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="price-strip">
+      <div class="price-item"><i class="fa-solid fa-tag"></i> Prep &amp; finish services <span class="amt">starting at $100</span></div>
+      <div class="price-item"><i class="fa-solid fa-faucet"></i> Faucet installation <span class="amt">starting at $150</span></div>
+      <div class="price-item"><i class="fa-solid fa-toilet"></i> Toilet installation <span class="amt">starting at $200</span></div>
+    </div>
+
+    <p class="fix-note">Plumbing Gurus LLC is not a licensed plumbing company. Any connection to water, drain, or gas lines is performed by a licensed Texas plumbing partner, not by Plumbing Gurus LLC directly. Services are limited to work permitted under applicable Texas and local requirements. No in-wall plumbing, repiping, or major plumbing-system work performed by Plumbing Gurus LLC.</p>
+  </div>
+</section>
+
 <section class="gallery-sec" id="gallery">
-  <div class="wrap">
+  <div class="wrap reveal">
     <div class="section-head">
       <div>
         <span class="eyebrow">Recent Work</span>
@@ -315,11 +490,11 @@
         <div class="g-cap">Before &amp; After Bathroom Remodel</div>
       </div>
       <div class="g-item">
-        <img src="images/kitchen-fixture-install.png" alt="Kitchen Backsplash and Pot Filler Installation">
+        <img src="images/kitchen-fixture-install.png" alt="Kitchen Backsplash and Pot Filler Installation" loading="lazy" decoding="async">
         <div class="g-cap">Kitchen Backsplash &amp; Pot Filler Installation</div>
       </div>
       <div class="g-item">
-        <img src="images/fixture-service.png" alt="Subway Tile Shower Remodel">
+        <img src="images/fixture-service.png" alt="Subway Tile Shower Remodel" loading="lazy" decoding="async">
         <div class="g-cap">Subway Tile Shower Remodel</div>
       </div>
     </div>
@@ -327,7 +502,7 @@
 </section>
 
 <section class="estimate" id="estimate">
-  <div class="wrap">
+  <div class="wrap reveal">
     <div class="est-card">
       <div class="est-copy">
         <span class="eyebrow">Free estimate</span>
@@ -340,6 +515,7 @@
         </ul>
       </div>
       <form action="https://formsubmit.co/9f7e5896f9be69b62056c861f68e17e3" method="POST">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         <label>Your Name</label>
         <input type="text" name="name" placeholder="Full name" required>
         <label>Phone Number</label>
@@ -351,6 +527,7 @@
           <option>Shower Tile &amp; Surround</option>
           <option>Interior/Exterior Stone Tile</option>
           <option>Vanity Installation</option>
+          <option>Fixture Replacement (Faucet/Toilet/Sink)</option>
           <option>General Home Improvement</option>
           <option>Heavy Equipment Rental</option>
         </select>
@@ -387,12 +564,13 @@
 </section>
 
 <section class="reviews" id="reviews">
-  <div class="wrap">
+  <div class="wrap reveal">
     <div class="section-head">
       <div>
         <span class="eyebrow">What customers say</span>
         <h2>Real reviews, real jobs</h2>
       </div>
+      <p><a href="https://www.google.com/search?q=Plumbing+Gurus+LLC+San+Antonio+reviews" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600;text-decoration:none;">See all reviews on Google <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.75rem;"></i></a></p>
     </div>
     <div class="rev-grid">
       <div class="rev-card">
@@ -420,7 +598,7 @@
 </section>
 
 <section class="faq">
-  <div class="wrap">
+  <div class="wrap reveal">
     <div class="section-head">
       <div>
         <span class="eyebrow">Questions</span>
@@ -440,6 +618,10 @@
       <p>No — that work requires a Texas plumbing license. We handle the tile, surround, and carpentry, and coordinate with a licensed plumber for any water or gas line connections.</p>
     </details>
     <details>
+      <summary>Who actually connects my new faucet or toilet — you or a plumber?</summary>
+      <p>Our team handles removal, prep, and finish work on-site. The actual connection to your water, drain, or gas lines is performed by our licensed Texas plumbing partner, and priced together as one project.</p>
+    </details>
+    <details>
       <summary>Do you install customer-supplied vanities or cabinets?</summary>
       <p>Yes, for the carpentry and fitting portion.</p>
     </details>
@@ -447,17 +629,6 @@
       <summary>Do you rent out heavy equipment?</summary>
       <p>Yes. Visit our equipment rental page for available machines, rates, and availability.</p>
     </details>
-  </div>
-</section>
-
-<section class="equip-cta">
-  <div class="wrap">
-    <div>
-      <span class="eyebrow">Also available</span>
-      <h2>Need heavy equipment for your own project?</h2>
-      <p>We rent out heavy equipment for excavation, demo, and site work across San Antonio — daily and weekly rates available.</p>
-    </div>
-    <a class="btn-white" href="equipment.html"><i class="fa-solid fa-truck-ramp-box"></i> View Equipment Rental</a>
   </div>
 </section>
 
@@ -479,6 +650,40 @@
   <a class="sf-call" href="tel:+12109068524"><i class="fa-solid fa-phone"></i> Call</a>
   <a class="sf-text" href="sms:+12109068524"><i class="fa-solid fa-comment-sms"></i> Text</a>
 </div>
+
+<script>
+  // Mobile menu toggle
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (navToggle && mobileMenu) {
+    navToggle.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navToggle.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    }));
+  }
+
+  // Scroll-reveal for sections
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('visible'));
+  }
+</script>
 
 </body>
 </html>
