@@ -71,16 +71,20 @@
   /* NAV */
   .nav{position:sticky;top:0;z-index:50;background:var(--navy);border-bottom:1px solid var(--navy-line);}
   .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:10px;padding-bottom:10px;}
-  .brand{display:flex;align-items:center;gap:10px;}
-  .brand img{height:42px;width:auto;}
-  .brand-name{color:#fff;font-family:'Barlow Condensed';font-weight:800;font-size:1.1rem;text-transform:uppercase;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand img{height:58px;width:auto;}
+  .brand-name{display:none;}
   .nav-links{display:flex;gap:22px;font-size:0.88rem;font-weight:600;}
   .nav-links a{color:var(--on-navy-mute);text-decoration:none;transition:color .15s;}
   .nav-links a:hover{color:#fff;}
-  .nav-cta{display:flex;align-items:center;gap:10px;}
-  .nav-phone{color:#fff;font-family:'IBM Plex Mono';font-weight:600;font-size:0.9rem;text-decoration:none;white-space:nowrap;}
-  .btn-est{background:var(--amber);color:var(--navy);font-weight:700;font-size:0.85rem;padding:9px 16px;border-radius:4px;text-decoration:none;white-space:nowrap;}
-  @media (max-width:820px){ .nav-links{display:none;} }
+  .nav-cta{display:flex;align-items:center;}
+  .btn-call{
+    background:var(--amber);color:var(--navy);font-weight:700;font-size:0.9rem;
+    padding:10px 18px;border-radius:5px;text-decoration:none;white-space:nowrap;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-call:hover{background:var(--amber-deep);}
+  @media (max-width:820px){ .nav-links{display:none;} .brand img{height:48px;} }
 
   /* HERO */
   .hero{
@@ -216,6 +220,7 @@
   .chip{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:8px 16px;font-size:0.85rem;font-weight:600;color:var(--ink);}
 
   /* REVIEWS */
+  .reviews{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
   .rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
   .rev-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;position:relative;}
   .rev-card::before{content:'"';position:absolute;top:10px;right:18px;font-family:'Barlow Condensed';font-size:3rem;color:var(--line);}
@@ -257,7 +262,6 @@
   <div class="wrap">
     <div class="brand">
       <img src="images/PlumbingGuruslogo.png" alt="Plumbing Gurus">
-      <span class="brand-name">Plumbing Gurus</span>
     </div>
     <div class="nav-links">
       <a href="#services">Services</a>
@@ -267,8 +271,7 @@
       <a href="#reviews">Reviews</a>
     </div>
     <div class="nav-cta">
-      <a class="nav-phone" href="tel:+12109068524">(210) 906-8524</a>
-      <a class="btn-est" href="#estimate">Free Estimate</a>
+      <a class="btn-call" href="tel:+12109068524"><i class="fa-solid fa-phone"></i> Call Now</a>
     </div>
   </div>
 </nav>
@@ -277,9 +280,9 @@
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="kicker on-navy">Bathroom · Kitchen · Tile · San Antonio</span>
+        <span class="kicker on-navy">Serving San Antonio bathrooms, kitchens &amp; tile projects</span>
         <h1 style="margin-top:12px;">Get your bathroom or kitchen <em>done right</em> — not just done</h1>
-        <p class="lede">Interior and exterior tile installation for bathroom remodels, kitchen backsplashes, and shower surrounds across San Antonio. Send us photos, get real pricing back — no waiting around for a stranger to show up and guess.</p>
+        <p class="lede">Interior and exterior tile installation for bathroom remodels, kitchen backsplashes, and shower surrounds across San Antonio. Send us a few photos and we'll get you real pricing back fast — clear numbers before we ever set foot in your home.</p>
         <div class="hero-actions">
           <a class="btn-primary" href="#estimate"><i class="fa-solid fa-file-pen"></i> Get a Free Estimate</a>
           <a class="btn-ghost" href="tel:+12109068524"><i class="fa-solid fa-phone"></i> Call (210) 906-8524</a>
@@ -321,6 +324,21 @@
   </div>
 </section>
 
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">What customers say</span>
+      <h2>Real reviews, real jobs</h2>
+    </div>
+    <div class="rev-grid">
+      <div class="rev-card"><div class="stars">★★★★★</div><p>Christian responded promptly to our request, arrived on time, was very polite and professional, and provided great service at a very affordable price. I will be certain to use Christian in the future and would highly recommend others to use him as well.</p><div class="rev-name">Larry S., Google review</div></div>
+      <div class="rev-card"><div class="stars">★★★★★</div><p>Christian was extremely nice and very helpful and knowledgeable. I will be having them come back to install my wine/beverage fridge when it ships in. Was extremely happy with my service!!</p><div class="rev-name">Shawne, Google review</div></div>
+      <div class="rev-card"><div class="stars">★★★★★</div><p>Great work by Christian.</p><div class="rev-name">Javier W., Google review</div></div>
+      <div class="rev-card"><div class="stars">★★★★★</div><p>Very nice job.</p><div class="rev-name">Thacarli B., Google review</div></div>
+    </div>
+  </div>
+</section>
+
 <section class="fixtures" id="fixtures">
   <div class="wrap">
     <div class="section-head">
@@ -330,7 +348,7 @@
     </div>
     <div class="fx-grid">
       <div class="fx-card diy">
-        <span class="tag">DONE BY PLUMBING GURUS</span>
+        <span class="tag">Done by Plumbing Gurus</span>
         <h3>Prep, Carpentry &amp; Finish</h3>
         <ul>
           <li>Fixture removal &amp; disposal</li>
@@ -341,7 +359,7 @@
         </ul>
       </div>
       <div class="fx-card plumber">
-        <span class="tag">COORDINATED WITH LICENSED PLUMBER</span>
+        <span class="tag">Coordinated with our licensed plumber</span>
         <h3>Fixture Connections</h3>
         <ul>
           <li>Faucet installation</li>
@@ -352,7 +370,7 @@
         </ul>
       </div>
       <div class="fx-card diy">
-        <span class="tag">DONE BY PLUMBING GURUS</span>
+        <span class="tag">Done by Plumbing Gurus</span>
         <h3>Home Maintenance</h3>
         <ul>
           <li>Hardware installation (towel bars, mirrors)</li>
@@ -452,21 +470,6 @@
   </div>
 </section>
 
-<section class="reviews" id="reviews">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="kicker">What customers say</span>
-      <h2>Real reviews, real jobs</h2>
-    </div>
-    <div class="rev-grid">
-      <div class="rev-card"><div class="stars">★★★★★</div><p>Christian responded promptly to our request, arrived on time, was very polite and professional, and provided great service at a very affordable price. I will be certain to use Christian in the future and would highly recommend others to use him as well.</p><div class="rev-name">Larry S., Google review</div></div>
-      <div class="rev-card"><div class="stars">★★★★★</div><p>Christian was extremely nice and very helpful and knowledgeable. I will be having them come back to install my wine/beverage fridge when it ships in. Was extremely happy with my service!!</p><div class="rev-name">Shawne, Google review</div></div>
-      <div class="rev-card"><div class="stars">★★★★★</div><p>Great work by Christian.</p><div class="rev-name">Javier W., Google review</div></div>
-      <div class="rev-card"><div class="stars">★★★★★</div><p>Very nice job.</p><div class="rev-name">Thacarli B., Google review</div></div>
-    </div>
-  </div>
-</section>
-
 <section class="equip-cta">
   <div class="wrap">
     <div>
@@ -493,7 +496,7 @@
     </details>
     <details>
       <summary>Do you do plumbing work like installing toilets or faucets? <i class="fa-solid fa-chevron-down chev"></i></summary>
-      <p>No — that work requires a Texas plumbing license. We handle the tile, surround, and carpentry, and coordinate with a licensed plumber for any water or gas line connections.</p>
+      <p>That part of the work requires a Texas plumbing license, so we coordinate it with our licensed plumbing partner. We handle the tile, surround, and carpentry ourselves.</p>
     </details>
     <details>
       <summary>Who actually connects my new faucet or toilet — you or a plumber? <i class="fa-solid fa-chevron-down chev"></i></summary>
@@ -501,7 +504,7 @@
     </details>
     <details>
       <summary>Do you install customer-supplied vanities or cabinets? <i class="fa-solid fa-chevron-down chev"></i></summary>
-      <p>Yes, for the carpentry and fitting portion.</p>
+      <p>Yes — we handle the carpentry and fitting. Connecting it to your water lines is coordinated with our licensed plumbing partner.</p>
     </details>
     <details>
       <summary>Do you rent out heavy equipment? <i class="fa-solid fa-chevron-down chev"></i></summary>
